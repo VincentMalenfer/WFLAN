@@ -2,7 +2,6 @@
 
 <?php $this->start('main_content') ?>
 	<h2>Connexion</h2>
-	<p>Vous avez atteint la page de connexion.</p>
 	<div class="container">
 		<form class="row" action="index.html" method="post">
 			<div class="form-group">

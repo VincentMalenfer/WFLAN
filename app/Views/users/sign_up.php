@@ -2,7 +2,6 @@
 
 <?php $this->start('main_content') ?>
 	<h2>Inscription</h2>
-	<p>Vous avez atteint la page d'inscription'.</p>
 	<div class="container">
 		<form class="row" action="index.html" method="post">
 			<div class="form-group">

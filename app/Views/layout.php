@@ -8,7 +8,7 @@
   <!-- a completer -->
   <!-- <meta name="description" content="">
        <meta name="author" content=""  > -->
-       
+
   <!-- Pour le calendrier -->
 
   <link rel="stylesheet" href="<?php echo $this->assetUrl("plc/asset/bootstrap3/css/bootstrap.min.css")?> ">
@@ -27,7 +27,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="<?= $this->assetUrl('img/apple-icon-180x180.png') ?>">
   <link rel="icon" type="image/png" sizes="192x192" href="<?= $this->assetUrl('img/android-icon-192x192.png')?>">
   <link rel="icon" type="image/png" sizes="32x32" href="<?= $this->assetUrl('img/favicon-32x32.png') ?>">
-  <link rel="icon" type="image/png" sizes="96x96" href="<?= $this->assetUrl('img/favicon-96x96.png') ?>"> 
+  <link rel="icon" type="image/png" sizes="96x96" href="<?= $this->assetUrl('img/favicon-96x96.png') ?>">
   <link rel="icon" type="image/png" sizes="16x16" href="<?= $this->assetUrl('img/favicon-16x16.png') ?>">
   <link rel="manifest" href="<?= $this->assetUrl('img/manifest.json') ?>">
   <meta name="msapplication-TileColor" content="#ffffff">
@@ -45,9 +45,9 @@
 
   <link rel="stylesheet" href="<?= $this->assetUrl('css/main.css') ?>">
 
- 
+
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    
+
   <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -62,15 +62,15 @@
 		<?php	include("header.php"); ?>
 	</header>
 
-	<section>
+	<main>
 		<?= $this->section('main_content') ?>
-	</section>
+	</main>
 
 	<footer class="footer-basic">
 		<?php	include("footer.php"); ?>
 	</footer>
-  
-  
+
+
 <!--js pour page articles -->
 <script src="<?= $this->assetUrl('js/page_articles.js') ?>"></script>
 </body>
