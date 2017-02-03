@@ -27,7 +27,7 @@
                 </a>
             </div>
             <div class="col-md-5"> 
-                <h3> <?= $article['titre'] ?> </h3>
+                <h3> <?= $article['title'] ?> </h3>
                 
                 <p> <?= $article['description'] ?> </p>
                 <a class="btn btn-primary" href="<?=$this->url('users_article')?>">aller sur l article <span class="glyphicon glyphicon-chevron-right"></span></a>
@@ -39,11 +39,11 @@
         <?php
             endforeach;
         ?>
-        
-            
-      <!-- creer  decriptionPictures  description dans la table articles-->
        
-
+            
+      <!-- creer  decriptionPictures  description actif dans la table articles-->
+       
+       
 
        
     </div>
