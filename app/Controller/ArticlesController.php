@@ -13,10 +13,10 @@ class ArticlesController extends Controller
 		$articles = $articleModel->getArticles();
 		$this->show('users/list_articles', ['articles'=> $articles]);
 	}
-	function showArticles(){
+	function showArticles($id){
 		$articleModel = new ArticlesModel();
-		$articles = $articleModel->getArticles();
-		$this->show('users/article', ['articles'=> $articles]);
+		$articles = $articleModel->getArticle($id);
+		$this->show('users/article', ['article'=> $articles]);
 	}
 
 }

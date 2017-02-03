@@ -2,9 +2,7 @@
 
 <?php $this->start('main_content') ?>
 
-<?php  #if (isset($articles)){ ?>
-
-<?php foreach ($articles as $article): ?>
+<?php  if (isset($article)): ?>
 
 <div class="container">
 	<h1><?= $article['title'] ?></h1>
@@ -17,7 +15,6 @@
 	</article>
 </div>
 
-<?php endforeach; ?>
-<?php #} ?>
+<?php endif; ?>
 
 <?php $this->stop('main_content') ?>
