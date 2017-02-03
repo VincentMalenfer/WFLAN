@@ -57,8 +57,6 @@
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-	<!-- Google maps API key -->
-	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDabSjtmbR0y0n4L7qro8tzaOjzICqTaSs&signed_in=true&callback=initMap"></script>
 </head>
 <body>
 	<header>
@@ -73,7 +71,5 @@
 		<?php	include("footer.php"); ?>
 	</footer>
 
-	<!-- JS pour la page "articles" -->
-	<script src="<?= $this->assetUrl('js/page_articles.js') ?>"></script>
 </body>
 </html>

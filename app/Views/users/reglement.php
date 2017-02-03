@@ -3,8 +3,6 @@
 <?php $this->start('main_content') ?>
 <h1>Réglements</h1>
 
-<p>Bienvenue sur notre page des réglements !</p>
-
 <ul class="nav nav-tabs">
   <li class="active"><a data-toggle="tab" href="#starcraft">Starcraft II</a></li>
   <li><a data-toggle="tab" href="#dota">Dota 2</a></li>

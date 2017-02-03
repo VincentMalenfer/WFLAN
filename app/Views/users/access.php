@@ -2,7 +2,6 @@
 
 <?php $this->start('main_content') ?>
 	<h1>Accès aux sites</h1>
-	<p>Vous avez atteint la page d'accès aux sites de Webforce 3. Bravo.</p>
 
   <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#paris4">Paris 4</a></li>
