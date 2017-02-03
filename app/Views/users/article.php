@@ -2,10 +2,12 @@
 
 <?php $this->start('main_content') ?>
 
+<?php  #if (isset($articles)){ ?>
+
 <?php foreach ($articles as $article): ?>
 
 <div class="container">
-	<h1><?= $article['titre'] ?></h1>
+	<h1><?= $article['title'] ?></h1>
 	<article class="txtArticle">
 		<img src="<?= $article['pictures'] ?>" alt="" class="img-responsive">
 		<p><?= $article['text'] ?></p>
@@ -14,5 +16,8 @@
 		<small class="form-text text-muted">Par <?= $article['autor'] ?>, le <?= $article['publishdate'] ?>.</small>
 	</article>
 </div>
+
+<?php endforeach; ?>
+<?php #} ?>
 
 <?php $this->stop('main_content') ?>

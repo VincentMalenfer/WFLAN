@@ -20,15 +20,15 @@
         <?php foreach ($articles as $article): ?>
         <div class="row">
             <div class="col-md-7">
-                <a href="<?=$this->url('users_article')?>">
+                <a href="<?=$this->url('users_article',['id' => $article['idarticles']])?>">
                     <img class="img-responsive" src="<?= $article['pictures'] ?>" alt="$article['decriptionPictures'] ">
                 </a>
             </div>
             <div class="col-md-5">
-                <h3> <?= $article['titre'] ?> </h3>
+                <h3> <?= $article['title'] ?> </h3>
 
                 <p> <?= $article['description'] ?> </p>
-                <a class="btn btn-primary" href="<?=$this->url('users_article')?>">aller sur l article <span class="glyphicon glyphicon-chevron-right"></span></a>
+                <a class="btn btn-primary" href="<?=$this->url('users_article', ['id' => $article['idarticles']])?>">aller sur l article <span class="glyphicon glyphicon-chevron-right"></span></a>
             </div>
         </div>
         <!-- /.row -->

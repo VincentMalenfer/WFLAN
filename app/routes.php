@@ -6,7 +6,7 @@
 		['GET|POST', 	'/calendar', 		'Users#calendar', 		'users_calendar'		],
 		['GET', 		'/reglement', 			'Users#reglement', 			'users_reglement'],
 		['GET', 		'/list_articles', 	'Articles#listArticles', 	'users_list_articles'	],
-		['GET', 		'/article/[:id]', 		'Users#article', 		'users_article'			],
+		['GET', 		'/article/[:id]', 		'Articles#showArticles', 		'users_article'			],
 		['GET', 		'/live', 			'Users#live', 			'users_live'			],
 		['GET|POST', 	'/contact', 		'Users#contact', 		'users_contact'			],
 		['GET', 		'/sign_in', 		'Users#sign_in', 		'users_sign_in'			],
