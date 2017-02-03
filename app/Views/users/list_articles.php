@@ -41,7 +41,7 @@
         ?>
         
             
-      <!-- creer  decriptionPictures  description-->
+      <!-- creer  decriptionPictures  description dans la table articles-->
        
 
 
