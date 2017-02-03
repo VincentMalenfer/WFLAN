@@ -4,15 +4,31 @@
 
 	<h2>Ajout Event</h2>
 
-	<form action="<?= $this->url('admin_result') ?>" method="POST">
+	<form action="<?= $this->url('admin_list_events') ?>" method="POST">
 		<div class="form-group">
 			<label for="title">Titre de l'event : </label>
 			<input type="text" name="title" id="title" placeholder="Saisissez le titre" class="form-control" >
 		</div>
 
+			<label for="picture">Image : </label>
+		<div class="form-group">
+			<input type="file" name="picture" id="picture" value="picture" class="form-control" >
+			<label for="starcraft2">Starcraft 2 </label>
+		</div>
+
+		<div class="form-group">
+			<label for="publishdate"> Date </label>
+			<input type="date" name="publishdate" value="publishdate" class="form-control" >
+		</div>
+
+		<div class="form-group">
+			<label for="autor"> Auteur </label>
+			<input type="autor" name="autor" value="autor" class="form-control" >
+		</div>
+
 		<div class="form-group">	
-			<label for="image">Texte : </label>
-			<textarea name="texte" id="texte" cols="30" rows="10" class="form-control" ></textarea>
+			<label for="text">Texte : </label>
+			<textarea name="text" id="text" cols="30" rows="10" class="form-control" ></textarea>
 		</div>
 
 	<!-- 	DEBUT	CHECKBOX	 -->
@@ -34,14 +50,9 @@
 	
 		<div class="form-group">
 			<input type="checkbox" name="other" value="other" class="form-control" >
-			<label for="autre"> Autres </label>
+			<label for="other"> Autres </label>
 		</div>
 	<!-- 	FIN	CHECKBOX	 -->
-
-		<div class="form-group">
-			<label for="date"> Date </label>
-			<input type="date" name="date" value="date" class="form-control" >
-		</div>
 
 		<div class="form-group">
 			<label for="location"> Location </label>

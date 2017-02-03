@@ -1,13 +1,14 @@
-<?php $this->layout('layout', ['title' => 'Resultat']) ?>
+<?php $this->layout('layout', ['title' => 'Liste Articles & Events']) ?>
 
 <?php $this->start('main_content') ?>
 
 	<h2>Vos données saisies</h2>
 
 	<p> title ==> 			<?php if(!empty($_POST['title'])) 		echo $_POST['title']; ?></p>
-	<p> texte ==> 			<?php if(!empty($_POST['texte'])) 		echo $_POST['texte']; ?></p>
+	<p> picture ==> 		<?php if(!empty($_POST['picture'])) 	echo $_POST['picture']; ?></p>
 	<p> location ==> 		<?php if(!empty($_POST['location'])) 	echo $_POST['location']; ?></p>
-	<p> date ==> 			<?php if(!empty($_POST['date'])) 		echo $_POST['date']; ?></p>
+	<p> texte ==> 			<?php if(!empty($_POST['text'])) 		echo $_POST['text']; ?></p>
+	<p> publishdate ==> 	<?php if(!empty($_POST['publishdate'])) echo $_POST['publishdate']; ?></p>
 	<p> checkbox ==> 		<?php if(!empty($_POST['dota2'])) 		echo $_POST['dota2']; ?></p>
 	<p> checkbox ==> 		<?php if(!empty($_POST['csGo'])) 		echo $_POST['csGo']; ?></p>
 	<p> checkbox ==> 		<?php if(!empty($_POST['starcraft2'])) 	echo $_POST['starcraft2']; ?></p>

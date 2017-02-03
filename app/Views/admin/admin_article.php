@@ -4,10 +4,15 @@
 
 	<h2>Ajout Article</h2>
 
-	<form action="<?= $this->url('admin_result') ?>" method="POST">
+	<form action="<?= $this->url('admin_list_articles') ?>" method="POST">
 		<div class="form-group">
 			<label for="title">Titre de l'article : </label>
 			<input type="text" name="title" id="title" placeholder="Saisissez le titre" class="form-control" >
+		</div>
+
+		<div class="form-group">
+			<label for="title">Date de l'article : </label>
+			<input type="date" name="publishdate" id="publishdate" placeholder="Saisissez le titre" class="form-control" >
 		</div>
 
 		<label for="game">game(s) : </label>
@@ -27,13 +32,13 @@
 		</div>
 	
 		<div class="form-group">
-			<input type="checkbox" name="Other" value="Other" class="form-control" >
+			<input type="checkbox" name="other" value="other" class="form-control" >
 			<label for="autre"> Autres </label>
 		</div>
 	
 		<div class="form-group">
 			<label for="image">Image : </label>
-			<input type="file" name="image" id="image" placeholder="Choisissez une image" class="	form-control" >
+			<input type="file" name="picture" id="picture" placeholder="Choisissez une image" class="	form-control" >
 		</div>
 	
 		<div class="form-group">	
@@ -43,7 +48,7 @@
 		<div class="form-group">	
 			<label for="image">Texte : </label>
 		</div>
-			<textarea name="texte" id="texte" cols="30" rows="10" class="form-control" ></textarea>
+			<textarea name="text" id="text" cols="30" rows="10" class="form-control" ></textarea>
 
 		<div class="form-group">
 			<input type="submit" value="valid" class="form-control" >
