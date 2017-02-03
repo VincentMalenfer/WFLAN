@@ -8,6 +8,7 @@ class ArticlesModel extends Model
 {
 	public function ajouterArticle($title, $text, $picture, $publishdate, $autor, $users_idusers)
 	{
+		$this->setPrimaryKey("idarticles");
 		$data = array 	(	
 							"title" 		=> $title,
 							"text" 			=> $text,

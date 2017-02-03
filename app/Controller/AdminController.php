@@ -4,6 +4,7 @@ namespace Controller;
 
 use \W\Controller\Controller;
 use Model\ArticlesModel;
+use Model\EventsModel;
 
 class AdminController extends Controller
 {
@@ -48,7 +49,7 @@ class AdminController extends Controller
 			$mike->ajouterEvent(	$_POST['name'], 
 									$_POST['date'], 
 									$_POST['location'], 
-									$_POST['desc'], 1);
+									$_POST['desc'], 1, 1);
 		}
 		$this->show('admin/admin_list_events');
 	}

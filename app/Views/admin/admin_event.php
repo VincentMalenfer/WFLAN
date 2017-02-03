@@ -6,62 +6,62 @@
 
 	<form action="<?= $this->url('admin_list_events') ?>" method="POST">
 		<div class="form-group">
-			<label for="title">Titre de l'event : </label>
-			<input type="text" name="title" id="title" placeholder="Saisissez le titre" class="form-control" >
+<!-- 	########################		DEBUT	NOM	 			########################	-->
+			<label for="name">Nom de l'event : </label>
+			<input type="text" name="name" id="name" placeholder="Saisissez le nom" class="form-control" >
 		</div>
+<!-- 	########################		FIN	NOM	 				########################	-->
 
-			<label for="picture">Image : </label>
+<!-- 	########################		DEBUT	DATE	 		########################	-->
+			<label for="date">Date de l'event : </label>
 		<div class="form-group">
-			<input type="file" name="picture" id="picture" value="picture" class="form-control" >
+			<input type="date" name="date" id="date" class="form-control" >
 			<label for="starcraft2">Starcraft 2 </label>
 		</div>
+<!-- 	########################		FIN	DATE				########################	-->
 
+<!-- 	########################		DEBUT	LOCATION		########################	-->
 		<div class="form-group">
-			<label for="publishdate"> Date </label>
-			<input type="date" name="publishdate" value="publishdate" class="form-control" >
+			<label for="location">Location </label>
+			<input type="text" name="location" class="form-control" >
 		</div>
+<!-- 	########################		FIN	LOCATION	 		########################	-->
 
-		<div class="form-group">
-			<label for="autor"> Auteur </label>
-			<input type="autor" name="autor" value="autor" class="form-control" >
-		</div>
-
+<!-- 	########################		DEBUT	DESCRIPTION	 	########################	-->
 		<div class="form-group">	
-			<label for="text">Texte : </label>
-			<textarea name="text" id="text" cols="30" rows="10" class="form-control" ></textarea>
+			<label for="desc">Description : </label>
+			<textarea type="text" name="desc" id="desc" cols="30" rows="10" class="form-control" ></textarea>
 		</div>
+<!-- 	########################		FIN	DESCRIPTION	 		########################	-->
 
-	<!-- 	DEBUT	CHECKBOX	 -->
+<!-- 	########################		DEBUT	CHECKBOX GAMES	########################	-->
 			<label for="game">game(s) : </label>
 		<div class="form-group">
-			<input type="checkbox" name="starcraft2" value="starcraft2" class="form-control" >
+			<input type="checkbox" name="starcraft2" value="1" class="form-control" >
 			<label for="starcraft2">Starcraft 2 </label>
 		</div>
 
 		<div class="form-group">
-			<input type="checkbox" name="dota2" value="dota2" class="form-control" >
+			<input type="checkbox" name="dota2" value="2" class="form-control" >
 			<label for="dota2">Dota 2 </label>
 		</div>
 
 		<div class="form-group">
-			<input type="checkbox" name="csGo" value="csGo" class="form-control" >
+			<input type="checkbox" name="csGo" value="3" class="form-control" >
 			<label for="csGo"> CS : GO </label>
 		</div>
 	
 		<div class="form-group">
-			<input type="checkbox" name="other" value="other" class="form-control" >
+			<input type="checkbox" name="other" value="4" class="form-control" >
 			<label for="other"> Autres </label>
 		</div>
-	<!-- 	FIN	CHECKBOX	 -->
+<!-- 	########################		FIN		CHECKBOX GAMES	########################	-->
 
-		<div class="form-group">
-			<label for="location"> Location </label>
-			<input type="text" name="location" class="form-control" >
-		</div>
-
+<!-- 	########################		DEBUT	SUBMIT			########################	-->
 		<div class="form-group">
 			<input type="submit" value="valid" class="form-control" >
 		</div>
+<!-- 	########################		FIN		SUBMIT	 		########################	-->
 	</form>
 
 	<p>

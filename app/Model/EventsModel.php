@@ -2,12 +2,13 @@
 
 namespace Model;
 
-use \W\Model\UsersModel as usr;
+use \W\Model\Model as Model;
 
-class EventModel extends usr
+class EventsModel extends Model
 {
 	public function ajouterEvent($name, $date, $location, $desc, $location_idlocation, $users_idusers)
 	{
+		$this->setPrimaryKey("idevents");
 		$data = array 	(	
 							"name" 					=> $name,
 							"date" 					=> $date,
@@ -18,4 +19,8 @@ class EventModel extends usr
 						);
 		$this->insert($data);
 	}
+
+	public function event_has_games ()
+
+	
 }
