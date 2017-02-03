@@ -7,6 +7,7 @@
 	<figure>
 		<img src="image.jpg" alt="" />
 		<figcaption>Légende associée</figcaption>
+		
 	</figure>
 
 	
