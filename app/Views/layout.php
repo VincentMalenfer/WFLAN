@@ -11,8 +11,8 @@
        
   <!-- Pour le calendrier -->
 
-  <link rel="stylesheet" href="<?php echo $this->assetUrl("plc/components/bootstrap3/css/bootstrap.min.css")?> ">
-  <link rel="stylesheet" href="<?php echo $this->assetUrl("plc/components/bootstrap3/css/bootstrap-theme.min.css")?>">
+  <link rel="stylesheet" href="<?php echo $this->assetUrl("plc/asset/bootstrap3/css/bootstrap.min.css")?> ">
+  <link rel="stylesheet" href="<?php echo $this->assetUrl("plc/asset/bootstrap3/css/bootstrap-theme.min.css")?>">
   <link rel="stylesheet" href="<?php echo $this->assetUrl("plc/css/calendar.css")?>">
 
 	<!-- Favicons -->
@@ -25,9 +25,9 @@
   <link rel="apple-touch-icon" sizes="144x144" href="<?= $this->assetUrl('img/apple-icon-144x144.png') ?>">
   <link rel="apple-touch-icon" sizes="152x152" href="<?= $this->assetUrl('img/apple-icon-152x152.png') ?>">
   <link rel="apple-touch-icon" sizes="180x180" href="<?= $this->assetUrl('img/apple-icon-180x180.png') ?>">
-  <link rel="icon" type="image/png" sizes="192x192"  href="<?= $this->assetUrl('img/android-icon-192x192.png')?>">
+  <link rel="icon" type="image/png" sizes="192x192" href="<?= $this->assetUrl('img/android-icon-192x192.png')?>">
   <link rel="icon" type="image/png" sizes="32x32" href="<?= $this->assetUrl('img/favicon-32x32.png') ?>">
-  <link rel="icon" type="image/png" sizes="96x96" href="<?= $this->assetUrl('img/favicon-96x96.png') ?>">
+  <link rel="icon" type="image/png" sizes="96x96" href="<?= $this->assetUrl('img/favicon-96x96.png') ?>"> 
   <link rel="icon" type="image/png" sizes="16x16" href="<?= $this->assetUrl('img/favicon-16x16.png') ?>">
   <link rel="manifest" href="<?= $this->assetUrl('img/manifest.json') ?>">
   <meta name="msapplication-TileColor" content="#ffffff">
