@@ -49,10 +49,10 @@
 		</div>
 	</div> -->
 
-	<script type="text/javascript" src="<?php echo $this->assetUrl("plc/components/jquery/jquery.min.js")?>"></script>
-	<script type="text/javascript" src=" <?php echo $this->assetUrl("plc/components/underscore/underscore-min.js")?>"></script>
-	<script type="text/javascript" src=" <?php echo $this->assetUrl("plc/components/bootstrap3/js/bootstrap.min.js")?>"></script>
-	<script type="text/javascript" src=" <?php echo $this->assetUrl("plc/components/jstimezonedetect/jstz.min.js")?>"></script>
+	<script type="text/javascript" src="<?php echo $this->assetUrl("plc/asset/jquery/jquery.min.js")?>"></script>
+	<script type="text/javascript" src=" <?php echo $this->assetUrl("plc/asset/underscore/underscore-min.js")?>"></script>
+	<script type="text/javascript" src=" <?php echo $this->assetUrl("plc/asset/bootstrap3/js/bootstrap.min.js")?>"></script>
+	<script type="text/javascript" src=" <?php echo $this->assetUrl("plc/asset/jstimezonedetect/jstz.min.js")?>"></script>
 	<script type="text/javascript" src="<?php echo $this->assetUrl("plc/js/language/fr-FR.js")?>"></script>
 	<script type="text/javascript" src="  <?php echo $this->assetUrl("plc/js/calendar.js")?>"></script>
 	<script type="text/javascript" src="<?php echo $this->assetUrl("plc/js/app.js")?>"></script>
