@@ -11,8 +11,9 @@ html, body {
 .container {
 	text-align: center;
 }
-label{
-	display: block;
+/* Articles Sidebar*/
+sidebar-custom{
+	background-color: #fff;
 }
 /* Responsive pour iframe */
 .iframe-responsive-wrapper        {
