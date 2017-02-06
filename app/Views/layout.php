@@ -58,6 +58,9 @@
 
 	<!-- Bouton de scrolling "retour en haut" de la page -->
 	<script type="text/javascript" src="<?= $this->assetUrl('js/scrollUp.js') ?>"></script>
+
+	<!-- KONAMI CODE -->
+	<script type="text/javascript" src="<?= $this->assetUrl('js/konamiCode.js') ?>"></script>
 </head>
 <body>
 	<header>

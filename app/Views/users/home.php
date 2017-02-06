@@ -36,4 +36,10 @@
 			<li data-target="#carousel-1" data-slide-to="2"></li>
 		</ol>
 	</div>
+	<div class="audio">
+    <audio id="myaudio" controls>
+        <source src="<?= $this->assetUrl('audio/Konami.mp3') ?>" type="audio/mp3" />
+            Your browser does not support the audio element.
+    </audio>
+</div>
 <?php $this->stop('main_content') ?>
