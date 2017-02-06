@@ -1,3 +1,4 @@
+
 <?php $this->layout('layout', ['title' => 'Les articles']) ?>
 
 <?php $this->start('main_content') ?>
@@ -45,3 +46,4 @@
 <?php endif; ?>
 
 <?php $this->stop('main_content') ?>
+

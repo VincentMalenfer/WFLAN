@@ -37,15 +37,10 @@
         <?php
             endforeach;
         ?>
-
-
-      <!-- creer  decriptionPictures  description dans la table articles-->
-
-
-
-
+        
     </div>
 
 
 	<?php }; ?>
 <?php $this->stop('main_content');?>
+

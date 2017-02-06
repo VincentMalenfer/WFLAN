@@ -1,15 +1,20 @@
+
 <?php $this->layout('layout', ['title' => 'Calendar']) ?>
 
 <?php $this->start('main_content') ?>
 	<h2>Calendar</h2>
 
+	
+
 	<div class="container">
 	<div class="page-header">
 		<div class="pull-right form-inline">
 			<div class="btn-group">
+
 				<button class="btn btn-default pull-left" data-calendar-nav="prev"><< Prev</button>
 				<button class="btn btn-default" data-calendar-nav="today">Aujourd'hui</button>
 				<button class="btn btn-default" data-calendar-nav="next">Next >></button>
+
 			</div>
 		</div>
 
@@ -57,6 +62,8 @@
 	<script type="text/javascript" src="  <?php echo $this->assetUrl("plc/js/calendar.js")?>"></script>
 	<script type="text/javascript" src="<?php echo $this->assetUrl("plc/js/app.js")?>"></script>
 
+	
 </div>
+	
 
 <?php $this->stop('main_content') ?>
