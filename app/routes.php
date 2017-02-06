@@ -18,5 +18,5 @@
 		['GET', 	 	'/admin_event', 		'Admin#event', 				'admin_event'			],
 
 		['GET|POST', 	'/admin_list_articles',	'Admin#admin_list_articles','admin_list_articles'	],
-		['GET|POST', 	'/admin_list_events',	'Admin#admin_list_events','admin_list_events'		],
+		['GET|POST', 	'/admin_list_events',	'Admin#admin_list_events',	'admin_list_events'		],
 		);

@@ -38,6 +38,8 @@ class AdminController extends Controller
 									$_POST['publishdate'], 
 									$_POST['autor'], 1);
 		}
+
+		
 		$this->show('admin/admin_list_articles');
 	}
 	
