@@ -1,4 +1,3 @@
-
 <?php $this->layout('layout', ['title' => 'Les articles']) ?>
 
 <?php $this->start('main_content') ?>
@@ -37,13 +36,7 @@
         <?php
             endforeach;
         ?>
-
-
-      <!-- creer  decriptionPictures  description dans la table articles-->
-
-
-
-
+        
     </div>
 
 

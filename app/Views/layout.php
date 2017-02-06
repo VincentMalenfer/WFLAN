@@ -43,6 +43,7 @@
   <link rel="stylesheet" href="<?= $this->assetUrl('css/navbar.css') ?>">
   <link rel="stylesheet" href="<?= $this->assetUrl('css/main.css') ?>">
 	<link rel="stylesheet" href="<?= $this->assetUrl('css/form.css') ?>" >
+  <link rel="stylesheet" href="<?= $this->assetUrl('css/cretour.css') ?>">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 
@@ -54,6 +55,9 @@
 	<!-- Jquery CDN -->
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<!-- Bouton de scrolling "retour en haut" de la page -->
+	<script type="text/javascript" src="<?= $this->assetUrl('js/scrollUp.js') ?>"></script>
 </head>
 <body>
 	<header>
@@ -68,8 +72,5 @@
 		<?php	include("footer.php"); ?>
 	</footer>
 
-
-<!--js pour page articles -->
-<script src="<?= $this->assetUrl('js/page_articles.js') ?>"></script>
 </body>
 </html>
