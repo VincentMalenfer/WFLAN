@@ -20,4 +20,4 @@
 		['GET|POST', 	'/admin_list_articles',	'Admin#admin_list_articles','admin_list_articles'	],
 		['GET|POST', 	'/admin_list_events',	'Admin#admin_list_events','admin_list_events'		],
 
-		);
+);

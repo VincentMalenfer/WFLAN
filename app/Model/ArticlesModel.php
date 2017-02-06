@@ -1,3 +1,4 @@
+
 <?php
 
 namespace Model;
@@ -32,4 +33,5 @@ class ArticlesModel extends Model
 		return $this->insert($data);
 	}
 }
+
 
