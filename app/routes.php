@@ -2,11 +2,11 @@
 
 	$w_routes = array(
 
-		['GET', 				'/home', 										'Users#home', 									'users_home'			],
+		['GET', 				'/', 										'Users#home', 									'users_home'			],
 		['GET|POST', 		'/calendar', 								'Users#calendar', 							'users_calendar'		],
 		['GET', 				'/reglement', 							'Users#reglement', 							'users_reglement'],
-		['GET', 				'/list_articles', 					'Users#list_articles', 					'users_list_articles'	],
-		['GET', 				'/article', 								'Users#article', 								'users_article'			],
+		['GET', 				'/list_articles', 					'Articles#listArticles', 				'users_list_articles'	],
+		['GET', 				'/article/[:id]', 					'Articles#showArticles', 				'users_article'			],
 		['GET', 				'/access', 									'Users#access', 								'users_access'			],
 		['GET', 				'/live', 										'Users#live', 									'users_live'			],
 		['GET|POST', 		'/contact', 								'Users#contact', 								'users_contact'			],

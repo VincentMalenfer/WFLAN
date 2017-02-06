@@ -32,7 +32,7 @@ class AdminController extends Controller
 		if(!empty($_POST))
 		{
 			$mike = new ArticlesModel();
-			$mike->ajouterArticle(	$_POST['title'], 
+			$mike->ajouterArticle(	$_POST['title'],
 									$_POST['text'],
 									$_POST['picture'],
 									$_POST['publishdate'],

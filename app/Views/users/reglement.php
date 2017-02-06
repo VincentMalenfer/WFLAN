@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php $this->layout('layout', ['title' => 'Réglements']) ?>
 
 <?php $this->start('main_content') ?>
