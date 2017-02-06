@@ -1,43 +1,3 @@
-<<<<<<< HEAD
-@import url('https://fonts.googleapis.com/css?family=Economica|Overpass');
-/*font-family: 'Economica', sans-serif;
-  font-family: 'Overpass', sans-serif;*/
-
-html, body {
-	font-family: 'Economica', sans-serif;
-	font-size: 15px;
-	background-color: #f0f0f0;
-	color: #212121;
-}
-
-.container {
-	text-align: center;
-}
-
-a {
-	text-decoration: none;
-	color: #A6E22E;
-}
-
-/* Responsive pour iframe */
-.iframe-responsive-wrapper        {
-    position: relative;
-}
-
-.iframe-responsive-wrapper .iframe-ratio {
-    display: block;
-    width: 100%;
-    height: auto;
-}
-
-.iframe-responsive-wrapper iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-=======
 @import url('https://fonts.googleapis.com/css?family=Economica|Overpass');
 /*font-family: 'Economica', sans-serif;
   font-family: 'Overpass', sans-serif;*/
@@ -71,4 +31,3 @@ sidebar-custom{
     width: 100%;
     height: 100%;
 }
->>>>>>> refs/remotes/origin/Romain
