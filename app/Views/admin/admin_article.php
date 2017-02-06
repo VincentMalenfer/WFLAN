@@ -4,7 +4,7 @@
 
 	<h2>Ajout Article</h2>
 
-	<form action="<?= $this->url('admin_list_articles') ?>" method="POST">
+	<form class="adminForm" action="<?= $this->url('admin_list_articles') ?>" method="POST">
 		<div class="form-group">
 
 <!-- 	########################		DEBUT	TITRE	 			########################	-->

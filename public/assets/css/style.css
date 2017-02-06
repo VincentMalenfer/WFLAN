@@ -47,6 +47,9 @@ a {
 }
 
 .admin a{
+    margin:15px; 
+    margin-top: 40px;
+
     font-weight: bolder;
     font-size: 40px;
 
@@ -58,10 +61,22 @@ a {
     display: inline-block;
     text-align: center;
     border: solid 1px #A6E22E;
-    transition: all 1s;
+    transition: all 0.5s;
 }
 
 .admin a:hover{
+    margin:15px; 
+    margin-top: 40px;
+
+    border: solid 1px #A6E22E;
+    background-color: #A6E22E;
+
+    text-transform: none;
+    text-decoration: none;
+}
+
+.admin a:focus{
+    margin:15px; 
     font-weight: bolder;
     font-size: 40px;
 
@@ -70,13 +85,22 @@ a {
 
     padding: 20px;
 
-    border: solid 1px #A6E22E;
-    background-color: #A6E22E;
+    border: solid 1px #009900;
+    background-color: #009900;
     
     text-transform: none;
     text-decoration: none;
 }
 
+.adminForm{
+    width: 900px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/*-----------------------
+       FIN  ADMIN
+-------------------------*/
 
 /*-----------------------
     ERROR 403 & 404
