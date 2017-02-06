@@ -289,7 +289,7 @@ abstract class Model
 			$value = ($stripTags) ? strip_tags($value) : $value;
 			$sth->bindValue(':'.$key, $value);
 		}
-		
+
 		if (!$sth->execute()){
 			return false;
 		}

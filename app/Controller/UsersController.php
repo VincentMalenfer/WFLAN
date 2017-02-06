@@ -49,13 +49,6 @@ class UsersController extends Controller
 		$this->show('users/article');
 	}
 
-	/**
-	 * Page d'accès aux sites
-	 */
-	public function access()
-	{
-		$this->show('users/access');
-	}
 
 	/**
 	 * Page de live
