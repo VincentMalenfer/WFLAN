@@ -1,3 +1,4 @@
+
 	<!-- Navbar -->
     <nav class="navbar navbar-default">
     <div class="container-fluid">
@@ -17,25 +18,10 @@
           <li><a href="<?= $this->url('users_home'); ?>">Accueil</a></li>
           <li><a href="<?= $this->url('users_calendar'); ?>">Calendrier</a></li>
           <li><a href="<?= $this->url('users_list_articles'); ?>">Articles</a></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Règlements <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Starcraft II</a></li>
-              <li><a href="#">Dota 2</a></li>
-              <li><a href="#">Counter-Strike: Global Offensive</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Règlement intérieur</a></li>
-            </ul>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Accès aux sites <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">WebForce 3 Paris 4</a></li>
-            <li><a href="#">WebForce 3 Paris 14</a></li>
-            <li><a href="#">WebForce 3 Paris 19</a></li>
-          </ul>
-        </li>
-        <li><a href="<?= $this->url('users_live'); ?>">Direct</a></li>
-        <li><a href="<?= $this->url('users_contact'); ?>">Contact</a></li>
+          <li><a href="<?= $this->url('users_reglement'); ?>">Réglements</a></li>
+          <li><a href="<?= $this->url('users_access'); ?>" >Accès aux sites</a></li>
+          <li><a href="<?= $this->url('users_live'); ?>">Direct</a></li>
+          <li><a href="<?= $this->url('users_contact'); ?>">Contact</a></li>
       </ul>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="<?= $this->url('users_sign_in'); ?>">Inscription</a></li>
@@ -44,3 +30,4 @@
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
+  <div class="cRetour"></div>
