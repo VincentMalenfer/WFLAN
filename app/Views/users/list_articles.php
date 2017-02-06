@@ -3,7 +3,7 @@
 
 <?php $this->start('main_content') ?>
 
-<?php  if (isset($articles)){ ?>
+<?php #  if (isset($articles)){ ?>
  <!-- Page Content -->
     <div class="container">
 
@@ -47,5 +47,5 @@
     </div>
 
 
-	<?php }; ?>
+	<?php # }; ?>
 <?php $this->stop('main_content');?>
