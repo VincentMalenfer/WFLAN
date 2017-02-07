@@ -91,6 +91,17 @@ sidebar-custom{
     width: 900px;
     margin-right: auto;
     margin-left: auto;
+    text-align: center;
+}
+
+.adminForm .games{
+    text-transform: uppercase;
+    color: grey;
+    font-size: 25px;
+}
+
+.adminForm .form-group input,label{
+    display: inline-block;
 }
 
 /*-----------------------

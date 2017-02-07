@@ -4,7 +4,7 @@
 
 	<h2>Ajout Article</h2>
 
-	<form action="<?= $this->url('admin_list_articles') ?>" method="POST">
+	<form class="adminForm" action="<?= $this->url('admin_list_articles') ?>" method="POST">
 		<div class="form-group">
 
 <!-- 	########################		DEBUT	TITRE	 			########################	-->
@@ -21,7 +21,7 @@
 <!-- 	########################		FIN		PUBLISHDATE	 		########################	-->
 
 <!-- 	########################		DEBUT	CHECKBOX GAMES		########################	-->
-		<label for="game">game(s) : </label>
+		<label class="games" for="game">game(s) : </label>
 		<div class="form-group">
 			<input type="checkbox" name="starcraft2" value="1" class="form-control" >
 			<label for="starcraft2">Starcraft 2 </label>
