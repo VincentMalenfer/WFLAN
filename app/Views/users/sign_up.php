@@ -96,19 +96,13 @@
 			  </div>
 			</div>
 
+			<!-- reCaptcha API -->
 			<div class="form-group">
-			  <label class="col-md-4 control-label" for="captchaOperation"></label>
-			    <div class="col-md-4">
-						<small class="help-block">Je ne suis pas un robot :</small>
-						<div class="input-group">
-							<span class="input-group-addon span-bold" id="captchaOperation"></span>
-				      <input type="text" class="form-control" placeholder="Entrer le resultat de l'addition"name="captcha"
-				          data-fv-callback="true"
-				          data-fv-callback-callback="checkCaptcha"
-				          data-fv-callback-message="Wrong answer" />
-						</div>
-			    </div>
-			  </div>
+				<label class="col-md-4 control-label" for="recaptcha"></label>
+				<div class="col-md-6">
+					<div class="g-recaptcha" name="recaptcha" data-sitekey="6LeprRQUAAAAANaL1d0A7ywc8Sl6ldhbmzrGZBH6"></div>
+				</div>
+			</div>
 
 			<!-- Button -->
 			<div class="form-group">
@@ -120,27 +114,5 @@
 		</fieldset>
 	</form>
 </div>
-
-
-<!-- JS Securité antirobot -->
-
-<script>
-// Check the captcha
-function checkCaptcha(value, validator, $field) {
-    var items = $('#captchaOperation').html().split(' '),
-        sum   = parseInt(items[0]) + parseInt(items[2]);
-    return value == sum;
-}
-
-$(document).ready(function() {
-    // Generate a simple captcha
-    function randomNumber(min, max) {
-        return Math.floor(Math.random() * (max - min + 1) + min);
-    }
-    $('#captchaOperation').html([randomNumber(1, 10), '+', randomNumber(1, 100), '='].join(' '));
-
-    $('#basicBootstrapForm').formValidation();
-});
-</script>
 
 <?php $this->stop('main_content') ?>
