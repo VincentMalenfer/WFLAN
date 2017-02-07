@@ -17,8 +17,8 @@ sidebar-custom{
 	background-color: #fff;
 }
 /* home hidden sur div class audio */
-.audio{
-	display: none;
+.audio {
+	visibility: hidden;
 }
 /* Responsive pour iframe */
 .iframe-responsive-wrapper        {
