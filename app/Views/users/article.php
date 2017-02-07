@@ -1,19 +1,3 @@
-<<<<<<< HEAD
-<?php $this->layout('layout', ['title' => 'Article']) ?>
-
-<?php $this->start('main_content') ?>
-	<h2>Article</h2>
-	<p>Vous avez atteint la page d'article. Bravo.</p>
-	
-	<figure>
-		<img src="image.jpg" alt="" />
-		<figcaption>Légende associée</figcaption>
-	</figure>
-
-	
-
-<?php $this->stop('main_content') ?>
-=======
 <?php $this->layout('layout', ['title' => 'Les articles']) ?>
 
 <?php $this->start('main_content') ?>
@@ -29,7 +13,7 @@
 		<p class="infoArticle"></p>
 		<small class="form-text text-muted">Par <?= $article['autor'] ?>, le <?= $article['publishdate'] ?>.</small>
 	</article>
-	
+
 	<!--Side Nav Bar -->
     <nav class="col-xs-2 bs-docs-sidebar sidebar-custom">
         <ul id="sidebar" class="nav nav-stacked fixed">
@@ -61,4 +45,3 @@
 <?php endif; ?>
 
 <?php $this->stop('main_content') ?>
->>>>>>> refs/remotes/origin/Romain
