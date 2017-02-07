@@ -8,12 +8,17 @@ html, body {
 	background-color: #f0f0f0;
 	color: #212121;
 }
-.container {
+h1 {
 	text-align: center;
 }
+
 /* Articles Sidebar*/
 sidebar-custom{
 	background-color: #fff;
+}
+/* home hidden sur div class audio */
+.audio{
+	display: none;
 }
 /* Responsive pour iframe */
 .iframe-responsive-wrapper        {
