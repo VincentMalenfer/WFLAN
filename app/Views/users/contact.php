@@ -26,7 +26,7 @@
 			  <div class="col-md-4">
 			    <div class="input-group">
 			      <span class="input-group-addon">Nom</span>
-			      <input id="lastname" name="lastname" class="form-control" placeholder="Votre nom..." type="text" required>
+			      <input id="lastname" name="lastname" class="form-control" placeholder="Votre nom..." type="text">
 			    </div>
 
 			  </div>
@@ -38,7 +38,7 @@
 			  <div class="col-md-4">
 			    <div class="input-group">
 			      <span class="input-group-addon">Prénom</span>
-			      <input id="firstname" name="firstname" class="form-control" placeholder="Votre prénom..." type="text" required>
+			      <input id="firstname" name="firstname" class="form-control" placeholder="Votre prénom..." type="text">
 			    </div>
 
 			  </div>
@@ -50,7 +50,7 @@
 			  <div class="col-md-4">
 			    <div class="input-group">
 			      <span class="input-group-addon">Email</span>
-			      <input id="email" name="email" class="form-control" placeholder="Votre adresse email..." type="email" required>
+			      <input id="email" name="email" class="form-control" placeholder="Votre adresse email..." type="email">
 			    </div>
 
 			  </div>
@@ -60,7 +60,7 @@
 			<div class="form-group">
 			  <label class="col-md-4 control-label" for="textarea"></label>
 			  <div class="col-md-4">
-			    <textarea class="form-control" id="textarea" name="textarea">Votre message...</textarea>
+			    <textarea class="form-control" id="textarea" name="textarea" placeholder="Votre message..."></textarea>
 			  </div>
 			</div>
 
