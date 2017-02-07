@@ -100,7 +100,8 @@ class UsersController extends Controller
 	 */
 	public function log_out()
 	{
-		$this->show('users/log_out');
+		session_destroy();
+ 	 $this->show('users/home');
 	}
 
 	public function sign_up_form(){
@@ -118,7 +119,4 @@ class UsersController extends Controller
 		}
 		$this->show('users/sign_up');
 	}
-	// public function log_in(){
-	//
-	// }
 }
