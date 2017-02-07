@@ -2,7 +2,7 @@
 
 <?php $this->start('main_content') ?>
 <div class="container">
-  <form class="form-signin">
+  <form class="form-signin" method="post" action="test.php">
     <h1>Connexion</h1>
 		<img src="<?= $this->assetUrl('img/loginlogo.png') ?>" alt="" class="img-responsive img-circle img-padding hidden-sm hidden-xs">
     <label for="email">Email</label>

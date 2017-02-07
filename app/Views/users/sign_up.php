@@ -4,7 +4,7 @@
 
 <div class="container">
 	<h2>Inscription</h2>
-	<form class="form-horizontal">
+	<form class="form-horizontal" method="POST" action="<?= $this->url('users_sign_up_form') ?>">
 		<fieldset>
 			<legend>Formulaire d'inscription</legend>
 			<!-- Prepended text-->
@@ -13,7 +13,7 @@
 			  <div class="col-md-4">
 			    <div class="input-group">
 			      <span class="input-group-addon span-bold">Nom</span>
-			      <input id="prependedtext" name="prependedtext" class="form-control" placeholder="Votre nom" type="text" required>
+			      <input id="lastname" name="lastname" class="form-control" placeholder="Votre nom" type="text" required>
 			    </div>
 			  </div>
 			</div>
