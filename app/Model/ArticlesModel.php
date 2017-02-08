@@ -2,6 +2,7 @@
 
 namespace Model;
 // use \W\Model\UsersModel;
+use W\Security\AuthentificationModel;
 use \W\Model\Model as Model;
 
 use Controller\UsersController;
@@ -62,8 +63,8 @@ class ArticlesModel extends Model{
 	
 	public function addArcticle($title,$description,$text,$pictures,$description_pictures)
 	{
-		$loggedUser = new UsersController;
-		$loggedUser = $this->getUser();
+		$authenticationModel = new AuthentificationModel();
+		$loggedUser = $authenticationModel->getLoggedUser();
 		debug($loggedUser);
 
 
@@ -75,7 +76,7 @@ class ArticlesModel extends Model{
 			'pictures'		=> $pictures,				//post pictures du form admin article
 			'picturesDes'	=> $description_pictures,			//post des_pictures du form admin article
 			'publishdate'	=> date("Y-m-d"),				// = date du serveur
-			'author'		=> $loggedUser = $this->getUser('nickname'),
+			'author'		=> $loggedUser[""],
 			);
 		
 		return $this->insert($data);

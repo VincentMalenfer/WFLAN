@@ -62,7 +62,7 @@ class AdminController extends Controller
 			$this->redirectToRoute('admin_article');
 		if ($_FILES['picture']['size'] > 0) {
 			// revoir le chemin de destination des images
-			$dir = '../content/media/img/';
+			$dir = $this->AssetUrl('img');
 	
 			// je verifie que le dossier de destination existe
 			if (file_exists($dir)&& is_dir($dir)) {
@@ -71,7 +71,7 @@ class AdminController extends Controller
 				// je deplace le fichier depuis le dossier temporaire vers la destination
 				if (move_uploaded_file($_FILES['picture']['tmp_name'],$dir.$filename)) {
 					
-					$filepath =	"content/media/img/".$filename;	
+					$filepath =	$this->AssetUrl('img').$filename;	
 				}else{
 					die("upload failed");
 				}
