@@ -1,5 +1,6 @@
 <?php
 
+
 namespace Controller;
 
 use \W\Controller\Controller;
@@ -54,3 +55,4 @@ class AdminController extends Controller
 		$this->show('admin/admin_list_events');
 	}
 }
+

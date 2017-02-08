@@ -21,6 +21,9 @@ class EventsModel extends Model
 	}
 
 	public function event_has_games ()
+	{
+		
+	}
 
 	
 }

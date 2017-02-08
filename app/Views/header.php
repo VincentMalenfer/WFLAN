@@ -24,8 +24,8 @@
           <li><a href="<?= $this->url('users_contact'); ?>">Contact</a></li>
       </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="<?= $this->url('users_sign_in'); ?>">Inscription</a></li>
-          <li><a href="<?= $this->url('users_sign_up'); ?>">Connexion</a></li>
+          <li><a href="<?= $this->url('users_sign_up'); ?>">Inscription</a></li>
+          <li><a href="<?= $this->url('users_sign_in'); ?>">Connexion</a></li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
