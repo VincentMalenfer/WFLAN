@@ -41,7 +41,6 @@
   <link rel="stylesheet" href="<?= $this->assetUrl('css/carousel.css') ?>">
   <link rel="stylesheet" href="<?= $this->assetUrl('css/footer.css') ?>">
   <link rel="stylesheet" href="<?= $this->assetUrl('css/navbar.css') ?>">
-  <link rel="stylesheet" href="<?= $this->assetUrl('css/main.css') ?>">
 	<link rel="stylesheet" href="<?= $this->assetUrl('css/form.css') ?>" >
   <link rel="stylesheet" href="<?= $this->assetUrl('css/cretour.css') ?>">
 
@@ -56,8 +55,14 @@
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+	<!-- API reCaptcha -->
+	<script src='https://www.google.com/recaptcha/api.js'></script>
+
 	<!-- Bouton de scrolling "retour en haut" de la page -->
 	<script type="text/javascript" src="<?= $this->assetUrl('js/scrollUp.js') ?>"></script>
+
+	<!-- KONAMI CODE -->
+	<script type="text/javascript" src="<?= $this->assetUrl('js/konamiCode.js') ?>"></script>
 </head>
 <body>
 	<header>

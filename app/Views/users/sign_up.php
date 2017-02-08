@@ -7,7 +7,7 @@
 	<form class="form-horizontal" method="POST" action="<?= $this->url('users_sign_up_form') ?>">
 		<fieldset>
 			<legend>Formulaire d'inscription</legend>
-			<!-- Prepended text-->
+			<!-- Nom -->
 			<div class="form-group">
 			  <div class="col-sm-offset-4 col-sm-4">
 			    <div class="input-group">
@@ -17,7 +17,7 @@
 			  </div>
 			</div>
 
-			<!-- Prepended text-->
+			<!-- Prénom -->
 			<div class="form-group">
 			  <div class="col-sm-offset-4 col-sm-4">
 			    <div class="input-group">
@@ -27,7 +27,7 @@
 			  </div>
 			</div>
 
-			<!-- Prepended text-->
+			<!-- Pseudo -->
 			<div class="form-group">
 			  <div class="col-sm-offset-4 col-sm-4">
 			    <div class="input-group">
@@ -37,7 +37,7 @@
 			  </div>
 			</div>
 
-			<!-- Prepended text-->
+			<!-- Email -->
 			<div class="form-group">
 			  <div class="col-sm-offset-4 col-sm-4">
 			    <div class="input-group">
@@ -47,7 +47,7 @@
 			  </div>
 			</div>
 
-			<!-- Prepended text-->
+			<!-- Date de naissance-->
 			<div class="form-group">
 			  <div class="col-sm-offset-4 col-sm-4">
 			    <div class="input-group">
@@ -57,18 +57,18 @@
 			  </div>
 			</div>
 
-			<!-- Prepended text-->
+			<!-- Téléphone -->
 			<div class="form-group">
 			  <div class="col-sm-offset-4 col-sm-4">
 			    <div class="input-group">
 			      <span class="input-group-addon span-bold">Téléphone</span>
 			      <input id="phonenumber" name="phonenumber" class="form-control" placeholder="Votre numéro de mobile" type="tel">
 			    </div>
-			    <small class="help-block">* n'est pas obligatoire</small>
+			    <small class="help-block">*facultatif</small>
 			  </div>
 			</div>
 
-			<!-- Prepended text-->
+			<!-- Mot de passe -->
 			<div class="form-group">
 			  <div class="col-sm-offset-4 col-sm-4">
 			    <div class="input-group">
@@ -78,14 +78,21 @@
 			  </div>
 			</div>
 
-			<!-- Prepended text-->
+			<!-- Confirmation -->
 			<div class="form-group">
 			  <div class="col-sm-offset-4 col-sm-4">
 			    <div class="input-group">
-			      <span class="input-group-addon span-bold">confirmation MdP</span>
+			      <span class="input-group-addon span-bold">Confirmation</span>
 			      <input id="passwordConfirm" name="passwordConfirm" class="form-control" placeholder="Votre mot de passe" type="password" required>
 			    </div>
 			  </div>
+			</div>
+
+			<!-- reCaptcha API -->
+			<div class="form-group">
+				<div class="col-sm-offset-4 col-sm-4">
+						<div class="g-recaptcha" name="recaptcha" data-sitekey="6LeprRQUAAAAANaL1d0A7ywc8Sl6ldhbmzrGZBH6"></div>
+				</div>
 			</div>
 
 			<!-- Button -->
@@ -97,20 +104,5 @@
 		</fieldset>
 	</form>
 </div>
-
-<!-- <script type="text/javascript">
-  var checkMdp;//on déclare
-  window.onload = function() {
-    var mdp = document.getElementById("password"),
-    mdp2 = document.getElementById("passwordConfirm");
-    checkMdp = function checkMdp() {//redonner un nom est optionnel. C'est juste que je préfère
-        if (password.value !== passwordConfirm.value) {
-            var msg = document.createTextNode("Confirmation du mot de passe invalide");
-            document.getElementById("mdperror").appendChild(msg);
-        }
-    }
-	};
-
-</script> -->
 
 <?php $this->stop('main_content') ?>

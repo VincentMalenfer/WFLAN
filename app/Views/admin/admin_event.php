@@ -4,7 +4,7 @@
 
 	<h2>Ajout Event</h2>
 
-	<form action="<?= $this->url('admin_list_events') ?>" method="POST">
+	<form class="adminForm" action="<?= $this->url('admin_list_events') ?>" method="POST">
 		<div class="form-group">
 <!-- 	########################		DEBUT	NOM	 			########################	-->
 			<label for="name">Nom de l'event : </label>
