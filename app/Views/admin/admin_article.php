@@ -35,7 +35,7 @@
 
 
 <!-- 	########################		FIN		CHECKBOX GAMES	 	########################	-->
-	
+
 <!-- 	########################		DEBUT	PICTURES	 		########################	-->
 		<div class="form-group">
 			<label for="image">Image : </label>
@@ -67,7 +67,7 @@
 
 
 <!-- 	########################		DEBUT	TEXTE	 			########################	-->
-		<div class="form-group">	
+		<div class="form-group">
 			<label for="image">Texte : </label>
 		</div>
 			<textarea name="text" id="text" cols="30" rows="10" class="form-control" ></textarea>
@@ -84,11 +84,10 @@
 
 <script type="text/javascript">
 	$(function () {
-		$('#ajoutArticle').on('submit', function (e) { // Est appelé lorsque l'utilisateur souhaite soumettre le formulaire	
+		$('#ajoutArticle').on('submit', function (e) { // Est appelé lorsque l'utilisateur souhaite soumettre le formulaire
 			e.preventDefault(); // On empêche le navigateur de soumettre le formulaire
-			var compteur= 1; 
+			var compteur= 1;
 			if ($('#title').val().length == 0)  {
-				
 			 	$('#msgun').fadeIn();
 			 	$('#title').css('border','red 1px solid');
 			 	$('#msgun').css('visibility','visible');
@@ -96,23 +95,19 @@
 				$('#msgun').fadeIn();
 			 	$('#title').css('border','red 1px solid');
 			 	$('#msgun').css('visibility','visible');
-
 			}else{
 				$('#msgun').fadeOut();
 			 	$('#title').css('border','1px solid rgb(169, 169, 169)');
 			 	compteur+=compteur;
-			 	
 			}
 			if ($('#description').val().length == 0){
 			 	$('#msgdeux').fadeIn();
 			 	$('#description').css('border','red 1px solid');
 			 	$('#msgdeux').css('visibility','visible');
-
 			}else if ($('#description').val().length > 30)  {
 				$('#msgdeux').fadeIn();
 			 	$('#description').css('border','red 1px solid');
 			 	$('#msgdeux').css('visibility','visible');
-				
 			}else{
 			 	$('#msgdeux').fadeOut();
 			 	$('#description').css('border','1px solid rgb(169, 169, 169)');
@@ -122,40 +117,34 @@
 		     	$('#msgtrois').fadeOut();
 		     	$('#picture').css('border','1px solid rgb(169, 169, 169)');
 		     	compteur+=compteur;
-		     	
 			}else{
 				$('#checkbox').css('border','red 1px solid');
 		     	$('msgtrois').fadeIn();
 		     	$('#msgtrois').css('visibility','visible');
-		     	
 			}
 			if($('#picture').val()==""){
 				$('#msgquatre').fadeIn();
 				$('#msgquatre').css('visibility','visible');
 				$('#picture').css('border','red 1px solid');
-				
 			}else{
 				$('#msgquatre').fadeOut();
 				$('#picture').css('border','1px solid rgb(169, 169, 169)');
 				compteur+=compteur;
-
 			}
 			if ($('#description_pictures').val() == 0 ) {
 		     	$('#description_pictures').css('border','red 1px solid');
 		     	$('#msgcinq').fadeIn();
 		     	$('#msgcinq').css('visibility','visible');
-		     	
 			}else{
 				$('#msgcinq').fadeOut();
 				$('#description_pictures').css('border','1px solid rgb(169, 169, 169)');
 				compteur+=compteur;
 			}
-			// 
+			//
 			if ($('#text').val() == 0 ) {
 		     	$('#text').css('border','red 1px solid');
 		     	$('#msgsix').fadeIn();
 		     	$('#msgsix').css('visibility','visible');
-		     	
 			}else{
 				$('#msgsix').fadeOut();
 				$('#text').css('border','1px solid rgb(169, 169, 169)');
@@ -164,20 +153,12 @@
 			if (compteur===7) {
 				(this).submit();
 			}
-				
-
-
-			
 		});
-		
-
-		
-	});			 		
+	});
 </script>
 <style type="text/css">
 	#msgun,#msgdeux,#msgtrois,#msgcinq,#msgsix,#msgquatre{
 	visibility: hidden;
-
 	}
 </style>
 	<p>

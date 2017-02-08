@@ -1,8 +1,9 @@
+<<<<<<< HEAD
 <?php $this->layout('layout', ['title' => 'Calendar']) ?>
 
 <?php $this->start('main_content') ?>
-	<h2>Calendar</h2>
-	
+	<h1>Calendar</h1>
+
 	<div class="container">
 	<div class="page-header">
 		<div class="pull-right form-inline">
@@ -13,8 +14,9 @@
 			</div>
 		</div>
 
+		<!-- le mois est afficher en javascript dans le h3 -->
 		<h3></h3>
-		
+
 	</div>
 
 	<div class="row">
@@ -56,7 +58,7 @@
 	<script type="text/javascript" src="<?php echo $this->assetUrl("plc/js/language/fr-FR.js")?>"></script>
 	<script type="text/javascript" src="  <?php echo $this->assetUrl("plc/js/calendar.js")?>"></script>
 	<script type="text/javascript" src="<?php echo $this->assetUrl("plc/js/app.js")?>"></script>
-	
+
 </div>
-	
+
 <?php $this->stop('main_content') ?>

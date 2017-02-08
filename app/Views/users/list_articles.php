@@ -19,7 +19,7 @@
         <?php foreach ($articles as $article): ?>
         <div class="row">
             <div class="col-md-7">
-                <a href="<?=$this->url('users_list_articles',['id' => $article['idarticles']])?>">
+                <a href="<?=$this->url('users_article',['id' => $article['idarticles']])?>">
                     <img class="img-responsive" src="<?= $article['pictures'] ?>" alt="$article['decriptionPictures'] ">
                 </a>
             </div>
@@ -30,7 +30,6 @@
                 <a class="btn btn-primary" href="<?=$this->url('users_article', ['id' => $article['idarticles']])?>">aller sur l article <span class="glyphicon glyphicon-chevron-right"></span></a>
             </div>
         </div>
-      
         <!-- /.row -->
         <hr>
 
@@ -40,6 +39,5 @@
         
     </div>
 
-
-	<?php }; ?>
+    <?php }; ?>
 <?php $this->stop('main_content');?>
