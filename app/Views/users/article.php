@@ -1,6 +1,8 @@
-<?php $this->layout('layout', ['title' => 'Les articles']) ?>
+<?php $this->layout('layout', ['title' => 'Article']) ?>
 
 <?php $this->start('main_content') ?>
+	<h2>Article</h2>
+	<p>Vous avez atteint la page d'article. Bravo.</p>
 
 <?php  if (isset($article)): ?>
 
@@ -11,7 +13,8 @@
 		<p><?= $article['text'] ?></p>
 		<hr>
 		<p class="infoArticle"></p>
-		<small class="form-text text-muted">Par <?= $article['autor'] ?>, le <?= $article['publishdate'] ?>.</small>
+
+		<small class="form-text text-muted">Par <?= $article['author'] ?>, le <?= $article['publishdate'] ?>.</small>
 	</article>
 
 	<!--Side Nav Bar -->

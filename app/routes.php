@@ -1,6 +1,7 @@
 <?php
 
 	$w_routes = array(
+
 		['GET', 				'/', 												'Users#home', 									'users_home'],
 		['GET|POST', 		'/calendar', 								'Users#calendar', 							'users_calendar'],
 		['GET', 				'/reglement', 							'Users#reglement', 							'users_reglement'],
@@ -21,4 +22,5 @@
 		['GET|POST', 		'/admin_result', 						'Admin#result', 								'admin_result'],
 		['GET|POST', 		'/admin_list_articles',			'Admin#admin_list_articles',		'admin_list_articles'],
 		['GET|POST', 		'/admin_list_events',				'Admin#admin_list_events',			'admin_list_events'],
-);
+		['POST', 				'/admin_add_article', 			'Admin#addArticle', 						'admin_add_article'			],
+	);
