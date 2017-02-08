@@ -3,6 +3,7 @@
 namespace Controller;
 
 use \W\Controller\Controller;
+use  \Model\userModel;
 
 class UsersController extends Controller
 {
@@ -158,10 +159,26 @@ class UsersController extends Controller
 	 */
 	public function log_out()
 	{
-		$this->show('users/log_out');
+		session_destroy();
+ 	 $this->show('users/home');
 	}
 
-
-
-
+	/**
+	 * Formulaire inscription
+	 */
+	public function sign_up_form(){
+		if(!empty($_POST)){
+			$sign = new UserModel();
+			$sign->ajoutuser(
+				$_POST["lastname"],
+				$_POST["firstname"],
+				$_POST["nickname"],
+				$_POST["email"],
+				$_POST["birthdate"],
+				$_POST["phonenumber"],
+				$_POST["password"]
+			);
+		}
+		$this->show('users/sign_up');
+	}
 }

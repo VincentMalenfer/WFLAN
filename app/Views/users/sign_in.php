@@ -2,7 +2,7 @@
 
 <?php $this->start('main_content') ?>
 <div class="container">
-  <form class="form-signin">
+  <form class="form-signin" method="post" action="<?= $this->url('users_log_in') ?>">
     <h1>Connexion</h1>
 		<img src="<?= $this->assetUrl('img/loginlogo.png') ?>" alt="" class="img-responsive img-circle img-padding hidden-sm hidden-xs">
     <label for="email">Email</label>
@@ -15,7 +15,10 @@
       </label>
     </div>
     <button class="btn btn-lg btn-primary btn-block" type="submit">Connexion</button>
+    <small class="help-block"><a href="#">j'ai oublié mon mot de passe</a></small>
   </form>
 </div> <!-- /container -->
+
+
 
 <?php $this->stop('main_content') ?>

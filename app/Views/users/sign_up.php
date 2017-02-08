@@ -4,24 +4,22 @@
 
 <div class="container">
 	<h2>Inscription</h2>
-	<form class="form-horizontal">
+	<form class="form-horizontal" method="POST" action="<?= $this->url('users_sign_up_form') ?>">
 		<fieldset>
 			<legend>Formulaire d'inscription</legend>
-			<!-- Prepended text-->
+			<!-- Nom -->
 			<div class="form-group">
-			  <label class="col-md-4 control-label" for="prependedtext"></label>
-			  <div class="col-md-4">
+			  <div class="col-sm-offset-4 col-sm-4">
 			    <div class="input-group">
 			      <span class="input-group-addon span-bold">Nom</span>
-			      <input id="prependedtext" name="prependedtext" class="form-control" placeholder="Votre nom" type="text" required>
+			      <input id="lastname" name="lastname" class="form-control" placeholder="Votre nom" type="text" required>
 			    </div>
 			  </div>
 			</div>
 
-			<!-- Prepended text-->
+			<!-- Prénom -->
 			<div class="form-group">
-			  <label class="col-md-4 control-label" for="firstname"></label>
-			  <div class="col-md-4">
+			  <div class="col-sm-offset-4 col-sm-4">
 			    <div class="input-group">
 			      <span class="input-group-addon span-bold">Prénom</span>
 			      <input id="firstname" name="firstname" class="form-control" placeholder="Votre prénom" type="text" required>
@@ -29,10 +27,9 @@
 			  </div>
 			</div>
 
-			<!-- Prepended text-->
+			<!-- Pseudo -->
 			<div class="form-group">
-			  <label class="col-md-4 control-label" for="nickname"></label>
-			  <div class="col-md-4">
+			  <div class="col-sm-offset-4 col-sm-4">
 			    <div class="input-group">
 			      <span class="input-group-addon span-bold">Pseudo</span>
 			      <input id="nickname" name="nickname" class="form-control" placeholder="Votre pseudo" type="text" required>
@@ -40,10 +37,9 @@
 			  </div>
 			</div>
 
-			<!-- Prepended text-->
+			<!-- Email -->
 			<div class="form-group">
-			  <label class="col-md-4 control-label" for="email"></label>
-			  <div class="col-md-4">
+			  <div class="col-sm-offset-4 col-sm-4">
 			    <div class="input-group">
 			      <span class="input-group-addon span-bold">Email</span>
 			      <input id="email" name="email" class="form-control" placeholder="Votre adresse email" type="text" required>
@@ -51,10 +47,9 @@
 			  </div>
 			</div>
 
-			<!-- Prepended text-->
+			<!-- Date de naissance-->
 			<div class="form-group">
-			  <label class="col-md-4 control-label" for="birthdate"></label>
-			  <div class="col-md-4">
+			  <div class="col-sm-offset-4 col-sm-4">
 			    <div class="input-group">
 			      <span class="input-group-addon span-bold">Date de naissance</span>
 			      <input id="birthdate" name="birthdate" class="form-control" type="date" required>
@@ -62,22 +57,20 @@
 			  </div>
 			</div>
 
-			<!-- Prepended text-->
+			<!-- Téléphone -->
 			<div class="form-group">
-			  <label class="col-md-4 control-label" for="phonenumber"></label>
-			  <div class="col-md-4">
+			  <div class="col-sm-offset-4 col-sm-4">
 			    <div class="input-group">
 			      <span class="input-group-addon span-bold">Téléphone</span>
 			      <input id="phonenumber" name="phonenumber" class="form-control" placeholder="Votre numéro de mobile" type="tel">
 			    </div>
-			    <small class="help-block">* n'est pas obligatoire</small>
+			    <small class="help-block">*facultatif</small>
 			  </div>
 			</div>
 
-			<!-- Prepended text-->
+			<!-- Mot de passe -->
 			<div class="form-group">
-			  <label class="col-md-4 control-label" for="password"></label>
-			  <div class="col-md-4">
+			  <div class="col-sm-offset-4 col-sm-4">
 			    <div class="input-group">
 			      <span class="input-group-addon span-bold">Mot de passe</span>
 			      <input id="password" name="password" class="form-control" placeholder="Votre mot de passe" type="password" required>
@@ -85,12 +78,11 @@
 			  </div>
 			</div>
 
-			<!-- Prepended text-->
+			<!-- Confirmation -->
 			<div class="form-group">
-			  <label class="col-md-4 control-label" for="passwordConfirm"></label>
-			  <div class="col-md-4">
+			  <div class="col-sm-offset-4 col-sm-4">
 			    <div class="input-group">
-			      <span class="input-group-addon span-bold">confirmation MdP</span>
+			      <span class="input-group-addon span-bold">Confirmation</span>
 			      <input id="passwordConfirm" name="passwordConfirm" class="form-control" placeholder="Votre mot de passe" type="password" required>
 			    </div>
 			  </div>
@@ -98,16 +90,14 @@
 
 			<!-- reCaptcha API -->
 			<div class="form-group">
-				<label class="col-md-4 control-label" for="recaptcha"></label>
-				<div class="col-md-6">
-					<div class="g-recaptcha" name="recaptcha" data-sitekey="6LeprRQUAAAAANaL1d0A7ywc8Sl6ldhbmzrGZBH6"></div>
+				<div class="col-sm-offset-4 col-sm-4">
+						<div class="g-recaptcha" name="recaptcha" data-sitekey="6LeprRQUAAAAANaL1d0A7ywc8Sl6ldhbmzrGZBH6"></div>
 				</div>
 			</div>
 
 			<!-- Button -->
 			<div class="form-group">
-			  <label class="col-md-4 control-label" for="envoyer"></label>
-			  <div class="col-md-4">
+			  <div class="col-sm-offset-4 col-sm-4">
 			    <button id="envoyer" name="envoyer" class="btn btn-primary">Envoyer</button>
 			  </div>
 			</div>
