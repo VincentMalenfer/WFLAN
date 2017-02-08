@@ -11,7 +11,7 @@
 		['GET', 				'/live', 										'Users#live', 									'users_live'			],
 		['GET|POST', 		'/contact', 								'Users#contact', 								'users_contact'			],
 		['GET', 				'/sign_in', 								'Users#sign_in', 								'users_sign_in'			],
-		['POST', 				'/', 												'Users#users_log_in', 					'users_log_in'			],
+		// ['POST', 				'/', 												'Users#users_log_in', 					'users_log_in'			],
 		['GET|POST', 		'/sign_up', 								'Users#sign_up', 								'users_sign_up'			],
 		['POST', 				'/', 												'Users#sign_up_form', 					'users_sign_up_form'	],
 		['GET|POST', 		'/', 												'Users#log_out', 								'users_log_out'			],
