@@ -1,9 +1,8 @@
-
 <?php $this->layout('layout', ['title' => 'Les articles']) ?>
 
 <?php $this->start('main_content') ?>
 
-<?php  if (isset($articles)){ ?> 
+<?php  if (isset($articles)){ ?>
  <!-- Page Content -->
     <div class="container">
 
@@ -17,20 +16,18 @@
         </div>
         <!-- /.row -->
         <!-- liste articles-->
-        <?php 
-            foreach ($articles as $article):
-        ?>
+        <?php foreach ($articles as $article): ?>
         <div class="row">
             <div class="col-md-7">
-                <a href="<?=$this->url('users_article')?>">
+                <a href="<?=$this->url('users_list_articles',['id' => $article['idarticles']])?>">
                     <img class="img-responsive" src="<?= $article['pictures'] ?>" alt="$article['decriptionPictures'] ">
                 </a>
             </div>
-            <div class="col-md-5"> 
+            <div class="col-md-5">
                 <h3> <?= $article['title'] ?> </h3>
-                
+
                 <p> <?= $article['description'] ?> </p>
-                <a class="btn btn-primary" href="<?=$this->url('users_article')?>">aller sur l article <span class="glyphicon glyphicon-chevron-right"></span></a>
+                <a class="btn btn-primary" href="<?=$this->url('users_article', ['id' => $article['idarticles']])?>">aller sur l article <span class="glyphicon glyphicon-chevron-right"></span></a>
             </div>
         </div>
         <!-- /.row -->
@@ -39,15 +36,9 @@
         <?php
             endforeach;
         ?>
-       
-            
-      <!-- creer  decriptionPictures  description actif dans la table articles-->
-       
-       
-
-       
+        
     </div>
 
 
-	<?php }; ?> 
+	<?php }; ?>
 <?php $this->stop('main_content');?>
