@@ -30,6 +30,7 @@
                 <a class="btn btn-primary" href="<?=$this->url('users_article', ['id' => $article['idarticles']])?>">aller sur l article <span class="glyphicon glyphicon-chevron-right"></span></a>
             </div>
         </div>
+      
         <!-- /.row -->
         <hr>
 
