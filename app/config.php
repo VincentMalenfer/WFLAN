@@ -16,7 +16,7 @@ $w_config = [
 	'security_password_property' 		=> 'password',		//nom de la colonne pour le "mot de passe"
 	'security_role_property' 				=> 'role',				//nom de la colonne pour le "role"
 
-	'users_sign_in' 								=> 'login',				//nom de la route affichant le formulaire de connexion
+	'security_login_route_name' => 'login',				//nom de la route affichant le formulaire de connexion
 
 		// configuration globale
 	'site_name'	=> 'WFLAN', 								// contiendra le nom du site

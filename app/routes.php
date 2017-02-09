@@ -11,7 +11,7 @@
 		['GET', 				'/access', 												'General#access', 							'users_access'],
 		['GET', 				'/live', 													'General#live', 								'users_live'],
 		['GET', 				'/contact', 											'General#contact', 							'users_contact'],
-		['POST', 				'/', 											'Users#traitementContact', 			'traitementContact'],
+		['POST', 				'/', 															'Users#traitementContact', 			'traitementContact'],
 		['GET|POST', 		'/sign_up', 											'Users#sign_up', 								'users_sign_up'],
 		['GET|POST', 		'/sign_in', 											'Users#sign_in', 								'users_sign_in'],
 		['GET|POST', 		'/log_out', 											'Users#log_out', 								'users_log_out'],

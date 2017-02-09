@@ -3,7 +3,11 @@
 namespace Controller;
 
 use \W\Controller\Controller;
-use  \Model\userModel;
+use \Model\userModel;
+
+use \W\Security\AuthentificationModel;
+
+
 
 
 class UsersController extends Controller
@@ -79,8 +83,41 @@ class UsersController extends Controller
 	 */
 	public function sign_in()
 	{
-		$this->show('users/sign_in');
+		if (!empty($_POST)) {
+			$userModel = new UserModel();
+			$user = $userModel->emailExists($_POST['email']);
+			debug($user);
+			if ($user && ($user["password"] === password_hash($_POST['password'],PASSWORD_DEFAULT))) {
+					$user["id_token"] = $this->token();
+					$instanceModel = new AuthentificationModel();
+					debug($user);
+		     	// Retire le mot de passe de la session
+							// unset($user[$app->getConfig('security_password_property')]);
+							// unset($user[$app->getConfig('security_id_property')]);
+					// $_SESSION['user'] = $user; =firstname,lastname,nickname,email,birthdate,status,id_token
+			}else{
+
+			}
+		} else {
+
+		}
+		 $this->show('users/sign_in');
+
 	}
+
+
+public function token() {
+	$token= new StringUtils();
+ $tokens= $toke->randomString(20);
+ // verifier que ce token n'existe pas en base de donnée
+}
+
+
+
+
+
+
+
 
 
 
@@ -118,9 +155,6 @@ class UsersController extends Controller
 
 		if(!array_key_exists('birthdate', $_POST) || $_POST['birthdate'] == '')// on verifie l'existence du champ et d'un contenu
 			$errors ['birthdate'] = "Vous n'avez pas renseigné votre date de naissance !";
-		else
-			$this->age($_POST['birthdate'])."\n";
-
 
 		if(!array_key_exists('password', $_POST) || $_POST['password'] == '')// on verifie l'existence du champ et d'un contenu
 			$errors ['password'] = "Vous n'avez pas renseigné votre mot de passe !";
@@ -177,3 +211,23 @@ class UsersController extends Controller
  	 $this->show('users/home');
 	}
 }
+
+
+// 			$_SESSION['success'] = 1;
+// $errors = array(); // on crée une vérif de champs
+//
+// if(!array_key_exists('email', $_POST) || $_POST['email'] == '' || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))// on verifie existence de la clé
+// 	$errors ['mail'] = "Vous n'avez pas renseigné votre email !";
+//
+// if(!array_key_exists('password', $_POST) || $_POST['password'] == '')// on verifie l'existence du champ et d'un contenu
+// 	$errors ['password'] = "Vous n'avez pas renseigné votre mot de passe !";
+//
+// //On check les infos transmises lors de la validation
+// if(!empty($errors)){ // si erreur on renvoie vers la page précédente
+// 	$_SESSION['errors'] = $errors;//on stocke les erreurs
+// 	$_SESSION['inputs'] = $_POST;
+//
+// 	// $this->show('users/sign_in', [
+// 	// 	'email' => (empty($_POST['email'])) ? '' : $_POST['email'],
+// 	// ]);
+// }else{
