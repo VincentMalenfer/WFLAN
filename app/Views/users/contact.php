@@ -25,7 +25,7 @@
 			  <div class="col-sm-offset-4 col-sm-4">
 			    <div class="input-group">
 			      <span class="input-group-addon">Nom</span>
-			      <input id="prependedtext" name="prependedtext" class="form-control" placeholder="Votre nom" type="text" required>
+			      <input id="lastname" name="lastname" class="form-control" placeholder="Votre nom" type="text" required>
 			    </div>
 				</div>
 			</div>
@@ -53,7 +53,7 @@
 			<!-- Textarea -->
 			<div class="form-group">
 			  <div class="col-sm-offset-4 col-sm-4">
-			    <textarea class="form-control" id="textarea" name="textarea">Votre message</textarea>
+			    <textarea class="form-control" id="textarea" name="textarea" placeholder="Votre message"></textarea>
 			  </div>
 			</div>
 

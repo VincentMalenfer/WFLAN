@@ -81,7 +81,7 @@ class UsersController extends Controller
 	 */
 	public function traitementContact()
 	{
-		session_start();//on démarre la session
+		//session_start();//on démarre la session
 	// $errors = [];
 	  $errors = array(); // on crée une vérif de champs
 	if(!array_key_exists('lastname', $_POST) || $_POST['lastname'] == '') {// on verifie l'existence du champ et d'un contenu
@@ -107,7 +107,13 @@ class UsersController extends Controller
 	  if(!empty($errors)){ // si erreur on renvoie vers la page précédente
 	  $_SESSION['errors'] = $errors;//on stocke les erreurs
 	  $_SESSION['inputs'] = $_POST;
-	  $this->redirectToRoute('users_contact');
+	  //$this->redirectToRoute('users_contact');
+		$this->show('users/users_contact', [
+		'lastname' => (empty($_POST['lastname'])) ? '' : $_POST['lastname'],
+		'firstname' => (empty($_POST['firstname'])) ? '' : $_POST['firstname'],
+		'email' => (empty($_POST['email'])) ? '' : $_POST['email'],
+		'textarea' => (empty($_POST['textarea'])) ? '' : $_POST['textarea'],
+		]);
 	  }else{
 	  $_SESSION['success'] = 1;
 	  $headers  = 'MIME-Version: 1.0' . "\r\n";
@@ -194,7 +200,6 @@ class UsersController extends Controller
 		  $_SESSION['inputs'] = $_POST;
 	  // $this->redirectToRoute('users_sign_up');
 		$this->show('users/sign_up', [
-			//'mike' => $_SESSION,
 			// 'lenomduchamp' => ()
 			'lastname' => (empty($_POST['lastname'])) ? '' : $_POST['lastname'],
 			'firstname' => (empty($_POST['firstname'])) ? '' : $_POST['firstname'],
@@ -241,7 +246,7 @@ class UsersController extends Controller
 	//	debug($_SESSION['inputs']);
 	//	die;
 		$this->show('users/sign_up', [
-			'mike' => $_SESSION,
+			//'mike' => $_SESSION,
 			'lastname' => '',
 			'firstname' => '',
 			'nickname' => '',
