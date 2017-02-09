@@ -1,13 +1,11 @@
 <?php
-
 	$w_routes = array(
-
 		['GET', 				'/', 												'Users#home', 									'users_home'],
 		['GET|POST', 		'/calendar', 								'Users#calendar', 							'users_calendar'],
 		['GET', 				'/reglement', 							'Users#reglement', 							'users_reglement'],
 		['GET', 				'/list_articles', 					'Articles#listArticles', 				'users_list_articles'],
 		['GET', 				'/article/[:id]', 					'Articles#showArticles', 				'users_article'],
-		['GET', 				'/access', 									'Users#access', 								'users_access'],
+				['GET', 				'/access', 									'Users#access', 								'users_access'],
 		['GET', 				'/live', 										'Users#live', 									'users_live'],
 		['GET|POST', 		'/contact', 								'Users#contact', 								'users_contact'],
 		['GET|POST', 		'/traitementContact', 			'Users#traitementContact', 			'users_traitementContact'],
@@ -21,7 +19,14 @@
 		['GET', 				'/admin_article', 					'Admin#article', 								'admin_article'],
 		['GET', 				'/admin_event', 						'Admin#event', 									'admin_event'],
 		['GET|POST', 		'/admin_result', 						'Admin#result', 								'admin_result'],
-		['GET|POST', 		'/admin_list_articles',			'Admin#admin_list_articles',		'admin_list_articles'],
+		// affiche list article pour l'admin
+		['GET|POST', 		'/admin_list_articles',			'Articles#listArticles',		'admin_list_articles'],
+		// suprime les articles (met en inactif)
+		['GET|POST', 		'/admin_supp/[:id]',			'Admin#suppArticle',		'admin_supp'],
+		// modifie les articles
+		['GET|POST', 		'/admin_article/[:id]',			'Admin#modifyArticle',		'admin_modify'],
+
+
 		['GET|POST', 		'/admin_list_events',				'Admin#admin_list_events',			'admin_list_events'],
 		['POST', 				'/admin_add_article', 			'Admin#addArticle', 						'admin_add_article'],
 	);

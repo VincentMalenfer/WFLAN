@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 
 namespace Controller;
@@ -82,26 +83,26 @@ class UsersController extends Controller
 	public function traitementContact()
 	{
 		//session_start();//on démarre la session
-	// $errors = [];
-	  $errors = array(); // on crée une vérif de champs
-	if(!array_key_exists('lastname', $_POST) || $_POST['lastname'] == '') {// on verifie l'existence du champ et d'un contenu
-	  $errors ['lastname'] = "Vous n'avez pas renseigné votre nom !";
-	  }
-	if(!array_key_exists('firstname', $_POST) || $_POST['firstname'] == '') {// on verifie l'existence du champ et d'un contenu
-	  $errors ['firstname'] = "Vous n'avez pas renseigné votre prénom !";
-	  }
-	if(!array_key_exists('email', $_POST) || $_POST['email'] == '' || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {// on verifie existence de la clé
-	  $errors ['mail'] = "Vous n'avez pas renseigné votre email !";
-	  }
-	if(!array_key_exists('textarea', $_POST) || $_POST['textarea'] == '') {
-	  $errors ['textarea'] = "Vous n'avez pas renseigné votre message !";
-	  }
-	if(isset($_POST['envoyer'])) {
+		// $errors = [];
+		$errors = array(); // on crée une vérif de champs
+		if(!array_key_exists('lastname', $_POST) || $_POST['lastname'] == '') {// on verifie l'existence du champ et d'un contenu
+		$errors ['lastname'] = "Vous n'avez pas renseigné votre nom !";
+		}
+		if(!array_key_exists('firstname', $_POST) || $_POST['firstname'] == '') {// on verifie l'existence du champ et d'un contenu
+		$errors ['firstname'] = "Vous n'avez pas renseigné votre prénom !";
+		}
+		if(!array_key_exists('email', $_POST) || $_POST['email'] == '' || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {// on verifie existence de la clé
+		$errors ['mail'] = "Vous n'avez pas renseigné votre email !";
+		}
+		if(!array_key_exists('textarea', $_POST) || $_POST['textarea'] == '') {
+		$errors ['textarea'] = "Vous n'avez pas renseigné votre message !";
+		}
+		if(isset($_POST['envoyer'])) {
 		$url = 'https://www.google.com/recaptcha/api/siteverify';
 		$privatekey = "6LeprRQUAAAAAHKTp8UfMmcjJiaChSr3kByHtiQ8";
 		$response = file_get_contents($url."?secret=".$privatekey."&response=".$_POST['g-recaptcha-response']."&remoteip".$_SERVER['REMOTE_ADDR']);
 		$data = json_decode($response);
-	}
+		}
 
 	//On check les infos transmises lors de la validation
 	  if(!empty($errors)){ // si erreur on renvoie vers la page précédente
@@ -144,7 +145,7 @@ class UsersController extends Controller
 	/**
 	 * Page de traitement inscription
 	 */
-	 function age($date)
+	 function age($date) // Verification fonctionnement
 	 {
 	   $d = strtotime($date);
 	   return  (int) ((time() - $d) / 3600 / 24 / 365.242);
