@@ -89,4 +89,19 @@ class AdminController extends Controller
 			return false;
 		}
 	}
+	
+
+
+	public function suppArticle($id){
+		
+		$supp= new ArticlesModel();
+		$supp->deleteArticle($id);
+		$this->redirectToRoute('list_articles');
+	}
+	public function modifyArticle($id){
+
+		$modify= new ArticlesModel();
+		$articles=$modify->getArticle($id);
+		$this->show('admin/admin_article', ['articles'=> $articles]);
+	}
 }

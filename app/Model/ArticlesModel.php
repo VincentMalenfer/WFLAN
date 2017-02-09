@@ -77,7 +77,7 @@ class ArticlesModel extends Model
 		return $this->update($data);
 		// 'UPDATE article SET title,description,`text`,pictures,picturesDes,publishdate VALUES (:title,:description,`:text`,:pictures,:picturesDes,:publishdate)WHERE  id_articles= :id';
 	}
-	public function deleteArticle($actif)
+	public function deleteArticle($id)
 	{
 		// la function delete article met l'article en actif ou non
 		$data= array(

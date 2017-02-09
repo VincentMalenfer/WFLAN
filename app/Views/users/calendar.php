@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <?php $this->layout('layout', ['title' => 'Calendar']) ?>
 
 <?php $this->start('main_content') ?>

@@ -4,12 +4,12 @@
 
 	<h2>Ajout Article</h2>
 
-	<form  id="ajoutArticle" action="<?= $this->url("admin_add_article")?>" method="POST"  enctype="multipart/form-data">
+	<form  id="ajoutArticle" action="<?= $this->url("admin_article")?>" method="POST"  enctype="multipart/form-data">
 		<div class="form-group">
 
 <!-- 	########################		DEBUT	TITRE	 			########################	-->
 			<label for="title">Titre de l'article : </label>
-			<input type="text" name="title" id="title" placeholder="Saisissez le titre" class="form-control" >
+			<input type="text" name="title" id="title" placeholder="Saisissez le titre" class="form-control" value="<?= $articles['title']?>" >
 			<p id="msgun">le titre doit faire au maximum 50 caractère et ne doit pas étre vide.</p>
 		</div>
 <!-- 	########################		FIN		TITRE	 			########################	-->
