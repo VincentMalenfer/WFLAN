@@ -66,7 +66,9 @@
 </head>
 <body>
 	<header>
-		<?php	include("header.php"); ?>
+		<?php
+		$_SESSION["Mike"] = "mike";
+		include("header.php"); ?>
 	</header>
 
 	<main>

@@ -11,13 +11,13 @@ class UserModel extends usr
 	 	$password = password_hash($password, PASSWORD_DEFAULT);
 		$this->setPrimaryKey("idusers");
 		$data = array(
-			"lastname"    =>$lastname,
-			"firstname"    =>$firstname,
-			"nickname"    =>$nickname,
-			"email"    =>$email,
-			"birthdate"    =>$birthdate,
-			"phonenumber"    =>$phonenumber,
-      "password"    => $password
+			"lastname"    	=>		$lastname,
+			"firstname"    	=>		$firstname,
+			"nickname"    	=>		$nickname,
+			"email"    			=>		$email,
+			"birthdate"    	=>		$birthdate,
+			"phonenumber"   =>		$phonenumber,
+      "password"   	 	=> 		$password
 		);
 	return $this->insert($data);
 	}
