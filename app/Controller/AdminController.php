@@ -8,20 +8,10 @@ class AdminController extends Controller
 	/**
 	 * Page d'administration
 	 */
-	public function admin()
-	{
-		// $this->allowTo('admin');
-
+	public function admin()	{
 		$this->show('admin/admin');
 	}
-	public function article()
-	{
-		// $this->allowTo('admin');
 
-		$articleModel = new ArticlesModel();
-		$games = $articleModel->getGame();
-		$this->show('admin/admin_article', ['games'=> $games]);
-	}
 	public function event(){
 
 	// {	$this->allowTo('admin');
@@ -60,10 +50,17 @@ class AdminController extends Controller
 
 	public function addArticle(){
 
+		// Liste de games
+			$articleModel = new ArticlesModel();
+			$games = $articleModel->getGame();
+
+
+
 		// $this->allowTo('admin');
 		$filepath="";
-		if(empty($_FILES))
-			$this->redirectToRoute('admin_article');
+		if(empty($_FILES)){
+			$this->show('admin/admin_article', ['games'=> $games]);
+		}
 		if ($_FILES['picture']['size'] > 0) {
 
 			// revoir le chemin de destination des images
@@ -95,7 +92,7 @@ class AdminController extends Controller
 									 $_POST['description_pictures']
 									);
 		};
-		$this->redirectToRoute('admin_article');
+		$this->show('admin/admin_article', ['games'=> $games]);
 	}
 
 	public function security(){

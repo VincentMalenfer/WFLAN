@@ -5,7 +5,6 @@ namespace Model;
 use W\Security\AuthentificationModel;
 use \W\Model\Model as Model;
 use Controller\UsersController;
-<<<<<<< HEAD
 
 class ArticlesModel extends Model
 {
@@ -36,7 +35,6 @@ class ArticlesModel extends Model
 		$this->setPrimaryKey("idarticles");
 		return $this->find($id);
 	}
-<<<<<<< HEAD
 
 	public function addArcticle($title,$description,$text,$pictures,$description_pictures)
 	{
@@ -85,7 +83,6 @@ class ArticlesModel extends Model
 		'description_pictures'		=> $description_pictures,
 		'publishdate'		=> date("Y-m-d")
 			);
-<<<<<<< HEAD
 
 		return $this->update($data);
 

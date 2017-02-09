@@ -20,7 +20,7 @@
 	<?php endif;
 
 ?>
-	<form class="form-horizontal" method="POST" action="<?= $this->url('users_traitement_sign_up') ?>">
+	<form class="form-horizontal" method="POST" action="<?= $this->url('users_sign_up') ?>">
 		<fieldset>
 			<!-- Nom -->
 			<div class="form-group">

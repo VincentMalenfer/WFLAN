@@ -1,32 +1,31 @@
 <?php
 	$w_routes = array(
-		['GET', 				'/', 												'Users#home', 									'users_home'],
-		['GET|POST', 		'/calendar', 								'Users#calendar', 							'users_calendar'],
-		['GET', 				'/reglement', 							'Users#reglement', 							'users_reglement'],
-		['GET', 				'/list_articles', 					'Articles#listArticles', 				'users_list_articles'],
-		['GET', 				'/article/[:id]', 					'Articles#showArticles', 				'users_article'],
-				['GET', 				'/access', 									'Users#access', 								'users_access'],
-		['GET', 				'/live', 										'Users#live', 									'users_live'],
-		['GET|POST', 		'/contact', 								'Users#contact', 								'users_contact'],
-		['GET|POST', 		'/traitementContact', 			'Users#traitementContact', 			'users_traitementContact'],
-		['GET', 				'/sign_in', 								'Users#sign_in', 								'users_sign_in'],
-		// ['POST', 		'/', 												'Users#users_log_in', 					'users_log_in'],
-		['GET|POST', 		'/sign_up', 								'Users#sign_up', 								'users_sign_up'],
-		['GET|POST', 		'/traitement_sign_up', 			'Users#traitement_sign_up', 		'users_traitement_sign_up'],
-		['POST', 				'/', 												'Users#sign_up_form', 					'users_sign_up_form'],
-		['GET|POST', 		'/', 												'Users#log_out', 								'users_log_out'],
-		['GET', 				'/admin', 									'Admin#admin', 									'admin_admin'],
-		['GET', 				'/admin_article', 					'Admin#article', 								'admin_article'],
-		['GET', 				'/admin_event', 						'Admin#event', 									'admin_event'],
-		['GET|POST', 		'/admin_result', 						'Admin#result', 								'admin_result'],
-		// affiche list article pour l'admin
-		['GET|POST', 		'/admin_list_articles',			'Articles#listArticles',		'admin_list_articles'],
-		// suprime les articles (met en inactif)
-		['GET|POST', 		'/admin_supp/[:id]',			'Admin#suppArticle',		'admin_supp'],
-		// modifie les articles
-		['GET|POST', 		'/admin_article/[:id]',			'Admin#modifyArticle',		'admin_modify'],
 
+		['GET', 				'/', 															'General#home', 								'users_home'],
+		['GET',			 		'/calendar', 											'General#calendar', 						'users_calendar'],
 
-		['GET|POST', 		'/admin_list_events',				'Admin#admin_list_events',			'admin_list_events'],
-		['POST', 				'/admin_add_article', 			'Admin#addArticle', 						'admin_add_article'],
+		['GET', 				'/list_articles', 								'General#listArticles', 				'article_list_articles'],
+		['GET', 				'/article/[:id]', 								'General#showArticles', 				'article_article'],
+
+		['GET', 				'/reglement', 										'General#reglement', 						'users_reglement'],
+		['GET', 				'/access', 												'General#access', 							'users_access'],
+		['GET', 				'/live', 													'General#live', 								'users_live'],
+		['GET|POST', 		'/contact', 											'Users#contact', 								'users_contact'],
+		['GET|POST', 		'/sign_up', 											'Users#sign_up', 								'users_sign_up'],
+		['GET|POST', 		'/sign_in', 											'Users#sign_in', 								'users_sign_in'],
+		['GET|POST', 		'/log_out', 											'Users#log_out', 								'users_log_out'],
+
+		// ADMIN //
+		['GET', 				'/admin', 												'Admin#admin', 									'admin_admin'],
+		// ARTICLE //
+		['POST', 				'/admin/list_articles',						'General#listArticles',			  	'admin_list_articles'],
+		['GET', 				'/admin/add_article', 						'Admin#addArticle', 						'admin_add_article'],
+		['GET|POST', 		'/admin_supp_article/[:id]',			'Admin#suppArticle',						'admin_supp_article'],
+		['GET|POST', 		'/admin/modif_article/[:id]',			'Admin#modifyArticle',					'admin_modify_article'],
+
+		// EVENT //
+		['GET|POST', 		'/admin_list_events',							'Admin#admin_list_events',			'admin_list_events'],
+		['GET', 				'admin/add_event', 								'Admin#addEvent', 						  'admin_add_event'],
+		['GET', 				'/admin_supp_event/[:id]', 				'Admin#suppEvent', 						  'admin_supp_event'],
+		['GET|POST', 		'/admin/modif_event/[:id]',				'Admin#modifyEvent',						'admin_modify_event'],
 	);
