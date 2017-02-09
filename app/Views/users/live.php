@@ -4,8 +4,6 @@
 <div class="container">
 	<h1>Direct</h1>
 
-	<p>Bienvenue sur notre page de direct !</p>
-
 	<div class="live">
 		<div class="row">
 			<div class="player col-md-8 iframe-responsive-wrapper">

@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Model;
 
 // use \W\Model\UsersModel;
@@ -10,7 +9,6 @@ use Controller\UsersController;
 
 class ArticlesModel extends Model
 {
-
 	public function ajouterArticle($title, $text, $picture, $publishdate, $autor, $users_idusers)
 	{
 		$this->setPrimaryKey("idarticles");
@@ -22,7 +20,6 @@ class ArticlesModel extends Model
 							"author"				=> $autor,
 							"users_idusers" => $users_idusers
 						);
-
 		return $this->insert($data);
 	}
 
@@ -30,10 +27,8 @@ class ArticlesModel extends Model
 	public function getArticles()
 	{
 		$sql = 'SELECT * FROM ' . $this->table.' WHERE actif = 1 ORDER BY idarticles DESC';
-
 		$sth = $this->dbh->prepare($sql);
 		$sth->execute();
-
 		return $sth->fetchAll();;
 	}
 
@@ -45,7 +40,6 @@ class ArticlesModel extends Model
 
 	public function addArcticle($title,$description,$text,$pictures,$description_pictures)
 	{
-
 		$data= array(
 			'title' 					=> $title,				//post titre du form admin article
 			'description' 		=> $description,				//post description du form de admin article
@@ -55,7 +49,6 @@ class ArticlesModel extends Model
 			'publishdate'			=> date("Y-m-d"),				// = date du serveur
 			'author'					=> $loggedUser[""],
 			);
-
 		return $this->insert($data);
 		// 'INSERT INTO articles (title,description,`text`,pictures,des_pictures,publishdate,author )
 		// VALUES (:title,:description;`:text`,:pictures,:picturesDes,:publishdate,:autor)';
@@ -71,7 +64,6 @@ class ArticlesModel extends Model
 
 		// 'INSERT INTO games_has_articles (id_games,id_articles) VALUES (:idgame,:idarticle)';
 	}
-
 	//$_GET['id_article']
 	//$_POST['title']					//post titre du form admin article
 	//$_POST['description'];			//post description du form de admin article
@@ -82,7 +74,6 @@ class ArticlesModel extends Model
 
 	public function modifyArticle($id,$title,$description,$text,$pictures,$des_pictures)
 	{
-
 		// id_articles est le champ id de la table articles
 
 		$data=array(
@@ -109,19 +100,14 @@ class ArticlesModel extends Model
 			'actif'=> 0
 
 		);
-
 		return $this->update($data,$id);
 
 		// 'UPDATE article SET actif = "0" WHERE id_articles =' $delete;
-
 	}
-
 	// affiche 10 articles different de celui que l'on a en get de la page
 
 	public function slidebarArticle($orderBy,$orderDir,$limit){
-
 		return $this->findAll($orderBy,$orderDir,$limit);
-
 		// 'SELECT * FROM articles ORDER BY ASC `date` LIMIT 10  WHERE `id_article` != $id;'
 
 	}
@@ -132,7 +118,6 @@ class ArticlesModel extends Model
 		return $this->findAll();
 		// 'SELECT *  FROM  games';
 	}
-
 	// delete de la bdd les articles selectionné par l'admin
 	public function deleteArchive($id){
 		return $this->delete($id);
