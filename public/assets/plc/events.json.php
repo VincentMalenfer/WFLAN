@@ -1,14 +1,47 @@
-{
-	"success": 1,
-	"result": [
-		
-		{
-			"id": "296",
-			"title": "Fin de Webforce",
-			"url": "http://www.example.com/",
-			"class": "event-single",
-			"start": "1487089800000",
-			"end":   "1487089801000"
-		}
-	]
+
+<?php 
+$server = "localhost";
+$login = "root";
+$password = ""; 
+$dbName = "wflanfreorwfan"; // nom de la base de donnée
+
+try {
+	$connexion = new PDO('mysql:host='.$server.';dbname='.$dbName, $login, $password);
+	$connexion->exec("SET NAMES 'UTF8'");
 }
+catch(Exception $e){
+	echo 'Erreur : '.$e->getMessage().'<br />';
+	echo 'N° : '.$e->getCode().'<br />';
+	die();
+}
+
+
+$sql = "SELECT * FROM event";
+$req = $connexion->prepare($sql);		
+$req->execute();
+
+$events = $req->fetchAll();
+
+$array = array(
+	'success' => 1,
+	'result'  => ''
+);
+
+foreach($events as $event) {
+	$array['result'][] = array(
+		'id'    => $event["idevent"],
+		'title' => $event["title"],
+		'url'   => $event["url"],
+		'class' => $event["class"],
+		'start' => $event["start"],
+		'end'   => $event["end"]
+	);
+}
+      
+
+// Debug mode
+// echo '<pre>';
+// print_r($array);
+$eventJson = json_encode($array, JSON_PRETTY_PRINT);   
+echo $eventJson;
+// echo '</pre>';

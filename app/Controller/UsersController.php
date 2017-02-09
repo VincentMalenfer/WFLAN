@@ -85,13 +85,8 @@ class UsersController extends Controller
 	 }
 
 
-	/**
-	 * Page de sign_in
-	 */
-	public function sign_in()
-	{
-		$this->show('users/sign_in');
-	}
+	
+
 
 
 
@@ -179,13 +174,6 @@ class UsersController extends Controller
 	}
 
 
-	/**
-	 * Page de log_out
-	 */
-	public function log_out()
-	{
-		session_destroy();
- 	 $this->show('users/home');
-	}
+	
 }
 
