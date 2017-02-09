@@ -41,7 +41,7 @@ class UsersController extends Controller
 	  $_SESSION['errors'] = $errors;//on stocke les erreurs
 	  $_SESSION['inputs'] = $_POST;
 	  //$this->redirectToRoute('users_contact');
-		$this->show('users/users_contact', [
+		$this->show('users/contact', [
 		'lastname' => (empty($_POST['lastname'])) ? '' : $_POST['lastname'],
 		'firstname' => (empty($_POST['firstname'])) ? '' : $_POST['firstname'],
 		'email' => (empty($_POST['email'])) ? '' : $_POST['email'],
@@ -73,16 +73,6 @@ class UsersController extends Controller
 	  $this->redirectToRoute('users_contact');
 	  }
 	}
-
-	/**
-	 * Page de traitement inscription
-	 */
-	 function age($date) // Verification fonctionnement
-	 {
-	   $d = strtotime($date);
-	   return  (int) ((time() - $d) / 3600 / 24 / 365.242);
-	 }
-
 
 	/**
 	 * Page de sign_in
@@ -174,7 +164,7 @@ class UsersController extends Controller
 			$_POST["password"]
 			);
 		}
-
+		$this->redirectToRoute('users_sign_up');
 	}
 
 

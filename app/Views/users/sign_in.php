@@ -8,7 +8,7 @@
     <label for="email">Email</label>
     <input type="email" id="email" class="form-control" placeholder="Votre adresse email" required autofocus>
     <label for="password">Mot de passe</label>
-    <input type="password" id="password" class="form-control" placeholder="Mot de passe" required>
+    <input type="password" id="password" class="form-control" placeholder="Mot de passe" >
     <div class="checkbox">
       <label>
         <input type="checkbox" value="remember-me"> Ce souvenir de moi
