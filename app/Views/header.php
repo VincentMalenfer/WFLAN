@@ -17,7 +17,7 @@
         <ul class="nav navbar-nav">
           <li><a href="<?= $this->url('users_home'); ?>">Accueil</a></li>
           <li><a href="<?= $this->url('users_calendar'); ?>">Calendrier</a></li>
-          <li><a href="<?= $this->url('users_list_articles'); ?>">Articles</a></li>
+          <li><a href="<?= $this->url('article_list_articles'); ?>">Articles</a></li>
           <li><a href="<?= $this->url('users_reglement'); ?>">Réglements</a></li>
           <li><a href="<?= $this->url('users_access'); ?>" >Accès aux sites</a></li>
           <li><a href="<?= $this->url('users_live'); ?>">Direct</a></li>
