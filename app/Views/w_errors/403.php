@@ -1,7 +1,9 @@
 <?php $this->layout('layout', ['title' => 'ERROR 403']) ?>
 
 <?php $this->start('main_content'); ?>
-<div class="error404">
+
+<div class="error403">
+
 	<p>
 	ERROR 403 : Evacuez la zone !!!
 	</p>

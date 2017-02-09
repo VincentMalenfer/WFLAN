@@ -8,12 +8,17 @@ html, body {
 	background-color: #f0f0f0;
 	color: #212121;
 }
-.container {
+h1 {
 	text-align: center;
 }
+
 /* Articles Sidebar*/
 sidebar-custom{
 	background-color: #fff;
+}
+/* home hidden sur div class audio */
+.audio {
+	visibility: hidden;
 }
 /* Responsive pour iframe */
 .iframe-responsive-wrapper        {
@@ -32,81 +37,6 @@ sidebar-custom{
     height: 100%;
 }
 
-/*-----------------------
-        ADMIN
--------------------------*/
-.admin {
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-}
-
-.admin a{
-    margin:15px; 
-    margin-top: 40px;
-
-    font-weight: bolder;
-    font-size: 40px;
-
-    height: 100px;
-    width: auto;
-
-    padding: 20px;
-
-    display: inline-block;
-    text-align: center;
-    border: solid 1px #A6E22E;
-    transition: all 0.5s;
-}
-
-.admin a:hover{
-    margin:15px; 
-    margin-top: 40px;
-
-    border: solid 1px #A6E22E;
-    background-color: #A6E22E;
-
-    text-transform: none;
-    text-decoration: none;
-}
-
-.admin a:focus{
-    margin:15px; 
-    font-weight: bolder;
-    font-size: 40px;
-
-    height: 100px;
-    width: auto;
-
-    padding: 20px;
-
-    border: solid 1px #009900;
-    background-color: #009900;
-    
-    text-transform: none;
-    text-decoration: none;
-}
-
-.adminForm{
-    width: 900px;
-    margin-right: auto;
-    margin-left: auto;
-    text-align: center;
-}
-
-.adminForm .games{
-    text-transform: uppercase;
-    color: grey;
-    font-size: 25px;
-}
-
-.adminForm .form-group input,label{
-    display: inline-block;
-}
-
-/*-----------------------
-       FIN  ADMIN
--------------------------*/
 
 /*-----------------------
     ERROR 403 & 404

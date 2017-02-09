@@ -1,128 +1,118 @@
-<<<<<<< HEAD
 <?php $this->layout('layout', ['title' => 'sign_up']) ?>
 
 <?php $this->start('main_content') ?>
-	<h2>sign_up</h2>
-	<p>Vous avez atteint la page de sign_up. Bravo.</p>
-	
-<?php $this->stop('main_content') ?>
-=======
-<?php $this->layout('layout', ['title' => 'sign_up']) ?>
 
-<?php $this->start('main_content') ?>
+
 
 <div class="container">
 	<h2>Inscription</h2>
-	<form class="form-horizontal">
+
+	<!-- Affichage des messages d'erreurs et de success -->
+	<?php if(array_key_exists('errors',$_SESSION)): ?>
+	<div class="alert alert-danger">
+	<?= implode('<br>', $_SESSION['errors']); ?>
+	</div>
+	<?php endif; ?>
+	<?php if(array_key_exists('success',$_SESSION)): ?>
+	<div class="alert alert-success">
+	Votre inscription est validée !
+	</div>
+	<?php endif;
+
+?>
+	<form class="form-horizontal" method="POST" action="<?= $this->url('users_traitement_sign_up') ?>">
 		<fieldset>
-			<legend>Formulaire d'inscription</legend>
-			<!-- Prepended text-->
+			<!-- Nom -->
 			<div class="form-group">
-			  <label class="col-md-4 control-label" for="prependedtext"></label>
-			  <div class="col-md-4">
+			  <div class="col-sm-offset-4 col-sm-4">
 			    <div class="input-group">
 			      <span class="input-group-addon span-bold">Nom</span>
-			      <input id="prependedtext" name="prependedtext" class="form-control" placeholder="Votre nom" type="text" required>
+			      <input id="lastname" name="lastname" class="form-control" placeholder="Votre nom" type="text" value="<?= $lastname ?>">
 			    </div>
 			  </div>
 			</div>
 
-			<!-- Prepended text-->
+			<!-- Prénom -->
 			<div class="form-group">
-			  <label class="col-md-4 control-label" for="firstname"></label>
-			  <div class="col-md-4">
+			  <div class="col-sm-offset-4 col-sm-4">
 			    <div class="input-group">
 			      <span class="input-group-addon span-bold">Prénom</span>
-			      <input id="firstname" name="firstname" class="form-control" placeholder="Votre prénom" type="text" required>
+			      <input id="firstname" name="firstname" class="form-control" placeholder="Votre prénom" type="text" value="<?= $firstname ?>">
 			    </div>
 			  </div>
 			</div>
 
-			<!-- Prepended text-->
+			<!-- Pseudo -->
 			<div class="form-group">
-			  <label class="col-md-4 control-label" for="nickname"></label>
-			  <div class="col-md-4">
+			  <div class="col-sm-offset-4 col-sm-4">
 			    <div class="input-group">
 			      <span class="input-group-addon span-bold">Pseudo</span>
-			      <input id="nickname" name="nickname" class="form-control" placeholder="Votre pseudo" type="text" required>
+			      <input id="nickname" name="nickname" class="form-control" placeholder="Votre pseudo" type="text" value="<?= $nickname ?>">
 			    </div>
 			  </div>
 			</div>
 
-			<!-- Prepended text-->
+			<!-- Email -->
 			<div class="form-group">
-			  <label class="col-md-4 control-label" for="email"></label>
-			  <div class="col-md-4">
+			  <div class="col-sm-offset-4 col-sm-4">
 			    <div class="input-group">
 			      <span class="input-group-addon span-bold">Email</span>
-			      <input id="email" name="email" class="form-control" placeholder="Votre adresse email" type="text" required>
+			      <input id="email" name="email" class="form-control" placeholder="Votre adresse email" type="text" value="<?= $email ?>">
 			    </div>
 			  </div>
 			</div>
 
-			<!-- Prepended text-->
+			<!-- Date de naissance-->
 			<div class="form-group">
-			  <label class="col-md-4 control-label" for="birthdate"></label>
-			  <div class="col-md-4">
+			  <div class="col-sm-offset-4 col-sm-4">
 			    <div class="input-group">
 			      <span class="input-group-addon span-bold">Date de naissance</span>
-			      <input id="birthdate" name="birthdate" class="form-control" type="date" required>
+			      <input id="birthdate" name="birthdate" class="form-control" type="date"value="<?= $birthdate ?>" >
 			    </div>
 			  </div>
 			</div>
 
-			<!-- Prepended text-->
+			<!-- Téléphone -->
 			<div class="form-group">
-			  <label class="col-md-4 control-label" for="phonenumber"></label>
-			  <div class="col-md-4">
+			  <div class="col-sm-offset-4 col-sm-4">
 			    <div class="input-group">
 			      <span class="input-group-addon span-bold">Téléphone</span>
-			      <input id="phonenumber" name="phonenumber" class="form-control" placeholder="Votre numéro de mobile" type="tel">
+			      <input id="phonenumber" name="phonenumber" class="form-control" placeholder="Votre numéro de mobile" type="tel" value="<?= $phonenumber ?>">
 			    </div>
-			    <small class="help-block">* n'est pas obligatoire</small>
+			    <small class="help-block">*facultatif</small>
 			  </div>
 			</div>
 
-			<!-- Prepended text-->
+			<!-- Mot de passe -->
 			<div class="form-group">
-			  <label class="col-md-4 control-label" for="password"></label>
-			  <div class="col-md-4">
+			  <div class="col-sm-offset-4 col-sm-4">
 			    <div class="input-group">
 			      <span class="input-group-addon span-bold">Mot de passe</span>
-			      <input id="password" name="password" class="form-control" placeholder="Votre mot de passe" type="password" required>
+			      <input id="password" name="password" class="form-control" placeholder="Votre mot de passe" type="password" >
 			    </div>
 			  </div>
 			</div>
 
-			<!-- Prepended text-->
+			<!-- Confirmation -->
 			<div class="form-group">
-			  <label class="col-md-4 control-label" for="passwordConfirm"></label>
-			  <div class="col-md-4">
+			  <div class="col-sm-offset-4 col-sm-4">
 			    <div class="input-group">
-			      <span class="input-group-addon span-bold">confirmation MdP</span>
-			      <input id="passwordConfirm" name="passwordConfirm" class="form-control" placeholder="Votre mot de passe" type="password" required>
+			      <span class="input-group-addon span-bold">Confirmation</span>
+			      <input id="passwordConfirm" name="passwordConfirm" class="form-control"  placeholder="Votre mot de passe" type="password" >
 			    </div>
 			  </div>
 			</div>
 
+			<!-- reCaptcha API -->
 			<div class="form-group">
-			  <label class="col-md-4 control-label" for="captchaOperation"></label>
-			    <div class="col-md-4">
-						<small class="help-block">Je ne suis pas un robot :</small>
-						<div class="input-group">
-							<span class="input-group-addon span-bold" id="captchaOperation"></span>
-				      <input type="text" class="form-control" placeholder="Entrer le resultat de l'addition"name="captcha"
-				          data-fv-callback="true"
-				          data-fv-callback-callback="checkCaptcha"
-				          data-fv-callback-message="Wrong answer" />
-						</div>
-			    </div>
-			  </div>
+				<div class="col-sm-offset-4 col-sm-4">
+						<div class="g-recaptcha" name="recaptcha" data-sitekey="6LeprRQUAAAAANaL1d0A7ywc8Sl6ldhbmzrGZBH6"></div>
+				</div>
+			</div>
 
 			<!-- Button -->
 			<div class="form-group">
-			  <label class="col-md-4 control-label" for="envoyer"></label>
-			  <div class="col-md-4">
+			  <div class="col-sm-offset-4 col-sm-4">
 			    <button id="envoyer" name="envoyer" class="btn btn-primary">Envoyer</button>
 			  </div>
 			</div>
@@ -130,27 +120,11 @@
 	</form>
 </div>
 
-
-<!-- JS Securité antirobot -->
-
-<script>
-// Check the captcha
-function checkCaptcha(value, validator, $field) {
-    var items = $('#captchaOperation').html().split(' '),
-        sum   = parseInt(items[0]) + parseInt(items[2]);
-    return value == sum;
-}
-
-$(document).ready(function() {
-    // Generate a simple captcha
-    function randomNumber(min, max) {
-        return Math.floor(Math.random() * (max - min + 1) + min);
-    }
-    $('#captchaOperation').html([randomNumber(1, 10), '+', randomNumber(1, 100), '='].join(' '));
-
-    $('#basicBootstrapForm').formValidation();
-});
-</script>
+<?php
+	 // on nettoie les données précédentes
+	unset($_SESSION['inputs']);
+	unset($_SESSION['success']);
+	unset($_SESSION['errors']);
+?>
 
 <?php $this->stop('main_content') ?>
->>>>>>> refs/remotes/origin/Romain
