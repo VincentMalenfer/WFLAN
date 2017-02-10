@@ -17,7 +17,7 @@
   </div>
   <?php endif; ?>
 
-	<form id="basicBootstrapForm" class="form-horizontal" action="<?= $this->url('users_traitementContact') ?>" method="post">
+	<form id="basicBootstrapForm" class="form-horizontal" action="<?= $this->url('traitementContact') ?>" method="POST">
 		<fieldset>
 
 			<!-- Champ nom -->
@@ -25,7 +25,7 @@
 			  <div class="col-sm-offset-4 col-sm-4">
 			    <div class="input-group">
 			      <span class="input-group-addon">Nom</span>
-			      <input id="lastname" name="lastname" class="form-control" placeholder="Votre nom" type="text" required>
+			      <input id="lastname" name="lastname" class="form-control" placeholder="Votre nom" type="text" >
 			    </div>
 				</div>
 			</div>
@@ -35,7 +35,7 @@
 			  <div class="col-sm-offset-4 col-sm-4">
 			    <div class="input-group">
 			      <span class="input-group-addon">Prénom</span>
-			      <input id="firstname" name="firstname" class="form-control" placeholder="Votre prénom" type="text" required>
+			      <input id="firstname" name="firstname" class="form-control" placeholder="Votre prénom" type="text" >
 					</div>
 				</div>
 			</div>
@@ -45,7 +45,7 @@
 			  <div class="col-sm-offset-4 col-sm-4">
 			    <div class="input-group">
 			      <span class="input-group-addon">Email</span>
-			      <input id="email" name="email" class="form-control" placeholder="Votre adresse email" type="email" required>
+			      <input id="email" name="email" class="form-control" placeholder="Votre adresse email" type="email" >
 			    </div>
 				</div>
 			</div>

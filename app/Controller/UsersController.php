@@ -3,8 +3,9 @@
 namespace Controller;
 
 use \W\Controller\Controller;
-use  \Model\userModel;
-
+use \Model\UserModel;
+use \Model\ConnexionModel;
+use \W\Security\AuthentificationModel;
 
 class UsersController extends Controller
 {
@@ -41,7 +42,7 @@ class UsersController extends Controller
 	  $_SESSION['errors'] = $errors;//on stocke les erreurs
 	  $_SESSION['inputs'] = $_POST;
 	  //$this->redirectToRoute('users_contact');
-		$this->show('users/users_contact', [
+		$this->show('users/contact', [
 		'lastname' => (empty($_POST['lastname'])) ? '' : $_POST['lastname'],
 		'firstname' => (empty($_POST['firstname'])) ? '' : $_POST['firstname'],
 		'email' => (empty($_POST['email'])) ? '' : $_POST['email'],
@@ -75,24 +76,31 @@ class UsersController extends Controller
 	}
 
 	/**
-	 * Page de traitement inscription
-	 */
-	 function age($date) // Verification fonctionnement
-	 {
-	   $d = strtotime($date);
-	   return  (int) ((time() - $d) / 3600 / 24 / 365.242);
-	 }
-
-
-	/**
 	 * Page de sign_in
 	 */
 	public function sign_in()
 	{
+		if (!empty($_POST)) {
+			$mail = $_POST['email'];
+			$password = $_POST['password'];
+			$passwordHash = password_hash($password,CRYPT_BLOWFISH);
+			$pouet = new AuthentificationModel();
+			$user = $pouet->isValidLoginInfo($mail,$password);
+				if ($user){
+					// lance la function createTokenPlusConnexion avec nos 2 info post(email et password qui est hash)
+					$tokens = new ConnexionModel;
+					$token = $tokens->createTokenPlusConnexion($user["idusers"]);
+					// met en session les info retourner par createTokenPlusConnexion qui elle retourne dans $token
+					$_SESSION["token"] = $token;
+					$_SESSION["nickname"] = $user["nickname"];
+					$_SESSION["status"] = $user["status"];
+					debug($_SESSION);
+				}
+			}
+
+		// mauvais identifiants
 		$this->show('users/sign_in');
 	}
-
-
 
 	/**
 	 * Page de sign_up
@@ -128,9 +136,6 @@ class UsersController extends Controller
 
 		if(!array_key_exists('birthdate', $_POST) || $_POST['birthdate'] == '')// on verifie l'existence du champ et d'un contenu
 			$errors ['birthdate'] = "Vous n'avez pas renseigné votre date de naissance !";
-		else
-			$this->age($_POST['birthdate'])."\n";
-
 
 		if(!array_key_exists('password', $_POST) || $_POST['password'] == '')// on verifie l'existence du champ et d'un contenu
 			$errors ['password'] = "Vous n'avez pas renseigné votre mot de passe !";
@@ -174,9 +179,8 @@ class UsersController extends Controller
 			$_POST["password"]
 			);
 		}
-
+		$this->redirectToRoute('users_sign_up');
 	}
-
 
 	/**
 	 * Page de log_out
@@ -187,3 +191,22 @@ class UsersController extends Controller
  	 $this->show('users/home');
 	}
 }
+
+// 			$_SESSION['success'] = 1;
+// $errors = array(); // on crée une vérif de champs
+//
+// if(!array_key_exists('email', $_POST) || $_POST['email'] == '' || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))// on verifie existence de la clé
+// 	$errors ['mail'] = "Vous n'avez pas renseigné votre email !";
+//
+// if(!array_key_exists('password', $_POST) || $_POST['password'] == '')// on verifie l'existence du champ et d'un contenu
+// 	$errors ['password'] = "Vous n'avez pas renseigné votre mot de passe !";
+//
+// //On check les infos transmises lors de la validation
+// if(!empty($errors)){ // si erreur on renvoie vers la page précédente
+// 	$_SESSION['errors'] = $errors;//on stocke les erreurs
+// 	$_SESSION['inputs'] = $_POST;
+//
+// 	// $this->show('users/sign_in', [
+// 	// 	'email' => (empty($_POST['email'])) ? '' : $_POST['email'],
+// 	// ]);
+// }else{
