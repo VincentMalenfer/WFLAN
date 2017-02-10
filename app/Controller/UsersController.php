@@ -81,20 +81,23 @@ class UsersController extends Controller
 	public function sign_in()
 	{
 		if (!empty($_POST)) {
-			$mail =$_POST['email'];
-			$passwordHash=password_hash($_POST['password'],PASSWORD_DEFAULT);
-			// verifie que l'email et le password existe avec un seul id
-			$passwordEmailExists = new ConnexionModel();
-			$user = $passwordEmailExists->passwordEmailExists($passwordHash,$mail);
-			if ($user === true){
-				// lance la function createTokenPlusConnexion avec nos 2 info post(email et password qui est hash)
-				$token = $passwordEmailExists->createTokenPlusConnexion($user);
-				// met en session les info retourner par createTokenPlusConnexion qui elle retourne dans $token
-				$_SESSION["token"] = $token;
-				$_SESSION["name"] = $user;
+			$mail = $_POST['email'];
+			$password = $_POST['password'];
+			$passwordHash = password_hash($password,CRYPT_BLOWFISH);
+			$pouet = new AuthentificationModel();
+			$user = $pouet->isValidLoginInfo($mail,$password);
+				if ($user){
+					// lance la function createTokenPlusConnexion avec nos 2 info post(email et password qui est hash)
+					$tokens = new ConnexionModel;
+					$token = $tokens->createTokenPlusConnexion($user["idusers"]);
+					// met en session les info retourner par createTokenPlusConnexion qui elle retourne dans $token
+					$_SESSION["token"] = $token;
+					$_SESSION["nickname"] = $user["nickname"];
+					$_SESSION["status"] = $user["status"];
+					debug($_SESSION);
+				}
 			}
-			echo "connecté";
-		}
+
 		// mauvais identifiants
 		$this->show('users/sign_in');
 	}

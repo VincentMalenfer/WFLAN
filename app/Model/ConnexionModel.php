@@ -12,27 +12,33 @@ class ConnexionModel extends Model
     // lance le la création du  token avec la function randomString
     $token = $this->randomString(20);
     // si le token existe déja en bdd
-    if(tokenExists($token))
+    if($this->tokenExists($user)) {
       // si l'id de l'utilisateur est deja present dans la table token mettre a jour le token
-      $aFaire='UPDATE token (id_token) VALUE (:idtoken) WHERE users_idusers = :iduser';
-    else
+        $this->setTable("token");
+          $this->setPrimaryKey("users_idusers");
+          $this->delete($user);
+    }
       $aFaire='INSERT INTO token(id_token, users_idusers) VALUE(:idtoken,:iduser)';
 
       $foundInfo = $this->dbh->prepare($aFaire);
-      $foundInfo->bindValue(':iduser', $user["idusers"]);
+      $foundInfo->bindValue(':iduser', $user);
       $foundInfo->bindValue(':idtoken', $token);
-      $foundInfo->execute($info);
+      $foundInfo->execute();
     return $token;
   }
+  
+  // 1 Vérifier si le token existe déjà : FAIT
+    // 1.a S'il existe, on en génère un nouveau
+  // 2 vérifier si l'utilisateur a déjà un token
+      // 2.a Si l'utilisateur a déjà un token, on update
+      // 2.b Si l'utilisateur n'a pas encore de token, on insert
 
-  public function tokenExists($idusers)
+  public function tokenExists($id)
   {
-    $app = getApp();
-
-    $sql = 'SELECT id_Token FROM token WHERE users_idusers = :idusers LIMIT 1';
+    $sql = 'SELECT * FROM token WHERE users_idusers =:idusers LIMIT 1';
 
     $sth = $this->dbh->prepare($sql);
-    $sth->bindValue(':idusers', $idusers);
+    $sth->bindValue('idusers', $id);
     if($sth->execute()){
        $foundToken = $sth->fetch();
       if($foundToken){
@@ -42,29 +48,10 @@ class ConnexionModel extends Model
      return false;
   }
 
-  public function passwordEmailExists($password, $email)
-  {
-    $app = getApp();
-
-    $sql = 'SELECT * FROM users WHERE password = :password AND email = :email LIMIT 1 ';
-
-    $data = $this->dbh->prepare($sql);
-    $data->bindValue('password', $password);
-    $data->bindValue('email', $email);
-
-      if($data->execute()){
-         $found = $data->fetch();
-          if($found){
-             return $found;
-          }
-      }else{
-        return false;
-    }
-  }
 
   public static function randomString($length = 80)
   {
-    $possibleChars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-';
+    $possibleChars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-'.uniqid();
     $factory = new \RandomLib\Factory;
     $generator = $factory->getGenerator(new \SecurityLib\Strength(\SecurityLib\Strength::MEDIUM));
     $string = $generator->generateString($length, $possibleChars);

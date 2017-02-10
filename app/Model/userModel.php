@@ -8,7 +8,7 @@ use  \W\Security\AuthentificationModel;
 class UserModel extends usr
 {
 	public function ajoutuser($lastname, $firstname, $nickname, $email, $birthdate, $phonenumber, $password){
-	 	$password = password_hash($password, PASSWORD_DEFAULT);
+	 	$password = password_hash($password, CRYPT_BLOWFISH);
 		$this->setPrimaryKey("idusers");
 		$data = array(
 			"lastname"    	=>		$lastname,
