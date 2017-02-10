@@ -86,8 +86,15 @@ class UsersController extends Controller
 		if (!empty($_POST)) {
 			$userModel = new UserModel();
 			$user = $userModel->emailExists($_POST['email']);
-			debug($user);
-			if ($user && ($user["password"] === password_hash($_POST['password'],PASSWORD_DEFAULT))) {
+			if ($user ===1) {
+				
+				// a faire dans le model
+				// SELECT * FROM users WHERE email = $_POST['email'] ;
+
+
+
+
+				if ($user && ($user["password"] === password_hash($_POST['password'],PASSWORD_DEFAULT))) {
 					$user["id_token"] = $this->token();
 					$instanceModel = new AuthentificationModel();
 					debug($user);
@@ -95,8 +102,10 @@ class UsersController extends Controller
 							// unset($user[$app->getConfig('security_password_property')]);
 							// unset($user[$app->getConfig('security_id_property')]);
 					// $_SESSION['user'] = $user; =firstname,lastname,nickname,email,birthdate,status,id_token
-			}else{
 
+				}else{
+
+				}
 			}
 		} else {
 
@@ -108,7 +117,7 @@ class UsersController extends Controller
 
 public function token() {
 	$token= new StringUtils();
- $tokens= $toke->randomString(20);
+ $tokens= $token->randomString(20);
  // verifier que ce token n'existe pas en base de donnée
 }
 
