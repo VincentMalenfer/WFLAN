@@ -3,20 +3,25 @@
 <?php $this->start('main_content') ?>
 
 <div class="admin">
-<!-- ########## 	DEBUT CONTAINER 	########## -->
-	<div class="container">
+
+	<div class="container"> <!-- ########## 	DEBUT CONTAINER 	########## -->
 		<h1>Espace Admin</h1>
 
 		<ul class="nav nav-tabs">
-		  <li class="active"><a data-toggle="tab" href="#AddArticle"> Ajouter article</a></li>
-		  <li><a data-toggle="tab" href="#AddEvent"> Ajouter event</a></li>
+
+	  		<li><a data-toggle="tab" href="#AddArticle">Ajouter article</a></li>
+	  		<li><a data-toggle="tab" href="#AddEvent"> Ajouter event</a></li>
+
+	  		<li><a data-toggle="tab" href="#ModifDeleteArticle"> Modifier & Supprimer event</a></li>
+	  		<li><a data-toggle="tab" href="#ModifDeleteEvent"> Modifier & Supprimer article</a></li>
+
 		</ul>
 
 		<div class="tab-content">
-		  	<div id="AddArticle" class="tab-pane fade in active">
 
-				<h2>Article</h2>
-				<form class="form-horizontal" action="<?= $this->url('users_list_articles') ?>" method="POST">
+		  	<div id="AddArticle" class="tab-pane fade">
+				<h2>Ajout Article</h2>
+				<form class="form-horizontal" action="<?= $this->url('admin_add_article') ?>" id="ajoutArticle" method="POST" enctype="multipart/form-data">
 					<fieldset>
 			<!-- 	########################		DEBUT	TITRE	 			########################	-->
 						<div class="form-group">
@@ -26,76 +31,60 @@
 									<input type="text" name="title" id="title" placeholder="Saisissez le titre" class="form-control" >
 								</div>
 							</div>
+						<p id="msgun">Le titre doit faire au maximum 50 caractère et ne doit pas étre vide.</p>
 						</div>
 			<!-- 	########################		FIN		TITRE	 			########################	-->
 
-			<!-- 	########################		DEBUT	PUBLISHDATE	 		########################	-->
-						<div class="form-group">
+			<!-- 	########################		DEBUT	DESCRIPTION IMAGE	########################	-->
+						<div class="form-group">	
 							<div class="col-sm-offset-4 col-sm-4">
 							    <div class="input-group">
-									<label class="input-group-addon span-bold" for="publishdate">Date de l'article : </label>
-									<input type="date" name="publishdate" id="publishdate" placeholder="Saisissez le titre" class="form-control" >
+									<label class="input-group-addon span-bold" for="description_pictures">Description de l'image (30 caractères maximum) : </label>
+									<textarea type="text" name="description" id="description" cols="30" rows="10" class="form-control" placeholder="Saisissez la description"></textarea>
 								</div>
 							</div>
+						<p id="msgcinq">Merci de remplir la description de l'image (30 caractères maximum)</p>
 						</div>
-			<!-- 	########################		FIN		PUBLISHDATE	 		########################	-->
+			<!-- 	########################		FIN		DESCRIPTION IMAGE	########################	-->
+
+			<!-- 	########################		DEBUT	DESCRIPTION		 	########################	-->
+						<div class="form-group">	
+							<div class="col-sm-offset-4 col-sm-4">
+							    <div class="input-group">
+									<label class="input-group-addon span-bold" for="description">Description de l'article (30 caractères maximum) : </label>
+									<textarea type="text" name="description" id="description" cols="30" rows="10" class="form-control" placeholder="Saisissez la description"></textarea>
+								</div>
+							</div>
+						<p id="msgdeux">La description doit faire au maximum 30 caractères et ne doit pas être vide.</p>
+						</div>
+			<!-- 	########################		FIN		DESCRIPTION	 		########################	-->
 
 			<!-- 	########################		DEBUT	CHECKBOX GAMES		########################	-->
 						<div class="form-group">
-						  	<label class="col-sm-offset-4 col-sm-4" for="checkboxes">jeu(x) : </label>
-						  	<div class="col-sm-offset-4 col-sm-4">
-						  	  	<label class="checkbox-inline" for="checkboxes-0">
-						  	  	  	<input type="checkbox" name="starcraft2" id="checkboxes-0" value="1">
-						  	  	 	starcraft2
-						  	  	</label>
-						  	  	<label class="checkbox-inline" for="checkboxes-1">
-						  	  	  	<input type="checkbox" name="dota2" id="checkboxes-1" value="2">
-						  	  	  	dota2
-						  	  	</label>
-						  	  	<label class="checkbox-inline" for="checkboxes-2">
-						  	  	  	<input type="checkbox" name="csGo" id="checkboxes-2" value="3">
-						  	  	  	csGo
-						  	  	</label>
-						  	  	<label class="checkbox-inline" for="checkboxes-3">
-						  	  	  	<input type="checkbox" name="other" id="checkboxes-3" value="4">
-						  	  	  	other
-						  	  	</label>
-						  	</div>
+							<div class="col-sm-offset-4 col-sm-4">
+							    <div class="input-group">
+									<label class="input-group-addon span-bold" for="game">Jeux : </label>
+								<?php foreach ($games as $game) { ?>
+									<input type="checkbox" class="form-control" name="checkbox" id="checkbox" value="<?= $game['idgame'] ?>">
+									<label class="input-group-addon span-bold" for="checkbox"><?= $game['name'] ?></label>
+								<?php } ?>
+								</div>
+							</div>
+						<p id="msgtrois">Merci de selectionner au moin un jeu au minimum</p>
 						</div>
 			<!-- 	########################		FIN		CHECKBOX GAMES	 	########################	-->
-					
+
 			<!-- 	########################		DEBUT	PICTURES	 		########################	-->
 						<div class="form-group">
 							<div class="col-sm-offset-4 col-sm-4">
 							    <div class="input-group">
 									<label class="input-group-addon span-bold" for="image">Image : </label>
-									<input type="file" name="picture" id="picture" placeholder="Choisissez une image" class="	form-control" >
+									<input type="file" name="picture" id="picture" placeholder="Choisissez une image" class="form-control" >
 								</div>
 							</div>
+						<p id="msgquatre">Merci de renseigner une image</p>
 						</div>
 			<!-- 	########################		FIN		PICTURES			########################	-->
-
-			<!-- 	########################		DEBUT	AUTOR	 			########################	-->
-						<div class="form-group">	
-							<div class="col-sm-offset-4 col-sm-4">
-							    <div class="input-group">
-									<label class="input-group-addon span-bold" for="autor">Auteur de l'article : </label>
-									<input type="text" name="autor" id="autor" placeholder="Saisissez un auteur" class="	form-control" >
-								</div>
-							</div>
-						</div>
-			<!-- 	########################		FIN		AUTOR	 			########################	-->
-
-			<!-- 	########################		DEBUT	TEXTE	 			########################	-->
-						<div class="form-group">	
-							<div class="col-sm-offset-4 col-sm-4">
-							    <div class="input-group">
-									<label class="input-group-addon span-bold" for="image">Texte : </label>
-									<textarea name="text" id="text" cols="30" rows="10" class="form-control" ></textarea>
-								</div>
-							</div>
-						</div>
-			<!-- 	########################		FIN		TEXTE	 			########################	-->
 
 			<!-- 	########################		DEBUT	SUBMIT				########################	-->
 						<div class="form-group">
@@ -110,8 +99,7 @@
 				</form>
 			</div>
 
-		  	<div id="AddEvent" class="tab-pane">
-
+		  	<div id="AddEvent" class="tab-pane fade">
 				<h2>Event</h2>
 				<form class="form-horizontal" action="#" method="POST">
 					<fieldset>
@@ -135,7 +123,7 @@
 								</div>
 							</div>
 						</div>
-			<!-- 	########################		FIN		DATE				########################	-->
+			<!-- 	########################				DATE				########################	-->
 				
 			<!-- 	########################		DEBUT	LOCATION			########################	-->
 						<div class="form-group">
@@ -194,12 +182,157 @@
 			<!-- 	########################		FIN		SUBMIT	 			########################	-->
 					</fieldset>
 				</form>
-
 			</div>
-		</div>
 
-	</div>
-<!-- ########## 	FIN CONTAINER 	########## -->
+		  	<div id="ModifDeleteArticle" class="tab-pane fade">
+							<?php  if (isset($articles)){ ?>
+							 <!-- Page Content -->
+							    <div class="container">
+
+							        <!-- Page Heading -->
+							        <div class="row">
+							            <div class="col-md-12">
+							                <h1 class="page-header">Les Articles
+							                    <small>Vous avez atteint la page des Articles. Bravo.</small>
+							                </h1>
+							            </div>
+							        </div>
+							        <!-- /.row -->
+							        <!-- liste articles-->
+							        <?php foreach ($articles as $article): ?>
+							        <div class="row">
+							            <div class="col-md-7">
+							                <a href="<?=$this->url('article_article',['id' => $article['idarticles']])?>">
+							                    <img class="img-responsive" src="<?= $article['pictures'] ?>" alt="$article['decriptionPictures'] ">
+							                </a>
+							            </div>
+							            <div class="col-md-5">
+							                <h3> <?= $article['title'] ?> </h3>
+
+							                <p> <?= $article['description'] ?> </p>
+							                <a class="btn btn-primary" href="<?=$this->url('article_article', ['id' => $article['idarticles']])?>">aller sur l article <span class="glyphicon glyphicon-chevron-right"></span></a>
+							                <!-- si le role de l'utilistateur est admin -->
+							            <?php if ($admin) { ?>
+
+							                <a href="<?=$this->url('admin_modify', ['id' => $article['idarticles']])?>">modifier</a>
+							                <a href="<?=$this->url('admin_supp',['id' => $article['idarticles']])?>">supprimer</a>
+							            <?php } ?>
+
+							            </div>
+							        </div>
+							        <!-- /.row -->
+							        <hr>
+
+							        <?php
+							            endforeach;
+							        ?>
+
+
+							    </div>
+							<?php }; ?>
+			</div>
+
+			<div id="ModifDeleteEvent" class="tab-pane fade">
+			
+			</div>
+
+		</div>
+	</div> <!-- ########## 	FIN CONTAINER 	########## -->
 </div>
-		
+
+<!-- ##### 		DEBUT MESSAGE CACHES EN JS 		##### -->
+<script type="text/javascript">
+	$(function () {
+		$('#ajoutArticle').on('submit', function (e) { // Est appelé lorsque l'utilisateur souhaite soumettre le formulaire
+			e.preventDefault(); // On empêche le navigateur de soumettre le formulaire
+			var compteur= 1;
+			if ($('#title').val().length == 0)  {
+			 	$('#msgun').fadeIn();
+			 	$('#title').css('border','red 1px solid');
+			 	$('#msgun').css('visibility','visible');
+			}else if($('#title').val().length > 50){
+				$('#msgun').fadeIn();
+			 	$('#title').css('border','red 1px solid');
+			 	$('#msgun').css('visibility','visible');
+			}else{
+				$('#msgun').fadeOut();
+			 	$('#title').css('border','1px solid rgb(169, 169, 169)');
+			 	compteur+=compteur;
+			}
+			if ($('#description').val().length == 0){
+			 	$('#msgdeux').fadeIn();
+			 	$('#description').css('border','red 1px solid');
+			 	$('#msgdeux').css('visibility','visible');
+
+			}else if ($('#description').val().length > 30)  {
+				$('#msgdeux').fadeIn();
+			 	$('#description').css('border','red 1px solid');
+			 	$('#msgdeux').css('visibility','visible');
+
+			}else{
+			 	$('#msgdeux').fadeOut();
+			 	$('#description').css('border','1px solid rgb(169, 169, 169)');
+			 	compteur+=compteur;
+			}
+			if( $('#checkbox').is(':checked')){
+		     	$('#msgtrois').fadeOut();
+		     	$('#picture').css('border','1px solid rgb(169, 169, 169)');
+		     	compteur+=compteur;
+
+			}else{
+				$('#checkbox').css('border','red 1px solid');
+		     	$('msgtrois').fadeIn();
+		     	$('#msgtrois').css('visibility','visible');
+
+			}
+			if($('#picture').val()==""){
+				$('#msgquatre').fadeIn();
+				$('#msgquatre').css('visibility','visible');
+				$('#picture').css('border','red 1px solid');
+
+			}else{
+				$('#msgquatre').fadeOut();
+				$('#picture').css('border','1px solid rgb(169, 169, 169)');
+				compteur+=compteur;
+
+			}
+			if ($('#description_pictures').val() == 0 ) {
+		     	$('#description_pictures').css('border','red 1px solid');
+		     	$('#msgcinq').fadeIn();
+		     	$('#msgcinq').css('visibility','visible');
+
+			}else{
+				$('#msgcinq').fadeOut();
+				$('#description_pictures').css('border','1px solid rgb(169, 169, 169)');
+				compteur+=compteur;
+			}
+			//
+			if ($('#text').val() == 0 ) {
+		     	$('#text').css('border','red 1px solid');
+		     	$('#msgsix').fadeIn();
+		     	$('#msgsix').css('visibility','visible');
+
+			}else{
+				$('#msgsix').fadeOut();
+				$('#text').css('border','1px solid rgb(169, 169, 169)');
+				compteur+=compteur;
+			}
+			if (compteur===7) {
+				(this).submit();
+			}
+		});
+	});
+</script>
+<!-- ##### 		FIN MESSAGE CACHES EN JS 		##### -->
+
+<style type="text/css">
+	#msgun,#msgdeux,#msgtrois,#msgcinq,#msgsix,#msgquatre{
+	visibility: hidden;
+	}
+</style>
+
+	<p>
+		<a class="lien" href="<?= $this->url('admin_admin') ?>">Accueil</a>
+	</p>
+
 <?php $this->stop('main_content') ?>

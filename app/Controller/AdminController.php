@@ -27,7 +27,7 @@ class AdminController extends Controller
 
 		$articleModel = new ArticlesModel();
 		$games = $articleModel->getGame();
-		$this->show('admin/admin_article', ['games'=> $games]);
+		$this->show('admin/admin', ['games'=> $games]);
 	}
 
 	public function event(){
