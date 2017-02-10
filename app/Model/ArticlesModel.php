@@ -1,4 +1,5 @@
 <?php
+
 namespace Model;
 
 // use \W\Model\UsersModel;
@@ -21,6 +22,7 @@ class ArticlesModel extends Model
 						);
 		return $this->insert($data);
 	}
+
 
 	public function getArticles()
 	{
@@ -121,3 +123,4 @@ class ArticlesModel extends Model
 		return $this->delete($id);
 	}
 }
+

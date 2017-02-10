@@ -1,9 +1,5 @@
 <?php $this->layout('layout', ['title' => 'sign_up']) ?>
-
 <?php $this->start('main_content') ?>
-
-
-
 <div class="container">
 	<h2>Inscription</h2>
 
@@ -128,3 +124,4 @@
 ?>
 
 <?php $this->stop('main_content') ?>
+

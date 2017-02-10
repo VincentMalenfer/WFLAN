@@ -1,5 +1,4 @@
 <?php $this->layout('layout', ['title' => 'Ajout Article']) ?>
-
 <?php $this->start('main_content') ?>
 
 	<h2>Ajout Article</h2>
@@ -165,14 +164,14 @@
 		});
 
 	});
+
 </script>
 <style type="text/css">
-	#msgun,#msgdeux,#msgtrois,#msgcinq,#msgsix,#msgquatre{
-	visibility: hidden;
-	}
+    #msgun,#msgdeux,#msgtrois,#msgcinq,#msgsix,#msgquatre{
+    visibility: hidden;
+    }
 </style>
-	<p>
-		<a class="lien" href="<?= $this->url('admin_admin') ?>">Accueil</a>
-	</p>
-
+    <p>
+        <a class="lien" href="<?= $this->url('admin_admin') ?>">Accueil</a>
+    </p>
 <?php $this->stop('main_content') ?>

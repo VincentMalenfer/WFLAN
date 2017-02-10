@@ -1,6 +1,7 @@
 <?php
 	$w_routes = array(
 
+
 		['GET', 				'/', 															'General#home', 								'users_home'],
 		['GET',			 		'/calendar', 											'General#calendar', 						'users_calendar'],
 
@@ -28,4 +29,6 @@
 		['GET', 				'admin/add_event', 								'Admin#addEvent', 						  'admin_add_event'],
 		['GET', 				'/admin_supp_event/[:id]', 				'Admin#suppEvent', 						  'admin_supp_event'],
 		['GET|POST', 		'/admin/modif_event/[:id]',				'Admin#modifyEvent',						'admin_modify_event'],
+>>>>>>> refs/remotes/origin/master
 	);
+
