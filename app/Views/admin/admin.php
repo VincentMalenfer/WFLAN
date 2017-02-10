@@ -16,13 +16,12 @@
 	  		<li><a data-toggle="tab" href="#ModifDeleteEvent"> Modifier ou supprimer un article</a></li>
 				<li><a data-toggle="tab" href="#ModifDeleteArticle"> Modifier ou supprimer un événement</a></li>
 
-
 		</ul>
+
 
 		<div class="tab-content">
 
 		  	<div id="AddArticle" class="tab-pane fade">
-
 				<form class="form-horizontal" action="<?= $this->url('admin_add_article') ?>" id="ajoutArticle" method="POST" enctype="multipart/form-data">
 					<fieldset>
 			<!-- 	########################		DEBUT	TITRE	 			########################	-->
@@ -107,78 +106,102 @@
 				</form>
 			</div>
 
+
+
+
 		  	<div id="AddEvent" class="tab-pane fade">
 				<form class="form-horizontal" action="#" method="POST">
 					<fieldset>
-			<!-- 	########################		DEBUT	NOM	 				########################	-->
+			<!-- 	########################		DEBUT	TITLE	 			########################	-->
 						<div class="form-group">
 							<div class="col-sm-offset-4 col-sm-4">
 							    <div class="input-group">
-									<label class="input-group-addon span-bold" for="name">Nom de l'événement : </label>
-									<input type="text" name="name" id="name" placeholder="Saisissez le nom" class="form-control" >
+									<label class="input-group-addon span-bold" for="title">Nom du lieu : </label>
+									<input type="text" name="title" id="title" placeholder="Saisissez le titre" class="form-control" >
 								</div>
 							</div>
 						</div>
-			<!-- 	########################		FIN		NOM	 				########################	-->
-
-			<!-- 	########################		DEBUT	DATE	 			########################	-->
-						<div class="form-group">
-							<div class="col-sm-offset-4 col-sm-4">
-							    <div class="input-group">
-									<label class="input-group-addon span-bold" for="date">Date de l'événement : </label>
-									<input type="date" name="date" id="date" class="form-control" >
-								</div>
-							</div>
-						</div>
-			<!-- 	########################				DATE				########################	-->
+			<!-- 	########################		FIN		TITLE	 			########################	-->
 
 			<!-- 	########################		DEBUT	LOCATION			########################	-->
 						<div class="form-group">
 							<div class="col-sm-offset-4 col-sm-4">
 							    <div class="input-group">
 									<label class="input-group-addon span-bold" for="location">Lieu : </label>
-									<input type="text" name="location" class="form-control" >
+									<input type="text" name="location" id="location" class="form-control" placeholder="Saisissez la location" class="form-control">
 								</div>
 							</div>
 						</div>
 			<!-- 	########################		FIN		LOCATION	 		########################	-->
 
-			<!-- 	########################		DEBUT	DESCRIPTION	 		########################	-->
+			<!-- 	########################		DEBUT	DESCRIPTION			########################	-->
 						<div class="form-group">
-
 							<div class="col-sm-offset-4 col-sm-4">
 							    <div class="input-group">
 									<label class="input-group-addon span-bold" for="desc">Description : </label>
-									<textarea type="text" name="desc" id="desc" cols="30" rows="10" class="form-control" ></textarea>
+									<input type="text" name="desc" id="desc" class="form-control" placeholder="Saisissez la description" class="form-control">
 								</div>
 							</div>
 						</div>
 			<!-- 	########################		FIN		DESCRIPTION	 		########################	-->
 
-			<!-- 	########################		DEBUT	CHECKBOX GAMES		########################	-->
+			<!-- 	########################		DEBUT	URL					########################	-->
+						<div class="form-group">
+							<div class="col-sm-offset-4 col-sm-4">
+							    <div class="input-group">
+									<label class="input-group-addon span-bold" for="url">Adresse web : </label>
+									<input type="text" name="url" id="url" class="form-control" placeholder="Saisissez l'url" class="form-control">
+								</div>
+							</div>
+						</div>
+			<!-- 	########################		FIN		URL	 				########################	-->
+
+			<!-- 	########################		DEBUT	START	 			########################	-->
+						<div class="form-group">
+							<div class="col-sm-offset-4 col-sm-4">
+							    <div class="input-group">
+									<label class="input-group-addon span-bold" for="start">Date de début : </label>
+									<input type="datetime" name="start" id="start" class="form-control" placeholder="Choisissez la date de début">
+								</div>
+							</div>
+						</div>
+			<!-- 	########################		FIN		START				########################	-->
+
+			<!-- 	########################		DEBUT	END	 				########################	-->
+						<div class="form-group">
+							<div class="col-sm-offset-4 col-sm-4">
+							    <div class="input-group">
+									<label class="input-group-addon span-bold" for="end">Date de fin : </label>
+									<input type="datetime" name="end" id="end" class="form-control" placeholder="Choisissez la date de fin">
+								</div>
+							</div>
+						</div>
+			<!-- 	########################		FIN		END					########################	-->
+
+			<!-- 	########################		DEBUT CHECKBOX EVENTS-GAMES	########################	-->
 						<div class="form-group">
 						  	<label class="col-sm-offset-4 col-sm-4" for="checkboxes">Jeu(x) : </label>
 
 						  	<div class="col-sm-offset-4 col-sm-4">
 						  	  	<label class="checkbox-inline" for="checkboxes-0">
-						  	  	  	<input type="checkbox" name="starcraft2" id="checkboxes-0" value="1">
+						  	  	 <input type="checkbox" name="event-gamesc" id="checkboxes-0" value="1">
 						  	  	 	starcraft2
 						  	  	</label>
 						  	  	<label class="checkbox-inline" for="checkboxes-1">
-						  	  	  	<input type="checkbox" name="dota2" id="checkboxes-1" value="2">
-						  	  	  	dota2
-						  	  	</label>
-						  	  	<label class="checkbox-inline" for="checkboxes-2">
-						  	  	  	<input type="checkbox" name="csGo" id="checkboxes-2" value="3">
+						  	  	  	<input type="checkbox" name="event-gamecsgo" id="checkboxes-1" value="2">
 						  	  	  	csGo
 						  	  	</label>
+						  	  	<label class="checkbox-inline" for="checkboxes-2">
+						  	  	  	<input type="checkbox" name="event-gamedt" id="checkboxes-2" value="3">
+						  	  	  	dota2
+						  	  	</label>
 						  	  	<label class="checkbox-inline" for="checkboxes-3">
-						  	  	  	<input type="checkbox" name="other" id="checkboxes-3" value="4">
+						  	  	  	<input type="checkbox" name="event-gameo" id="checkboxes-3" value="4">
 						  	  	  	other
 						  	  	</label>
 						  	</div>
 						</div>
-			<!-- 	########################		FIN		CHECKBOX GAMES		########################	-->
+			<!-- 	########################		FIN	CHECKBOX EVENTS-GAMES	########################	-->
 
 			<!-- 	########################		DEBUT	SUBMIT				########################	-->
 						<div class="form-group">
@@ -193,13 +216,22 @@
 				</form>
 			</div>
 
+
+
+
 			<div id="ModifDeleteEvent" class="tab-pane fade">
 
 			</div>
 
+
+
+
 	  	<div id="ModifDeleteArticle" class="tab-pane fade">
 
 			</div>
+
+
+
 
 		</div>
 	</div> <!-- ########## 	FIN CONTAINER 	########## -->
