@@ -23,25 +23,6 @@
             <ul id="eventlist" class="nav nav-list"></ul>
         </div>
     </div>
-    <!-- <div class="clearfix"></div>
-    <br><br>
-    <div id="disqus_thread"></div>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <div class="modal fade" id="events-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h3 class="modal-title">Event</h3>
-                </div>
-                <div class="modal-body" style="height: 400px">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div> -->
     <script type="text/javascript" src="<?php echo $this->assetUrl("plc/asset/jquery/jquery.min.js")?>"></script>
     <script type="text/javascript" src=" <?php echo $this->assetUrl("plc/asset/underscore/underscore-min.js")?>"></script>
     <script type="text/javascript" src=" <?php echo $this->assetUrl("plc/asset/bootstrap3/js/bootstrap.min.js")?>"></script>

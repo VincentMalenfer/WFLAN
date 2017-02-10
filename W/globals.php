@@ -3,6 +3,7 @@
 //espace de nom global
 namespace {
 
+
 	/**
 	 * print_r coké
 	 * @param  mixed $var La variable a déboger
@@ -13,6 +14,9 @@ namespace {
 		print_r($var);
 		echo '</pre>';
 	}
+
+
+	
 
 	/**
 	 * Retourne l'instance de l'application depuis l'espace global
