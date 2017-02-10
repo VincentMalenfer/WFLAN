@@ -88,17 +88,12 @@ class UsersController extends Controller
 					$instanceModel = new AuthentificationModel();
 					debug($user);
 		     	// Retire le mot de passe de la session
-							// unset($user[$app->getConfig('security_password_property')]);
-							// unset($user[$app->getConfig('security_id_property')]);
+					// unset($user[$app->getConfig('security_password_property')]);
+					// unset($user[$app->getConfig('security_id_property')]);
 					// $_SESSION['user'] = $user; =firstname,lastname,nickname,email,birthdate,status,id_token
 			}
+		}
 		$this->show('users/sign_in');
-	}
-
-	public function token() {
-		$token= new StringUtils();
-	 $tokens= $toke->randomString(20);
-	 // verifier que ce token n'existe pas en base de donnée
 	}
 
 	/**
