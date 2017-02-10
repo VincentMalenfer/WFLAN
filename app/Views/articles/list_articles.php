@@ -1,11 +1,9 @@
 <?php $this->layout('layout', ['title' => 'Les articles']) ?>
 
 <?php $this->start('main_content') ?>
-
 <?php  if (isset($articles)){ ?>
  <!-- Page Content -->
     <div class="container">
-
         <!-- Page Heading -->
         <div class="row">
             <div class="col-md-12">
@@ -32,22 +30,16 @@
             <?php if ($admin) {?>
 
              <?php } ?>
-
                 <a href="<?=$this->url('admin_modify', ['id' => $article['idarticles']])?>">modifier</a>
                 <a href="<?=$this->url('admin_supp',['id' => $article['idarticles']])?>">supprimer</a>
-
             </div>
-
-
         </div>
         <!-- /.row -->
         <hr>
-
         <?php
             endforeach;
         ?>
-
     </div>
+    <?php }; 
+$this->stop('main_content');?>
 
-    <?php }; ?>
-<?php $this->stop('main_content');?>
