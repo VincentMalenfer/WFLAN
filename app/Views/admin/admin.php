@@ -10,17 +10,19 @@
 		<ul class="nav nav-tabs">
 
 	  		<li><a data-toggle="tab" href="#AddArticle">Ajouter article</a></li>
-	  		<li><a data-toggle="tab" href="#AddEvent"> Ajouter event</a></li>
 
-	  		<li><a data-toggle="tab" href="#ModifDeleteArticle"> Modifier & Supprimer event</a></li>
-	  		<li><a data-toggle="tab" href="#ModifDeleteEvent"> Modifier & Supprimer article</a></li>
+	  		<li><a data-toggle="tab" href="#AddEvent"> Ajouter événement</a></li>
+
+	  		<li><a data-toggle="tab" href="#ModifDeleteEvent"> Modifier ou supprimer un article</a></li>
+				<li><a data-toggle="tab" href="#ModifDeleteArticle"> Modifier ou supprimer un événement</a></li>
+
 
 		</ul>
 
 		<div class="tab-content">
 
 		  	<div id="AddArticle" class="tab-pane fade">
-				<h2>Ajout Article</h2>
+
 				<form class="form-horizontal" action="<?= $this->url('admin_add_article') ?>" id="ajoutArticle" method="POST" enctype="multipart/form-data">
 					<fieldset>
 			<!-- 	########################		DEBUT	TITRE	 			########################	-->
@@ -31,24 +33,28 @@
 									<input type="text" name="title" id="title" placeholder="Saisissez le titre" class="form-control" >
 								</div>
 							</div>
-						<p id="msgun">Le titre doit faire au maximum 50 caractère et ne doit pas étre vide.</p>
+						<p id="msgun">Le titre doit faire au maximum 50 caractères et ne doit pas être vide.</p>
+
 						</div>
 			<!-- 	########################		FIN		TITRE	 			########################	-->
 
 			<!-- 	########################		DEBUT	DESCRIPTION IMAGE	########################	-->
-						<div class="form-group">	
+						<div class="form-group">
+
 							<div class="col-sm-offset-4 col-sm-4">
 							    <div class="input-group">
 									<label class="input-group-addon span-bold" for="description_pictures">Description de l'image (30 caractères maximum) : </label>
 									<textarea type="text" name="description" id="description" cols="30" rows="10" class="form-control" placeholder="Saisissez la description"></textarea>
 								</div>
 							</div>
-						<p id="msgcinq">Merci de remplir la description de l'image (30 caractères maximum)</p>
+						<p id="msgcinq">Merci de remplir la description de l'image (30 caractères maximum).</p>
+
 						</div>
 			<!-- 	########################		FIN		DESCRIPTION IMAGE	########################	-->
 
 			<!-- 	########################		DEBUT	DESCRIPTION		 	########################	-->
-						<div class="form-group">	
+						<div class="form-group">
+
 							<div class="col-sm-offset-4 col-sm-4">
 							    <div class="input-group">
 									<label class="input-group-addon span-bold" for="description">Description de l'article (30 caractères maximum) : </label>
@@ -70,7 +76,8 @@
 								<?php } ?>
 								</div>
 							</div>
-						<p id="msgtrois">Merci de selectionner au moin un jeu au minimum</p>
+						<p id="msgtrois">Merci de selectionner au moins un jeu au minimum.</p>
+
 						</div>
 			<!-- 	########################		FIN		CHECKBOX GAMES	 	########################	-->
 
@@ -82,7 +89,8 @@
 									<input type="file" name="picture" id="picture" placeholder="Choisissez une image" class="form-control" >
 								</div>
 							</div>
-						<p id="msgquatre">Merci de renseigner une image</p>
+						<p id="msgquatre">Merci de renseigner une image.</p>
+
 						</div>
 			<!-- 	########################		FIN		PICTURES			########################	-->
 
@@ -100,44 +108,44 @@
 			</div>
 
 		  	<div id="AddEvent" class="tab-pane fade">
-				<h2>Event</h2>
 				<form class="form-horizontal" action="#" method="POST">
 					<fieldset>
 			<!-- 	########################		DEBUT	NOM	 				########################	-->
 						<div class="form-group">
 							<div class="col-sm-offset-4 col-sm-4">
 							    <div class="input-group">
-									<label class="input-group-addon span-bold" for="name">Nom de l'event : </label>
+									<label class="input-group-addon span-bold" for="name">Nom de l'événement : </label>
 									<input type="text" name="name" id="name" placeholder="Saisissez le nom" class="form-control" >
 								</div>
 							</div>
 						</div>
 			<!-- 	########################		FIN		NOM	 				########################	-->
-				
+
 			<!-- 	########################		DEBUT	DATE	 			########################	-->
 						<div class="form-group">
 							<div class="col-sm-offset-4 col-sm-4">
 							    <div class="input-group">
-									<label class="input-group-addon span-bold" for="date">Date de l'event : </label>
+									<label class="input-group-addon span-bold" for="date">Date de l'événement : </label>
 									<input type="date" name="date" id="date" class="form-control" >
 								</div>
 							</div>
 						</div>
 			<!-- 	########################				DATE				########################	-->
-				
+
 			<!-- 	########################		DEBUT	LOCATION			########################	-->
 						<div class="form-group">
 							<div class="col-sm-offset-4 col-sm-4">
 							    <div class="input-group">
-									<label class="input-group-addon span-bold" for="location">Location </label>
+									<label class="input-group-addon span-bold" for="location">Lieu : </label>
 									<input type="text" name="location" class="form-control" >
 								</div>
 							</div>
 						</div>
 			<!-- 	########################		FIN		LOCATION	 		########################	-->
-				
+
 			<!-- 	########################		DEBUT	DESCRIPTION	 		########################	-->
-						<div class="form-group">	
+						<div class="form-group">
+
 							<div class="col-sm-offset-4 col-sm-4">
 							    <div class="input-group">
 									<label class="input-group-addon span-bold" for="desc">Description : </label>
@@ -146,10 +154,11 @@
 							</div>
 						</div>
 			<!-- 	########################		FIN		DESCRIPTION	 		########################	-->
-				
+
 			<!-- 	########################		DEBUT	CHECKBOX GAMES		########################	-->
 						<div class="form-group">
-						  	<label class="col-sm-offset-4 col-sm-4" for="checkboxes">jeu(x) : </label>
+						  	<label class="col-sm-offset-4 col-sm-4" for="checkboxes">Jeu(x) : </label>
+
 						  	<div class="col-sm-offset-4 col-sm-4">
 						  	  	<label class="checkbox-inline" for="checkboxes-0">
 						  	  	  	<input type="checkbox" name="starcraft2" id="checkboxes-0" value="1">
@@ -170,7 +179,7 @@
 						  	</div>
 						</div>
 			<!-- 	########################		FIN		CHECKBOX GAMES		########################	-->
-				
+
 			<!-- 	########################		DEBUT	SUBMIT				########################	-->
 						<div class="form-group">
 							<div class="col-sm-offset-4 col-sm-4">
@@ -184,56 +193,12 @@
 				</form>
 			</div>
 
-		  	<div id="ModifDeleteArticle" class="tab-pane fade">
-							<?php  if (isset($articles)){ ?>
-							 <!-- Page Content -->
-							    <div class="container">
+			<div id="ModifDeleteEvent" class="tab-pane fade">
 
-							        <!-- Page Heading -->
-							        <div class="row">
-							            <div class="col-md-12">
-							                <h1 class="page-header">Les Articles
-							                    <small>Vous avez atteint la page des Articles. Bravo.</small>
-							                </h1>
-							            </div>
-							        </div>
-							        <!-- /.row -->
-							        <!-- liste articles-->
-							        <?php foreach ($articles as $article): ?>
-							        <div class="row">
-							            <div class="col-md-7">
-							                <a href="<?=$this->url('article_article',['id' => $article['idarticles']])?>">
-							                    <img class="img-responsive" src="<?= $article['pictures'] ?>" alt="$article['decriptionPictures'] ">
-							                </a>
-							            </div>
-							            <div class="col-md-5">
-							                <h3> <?= $article['title'] ?> </h3>
-
-							                <p> <?= $article['description'] ?> </p>
-							                <a class="btn btn-primary" href="<?=$this->url('article_article', ['id' => $article['idarticles']])?>">aller sur l article <span class="glyphicon glyphicon-chevron-right"></span></a>
-							                <!-- si le role de l'utilistateur est admin -->
-							            <?php if ($admin) { ?>
-
-							                <a href="<?=$this->url('admin_modify', ['id' => $article['idarticles']])?>">modifier</a>
-							                <a href="<?=$this->url('admin_supp',['id' => $article['idarticles']])?>">supprimer</a>
-							            <?php } ?>
-
-							            </div>
-							        </div>
-							        <!-- /.row -->
-							        <hr>
-
-							        <?php
-							            endforeach;
-							        ?>
-
-
-							    </div>
-							<?php }; ?>
 			</div>
 
-			<div id="ModifDeleteEvent" class="tab-pane fade">
-			
+	  	<div id="ModifDeleteArticle" class="tab-pane fade">
+
 			</div>
 
 		</div>
@@ -330,9 +295,5 @@
 	visibility: hidden;
 	}
 </style>
-
-	<p>
-		<a class="lien" href="<?= $this->url('admin_admin') ?>">Accueil</a>
-	</p>
-
 <?php $this->stop('main_content') ?>
+

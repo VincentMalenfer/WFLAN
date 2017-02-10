@@ -1,3 +1,4 @@
+
 <?php $this->layout('layout', ['title' => 'Vos Events']) ?>
 
 <?php $this->start('main_content') ?>
@@ -24,6 +25,7 @@
 
 
 
+>>>>>>> refs/remotes/origin/master
 
 	<p>
 		<a class="lien" href="<?= $this->url('admin_admin') ?>">Accueil</a>
@@ -31,4 +33,6 @@
 
 <?php $this->stop('main_content') ?>
 
+
 	<!-- ############# ADAPTER EN EVENT ################################################ 	###################################################################-->
+

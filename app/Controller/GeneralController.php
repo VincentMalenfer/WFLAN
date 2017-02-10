@@ -57,6 +57,14 @@ class GeneralController extends Controller{
     		$this->show('users/contact');
     	}
 
+      /**
+       * Page de log_out
+       */
+      public function log_out()
+      {
+          session_destroy();
+       $this->show('users/home');
+      }
 
 
 

@@ -1,22 +1,15 @@
 <?php
-
 namespace Controller;
-
 use \W\Controller\Controller;
 use Model\ArticlesModel;
 use Model\EventsModel;
-
 class AdminController extends Controller
 {
 
 	/**
 	 * Page d'administration
 	 */
-	public function admin()
-	{
-
-		// $this->allowTo('admin');
-
+	public function admin()	{
 		$this->show('admin/admin');
 	}
 
@@ -36,7 +29,6 @@ class AdminController extends Controller
 
 		$this->show('admin/admin_event');
 	}
-
 	public function admin_list_articles()
 	{
 		if(!empty($_POST))
@@ -50,7 +42,6 @@ class AdminController extends Controller
 		}
 		$this->show('admin/admin_list_articles');
 	}
-
 	public function admin_list_events()
 	{
 
@@ -66,22 +57,26 @@ class AdminController extends Controller
 		}
 		$this->show('admin/admin_list_events');
 	}
-
 	// rajouter le 07/02
 
 	public function addArticle(){
 
-		// $this->allowTo('admin');
+		// Liste de games
+			$articleModel = new ArticlesModel();
+			$games = $articleModel->getGame();
 
+
+
+		// $this->allowTo('admin');
 		$filepath="";
-		if(empty($_FILES))
-			$this->redirectToRoute('admin_article');
+		if(empty($_FILES)){
+			$this->show('admin/admin_article', ['games'=> $games]);
+		}
 		if ($_FILES['picture']['size'] > 0) {
 
 			// revoir le chemin de destination des images
 
 			$dir = $this->AssetUrl('img');
-
 			// je verifie que le dossier de destination existe
 
 			if (file_exists($dir)&& is_dir($dir)) {
@@ -93,7 +88,6 @@ class AdminController extends Controller
 				// je deplace le fichier depuis le dossier temporaire vers la destination
 
 				if (move_uploaded_file($_FILES['picture']['tmp_name'],$dir.$filename)) {
-
 					$filepath =	$this->AssetUrl('img').$filename;
 				}else{
 					die("upload failed");
@@ -101,7 +95,6 @@ class AdminController extends Controller
 			}
 		}
 		if(!empty($_POST) && $this->security()==true){
-
 			$addArticle = new ArticlesModel();
 			$addArticle->addArcticle($_POST['title'],
 									 $_POST['description'],
@@ -110,7 +103,7 @@ class AdminController extends Controller
 									 $_POST['description_pictures']
 									);
 		};
-		$this->redirectToRoute('admin_article');
+		$this->show('admin/admin_article', ['games'=> $games]);
 	}
 
 	public function security(){
@@ -120,4 +113,20 @@ class AdminController extends Controller
 			return false;
 		}
 	}
+
+
+
+	public function suppArticle($id){
+
+		$supp= new ArticlesModel();
+		$supp->deleteArticle($id);
+		$this->redirectToRoute('list_articles');
+	}
+	public function modifyArticle($id){
+
+		$modify= new ArticlesModel();
+		$articles=$modify->getArticle($id);
+		$this->show('admin/admin_article', ['articles'=> $articles]);
+	}
 }
+

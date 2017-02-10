@@ -1,15 +1,14 @@
 <?php $this->layout('layout', ['title' => 'Ajout Article']) ?>
-
 <?php $this->start('main_content') ?>
 
 	<h2>Ajout Article</h2>
 
-	<form  id="ajoutArticle" action="<?= $this->url("admin_add_article")?>" method="POST"  enctype="multipart/form-data">
+	<form  id="ajoutArticle" action="<?= $this->url("admin_article")?>" method="POST"  enctype="multipart/form-data">
 		<div class="form-group">
 
 <!-- 	########################		DEBUT	TITRE	 			########################	-->
 			<label for="title">Titre de l'article : </label>
-			<input type="text" name="title" id="title" placeholder="Saisissez le titre" class="form-control" >
+			<input type="text" name="title" id="title" placeholder="Saisissez le titre" class="form-control" value="<?= $articles['title']?>" >
 			<p id="msgun">le titre doit faire au maximum 50 caractère et ne doit pas étre vide.</p>
 		</div>
 <!-- 	########################		FIN		TITRE	 			########################	-->
@@ -96,7 +95,6 @@
 				$('#msgun').fadeIn();
 			 	$('#title').css('border','red 1px solid');
 			 	$('#msgun').css('visibility','visible');
-
 			}else{
 				$('#msgun').fadeOut();
 			 	$('#title').css('border','1px solid rgb(169, 169, 169)');
@@ -107,7 +105,6 @@
 			 	$('#msgdeux').fadeIn();
 			 	$('#description').css('border','red 1px solid');
 			 	$('#msgdeux').css('visibility','visible');
-
 			}else if ($('#description').val().length > 30)  {
 				$('#msgdeux').fadeIn();
 			 	$('#description').css('border','red 1px solid');
@@ -138,7 +135,6 @@
 				$('#msgquatre').fadeOut();
 				$('#picture').css('border','1px solid rgb(169, 169, 169)');
 				compteur+=compteur;
-
 			}
 			if ($('#description_pictures').val() == 0 ) {
 		     	$('#description_pictures').css('border','red 1px solid');
@@ -165,22 +161,17 @@
 				(this).submit();
 			}
 
-
-
-
 		});
 
-
-
 	});
+
 </script>
 <style type="text/css">
-	#msgun,#msgdeux,#msgtrois,#msgcinq,#msgsix,#msgquatre{
-	visibility: hidden;
-	}
+    #msgun,#msgdeux,#msgtrois,#msgcinq,#msgsix,#msgquatre{
+    visibility: hidden;
+    }
 </style>
-	<p>
-		<a class="lien" href="<?= $this->url('admin_admin') ?>">Accueil</a>
-	</p>
-
+    <p>
+        <a class="lien" href="<?= $this->url('admin_admin') ?>">Accueil</a>
+    </p>
 <?php $this->stop('main_content') ?>
