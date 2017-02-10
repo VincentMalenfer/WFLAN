@@ -91,13 +91,8 @@ class UsersController extends Controller
 							// unset($user[$app->getConfig('security_password_property')]);
 							// unset($user[$app->getConfig('security_id_property')]);
 					// $_SESSION['user'] = $user; =firstname,lastname,nickname,email,birthdate,status,id_token
-			}else{
-
 			}
-		} else {
-
-		}
-		 $this->show('users/sign_in');
+		$this->show('users/sign_in');
 	}
 
 	public function token() {
@@ -184,15 +179,5 @@ class UsersController extends Controller
 			);
 		}
 		$this->redirectToRoute('users_sign_up');
-	}
-
-
-	/**
-	 * Page de log_out
-	 */
-	public function log_out()
-	{
-		session_destroy();
- 	 $this->show('users/home');
 	}
 }
