@@ -1,14 +1,14 @@
 <?php
+
 namespace Model;
 
-// use \W\Model\UsersModel;
 use W\Security\AuthentificationModel;
 use \W\Model\Model as Model;
 use Controller\UsersController;
 
 class ArticlesModel extends Model
 {
-	public function ajouterArticle($title, $text, $picture, $publishdate, $autor, $users_idusers)
+	public function ajouterArticle($title, $text, $picture, $publishdate, $author, $users_idusers)
 	{
 		$this->setPrimaryKey("idarticles");
 		$data = array 	(
@@ -16,11 +16,12 @@ class ArticlesModel extends Model
 							"text" 					=> $text,
 							"pictures" 			=> $picture,
 							"publishdate"		=> $publishdate,
-							"author"				=> $autor,
+							"author"				=> $author,
 							"users_idusers" => $users_idusers
 						);
 		return $this->insert($data);
 	}
+
 
 	public function getArticles()
 	{
@@ -45,7 +46,7 @@ class ArticlesModel extends Model
 			'pictures'				=> $pictures,				//post pictures du form admin article
 			'picturesDes'			=> $description_pictures,			//post des_pictures du form admin article
 			'publishdate'			=> date("Y-m-d"),				// = date du serveur
-			'author'					=> $loggedUser[""],
+			'author'					=> $_SESSION["nickname"],
 			);
 		return $this->insert($data);
 		// 'INSERT INTO articles (title,description,`text`,pictures,des_pictures,publishdate,author )

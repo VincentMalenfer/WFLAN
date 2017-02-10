@@ -1,9 +1,9 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.2
+-- version 4.5.1
 -- http://www.phpmyadmin.net
 --
--- Client :  localhost
--- Généré le :  Jeu 09 Février 2017 à 12:49
+-- Client :  127.0.0.1
+-- Généré le :  Ven 10 Février 2017 à 10:20
 -- Version du serveur :  10.1.19-MariaDB
 -- Version de PHP :  5.6.28
 
@@ -37,7 +37,15 @@ CREATE TABLE `articles` (
   `actif` tinyint(1) DEFAULT NULL,
   `description_pictures` varchar(30) DEFAULT NULL,
   `description` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `articles`
+--
+
+INSERT INTO `articles` (`idarticles`, `title`, `text`, `pictures`, `publishdate`, `author`, `users_idusers`, `actif`, `description_pictures`, `description`) VALUES
+(1, 'Svfsd', 'gerqg', '', '2017-02-15', 'frgrze', 1, 1, NULL, NULL),
+(2, 'Svfsd', 'gerqg', '', '2017-02-15', 'frgrze', 1, 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -47,13 +55,25 @@ CREATE TABLE `articles` (
 
 CREATE TABLE `event` (
   `idevent` int(11) NOT NULL,
-  `name` varchar(45) DEFAULT NULL,
-  `date` datetime DEFAULT NULL,
+  `title` varchar(500) DEFAULT NULL,
   `location` varchar(45) DEFAULT NULL,
   `desc` varchar(45) DEFAULT NULL,
   `location_idlocation` int(11) NOT NULL,
-  `users_idusers` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `users_idusers` int(11) NOT NULL,
+  `url` varchar(500) NOT NULL,
+  `class` varchar(500) NOT NULL,
+  `start` bigint(20) NOT NULL,
+  `end` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `event`
+--
+
+INSERT INTO `event` (`idevent`, `title`, `location`, `desc`, `location_idlocation`, `users_idusers`, `url`, `class`, `start`, `end`) VALUES
+(296, 'Fin de Webforce', 'chez moi', 'sextape', 1, 1, 'raf', 'event-single', 1487089800000, 1487089801000),
+(299, 'Machin bidule', 'A droite', 'Blablabla', 1, 1, 'www.google.fr', 'event-single', 1486226793000, 1486233993000),
+(300, 'Le calendrier marche enfin', 'Chez Thibaud', 'Une fete avec du champagne et des clopes', 1, 1, 'www.google.com', 'event-single', 1487484098000, 1487527298000);
 
 -- --------------------------------------------------------
 
@@ -64,7 +84,7 @@ CREATE TABLE `event` (
 CREATE TABLE `event_has_games` (
   `event_idevent` int(11) NOT NULL,
   `games_idgames` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -75,7 +95,7 @@ CREATE TABLE `event_has_games` (
 CREATE TABLE `event_has_users` (
   `event_idevent` int(11) NOT NULL,
   `users_idusers` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -86,7 +106,7 @@ CREATE TABLE `event_has_users` (
 CREATE TABLE `games` (
   `idgames` int(11) NOT NULL,
   `name` varchar(45) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -97,7 +117,7 @@ CREATE TABLE `games` (
 CREATE TABLE `games_has_articles` (
   `games_idgames` int(11) NOT NULL,
   `articles_idarticles` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -111,7 +131,14 @@ CREATE TABLE `location` (
   `adress` varchar(45) DEFAULT NULL,
   `lat` float(10,6) DEFAULT NULL,
   `log` float(10,6) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `location`
+--
+
+INSERT INTO `location` (`idlocation`, `name`, `adress`, `lat`, `log`) VALUES
+(1, 'chez moi', 'icila', 10.000000, 20.000000);
 
 -- --------------------------------------------------------
 
@@ -120,9 +147,10 @@ CREATE TABLE `location` (
 --
 
 CREATE TABLE `token` (
+  `id_token` varchar(45) NOT NULL,
   `token_temp` varchar(45) DEFAULT NULL,
   `users_idusers` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -138,20 +166,15 @@ CREATE TABLE `users` (
   `email` varchar(45) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   `birthdate` date DEFAULT NULL,
-  `phonenumber` varchar(12) NOT NULL,
   `status` varchar(45) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `users`
 --
 
-INSERT INTO `users` (`idusers`, `firstname`, `lastname`, `nickname`, `email`, `password`, `birthdate`, `phonenumber`, `status`) VALUES
-(6, 'Romain', 'PARIS', '2_33_10', 'paris-romain@live.fr', '$2y$10$QbquAno2Bb0yigoj/TzNbekZIGTxUViPDturpK77Vj0FVVsdDxCum', '1991-04-20', '0660282324', NULL),
-(7, 'Sonny', 'Cabrisseau', 'sonny', 'sonny.cabrisseau@gmail.com', '$2y$10$Xf957tlfrjBypXAKYJIFker9NuHCv.i9r.g6NGO2Dkx3cbnudfTw2', '1995-02-14', '0663950466', NULL),
-(15, 'Amandine', 'Marchand', '789456', 'amandinealice@hotmail.fr', '$2y$10$tvgGJAczZSN/lueBgjdg9epK1tcu5h9E8pJzHCz3y/2MEJatPAbiC', '2017-02-01', '78994563210', NULL),
-(16, 'Romain', 'PARIS', 'azerty', 'paris-romain@live.fr', '$2y$10$AabyYVWNal/.f6ATuKpwHulezWAQudfEz3mzqWad9zMZ493znQ1UW', '2017-02-01', '660282324', NULL),
-(17, 'Romain', 'PARIS', 'azerty', 'paris-romain@live.fr', '$2y$10$0CgCLzuBs94cS6qiDmvc5.O/xkOPCIhwGbXbKUb//HvrD9xqLMroG', '2017-02-01', '660282324', NULL);
+INSERT INTO `users` (`idusers`, `firstname`, `lastname`, `nickname`, `email`, `password`, `birthdate`, `status`) VALUES
+(1, 'Mike', 'Sylvestre', 'LeBoss', NULL, NULL, NULL, NULL);
 
 --
 -- Index pour les tables exportées
@@ -212,6 +235,7 @@ ALTER TABLE `location`
 -- Index pour la table `token`
 --
 ALTER TABLE `token`
+  ADD PRIMARY KEY (`id_token`),
   ADD KEY `fk_token_users1_idx` (`users_idusers`);
 
 --
@@ -228,12 +252,12 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `articles`
 --
 ALTER TABLE `articles`
-  MODIFY `idarticles` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idarticles` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT pour la table `event`
 --
 ALTER TABLE `event`
-  MODIFY `idevent` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idevent` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=301;
 --
 -- AUTO_INCREMENT pour la table `games`
 --
@@ -248,12 +272,12 @@ ALTER TABLE `games_has_articles`
 -- AUTO_INCREMENT pour la table `location`
 --
 ALTER TABLE `location`
-  MODIFY `idlocation` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idlocation` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `idusers` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `idusers` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- Contraintes pour les tables exportées
 --

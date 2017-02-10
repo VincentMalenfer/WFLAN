@@ -10,14 +10,17 @@
 		['GET', 				'/reglement', 										'General#reglement', 						'users_reglement'],
 		['GET', 				'/access', 												'General#access', 							'users_access'],
 		['GET', 				'/live', 													'General#live', 								'users_live'],
+
 		['GET', 				'/contact', 											'General#contact', 							'users_contact'],
 		['POST', 				'/', 															'Users#traitementContact', 			'traitementContact'],
+
 		['GET|POST', 		'/sign_up', 											'Users#sign_up', 								'users_sign_up'],
 		['GET|POST', 		'/sign_in', 											'Users#sign_in', 								'users_sign_in'],
-		['GET|POST', 		'/log_out', 											'Users#log_out', 								'users_log_out'],
+		['GET|POST', 		'/log_out', 											'General#log_out', 							'users_log_out'],
 
 		// ADMIN //
 		['GET', 				'/admin', 												'Admin#admin', 									'admin_admin'],
+
 		// ARTICLE //
 		['POST', 				'/admin/list_articles',						'General#listArticles',			  	'admin_list_articles'],
 		['GET', 				'/admin/add_article', 						'Admin#addArticle', 						'admin_add_article'],

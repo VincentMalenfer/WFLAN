@@ -351,3 +351,4 @@ abstract class Model
 		}, $datas);
 	}
 }
+

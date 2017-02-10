@@ -3,12 +3,9 @@
 namespace Controller;
 
 use \W\Controller\Controller;
-use \Model\userModel;
-
+use \Model\UserModel;
+use \Model\ConnexionModel;
 use \W\Security\AuthentificationModel;
-
-
-
 
 class UsersController extends Controller
 {
@@ -84,51 +81,26 @@ class UsersController extends Controller
 	public function sign_in()
 	{
 		if (!empty($_POST)) {
-			$userModel = new UserModel();
-			$user = $userModel->emailExists($_POST['email']);
-			if ($user ===1) {
-				
-				// a faire dans le model
-				// SELECT * FROM users WHERE email = $_POST['email'] ;
-
-
-
-
-				if ($user && ($user["password"] === password_hash($_POST['password'],PASSWORD_DEFAULT))) {
-					$user["id_token"] = $this->token();
-					$instanceModel = new AuthentificationModel();
-					debug($user);
-		     	// Retire le mot de passe de la session
-							// unset($user[$app->getConfig('security_password_property')]);
-							// unset($user[$app->getConfig('security_id_property')]);
-					// $_SESSION['user'] = $user; =firstname,lastname,nickname,email,birthdate,status,id_token
-
-				}else{
-
+			$mail = $_POST['email'];
+			$password = $_POST['password'];
+			$passwordHash = password_hash($password,CRYPT_BLOWFISH);
+			$pouet = new AuthentificationModel();
+			$user = $pouet->isValidLoginInfo($mail,$password);
+				if ($user){
+					// lance la function createTokenPlusConnexion avec nos 2 info post(email et password qui est hash)
+					$tokens = new ConnexionModel;
+					$token = $tokens->createTokenPlusConnexion($user["idusers"]);
+					// met en session les info retourner par createTokenPlusConnexion qui elle retourne dans $token
+					$_SESSION["token"] = $token;
+					$_SESSION["nickname"] = $user["nickname"];
+					$_SESSION["status"] = $user["status"];
+					debug($_SESSION);
 				}
 			}
-		} else {
 
-		}
-		 $this->show('users/sign_in');
-
+		// mauvais identifiants
+		$this->show('users/sign_in');
 	}
-
-
-public function token() {
-	$token= new StringUtils();
- $tokens= $token->randomString(20);
- // verifier que ce token n'existe pas en base de donnée
-}
-
-
-
-
-
-
-
-
-
 
 	/**
 	 * Page de sign_up
@@ -210,7 +182,6 @@ public function token() {
 		$this->redirectToRoute('users_sign_up');
 	}
 
-
 	/**
 	 * Page de log_out
 	 */
@@ -220,7 +191,6 @@ public function token() {
  	 $this->show('users/home');
 	}
 }
-
 
 // 			$_SESSION['success'] = 1;
 // $errors = array(); // on crée une vérif de champs

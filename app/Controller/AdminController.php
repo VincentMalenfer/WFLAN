@@ -5,6 +5,7 @@ use Model\ArticlesModel;
 use Model\EventsModel;
 class AdminController extends Controller
 {
+
 	/**
 	 * Page d'administration
 	 */
@@ -118,3 +119,4 @@ class AdminController extends Controller
 		$this->show('admin/admin_article', ['articles'=> $articles]);
 	}
 }
+
