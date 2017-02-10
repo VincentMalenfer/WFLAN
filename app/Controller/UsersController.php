@@ -3,7 +3,8 @@
 namespace Controller;
 
 use \W\Controller\Controller;
-use \Model\userModel;
+use \Model\UserModel;
+use \Model\ConnexionModel;
 use \W\Security\AuthentificationModel;
 
 class UsersController extends Controller
@@ -80,19 +81,21 @@ class UsersController extends Controller
 	public function sign_in()
 	{
 		if (!empty($_POST)) {
-			$userModel = new UserModel();
-			$user = $userModel->emailExists($_POST['email']);
-			debug($user);
-			if ($user && ($user["password"] === password_hash($_POST['password'],PASSWORD_DEFAULT))) {
-					$user["id_token"] = $this->token();
-					$instanceModel = new AuthentificationModel();
-					debug($user);
-		     	// Retire le mot de passe de la session
-					// unset($user[$app->getConfig('security_password_property')]);
-					// unset($user[$app->getConfig('security_id_property')]);
-					// $_SESSION['user'] = $user; =firstname,lastname,nickname,email,birthdate,status,id_token
+			$mail =$_POST['email'];
+			$passwordHash=password_hash($_POST['password'],PASSWORD_DEFAULT);
+			// verifie que l'email et le password existe avec un seul id
+			$passwordEmailExists = new ConnexionModel();
+			$user = $passwordEmailExists->passwordEmailExists($passwordHash,$mail);
+			if ($user === true){
+				// lance la function createTokenPlusConnexion avec nos 2 info post(email et password qui est hash)
+				$token = $passwordEmailExists->createTokenPlusConnexion($user);
+				// met en session les info retourner par createTokenPlusConnexion qui elle retourne dans $token
+				$_SESSION["token"] = $token;
+				$_SESSION["name"] = $user;
 			}
+			echo "connecté";
 		}
+		// mauvais identifiants
 		$this->show('users/sign_in');
 	}
 
@@ -111,7 +114,6 @@ class UsersController extends Controller
 				'email' => '',
 				'birthdate' => '',
 				'phonenumber' => '',
-
 			]);
 
 		$errors = array(); // on crée une vérif de champs

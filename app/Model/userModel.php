@@ -21,5 +21,4 @@ class UserModel extends usr
 		);
 	return $this->insert($data);
 	}
-
 }
