@@ -1,5 +1,7 @@
 <?php $this->layout('layout', ['title' => 'sign_up']) ?>
+
 <?php $this->start('main_content') ?>
+
 <div class="container">
 	<h2>Inscription</h2>
 
@@ -13,9 +15,8 @@
 	<div class="alert alert-success">
 	Votre inscription est validée !
 	</div>
-	<?php endif;
+	<?php endif;?>
 
-?>
 	<form class="form-horizontal" method="POST" action="<?= $this->url('users_sign_up') ?>">
 		<fieldset>
 			<!-- Nom -->
@@ -124,4 +125,3 @@
 ?>
 
 <?php $this->stop('main_content') ?>
-

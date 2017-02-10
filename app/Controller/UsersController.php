@@ -1,11 +1,10 @@
 <?php
 
-
 namespace Controller;
 
 use \W\Controller\Controller;
-use  \Model\userModel;
-
+use \Model\userModel;
+use \W\Security\AuthentificationModel;
 
 class UsersController extends Controller
 {
@@ -42,7 +41,7 @@ class UsersController extends Controller
 	  $_SESSION['errors'] = $errors;//on stocke les erreurs
 	  $_SESSION['inputs'] = $_POST;
 	  //$this->redirectToRoute('users_contact');
-		$this->show('users/users_contact', [
+		$this->show('users/contact', [
 		'lastname' => (empty($_POST['lastname'])) ? '' : $_POST['lastname'],
 		'firstname' => (empty($_POST['firstname'])) ? '' : $_POST['firstname'],
 		'email' => (empty($_POST['email'])) ? '' : $_POST['email'],
@@ -76,24 +75,36 @@ class UsersController extends Controller
 	}
 
 	/**
-	 * Page de traitement inscription
-	 */
-	 function age($date) // Verification fonctionnement
-	 {
-	   $d = strtotime($date);
-	   return  (int) ((time() - $d) / 3600 / 24 / 365.242);
-	 }
-
-
-	/**
 	 * Page de sign_in
 	 */
 	public function sign_in()
 	{
-		$this->show('users/sign_in');
+		if (!empty($_POST)) {
+			$userModel = new UserModel();
+			$user = $userModel->emailExists($_POST['email']);
+			debug($user);
+			if ($user && ($user["password"] === password_hash($_POST['password'],PASSWORD_DEFAULT))) {
+					$user["id_token"] = $this->token();
+					$instanceModel = new AuthentificationModel();
+					debug($user);
+		     	// Retire le mot de passe de la session
+							// unset($user[$app->getConfig('security_password_property')]);
+							// unset($user[$app->getConfig('security_id_property')]);
+					// $_SESSION['user'] = $user; =firstname,lastname,nickname,email,birthdate,status,id_token
+			}else{
+
+			}
+		} else {
+
+		}
+		 $this->show('users/sign_in');
 	}
 
-
+	public function token() {
+		$token= new StringUtils();
+	 $tokens= $toke->randomString(20);
+	 // verifier que ce token n'existe pas en base de donnée
+	}
 
 	/**
 	 * Page de sign_up
@@ -129,9 +140,6 @@ class UsersController extends Controller
 
 		if(!array_key_exists('birthdate', $_POST) || $_POST['birthdate'] == '')// on verifie l'existence du champ et d'un contenu
 			$errors ['birthdate'] = "Vous n'avez pas renseigné votre date de naissance !";
-		else
-			$this->age($_POST['birthdate'])."\n";
-
 
 		if(!array_key_exists('password', $_POST) || $_POST['password'] == '')// on verifie l'existence du champ et d'un contenu
 			$errors ['password'] = "Vous n'avez pas renseigné votre mot de passe !";
@@ -175,7 +183,7 @@ class UsersController extends Controller
 			$_POST["password"]
 			);
 		}
-
+		$this->redirectToRoute('users_sign_up');
 	}
 
 
@@ -188,4 +196,3 @@ class UsersController extends Controller
  	 $this->show('users/home');
 	}
 }
-
