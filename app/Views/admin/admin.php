@@ -21,22 +21,21 @@
 
 		  	<div id="AddArticle" class="tab-pane fade">
 				<form class="form-horizontal" action="<?= $this->url('admin_add_article') ?>" id="ajoutArticle" method="POST" enctype="multipart/form-data">
-					<fieldset>
+					<fieldset class="adminform">
 			<!-- 	########################		DEBUT	TITRE	 			########################	-->
 						<div class="form-group">
-							<div class="col-sm-offset-4 col-sm-4">
+							<div class="col-xs-offset-1 col-xs-10">
 							    <div class="input-group">
 									<label class="input-group-addon span-bold" for="title">Titre de l'article : </label>
 									<input type="text" name="title" id="title" placeholder="Saisissez le titre" class="form-control" >
 								</div>
 							</div>
-						<p id="msgun">Le titre doit faire au maximum 50 caractères et ne doit pas être vide.</p>
 						</div>
 			<!-- 	########################		FIN		TITRE	 			########################	-->
 
 			<!-- 	########################		DEBUT	DESCRIPTION IMAGE	########################	-->
 						<div class="form-group">
-							<div class="col-sm-offset-4 col-sm-4">
+							<div class="col-xs-offset-1 col-xs-10">
 							    <div class="input-group">
 									<label class="input-group-addon span-bold" for="description_pictures">Description de l'image (30 caractères maximum) : </label>
 									<textarea type="text" name="description" id="description" cols="30" rows="10" class="form-control" placeholder="Saisissez la description"></textarea>
@@ -48,7 +47,7 @@
 
 			<!-- 	########################		DEBUT	DESCRIPTION		 	########################	-->
 						<div class="form-group">
-							<div class="col-sm-offset-4 col-sm-4">
+							<div class="col-xs-offset-1 col-xs-10">
 							    <div class="input-group">
 									<label class="input-group-addon span-bold" for="description">Description de l'article (30 caractères maximum) : </label>
 									<textarea type="text" name="description" id="description" cols="30" rows="10" class="form-control" placeholder="Saisissez la description"></textarea>
@@ -60,7 +59,7 @@
 
 			<!-- 	########################		DEBUT	CHECKBOX GAMES		########################	-->
 						<div class="form-group">
-							<div class="col-sm-offset-4 col-sm-4">
+							<div class="col-xs-offset-1 col-xs-10">
 							    <div class="input-group">
 									<label class="input-group-addon span-bold" for="game">Jeux : </label>
 								<?php foreach ($games as $game) { ?>
@@ -75,7 +74,7 @@
 
 			<!-- 	########################		DEBUT	PICTURES	 		########################	-->
 						<div class="form-group">
-							<div class="col-sm-offset-4 col-sm-4">
+							<div class="col-xs-offset-1 col-xs-10">
 							    <div class="input-group">
 									<label class="input-group-addon span-bold" for="image">Image : </label>
 									<input type="file" name="picture" id="picture" placeholder="Choisissez une image" class="form-control" >
@@ -87,7 +86,7 @@
 
 			<!-- 	########################		DEBUT	SUBMIT				########################	-->
 						<div class="form-group">
-							<div class="col-sm-offset-4 col-sm-4">
+							<div class="col-xs-offset-1 col-xs-10">
 							    <div class="input-group">
 				    				<button id="envoyer" name="envoyer" class="btn btn-primary">Envoyer</button>
 								</div>
@@ -103,7 +102,7 @@
 					<fieldset>
 			<!-- 	########################		DEBUT	NOM	 				########################	-->
 						<div class="form-group">
-							<div class="col-sm-offset-4 col-sm-4">
+							<div class="col-xs-offset-1 col-xs-10">
 							    <div class="input-group">
 									<label class="input-group-addon span-bold" for="name">Nom de l'événement : </label>
 									<input type="text" name="name" id="name" placeholder="Saisissez le nom" class="form-control" >
@@ -114,7 +113,7 @@
 
 			<!-- 	########################		DEBUT	DATE	 			########################	-->
 						<div class="form-group">
-							<div class="col-sm-offset-4 col-sm-4">
+							<div class="col-xs-offset-1 col-xs-10">
 							    <div class="input-group">
 									<label class="input-group-addon span-bold" for="date">Date de l'événement : </label>
 									<input type="date" name="date" id="date" class="form-control" >
@@ -125,7 +124,7 @@
 
 			<!-- 	########################		DEBUT	LOCATION			########################	-->
 						<div class="form-group">
-							<div class="col-sm-offset-4 col-sm-4">
+							<div class="col-xs-offset-1 col-xs-10">
 							    <div class="input-group">
 									<label class="input-group-addon span-bold" for="location">Lieu : </label>
 									<input type="text" name="location" class="form-control" >
@@ -136,7 +135,7 @@
 
 			<!-- 	########################		DEBUT	DESCRIPTION	 		########################	-->
 						<div class="form-group">
-							<div class="col-sm-offset-4 col-sm-4">
+							<div class="col-xs-offset-1 col-xs-10">
 							    <div class="input-group">
 									<label class="input-group-addon span-bold" for="desc">Description : </label>
 									<textarea type="text" name="desc" id="desc" cols="30" rows="10" class="form-control" ></textarea>
@@ -147,8 +146,8 @@
 
 			<!-- 	########################		DEBUT	CHECKBOX GAMES		########################	-->
 						<div class="form-group">
-						  	<label class="col-sm-offset-4 col-sm-4" for="checkboxes">Jeu(x) : </label>
-						  	<div class="col-sm-offset-4 col-sm-4">
+						  	<label class="col-xs-offset-1 col-xs-10" for="checkboxes">Jeu(x) : </label>
+						  	<div class="col-xs-offset-1 col-xs-10">
 						  	  	<label class="checkbox-inline" for="checkboxes-0">
 						  	  	  	<input type="checkbox" name="starcraft2" id="checkboxes-0" value="1">
 						  	  	 	starcraft2
@@ -171,7 +170,7 @@
 
 			<!-- 	########################		DEBUT	SUBMIT				########################	-->
 						<div class="form-group">
-							<div class="col-sm-offset-4 col-sm-4">
+							<div class="col-xs-offset-1 col-xs-10">
 							    <div class="input-group">
 				    				<button id="envoyer" name="envoyer" class="btn btn-primary">Envoyer</button>
 								</div>

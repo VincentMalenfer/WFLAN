@@ -2,6 +2,7 @@
 <?php $this->start('main_content') ?>
     <h2>Ajout Event</h2>
     <form class="adminForm" action="<?= $this->url('admin_list_events') ?>" method="POST">
+      <fieldset class="adminform">
         <div class="form-group">
 <!--     ########################        DEBUT   NOM             ########################    -->
             <label for="name">Nom de l'event : </label>
@@ -22,7 +23,7 @@
         </div>
 <!--     ########################        FIN LOCATION            ########################    -->
 <!--     ########################        DEBUT   DESCRIPTION     ########################    -->
-        <div class="form-group">    
+        <div class="form-group">
             <label for="desc">Description : </label>
             <textarea type="text" name="desc" id="desc" cols="30" rows="10" class="form-control" ></textarea>
         </div>
@@ -41,7 +42,7 @@
             <input type="checkbox" name="csGo" value="3" class="form-control" >
             <label for="csGo"> CS : GO </label>
         </div>
-    
+
         <div class="form-group">
             <input type="checkbox" name="other" value="4" class="form-control" >
             <label for="other"> Autres </label>
@@ -51,10 +52,11 @@
         <div class="form-group">
             <input type="submit" value="valid" class="form-control" >
         </div>
-<!--     ########################        FIN     SUBMIT          ########################    -->
+<!--     ########################        FIN     SUBMIT  ########################    -->
+      </fieldset>
+
     </form>
     <p>
         <a class="lien" href="<?= $this->url('admin_admin') ?>">Accueil</a>
     </p>
 <?php $this->stop('main_content') ?>
-Add Comment Collaps
