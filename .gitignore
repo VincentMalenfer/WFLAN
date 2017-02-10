@@ -6,3 +6,4 @@ public/assets/img/loginlogo.png
 public/assets/img/loginlogo.png
 app/Controller/AdminController.php
 W/Model/Model.php
+app/Views/articles/list_articles.php
