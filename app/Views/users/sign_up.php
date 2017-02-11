@@ -4,15 +4,27 @@
 
 <div class="container">
 	<h2>Inscription</h2>
-	<form class="form-horizontal" method="POST" action="<?= $this->url('users_sign_up_form') ?>">
+
+	<!-- Affichage des messages d'erreurs et de success -->
+	<?php if(array_key_exists('errors',$_SESSION)): ?>
+	<div class="alert alert-danger">
+	<?= implode('<br>', $_SESSION['errors']); ?>
+	</div>
+	<?php endif; ?>
+	<?php if(array_key_exists('success',$_SESSION)): ?>
+	<div class="alert alert-success">
+	Votre inscription est validée !
+	</div>
+	<?php endif;?>
+
+	<form class="form-horizontal" method="POST" action="<?= $this->url('users_sign_up') ?>">
 		<fieldset>
-			<legend>Formulaire d'inscription</legend>
 			<!-- Nom -->
 			<div class="form-group">
 			  <div class="col-sm-offset-4 col-sm-4">
 			    <div class="input-group">
 			      <span class="input-group-addon span-bold">Nom</span>
-			      <input id="lastname" name="lastname" class="form-control" placeholder="Votre nom" type="text" required>
+			      <input id="lastname" name="lastname" class="form-control" placeholder="Votre nom" type="text" value="<?= $lastname ?>">
 			    </div>
 			  </div>
 			</div>
@@ -22,7 +34,7 @@
 			  <div class="col-sm-offset-4 col-sm-4">
 			    <div class="input-group">
 			      <span class="input-group-addon span-bold">Prénom</span>
-			      <input id="firstname" name="firstname" class="form-control" placeholder="Votre prénom" type="text" required>
+			      <input id="firstname" name="firstname" class="form-control" placeholder="Votre prénom" type="text" value="<?= $firstname ?>">
 			    </div>
 			  </div>
 			</div>
@@ -32,7 +44,7 @@
 			  <div class="col-sm-offset-4 col-sm-4">
 			    <div class="input-group">
 			      <span class="input-group-addon span-bold">Pseudo</span>
-			      <input id="nickname" name="nickname" class="form-control" placeholder="Votre pseudo" type="text" required>
+			      <input id="nickname" name="nickname" class="form-control" placeholder="Votre pseudo" type="text" value="<?= $nickname ?>">
 			    </div>
 			  </div>
 			</div>
@@ -42,7 +54,7 @@
 			  <div class="col-sm-offset-4 col-sm-4">
 			    <div class="input-group">
 			      <span class="input-group-addon span-bold">Email</span>
-			      <input id="email" name="email" class="form-control" placeholder="Votre adresse email" type="text" required>
+			      <input id="email" name="email" class="form-control" placeholder="Votre adresse email" type="text" value="<?= $email ?>">
 			    </div>
 			  </div>
 			</div>
@@ -52,7 +64,7 @@
 			  <div class="col-sm-offset-4 col-sm-4">
 			    <div class="input-group">
 			      <span class="input-group-addon span-bold">Date de naissance</span>
-			      <input id="birthdate" name="birthdate" class="form-control" type="date" required>
+			      <input id="birthdate" name="birthdate" class="form-control" type="date"value="<?= $birthdate ?>" >
 			    </div>
 			  </div>
 			</div>
@@ -62,7 +74,7 @@
 			  <div class="col-sm-offset-4 col-sm-4">
 			    <div class="input-group">
 			      <span class="input-group-addon span-bold">Téléphone</span>
-			      <input id="phonenumber" name="phonenumber" class="form-control" placeholder="Votre numéro de mobile" type="tel">
+			      <input id="phonenumber" name="phonenumber" class="form-control" placeholder="Votre numéro de mobile" type="tel" value="<?= $phonenumber ?>">
 			    </div>
 			    <small class="help-block">*facultatif</small>
 			  </div>
@@ -73,7 +85,7 @@
 			  <div class="col-sm-offset-4 col-sm-4">
 			    <div class="input-group">
 			      <span class="input-group-addon span-bold">Mot de passe</span>
-			      <input id="password" name="password" class="form-control" placeholder="Votre mot de passe" type="password" required>
+			      <input id="password" name="password" class="form-control" placeholder="Votre mot de passe" type="password" >
 			    </div>
 			  </div>
 			</div>
@@ -83,7 +95,7 @@
 			  <div class="col-sm-offset-4 col-sm-4">
 			    <div class="input-group">
 			      <span class="input-group-addon span-bold">Confirmation</span>
-			      <input id="passwordConfirm" name="passwordConfirm" class="form-control" placeholder="Votre mot de passe" type="password" required>
+			      <input id="passwordConfirm" name="passwordConfirm" class="form-control"  placeholder="Votre mot de passe" type="password" >
 			    </div>
 			  </div>
 			</div>
@@ -104,5 +116,12 @@
 		</fieldset>
 	</form>
 </div>
+
+<?php
+	 // on nettoie les données précédentes
+	unset($_SESSION['inputs']);
+	unset($_SESSION['success']);
+	unset($_SESSION['errors']);
+?>
 
 <?php $this->stop('main_content') ?>

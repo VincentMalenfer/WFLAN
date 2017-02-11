@@ -1,5 +1,4 @@
 <?php $this->layout('layout', ['title' => 'Ajout Article']) ?>
-
 <?php $this->start('main_content') ?>
 
 	<h2>Ajout Article</h2>
@@ -88,6 +87,7 @@
 			e.preventDefault(); // On empêche le navigateur de soumettre le formulaire
 			var compteur= 1;
 			if ($('#title').val().length == 0)  {
+
 			 	$('#msgun').fadeIn();
 			 	$('#title').css('border','red 1px solid');
 			 	$('#msgun').css('visibility','visible');
@@ -99,6 +99,7 @@
 				$('#msgun').fadeOut();
 			 	$('#title').css('border','1px solid rgb(169, 169, 169)');
 			 	compteur+=compteur;
+
 			}
 			if ($('#description').val().length == 0){
 			 	$('#msgdeux').fadeIn();
@@ -108,6 +109,7 @@
 				$('#msgdeux').fadeIn();
 			 	$('#description').css('border','red 1px solid');
 			 	$('#msgdeux').css('visibility','visible');
+
 			}else{
 			 	$('#msgdeux').fadeOut();
 			 	$('#description').css('border','1px solid rgb(169, 169, 169)');
@@ -117,15 +119,18 @@
 		     	$('#msgtrois').fadeOut();
 		     	$('#picture').css('border','1px solid rgb(169, 169, 169)');
 		     	compteur+=compteur;
+
 			}else{
 				$('#checkbox').css('border','red 1px solid');
 		     	$('msgtrois').fadeIn();
 		     	$('#msgtrois').css('visibility','visible');
+
 			}
 			if($('#picture').val()==""){
 				$('#msgquatre').fadeIn();
 				$('#msgquatre').css('visibility','visible');
 				$('#picture').css('border','red 1px solid');
+
 			}else{
 				$('#msgquatre').fadeOut();
 				$('#picture').css('border','1px solid rgb(169, 169, 169)');
@@ -135,6 +140,7 @@
 		     	$('#description_pictures').css('border','red 1px solid');
 		     	$('#msgcinq').fadeIn();
 		     	$('#msgcinq').css('visibility','visible');
+
 			}else{
 				$('#msgcinq').fadeOut();
 				$('#description_pictures').css('border','1px solid rgb(169, 169, 169)');
@@ -145,6 +151,7 @@
 		     	$('#text').css('border','red 1px solid');
 		     	$('#msgsix').fadeIn();
 		     	$('#msgsix').css('visibility','visible');
+
 			}else{
 				$('#msgsix').fadeOut();
 				$('#text').css('border','1px solid rgb(169, 169, 169)');
@@ -153,16 +160,18 @@
 			if (compteur===7) {
 				(this).submit();
 			}
+
 		});
+
 	});
+
 </script>
 <style type="text/css">
-	#msgun,#msgdeux,#msgtrois,#msgcinq,#msgsix,#msgquatre{
-	visibility: hidden;
-	}
+    #msgun,#msgdeux,#msgtrois,#msgcinq,#msgsix,#msgquatre{
+    visibility: hidden;
+    }
 </style>
-	<p>
-		<a class="lien" href="<?= $this->url('admin_admin') ?>">Accueil</a>
-	</p>
-
+    <p>
+        <a class="lien" href="<?= $this->url('admin_admin') ?>">Accueil</a>
+    </p>
 <?php $this->stop('main_content') ?>
