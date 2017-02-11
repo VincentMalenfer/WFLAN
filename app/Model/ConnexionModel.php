@@ -8,7 +8,6 @@ class ConnexionModel extends Model
 {
   public function createTokenPlusConnexion($user)
   {
-
     // lance le la création du  token avec la function randomString
     $token = $this->randomString(20);
     // si le token existe déja en bdd
@@ -26,7 +25,7 @@ class ConnexionModel extends Model
       $foundInfo->execute();
     return $token;
   }
-  
+
   // 1 Vérifier si le token existe déjà : FAIT
     // 1.a S'il existe, on en génère un nouveau
   // 2 vérifier si l'utilisateur a déjà un token

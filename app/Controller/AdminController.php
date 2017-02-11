@@ -10,7 +10,20 @@ class AdminController extends Controller
 	 * Page d'administration
 	 */
 	public function admin()	{
-		$this->show('admin/admin');
+		$articleModel = new ArticlesModel();
+		$games = $articleModel->getGame();
+
+		$this->show('admin/admin', ['games'=> $games]);
+	}
+
+	public function article()
+	{
+
+		// $this->allowTo('admin');
+
+		$articleModel = new ArticlesModel();
+		$games = $articleModel->getGame();
+		$this->show('admin/admin', ['games'=> $games]);
 	}
 
 	public function event(){
@@ -56,17 +69,16 @@ class AdminController extends Controller
 			$games = $articleModel->getGame();
 
 
-
 		// $this->allowTo('admin');
 		$filepath="";
 		if(empty($_FILES)){
-			$this->show('admin/admin_article', ['games'=> $games]);
 		}
 		if ($_FILES['picture']['size'] > 0) {
 
 			// revoir le chemin de destination des images
 
-			$dir = $this->AssetUrl('img');
+			$dir = '../../public/assets/img/articles/';
+
 			// je verifie que le dossier de destination existe
 
 			if (file_exists($dir)&& is_dir($dir)) {
@@ -78,7 +90,7 @@ class AdminController extends Controller
 				// je deplace le fichier depuis le dossier temporaire vers la destination
 
 				if (move_uploaded_file($_FILES['picture']['tmp_name'],$dir.$filename)) {
-					$filepath =	$this->AssetUrl('img').$filename;
+					$filepath =	'../../public/assets/img/articles/'.$filename;
 				}else{
 					die("upload failed");
 				}
@@ -86,14 +98,20 @@ class AdminController extends Controller
 		}
 		if(!empty($_POST) && $this->security()==true){
 			$addArticle = new ArticlesModel();
-			$addArticle->addArcticle($_POST['title'],
-									 $_POST['description'],
-									 $_POST['text'],
-									 $filepath,
-									 $_POST['description_pictures']
+			$last_id = $addArticle->addArcticle(
+									$_POST['title'],
+									$_POST['description'],
+									$_POST['text'],
+									$filepath,
+									$_POST['description_pictures']
 									);
+			
 		};
-		$this->show('admin/admin_article', ['games'=> $games]);
+
+
+		///////////////////////////////////////////////////////////////
+
+		$this->show('list_articles');
 	}
 
 	public function security(){
@@ -119,4 +137,3 @@ class AdminController extends Controller
 		$this->show('admin/admin_article', ['articles'=> $articles]);
 	}
 }
-
