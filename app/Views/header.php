@@ -24,7 +24,7 @@
       </ul>
         <ul class="nav navbar-nav navbar-right">
         <?php 
-    debug($_SESSION);if (isset($_SESSION['token'])): ?>
+        if (isset($_SESSION['token'])): ?>
           <li><a href="<?= $this->url('users_log_out'); ?>">Deconnection</a></li>
         <?php else: ?>
           <li><a href="<?= $this->url('users_sign_up'); ?>">Inscription</a></li>
