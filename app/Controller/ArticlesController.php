@@ -35,9 +35,12 @@ class ArticlesController extends Controller
     }
     // Supprime un article
     public function suppArticle($id)
-    {
+    {   $allArticle= getArticle($id);
+        $id= $allArticle['idarticles'];
+        $picture = $allArticle['pictures'];
         $supp= new ArticlesModel();
         $supp->deleteArticle($id);
+        if ($supp)unlink($picture);
         $this->redirectToRoute('admin/admin_list_articles');
     }
 
@@ -57,27 +60,30 @@ class ArticlesController extends Controller
 
         // $this->allowTo('admin');
         $filepath="";
-        if(empty($_FILES)){
-        }
-        if ($_FILES['picture']['size'] > 0) {
+        if(!empty($_FILES)){
+        
 
-            // revoir le chemin de destination des images
+        
+            if ($_FILES['picture']['size'] > 0) {
 
-            $dir =  'assets/img/articles/';
+                // revoir le chemin de destination des images
 
-            // je verifie que le dossier de destination existe   
-            if (file_exists($dir)&& is_dir($dir)) {
+                $dir =  'assets/img/articles/';
 
-                // $filename definit le nom définitif de l'image et on lui colle son extension (pdf...) d'où le "."
+                // je verifie que le dossier de destination existe   
+                if (file_exists($dir)&& is_dir($dir)) {
 
-                $filename = time().".".pathinfo($_FILES['picture']['name'],PATHINFO_EXTENSION);
+                    // $filename definit le nom définitif de l'image et on lui colle son extension (pdf...) d'où le "."
 
-                // je deplace le fichier depuis le dossier temporaire vers la destination
+                    $filename = time().".".pathinfo($_FILES['picture']['name'],PATHINFO_EXTENSION);
 
-                if (move_uploaded_file($_FILES['picture']['tmp_name'],$dir.$filename)) {
-                    $filepath = 'assets/img/articles/'.$filename;
-                }else{
-                    die("upload failed");
+                    // je deplace le fichier depuis le dossier temporaire vers la destination
+
+                    if (move_uploaded_file($_FILES['picture']['tmp_name'],$dir.$filename)) {
+                        $filepath = 'assets/img/articles/'.$filename;
+                    }else{
+                        die("upload failed");
+                    }
                 }
             }
         }

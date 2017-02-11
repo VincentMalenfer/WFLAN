@@ -11,7 +11,7 @@ class ArticlesModel extends Model
 
 	public function getArticles()
 	{
-		$sql = 'SELECT * FROM ' . $this->table.' WHERE actif = 1 ORDER BY idarticles DESC';
+		$sql = 'SELECT * FROM' . $this->table.'ORDER BY idarticles DESC';
 		$sth = $this->dbh->prepare($sql);
 		$sth->execute();
 		return $sth->fetchAll();
@@ -56,16 +56,18 @@ class ArticlesModel extends Model
 			'games_idgames'			=>  $game,
 			'articles_idarticles'	=>  $id_article  
 			);
-		
+
 		$sql = 'INSERT INTO games_has_articles (`articles_idarticles`, `games_idgames`) VALUES (:articles_idarticles,:games_idgames)'; 
 		$pouet = $this->dbh->prepare($sql);
     	$pouet->execute($data);
 	}
 
-	public function deleteArticle($actif)
+	public function deleteArticle($id)
 	{
-		// Delete de la BDD les articles selectionné par l'admin
-			return $this->delete($id);
+		// Delete de la BDD l'articles selectionné par l'admin
+			$this->delete($id);
+			return true;
+
 	}
 
 	// affiche 10 articles different de celui que l'on a en get de la page
