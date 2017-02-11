@@ -16,16 +16,8 @@ class ArticlesController extends Controller
       $this->show('articles/article', ['article'=> $articles]);
     }
 
-    // Affichage de la liste des articles côté administrateur
-    public function admin_list_articles()
-	{
-        $articleModel = new ArticlesModel();
-        $articles = $articleModel->getArticles();
-        $this->show('admin/admin_list_articles', ['articles'=> $articles]);
-	}
-
     // Liste de tout les articles côté utilisateur
-    function listArticles()
+    public function listArticles()
     {
       $articleModel = new ArticlesModel();
       $articles = $articleModel->getArticles();
