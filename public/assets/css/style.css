@@ -3,6 +3,8 @@
   font-family: 'Overpass', sans-serif;*/
 
 html, body {
+	height: 85%;
+	max-height: 100%;
 	font-family: 'Economica', sans-serif;
 	font-size: 20px;
 	background-color: #f0f0f0;
@@ -10,11 +12,34 @@ html, body {
 }
 main{
 	background-color: #FFF;
-	padding-top: 20px;
+	min-height: 100%;
 }
 h1 {
 	text-align: center;
+	margin-top:  0px;
+	padding-top: 20px;
 }
+/* Iframe MAPS */
+.mapspadd, .signUp{
+	padding-top: 25px;
+}
+.live{
+	padding-top: 45px;
+}
+@media(max-width:767px){
+	.live{
+		padding-top: 20px;
+	}
+}
+.contactCss fieldset{
+	padding-top: 50px;
+}
+@media(max-width:767px){
+	.contactCss fieldset{
+		padding-top: 20px;
+	}
+}
+
 /* ADMIN FORMS */
 .adminform{
 	padding-top: 20px;
@@ -82,10 +107,6 @@ h1 {
     width: auto;
     float: left;
 }
-.MaGrosBite{
-    color: black;
-    size: 80000px;
-}
 
 .droite{
     height: 100px;
@@ -100,9 +121,6 @@ h1 {
     -ms-filter: "FlipH";
 }
 
-/*-------------------------
-    FIN ERROR 403 & 404
----------------------------*/
 
 /*-------------------------
     DEBUT CSS CALENDRIER
@@ -110,6 +128,14 @@ h1 {
 .cal-context{
   background: url('../img/forcalendar.png') no-repeat center;
 }
-/*-------------------------
-    FIN CSS CALENDRIER
----------------------------*/
+/* suppression du background image en dessous du md */
+@media(max-width:767px){
+	.cal-context {
+		background-image: none;
+	}
+}
+@media(min-width:767px){
+	#calendar{
+		margin-top: 25px;
+	}
+}
