@@ -16,6 +16,16 @@ class AdminController extends Controller
 		$this->show('admin/admin', ['games'=> $games]);
 	}
 
+	public function article()
+	{
+
+		// $this->allowTo('admin');
+
+		$articleModel = new ArticlesModel();
+		$games = $articleModel->getGame();
+		$this->show('admin/admin', ['games'=> $games]);
+	}
+
 	public function event(){
 
 	// {	$this->allowTo('admin');

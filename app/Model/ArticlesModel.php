@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 
 namespace Model;
@@ -60,24 +61,7 @@ class ArticlesModel extends Model
 	//$_POST['des_pictures']			//post des_pictures du form admin article
 	//date("Y-m-d");					// = date du serveur
 
-	public function modifyArticle($id,$title,$description,$text,$pictures,$des_pictures)
-	{
-		// id_articles est le champ id de la table articles
 
-		$data=array(
-
-		'title'						=> $title,
-		'description' 				=> $description,
-		'text'						=> $text,
-		'pictures'		   			=> $pictures,
-		'description_pictures'		=> $description_pictures,
-		'publishdate'				=> date("Y-m-d")
-			);
-
-		return $this->update($data);
-
-		// 'UPDATE article SET title,description,`text`,pictures,picturesDes,publishdate VALUES (:title,:description,`:text`,:pictures,:picturesDes,:publishdate)WHERE  id_articles= :id';
-	}
 
 	public function deleteArticle($actif)
 	{
