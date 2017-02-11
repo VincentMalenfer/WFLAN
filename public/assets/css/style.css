@@ -8,18 +8,30 @@ html, body {
 	background-color: #f0f0f0;
 	color: #212121;
 }
+main{
+	background-color: #FFF;
+	padding-top: 20px;
+}
 h1 {
 	text-align: center;
 }
-
-/* Articles Sidebar*/
-sidebar-custom{
-	background-color: #fff;
+/* ADMIN FORMS */
+.adminform{
+	padding-top: 20px;
 }
+/* Articles Sidebar*/
+.sidebar-custom{
+	background-color: rgba(80, 80, 83, 0.11);
+	border-color: #000;
+	border-radius: 5px;
+	padding-bottom: : 5px;
+}
+
 /* home hidden sur div class audio */
 .audio {
 	visibility: hidden;
 }
+
 /* Responsive pour iframe */
 .iframe-responsive-wrapper        {
     position: relative;
@@ -36,7 +48,6 @@ sidebar-custom{
     width: 100%;
     height: 100%;
 }
-
 
 /*-----------------------
     ERROR 403 & 404
@@ -71,6 +82,10 @@ sidebar-custom{
     width: auto;
     float: left;
 }
+.MaGrosBite{
+    color: black;
+    size: 80000px;
+}
 
 .droite{
     height: 100px;
@@ -84,6 +99,17 @@ sidebar-custom{
     filter: FlipH;
     -ms-filter: "FlipH";
 }
+
 /*-------------------------
     FIN ERROR 403 & 404
+---------------------------*/
+
+/*-------------------------
+    DEBUT CSS CALENDRIER
+---------------------------*/
+.cal-context{
+  background: url('../img/forcalendar.png') no-repeat center;
+}
+/*-------------------------
+    FIN CSS CALENDRIER
 ---------------------------*/

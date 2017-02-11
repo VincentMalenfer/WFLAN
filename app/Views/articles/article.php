@@ -1,12 +1,12 @@
 <?php $this->layout('layout', ['title' => 'Article']) ?>
 <?php $this->start('main_content') ?>
-    <h2>Article</h2>
-    <p>Vous avez atteint la page d'article. Bravo.</p>
+
 <?php  if (isset($article)): ?>
 <div class="container-fluid">
+    <h1>Article</h1>
     <article class="txtArticle col-xs-8 col-xs-offset-2">
         <h1><?= $article['title'] ?></h1>
-        <img src="<?= $article['pictures'] ?>" alt="" class="img-responsive">
+        <img src="<?= $article['pictures'] ?>" alt="<?= $article['description_pictures'] ?>" class="img-responsive">
         <p><?= $article['text'] ?></p>
         <hr>
         <p class="infoArticle"></p>
@@ -14,26 +14,18 @@
     </article>
     <!--Side Nav Bar -->
     <nav class="col-xs-2 bs-docs-sidebar sidebar-custom">
-        <ul id="sidebar" class="nav nav-stacked fixed">
+        <ul id="sidebar" class="nav nav-stacked fixed style="padding-bottom: 10px;"">
+          <h3>Nos articles:</h3>
             <li>
-                <a href="#GroupA">Group A</a>
-                <ul class="nav nav-stacked">
-                    <li><a href="#GroupASub1">Sub-Group 1</a></li>
-                    <li><a href="#GroupASub2">Sub-Group 2</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#GroupB">Group B</a>
-                <ul class="nav nav-stacked">
-                    <li><a href="#GroupBSub1">Sub-Group 1</a></li>
-                    <li><a href="#GroupBSub2">Sub-Group 2</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#GroupC">Group C</a>
-                <ul class="nav nav-stacked">
-                    <li><a href="#GroupCSub1">Sub-Group 1</a></li>
-                    <li><a href="#GroupCSub2">Sub-Group 2</a></li>
+                <ul class="nav nav-stacked fixed">
+                    <li><a href="#GroupASub1" class="sideCSS">Articles</a></li>
+                    <li><a href="#GroupASub2" class="sideCSS">Articles</a></li>
+                    <li><a href="#GroupASub2" class="sideCSS">Articles</a></li>
+                    <li><a href="#GroupASub2" class="sideCSS">Articles</a></li>
+                    <li><a href="#GroupASub2" class="sideCSS">Articles</a></li>
+                    <li><a href="#GroupASub2" class="sideCSS">Articles</a></li>
+                    <li><a href="#GroupASub2" class="sideCSS">Articles</a></li>
+                    <li><a href="#GroupASub2" class="sideCSS">Articles</a></li>
                 </ul>
             </li>
         </ul>
@@ -41,4 +33,3 @@
 </div>
 <?php endif; ?>
 <?php $this->stop('main_content') ?>
-

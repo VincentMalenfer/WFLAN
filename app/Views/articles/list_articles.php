@@ -27,11 +27,7 @@
                 <p> <?= $article['description'] ?> </p>
                 <a class="btn btn-primary" href="<?=$this->url('article_article', ['id' => $article['idarticles']])?>">aller sur l article <span class="glyphicon glyphicon-chevron-right"></span></a>
                 <!-- si le role de l'utilistateur est admin -->
-            <?php if ($admin) {?>
 
-             <?php } ?>
-                <a href="<?=$this->url('admin_modify', ['id' => $article['idarticles']])?>">modifier</a>
-                <a href="<?=$this->url('admin_supp',['id' => $article['idarticles']])?>">supprimer</a>
             </div>
         </div>
         <!-- /.row -->
@@ -40,6 +36,6 @@
             endforeach;
         ?>
     </div>
-    <?php }; 
-$this->stop('main_content');?>
 
+    <?php };
+$this->stop('main_content');?>
