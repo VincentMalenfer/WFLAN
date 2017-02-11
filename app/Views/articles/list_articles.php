@@ -28,9 +28,6 @@
                 <a class="btn btn-primary" href="<?=$this->url('article_article', ['id' => $article['idarticles']])?>">aller sur l article <span class="glyphicon glyphicon-chevron-right"></span></a>
                 <!-- si le role de l'utilistateur est admin -->
 
-
-
-
             </div>
         </div>
         <!-- /.row -->
