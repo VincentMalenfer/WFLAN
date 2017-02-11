@@ -14,8 +14,8 @@ class ConnexionModel extends Model
     if($this->tokenExists($user)) {
       // si l'id de l'utilisateur est deja present dans la table token mettre a jour le token
         $this->setTable("token");
-          $this->setPrimaryKey("users_idusers");
-          $this->delete($user);
+        $this->setPrimaryKey("users_idusers");
+        $this->delete($user);
     }
       $aFaire='INSERT INTO token(id_token, users_idusers) VALUE(:idtoken,:iduser)';
 
@@ -25,12 +25,6 @@ class ConnexionModel extends Model
       $foundInfo->execute();
     return $token;
   }
-
-  // 1 Vérifier si le token existe déjà : FAIT
-    // 1.a S'il existe, on en génère un nouveau
-  // 2 vérifier si l'utilisateur a déjà un token
-      // 2.a Si l'utilisateur a déjà un token, on update
-      // 2.b Si l'utilisateur n'a pas encore de token, on insert
 
   public function tokenExists($id)
   {
@@ -46,7 +40,6 @@ class ConnexionModel extends Model
     }
      return false;
   }
-
 
   public static function randomString($length = 80)
   {
