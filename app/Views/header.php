@@ -28,7 +28,7 @@
           <li><a href="<?= $this->url('users_log_out'); ?>">Deconnection</a></li>
         <?php else: ?>
           <li><a href="<?= $this->url('users_sign_up'); ?>">Inscription</a></li>
-          <li><a href="<?= $this->url('users_sign_in'); ?>">Connext(ion</a></li>
+          <li><a href="<?= $this->url('users_sign_in'); ?>">Connexion</a></li>
         <?php endif; ?>
         </ul>
       </div><!-- /.navbar-collapse -->
