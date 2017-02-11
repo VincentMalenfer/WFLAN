@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php
 
 namespace Model;
@@ -50,34 +49,15 @@ class ArticlesModel extends Model
 			'idarticles'		=>  $id_article
 			);
 		return $this->insert($data);
-
-		// 'INSERT INTO games_has_articles (id_games,id_articles) VALUES (:idgame,:idarticle)';
 	}
-	//$_GET['id_article']
-	//$_POST['title']					//post titre du form admin article
-	//$_POST['description'];			//post description du form de admin article
-	//$_POST['texte']					//post texte du form admin article
-	//$_POST['pictures']				//post pictures du form admin article
-	//$_POST['des_pictures']			//post des_pictures du form admin article
-	//date("Y-m-d");					// = date du serveur
-
-
 
 	public function deleteArticle($actif)
 	{
-
-		// la function delete article met l'article en actif ou non
-
-		$data= array(
-			'actif'=> 0
-
-		);
-		return $this->update($data,$id);
-
-		// 'UPDATE article SET actif = "0" WHERE id_articles =' $delete;
+		// Delete de la BDD les articles selectionné par l'admin
+			return $this->delete($id);
 	}
-	// affiche 10 articles different de celui que l'on a en get de la page
 
+	// affiche 10 articles different de celui que l'on a en get de la page
 	public function slidebarArticle($orderBy,$orderDir,$limit){
 		return $this->findAll($orderBy,$orderDir,$limit);
 		// 'SELECT * FROM articles ORDER BY ASC `date` LIMIT 10  WHERE `id_article` != $id;'
@@ -90,14 +70,9 @@ class ArticlesModel extends Model
 		return $this->findAll();
 		// 'SELECT *  FROM  games';
 	}
-	// delete de la bdd les articles selectionné par l'admin
+
+	// Delete de la BDD les articles selectionné par l'admin
 	public function deleteArchive($id){
 		return $this->delete($id);
-	}
-	public function getIdFromToken($idToken){
-		$azerty = 'SELECT id FROM token WHERE id ='.$idToken;
-		$pouet = $this->dbh->prepare($azerty);
-		$pouet->execute();
-		return $pouet->fetch();
 	}
 }

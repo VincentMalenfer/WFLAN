@@ -9,7 +9,7 @@ class EventsModel extends Model
 	public function ajouterEvent($name, $date, $location, $desc, $location_idlocation, $users_idusers)
 	{
 		$this->setPrimaryKey("idevents");
-		$data = array 	(	
+		$data = array 	(
 							"name" 					=> $name,
 							"date" 					=> $date,
 							"location"				=> $location,
@@ -22,8 +22,6 @@ class EventsModel extends Model
 
 	public function event_has_games ()
 	{
-		
-	}
 
-	
+	}
 }
