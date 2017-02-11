@@ -28,6 +28,9 @@ $array = array(
 );
 
 foreach($events as $event) {
+	$event["start"] = strtotime($event["start"]) . '000';
+	$event["end"]   = strtotime($event["end"]) . '000';
+
 	$array['result'][] = array(
 		'id'    => $event["idevent"],
 		'title' => $event["title"],

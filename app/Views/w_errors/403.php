@@ -7,6 +7,7 @@
 	<p>
 	ERROR 403 : Evacuez la zone !!!
 	</p>
+	
 	<p>
 		Invasion de mutalisks IMMINENTE !
 	</p>
@@ -16,9 +17,5 @@
 	<img class="droite" src="../public/assets/img/errors/ZergVolant.gif" alt="">
 
 </div>
-
-
-
-
 
 <?php $this->stop('main_content'); ?>
