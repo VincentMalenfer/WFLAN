@@ -1,13 +1,13 @@
 <?php $this->layout('layout', ['title' => 'Calendar']) ?>
 <?php $this->start('main_content') ?>
-    <h1>Calendar</h1>
+    <h1>Calendrier</h1>
     <div class="container">
     <div class="page-header">
         <div class="pull-right form-inline">
             <div class="btn-group">
-                <button class="btn btn-primary" data-calendar-nav="prev"><< Prev</button>
-                <button class="btn btn-default" data-calendar-nav="today">Today</button>
-                <button class="btn btn-primary" data-calendar-nav="next">Next >></button>
+                <button class="btn btn-primary" data-calendar-nav="prev"><< Prec</button>
+                <button class="btn btn-default" data-calendar-nav="today">Aujourd'hui</button>
+                <button class="btn btn-primary" data-calendar-nav="next">Suiv >></button>
             </div>
         </div>
         <!-- le mois est afficher en javascript dans le h3 -->
@@ -18,8 +18,8 @@
             <div id="calendar"></div>
         </div>
         <div class="col-md-3">
-            <h4>Evenement</h4>
-            <small>This list is populated with events dynamically</small>
+            <h4><strong>Evênement<strong></h4>
+           
             <ul id="eventlist" class="nav nav-list"></ul>
         </div>
     </div>
@@ -30,5 +30,6 @@
     <script type="text/javascript" src="<?php echo $this->assetUrl("plc/js/language/fr-FR.js")?>"></script>
     <script type="text/javascript" src="  <?php echo $this->assetUrl("plc/js/calendar.js")?>"></script>
     <script type="text/javascript" src="<?php echo $this->assetUrl("plc/js/app.js")?>"></script>
+    <p style="display:none"> Ma bite</p>
 </div>
 <?php $this->stop('main_content') ?>

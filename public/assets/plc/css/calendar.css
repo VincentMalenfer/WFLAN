@@ -1,3 +1,4 @@
+event
 
 [class*="cal-cell"] {
   float: left;
@@ -351,16 +352,24 @@
   background-color: #800080;
 }
 
-.event-single{
+.event-gamesc{
   background-color: #1918bc;
 
 }
 
-.event-multi{
-  background-color: #bc1847;
+.event-gamecsgo{
+  background-color: #18bc2d;
 
 }
 
+.event-gamedt{
+  background-color: #bc1847;
+
+}
+.event-gameo{
+  background-color: #15c9e0;
+
+}
 .day-highlight:hover,
 .day-highlight {
   background-color: #dddddd;
