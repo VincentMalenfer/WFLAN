@@ -7,7 +7,6 @@ use \Model\ArticlesModel;
 
 class ArticlesController extends Controller
 {
-    
 
     // Affichage d'un article côté utilisateur
     function showArticles($id)
@@ -17,10 +16,9 @@ class ArticlesController extends Controller
       $this->show('articles/article', ['article'=> $articles]);
     }
 
-  
 
     // Liste de tout les articles côté utilisateur
-    function listArticles()
+    public function listArticles()
     {
       $articleModel = new ArticlesModel();
       $articles = $articleModel->getArticles();
@@ -61,16 +59,16 @@ class ArticlesController extends Controller
         // $this->allowTo('admin');
         $filepath="";
         if(!empty($_FILES)){
-        
 
-        
+
+
             if ($_FILES['picture']['size'] > 0) {
 
                 // revoir le chemin de destination des images
 
                 $dir =  'assets/img/articles/';
 
-                // je verifie que le dossier de destination existe   
+                // je verifie que le dossier de destination existe
                 if (file_exists($dir)&& is_dir($dir)) {
 
                     // $filename definit le nom définitif de l'image et on lui colle son extension (pdf...) d'où le "."
@@ -96,16 +94,16 @@ class ArticlesController extends Controller
                                     $filepath,
                                     $_POST['description_pictures']
                                     );
-            
-        
+
+
         };
 
         if(!empty($_POST['checkbox'])){
             $idGame     = $_POST['checkbox'];
-            
+
             $id_article = $last_id['idarticles'];
             $checkbox   = new ArticlesModel();
-            $checkbox->articleHaveGame($idGame,$id_article);   
+            $checkbox->articleHaveGame($idGame,$id_article);
         }
     }
         ///////////////////////////////////////////////////////////////
@@ -114,7 +112,4 @@ class ArticlesController extends Controller
         // $this->show('list_articles');
     
 
-    
-   
-		
 }

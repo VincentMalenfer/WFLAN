@@ -23,8 +23,14 @@
           <li><a href="<?= $this->url('users_contact'); ?>">Contact</a></li>
       </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="<?= $this->url('users_sign_up'); ?>">Inscription</a></li>
+        <?php 
+        if (isset($_SESSION['token'])): ?>
+          <li><a href="<?= $this->url('users_log_out'); ?>">Deconnection</a></li>
+        <?php else: ?>
+          
+          <li><a href="<?= $this->url('users_sign_up'); ?>">Inscription<?php debug($_SESSION['token']) ?></a></li>
           <li><a href="<?= $this->url('users_sign_in'); ?>">Connexion</a></li>
+        <?php endif; ?>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
