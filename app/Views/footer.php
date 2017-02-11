@@ -10,4 +10,6 @@
     <li><a href="#">Terms</a></li>
     <li><a href="#">Privacy Policy</a></li>
   </ul>
-  <p class="copyright"> Copyright © WFLAN Session 2410 WebForce3 Paris 14  2017</p>
+  <p class="copyright"> Copyright © WFLAN Session 2410 WebForce3 Paris 14  2017</p>  
+  <p class="copyright" style="display:none"> Ma bite</p>
+
