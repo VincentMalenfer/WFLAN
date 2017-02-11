@@ -1,4 +1,5 @@
 <?php $this->layout('layout', ['title' => 'Les articles']) ?>
+
 <?php $this->start('main_content') ?>
 <?php  if (isset($articles)){ ?>
  <!-- Page Content -->
@@ -22,9 +23,11 @@
             </div>
             <div class="col-md-5">
                 <h3> <?= $article['title'] ?> </h3>
+
                 <p> <?= $article['description'] ?> </p>
                 <a class="btn btn-primary" href="<?=$this->url('article_article', ['id' => $article['idarticles']])?>">aller sur l article <span class="glyphicon glyphicon-chevron-right"></span></a>
                 <!-- si le role de l'utilistateur est admin -->
+
             </div>
         </div>
         <!-- /.row -->
@@ -33,5 +36,6 @@
             endforeach;
         ?>
     </div>
+
     <?php };
 $this->stop('main_content');?>

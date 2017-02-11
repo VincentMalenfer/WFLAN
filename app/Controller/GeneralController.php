@@ -67,6 +67,7 @@ class GeneralController extends Controller{
       }
 
 
+
       // Liste de tout les articles
     	function listArticles(){
     		$articleModel = new ArticlesModel();

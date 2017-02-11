@@ -88,13 +88,19 @@ class UsersController extends Controller
 			$user = $pouet->isValidLoginInfo($mail,$password);
 				if ($user){
 					// lance la function createTokenPlusConnexion avec nos 2 info post(email et password qui est hash)
-					$tokens = new ConnexionModel;
+					$tokens = new ConnexionModel();
 					$token = $tokens->createTokenPlusConnexion($user["idusers"]);
 					// met en session les info retourner par createTokenPlusConnexion qui elle retourne dans $token
 					$_SESSION["token"] = $token;
 					$_SESSION["nickname"] = $user["nickname"];
 					$_SESSION["status"] = $user["status"];
-					debug($_SESSION);
+
+
+
+					if ($_SESSION["status"] == 1) {
+						$this->redirectToRoute('admin');
+					}
+					$this->redirectToRoute('users/sign_in');
 				}
 			}
 
