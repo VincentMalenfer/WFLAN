@@ -105,7 +105,7 @@
 
 			<!-- 	########################		DEBUT	TEXT		 		########################	-->
 						<div class="form-group">
-							<div class="col-sm-offset-4 col-sm-4">
+							<div class="col-xs-offset-1 col-xs-10">
 									<div class="input-group">
 									<label class="input-group-addon span-bold" for="text">Texte de l'article  : </label>
 									<textarea type="text" name="text" id="text" cols="30" rows="10" class="form-control" placeholder="Saisissez le text" ></textarea>
