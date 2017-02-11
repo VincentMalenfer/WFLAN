@@ -8,27 +8,13 @@ use Controller\UsersController;
 
 class ArticlesModel extends Model
 {
-	public function ajouterArticle($title, $text, $picture, $publishdate, $author, $users_idusers)
-	{
-		$this->setPrimaryKey("idarticles");
-		$data = array 	(
-							"title" 				=> $title,
-							"text" 					=> $text,
-							"pictures" 			=> $picture,
-							"publishdate"		=> $publishdate,
-							"author"				=> $author,
-							"users_idusers" => $users_idusers
-						);
-		return $this->insert($data);
-	}
-
 
 	public function getArticles()
 	{
 		$sql = 'SELECT * FROM ' . $this->table.' WHERE actif = 1 ORDER BY idarticles DESC';
 		$sth = $this->dbh->prepare($sql);
 		$sth->execute();
-		return $sth->fetchAll();;
+		return $sth->fetchAll();
 	}
 
 	public function getArticle($id)
@@ -39,14 +25,17 @@ class ArticlesModel extends Model
 
 	public function addArcticle($title,$description,$text,$pictures,$description_pictures)
 	{
+		$this->setPrimaryKey("idarticles");
 		$data= array(
 			'title' 					=> $title,				//post titre du form admin article
-			'description' 		=> $description,				//post description du form de admin article
-			'texte'						=> $text,					//post texte du form admin article
-			'pictures'				=> $pictures,				//post pictures du form admin article
-			'picturesDes'			=> $description_pictures,			//post des_pictures du form admin article
-			'publishdate'			=> date("Y-m-d"),				// = date du serveur
+			'description' 				=> $description,				//post description du form de admin article
+			'text'						=> $text,					//post texte du form admin article
+			'pictures'					=> $pictures,				//post pictures du form admin article
+			'description_pictures'		=> $description_pictures,			//post des_pictures du form admin article
+			'publishdate'				=> date("Y-m-d"),				// = date du serveur
 			'author'					=> $_SESSION["nickname"],
+			"users_idusers" => getIdFromToken($_SESSION["token"])
+
 			);
 		return $this->insert($data);
 		// 'INSERT INTO articles (title,description,`text`,pictures,des_pictures,publishdate,author )
@@ -76,13 +65,13 @@ class ArticlesModel extends Model
 		// id_articles est le champ id de la table articles
 
 		$data=array(
-		'id'				=> $id,
-		'title'				=> $title,
-		'description' 		=> $description,
-		'text'				=> $text,
-		'pictures'		    => $pictures,
+
+		'title'						=> $title,
+		'description' 				=> $description,
+		'text'						=> $text,
+		'pictures'		   			=> $pictures,
 		'description_pictures'		=> $description_pictures,
-		'publishdate'		=> date("Y-m-d")
+		'publishdate'				=> date("Y-m-d")
 			);
 
 		return $this->update($data);
@@ -120,5 +109,11 @@ class ArticlesModel extends Model
 	// delete de la bdd les articles selectionné par l'admin
 	public function deleteArchive($id){
 		return $this->delete($id);
+	}
+	public function getIdFromToken($idToken){
+		$azerty = 'SELECT id FROM token WHERE id ='.$idToken;
+		$pouet = $this->dbh->prepare($azerty);
+		$pouet->execute();
+		return $pouet->fetch();
 	}
 }

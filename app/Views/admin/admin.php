@@ -20,7 +20,7 @@
 		<div class="tab-content">
 
 		  	<div id="AddArticle" class="tab-pane fade">
-				<form class="form-horizontal" action="<?= $this->url('admin_add_article') ?>" id="ajoutArticle" method="POST" enctype="multipart/form-data">
+				<form class="form-horizontal" action="<?= $this->url('admin_add') ?>" id="ajoutArticle" method="POST" enctype="multipart/form-data">
 					<fieldset>
 			<!-- 	########################		DEBUT	TITRE	 			########################	-->
 						<div class="form-group">
@@ -39,7 +39,7 @@
 							<div class="col-sm-offset-4 col-sm-4">
 							    <div class="input-group">
 									<label class="input-group-addon span-bold" for="description_pictures">Description de l'image (30 caractères maximum) : </label>
-									<textarea type="text" name="description" id="description" cols="30" rows="10" class="form-control" placeholder="Saisissez la description"></textarea>
+									<textarea type="text" name="description_pictures" id="description_pictures" cols="30" rows="10" class="form-control" placeholder="Saisissez la description"></textarea>
 								</div>
 							</div>
 						<p id="msgcinq">Merci de remplir la description de l'image (30 caractères maximum).</p>
@@ -64,8 +64,8 @@
 							    <div class="input-group">
 									<label class="input-group-addon span-bold" for="game">Jeux : </label>
 								<?php foreach ($games as $game) { ?>
-									<input type="checkbox" class="form-control" name="checkbox" id="checkbox" value="<?= $game['idgame'] ?>">
-									<label class="input-group-addon span-bold" for="checkbox"><?= $game['name'] ?></label>
+									<input type="checkbox" class="form-control checkbox" name="checkbox" id="checkbox<?= $game['idgames'] ?>" value="<?= $game['idgames'] ?>">
+									<label class="checkbox-inline" for="checkbox"><?= $game['name'] ?></label>
 								<?php } ?>
 								</div>
 							</div>
@@ -84,7 +84,17 @@
 						<p id="msgquatre">Merci de renseigner une image.</p>
 						</div>
 			<!-- 	########################		FIN		PICTURES			########################	-->
-
+			<!-- 	########################		DEBUT	TEXT		 	########################	-->
+						<div class="form-group">
+							<div class="col-sm-offset-4 col-sm-4">
+									<div class="input-group">
+									<label class="input-group-addon span-bold" for="text">Texte de l'article  : </label>
+									<textarea type="text" name="text" id="text" cols="30" rows="10" class="form-control" ></textarea>
+								</div>
+							</div>
+						<p id="msgsix">Merci de mettre du contenu a votre article.</p>
+						</div>
+			<!-- 	########################		FIN		DESCRIPTION	 		########################	-->
 			<!-- 	########################		DEBUT	SUBMIT				########################	-->
 						<div class="form-group">
 							<div class="col-sm-offset-4 col-sm-4">
@@ -97,6 +107,23 @@
 					</fieldset>
 				</form>
 			</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 		  	<div id="AddEvent" class="tab-pane fade">
 				<form class="form-horizontal" action="#" method="POST">
@@ -199,7 +226,8 @@
 	$(function () {
 		$('#ajoutArticle').on('submit', function (e) { // Est appelé lorsque l'utilisateur souhaite soumettre le formulaire
 			e.preventDefault(); // On empêche le navigateur de soumettre le formulaire
-			var compteur= 1;
+			var compteur = 1;
+
 			if ($('#title').val().length == 0)  {
 			 	$('#msgun').fadeIn();
 			 	$('#title').css('border','red 1px solid');
@@ -211,7 +239,8 @@
 			}else{
 				$('#msgun').fadeOut();
 			 	$('#title').css('border','1px solid rgb(169, 169, 169)');
-			 	compteur+=compteur;
+			 	compteur++;
+
 			}
 			if ($('#description').val().length == 0){
 			 	$('#msgdeux').fadeIn();
@@ -226,18 +255,20 @@
 			}else{
 			 	$('#msgdeux').fadeOut();
 			 	$('#description').css('border','1px solid rgb(169, 169, 169)');
-			 	compteur+=compteur;
+			 	compteur++;
 			}
-			if( $('#checkbox').is(':checked')){
-		     	$('#msgtrois').fadeOut();
-		     	$('#picture').css('border','1px solid rgb(169, 169, 169)');
-		     	compteur+=compteur;
-
-			}else{
-				$('#checkbox').css('border','red 1px solid');
-		     	$('msgtrois').fadeIn();
-		     	$('#msgtrois').css('visibility','visible');
-
+			var mike = false;
+			$.each( $('.checkbox'), function( key, value ) {
+				if($(this).is(':checked')){
+		     		compteur++;
+					mike = true;
+			     	$('#msgtrois').fadeOut();
+				}
+			});
+			if(!mike){
+			     	$('#msgtrois').fadeIn();
+					$('.checkbox').css('border','red 1px solid');
+			     	$('#msgtrois').css('visibility','visible');
 			}
 			if($('#picture').val()==""){
 				$('#msgquatre').fadeIn();
@@ -247,7 +278,7 @@
 			}else{
 				$('#msgquatre').fadeOut();
 				$('#picture').css('border','1px solid rgb(169, 169, 169)');
-				compteur+=compteur;
+				compteur++;
 
 			}
 			if ($('#description_pictures').val() == 0 ) {
@@ -258,7 +289,7 @@
 			}else{
 				$('#msgcinq').fadeOut();
 				$('#description_pictures').css('border','1px solid rgb(169, 169, 169)');
-				compteur+=compteur;
+				compteur++;
 			}
 			//
 			if ($('#text').val() == 0 ) {
@@ -269,10 +300,12 @@
 			}else{
 				$('#msgsix').fadeOut();
 				$('#text').css('border','1px solid rgb(169, 169, 169)');
-				compteur+=compteur;
+				compteur++;
+
 			}
 			if (compteur===7) {
-				(this).submit();
+				
+				$('form').unbind('submit').submit();
 			}
 		});
 	});

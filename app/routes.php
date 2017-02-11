@@ -23,7 +23,9 @@
 
 		// ARTICLE //
 		['POST', 				'/admin/list_articles',						'General#listArticles',			  	'admin_list_articles'],
-		['GET', 				'/admin/add_article', 						'Admin#addArticle', 						'admin_add_article'],
+		//
+		['POST', 				'/admin/add_article', 						'Admin#addArticle', 						'admin_add'],
+		//
 		['GET|POST', 		'/admin_supp_article/[:id]',			'Admin#suppArticle',						'admin_supp_article'],
 		['GET|POST', 		'/admin/modif_article/[:id]',			'Admin#modifyArticle',					'admin_modify_article'],
 
