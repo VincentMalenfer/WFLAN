@@ -30,6 +30,5 @@
     <script type="text/javascript" src="<?php echo $this->assetUrl("plc/js/language/fr-FR.js")?>"></script>
     <script type="text/javascript" src="  <?php echo $this->assetUrl("plc/js/calendar.js")?>"></script>
     <script type="text/javascript" src="<?php echo $this->assetUrl("plc/js/app.js")?>"></script>
-    <p style="display:none"> Ma bite</p>
-</div>
+    
 <?php $this->stop('main_content') ?>

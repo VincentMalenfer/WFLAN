@@ -72,18 +72,20 @@
 
 			<!-- 	########################		DEBUT	CHECKBOX GAMES		########################	-->
 						<div class="form-group">
-							<div class="col-xs-offset-1 col-xs-10">
-							    <div class="input-group">
-									<label class="input-group-addon span-bold" for="game">Jeux : </label>
-								<?php foreach ($games as $game) { ?>
-									<input type="checkbox" class="form-control checkbox" name="checkbox" id="checkbox<?= $game['idgames'] ?>" value="<?= $game['idgames'] ?>">
-									<label class="checkbox-inline" for="checkbox"><?= $game['name'] ?></label>
-								<?php } ?>
-								</div>
-							</div>
-						<p id="msgtrois">Merci de selectionner au moins un jeu au minimum.</p>
+                            <div class="col-xs-offset-1 col-xs-10">
+                                <div class="input-group">
+                                    <label class="input-group-addon span-bold" for="sel1">Select list:</label>
+                                    <select class="form-control select" id="sel1">
+                                <?php foreach ($games as $game) { ?>
+                                         <option value="<?= $game['idgames'] ?>"><?= $game['name'] ?></option>
+                                <?php } ?>
+                                    </select>
+                                </div>
 
-						</div>
+                            </div>
+                        <p id="msgtrois">Merci de selectionner au moins un jeu au minimum.</p>
+
+                        </div>
 			<!-- 	########################		FIN		CHECKBOX GAMES	 	########################	-->
 
 			<!-- 	########################		DEBUT	PICTURES	 		########################	-->
@@ -128,13 +130,13 @@
 
 
 		  	<div id="AddEvent" class="tab-pane fade">
-				<form class="form-horizontal" action="#" method="POST">
+				<form class="form-horizontal" action="<?= $this->url('admin_add_event') ?>" method="POST">
 					<fieldset>
 			<!-- 	########################		DEBUT	TITLE	 			########################	-->
 						<div class="form-group">
 							<div class="col-xs-offset-1 col-xs-10">
 							    <div class="input-group">
-									<label class="input-group-addon span-bold" for="title">Nom du lieu : </label>
+									<label class="input-group-addon span-bold" for="title">Nom de l'évênement : </label>
 									<input type="text" name="title" id="title" placeholder="Saisissez le titre" class="form-control" >
 								</div>
 							</div>
@@ -157,7 +159,7 @@
 							<div class="col-xs-offset-1 col-xs-10">
 							    <div class="input-group">
 									<label class="input-group-addon span-bold" for="desc">Description : </label>
-									<input type="text" name="description" id="description" class="form-control" placeholder="Saisissez la description" class="form-control">
+									<input type="text" name="desc" id="desc" class="form-control" placeholder="Saisissez la description" class="form-control">
 								</div>
 							</div>
 						</div>
@@ -167,19 +169,20 @@
 						<div class="form-group">
 							<div class="col-xs-offset-1 col-xs-10">
 							    <div class="input-group">
-									<label class="input-group-addon span-bold" for="url">Adresse web : </label>
-									<input type="text" name="url" id="url" class="form-control" placeholder="Saisissez l'url" class="form-control">
+									<input type="hidden" name="url" id="url" class="form-control" placeholder="Saisissez l'url" class="form-control">
 								</div>
 							</div>
-						</div>
+						</div> 
 			<!-- 	########################		FIN		URL	 				########################	-->
+
+			
 
 			<!-- 	########################		DEBUT	START	 			########################	-->
 						<div class="form-group">
 							<div class="col-sm-offset-4 col-sm-4">
 							    <div class="input-group">
 									<label class="input-group-addon span-bold" for="start">Date de début : </label>
-									<input type="datetime" name="start" id="start" class="form-control" placeholder="Choisissez la date de début">
+									<input type="datetime" name="start" id="start" class="form-control" placeholder="jj/mm/aaaa 00:00:00">
 								</div>
 							</div>
 						</div>
@@ -190,7 +193,7 @@
 							<div class="col-sm-offset-4 col-sm-4">
 							    <div class="input-group">
 									<label class="input-group-addon span-bold" for="end">Date de fin : </label>
-									<input type="datetime" name="end" id="end" class="form-control" placeholder="Choisissez la date de fin">
+									<input type="datetime" name="end" id="end" class="form-control" placeholder="jj/mm/aaaa 00:00:00">
 								</div>
 							</div>
 						</div>
@@ -198,28 +201,18 @@
 
 			<!-- 	########################		DEBUT CHECKBOX EVENTS-GAMES	########################	-->
 						<div class="form-group">
+                            <div class="col-xs-offset-1 col-xs-10">
+                                <div class="input-group">
+                                    <label class="input-group-addon span-bold" for="sel1">Select list:</label>
+                                    <select class="form-control select" id="sel1" name="class">
+                                <?php foreach ($games as $game) { ?>
+                                         <option value="<?= $game['classgames'] ?>"><?= $game['name'] ?></option>
+                                <?php } ?>
+                                    </select>
+                                </div>
 
-						  	<label class="col-xs-offset-1 col-xs-10" for="checkboxes">Jeu(x) : </label>
-						  	<div class="col-xs-offset-1 col-xs-10">
-
-						  	  	<label class="checkbox-inline" for="checkboxes-0">
-						  	  	 <input type="checkbox" name="event-gamesc" id="checkboxes-0" value="1">
-						  	  	 	starcraft2
-						  	  	</label>
-						  	  	<label class="checkbox-inline" for="checkboxes-1">
-						  	  	  	<input type="checkbox" name="event-gamecsgo" id="checkboxes-1" value="2">
-						  	  	  	csGo
-						  	  	</label>
-						  	  	<label class="checkbox-inline" for="checkboxes-2">
-						  	  	  	<input type="checkbox" name="event-gamedt" id="checkboxes-2" value="3">
-						  	  	  	dota2
-						  	  	</label>
-						  	  	<label class="checkbox-inline" for="checkboxes-3">
-						  	  	  	<input type="checkbox" name="event-gameo" id="checkboxes-3" value="4">
-						  	  	  	other
-						  	  	</label>
-						  	</div>
-						</div>
+                            </div>
+                        </div>
 			<!-- 	########################		FIN	CHECKBOX EVENTS-GAMES	########################	-->
 
 			<!-- 	########################		DEBUT	SUBMIT				########################	-->
@@ -236,18 +229,23 @@
 			</div>
 
 
+			<div id="ModifDeleteArticle" class="tab-pane fade">
+
+			</div>
+
+
 
 
 			<div id="ModifDeleteEvent" class="tab-pane fade">
 
-			</div>
-
-
-
-
-	  	<div id="ModifDeleteArticle" class="tab-pane fade">
+				 <ul id="eventlist" class="nav nav-list"></ul>
 
 			</div>
+
+
+
+
+	  	
 
 
 
