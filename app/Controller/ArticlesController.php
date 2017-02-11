@@ -7,15 +7,6 @@ use \Model\ArticlesModel;
 
 class ArticlesController extends Controller
 {
-    // Affichage côté administrateur
-    public function article()
-    {
-        // $this->allowTo('admin');
-
-        $articleModel = new ArticlesModel();
-        $games = $articleModel->getGame();
-        $this->show('admin/admin', ['games'=> $games]);
-    }
 
     // Affichage d'un article côté utilisateur
     function showArticles($id)

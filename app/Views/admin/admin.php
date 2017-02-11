@@ -9,7 +9,7 @@
 
 		<ul class="nav nav-tabs">
 
-	  		<li><a data-toggle="tab" href="#AddArticle">Ajouter article</a></li>
+	  		<li class="active"><a data-toggle="tab" href="#AddArticle">Ajouter article</a></li>
 
 	  		<li><a data-toggle="tab" href="#AddEvent"> Ajouter événement</a></li>
 
@@ -21,7 +21,7 @@
 
 		<div class="tab-content">
 
-		  	<div id="AddArticle" class="tab-pane fade">
+		  	<div id="AddArticle" class="tab-pane fade in active">
 
 				<form class="form-horizontal" action="<?= $this->url('admin_add') ?>" id="ajoutArticle" method="POST" enctype="multipart/form-data">
 					<fieldset>
@@ -98,7 +98,8 @@
 
 						</div>
 			<!-- 	########################		FIN		PICTURES			########################	-->
-			<!-- 	########################		DEBUT	TEXT		 	########################	-->
+
+			<!-- 	########################		DEBUT	TEXT		 		########################	-->
 						<div class="form-group">
 							<div class="col-sm-offset-4 col-sm-4">
 									<div class="input-group">
@@ -109,6 +110,7 @@
 						<p id="msgsix">Merci de mettre du contenu a votre article.</p>
 						</div>
 			<!-- 	########################		FIN		DESCRIPTION	 		########################	-->
+			
 			<!-- 	########################		DEBUT	SUBMIT				########################	-->
 						<div class="form-group">
 							<div class="col-xs-offset-1 col-xs-10">
