@@ -14,10 +14,10 @@ class UserModel extends usr
 			"lastname"    	=>		$lastname,
 			"firstname"    	=>		$firstname,
 			"nickname"    	=>		$nickname,
-			"email"    			=>		$email,
+			"email"    		=>		$email,
 			"birthdate"    	=>		$birthdate,
 			"phonenumber"   =>		$phonenumber,
-      "password"   	 	=> 		$password
+      		"password"   	=> 		$password
 		);
 	return $this->insert($data);
 	}
