@@ -11,15 +11,7 @@ class AdminController extends Controller
 	/**
 	 * Page d'administration
 	 */
-<<<<<<< HEAD
-	public function admin()	{
-		$articleModel = new ArticlesModel();
-		$games = $articleModel->getGame();
-	
-		$this->show('admin/admin', ['games'=> $games]);
-	}
-	
-=======
+	 
     // Affichage de la liste des articles côté administrateur
     // Affichage de la liste des selects game dans ajout article
 	public function admin()	{
@@ -29,7 +21,7 @@ class AdminController extends Controller
         $articleModel = new ArticlesModel();
         $articles = $articleModel->getArticles();
 
-         
+
 
 		$this->show('admin/admin', [
 			'games'    => $games,
@@ -37,5 +29,4 @@ class AdminController extends Controller
 
 		]);
 	}
->>>>>>> Pierre
 }
