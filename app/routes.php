@@ -35,4 +35,5 @@
 		['GET|POST', 			'/admin/modif_event/[:id]',						'Events#modifyEvent',						'admin_modify_event'],
 		['GET|POST', 			'/event/[:id]',									'Events#showEvent',							'event_event'],
 		['GET',                 '/admin_supp_event/[:id]',                      'Events#suppEvent',                        'event_supp_event'],
+		['GET',                 '/admin_update_event/[:id]',                      'Events#updateEvent',                        'event_update_event'],
 	);

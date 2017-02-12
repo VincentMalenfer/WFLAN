@@ -62,6 +62,13 @@ class EventsModel extends Model
 
     }
 
+    public function updateEvent($id, $title, $location, $desc, $url, $start, $end, $class){
+        $this->setPrimaryKey("idevent");
+        $data = array("title" =>$title, "location" =>$location, "desc" =>$desc, "url" =>$url, "start" =>$start, "end" =>$end, "class" =>$class);
+
+        return $this->update($data, $id);
+    }
+
 
 	public function inscriptionEvents($idUser, $idEvent)
 	{

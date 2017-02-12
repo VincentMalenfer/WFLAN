@@ -65,4 +65,20 @@ class EventsController extends Controller
        $this->redirectToRoute('admin_admin');
 
    }
+
+
+   //update PLACE OK
+    public function updateEvent($id){
+        
+        $event = new EventsModel(); 
+        if(!empty($_POST)){
+            $event->updateEvent($id, $_POST["title"], $_POST['location'], $_POST['desc'], $_POST['url'], $_POST['start'], $_POST['end'], $_POST['class']);    
+            $levent = $event->getEvents($id); 
+            echo "Event modifiée";
+        }else{
+            $levent = $event->getEvents($id); 
+        }
+        $this->show('admin/admin',["levent" => $levent]);  
+
+    }
 }
