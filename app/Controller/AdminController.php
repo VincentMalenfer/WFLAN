@@ -11,7 +11,6 @@ class AdminController extends Controller
 	/**
 	 * Page d'administration
 	 */
-	 
     // Affichage de la liste des articles côté administrateur
     // Affichage de la liste des selects game dans ajout article
 	public function admin()	{
