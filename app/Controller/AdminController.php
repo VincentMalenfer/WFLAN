@@ -20,11 +20,15 @@ class AdminController extends Controller
         $articleModel = new ArticlesModel();
         $articles = $articleModel->getArticles();
 
+        $eventModel = new EventsModel();
+        $events = $eventModel->recEvent();
+
 
 
 		$this->show('admin/admin', [
 			'games'    => $games,
 			'articles' => $articles,
+			'events' => $events,
 
 		]);
 	}

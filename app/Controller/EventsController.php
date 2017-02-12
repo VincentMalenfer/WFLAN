@@ -55,4 +55,14 @@ class EventsController extends Controller
 		}
 		// $this->show('admin/admin_list_events');
 	}
+
+	public function suppEvent($id)
+   {  
+       $event= new EventsModel;
+
+       $articleSupp =$event->deleteEvent($id);
+       
+       $this->redirectToRoute('admin_admin');
+
+   }
 }

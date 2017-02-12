@@ -240,9 +240,31 @@
 			        ?>
 			</div>
 
-			<div id="ModifDeleteEvent" class="tab-pane fade">
+<div id="ModifDeleteEvent" class="tab-pane fade">
 
-			</div>
+	<?php # if (isset($articles)){ ?>
+
+			        <!-- liste articles-->
+			        <?php foreach ($events as $event): ?>
+			        <div class="row">
+			            <div class="col-md-5">
+			                <h3> <?= $event['title'] ?> </h3>
+			                <p> <?= $event['start'] ?> </p>
+			                <p> <?= $event['end'] ?> </p>
+			                <!-- si le role de l'utilistateur est admin -->
+			                <a class="btn btn-primary" href="">modifier</a>
+			                <a class="btn btn-primary" href="<?=$this->url('event_supp_event',['id' => $event['idevent']])?>">supprimer</a>
+
+			            </div>
+			        </div> <!-- /.row -->
+			        <hr>
+			        <?php
+			           endforeach;
+			       # };
+			        ?>
+
+
+</div>
 
 		</div>
 	</div> <!-- ########## 	FIN CONTAINER 	########## -->

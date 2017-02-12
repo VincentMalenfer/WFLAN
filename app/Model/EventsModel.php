@@ -41,6 +41,28 @@ class EventsModel extends Model
 
 	}
 
+	public function recEvent()
+	{
+		$sql = 'SELECT * FROM events ';
+		$sth = $this->dbh->prepare($sql);
+		$sth->execute();
+		return $sth->fetchAll();
+	}
+
+	public function deleteEvent($id)
+    {
+        
+        // Delete de la BDD l'articles selectionné par l'admin
+            
+        $this->setPrimaryKey('idevent');
+        $this->setTable('events');    
+             $this->delete($id);
+             return true;
+            
+
+    }
+
+
 	public function inscriptionEvents($idUser, $idEvent)
 	{
 		$this->setTable('event_has_users');
@@ -80,7 +102,7 @@ class EventsModel extends Model
 
 		$idUser = $GeneralModel->getIdFromToken($tokenUser);
 		$idUser = $idUser['users_idusers'];
-		
+
 		$sql = "SELECT * 
 			FROM event_has_users
 			LEFT JOIN users ON users_idusers = idusers 
