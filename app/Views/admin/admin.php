@@ -9,22 +9,24 @@
 
 		<ul class="nav nav-tabs">
 
-	  		<li><a data-toggle="tab" href="#AddArticle">Ajouter article</a></li>
+	  		<li class="active"><a data-toggle="tab" href="#AddArticle">Ajouter article</a></li>
 
 	  		<li><a data-toggle="tab" href="#AddEvent"> Ajouter événement</a></li>
 
-	  		<li><a data-toggle="tab" href="#ModifDeleteEvent"> Modifier ou supprimer un article</a></li>
-				<li><a data-toggle="tab" href="#ModifDeleteArticle"> Modifier ou supprimer un événement</a></li>
+	  		<li><a data-toggle="tab" href="#ModifDeleteArticle"> Modifier ou supprimer un article</a></li>
+			<li><a data-toggle="tab" href="#ModifDeleteEvent"> Modifier ou supprimer un événement</a></li>
 
 		</ul>
 
 
 		<div class="tab-content">
 
-		  	<div id="AddArticle" class="tab-pane fade">
+		  	<div id="AddArticle" class="tab-pane fade in active">
 
 				<form class="form-horizontal" action="<?= $this->url('admin_add') ?>" id="ajoutArticle" method="POST" enctype="multipart/form-data">
 					<fieldset>
+
+
 
 			<!-- 	########################		DEBUT	TITRE	 			########################	-->
 						<div class="form-group">
@@ -74,12 +76,14 @@
 						<div class="form-group">
 							<div class="col-xs-offset-1 col-xs-10">
 							    <div class="input-group">
-									<label class="input-group-addon span-bold" for="game">Jeux : </label>
+									<label class="input-group-addon span-bold" for="sel1">Select list:</label>
+									<select class="form-control select" id="sel1">
 								<?php foreach ($games as $game) { ?>
-									<input type="checkbox" class="form-control checkbox" name="checkbox" id="checkbox<?= $game['idgames'] ?>" value="<?= $game['idgames'] ?>">
-									<label class="checkbox-inline" for="checkbox"><?= $game['name'] ?></label>
+								 		<option value="<?= $game['idgames'] ?>"><?= $game['name'] ?></option>
 								<?php } ?>
+									</select>
 								</div>
+
 							</div>
 						<p id="msgtrois">Merci de selectionner au moins un jeu au minimum.</p>
 
@@ -98,17 +102,19 @@
 
 						</div>
 			<!-- 	########################		FIN		PICTURES			########################	-->
-			<!-- 	########################		DEBUT	TEXT		 	########################	-->
+
+			<!-- 	########################		DEBUT	TEXT		 		########################	-->
 						<div class="form-group">
-							<div class="col-sm-offset-4 col-sm-4">
+							<div class="col-xs-offset-1 col-xs-10">
 									<div class="input-group">
 									<label class="input-group-addon span-bold" for="text">Texte de l'article  : </label>
-									<textarea type="text" name="text" id="text" cols="30" rows="10" class="form-control" ></textarea>
+									<textarea type="text" name="text" id="text" cols="30" rows="10" class="form-control" placeholder="Saisissez le text" ></textarea>
 								</div>
 							</div>
 						<p id="msgsix">Merci de mettre du contenu a votre article.</p>
 						</div>
-			<!-- 	########################		FIN		DESCRIPTION	 		########################	-->
+			<!-- 	########################		FIN		TEXT	 		########################	-->
+
 			<!-- 	########################		DEBUT	SUBMIT				########################	-->
 						<div class="form-group">
 							<div class="col-xs-offset-1 col-xs-10">
@@ -198,27 +204,16 @@
 
 			<!-- 	########################		DEBUT CHECKBOX EVENTS-GAMES	########################	-->
 						<div class="form-group">
-
-						  	<label class="col-xs-offset-1 col-xs-10" for="checkboxes">Jeu(x) : </label>
-						  	<div class="col-xs-offset-1 col-xs-10">
-
-						  	  	<label class="checkbox-inline" for="checkboxes-0">
-						  	  	 <input type="checkbox" name="event-gamesc" id="checkboxes-0" value="1">
-						  	  	 	starcraft2
-						  	  	</label>
-						  	  	<label class="checkbox-inline" for="checkboxes-1">
-						  	  	  	<input type="checkbox" name="event-gamecsgo" id="checkboxes-1" value="2">
-						  	  	  	csGo
-						  	  	</label>
-						  	  	<label class="checkbox-inline" for="checkboxes-2">
-						  	  	  	<input type="checkbox" name="event-gamedt" id="checkboxes-2" value="3">
-						  	  	  	dota2
-						  	  	</label>
-						  	  	<label class="checkbox-inline" for="checkboxes-3">
-						  	  	  	<input type="checkbox" name="event-gameo" id="checkboxes-3" value="4">
-						  	  	  	other
-						  	  	</label>
-						  	</div>
+							<div class="col-xs-offset-1 col-xs-10">
+							    <div class="input-group">
+									<label class="input-group-addon span-bold" for="sel1">Select list:</label>
+									<select class="form-control select" id="sel1">
+								<?php foreach ($games as $game) { ?>
+								 		<option value="<?= $game['idgames'] ?>"><?= $game['name'] ?></option>
+								<?php } ?>
+									</select>
+								</div>
+							</div>
 						</div>
 			<!-- 	########################		FIN	CHECKBOX EVENTS-GAMES	########################	-->
 
@@ -235,20 +230,40 @@
 				</form>
 			</div>
 
-
-
-
-			<div id="ModifDeleteEvent" class="tab-pane fade">
-
-			</div>
-
-
-
-
 	  	<div id="ModifDeleteArticle" class="tab-pane fade">
+			<?php # if (isset($articles)){ ?>	       
+		       
+		        <!-- liste articles-->
+		        <?php foreach ($articles as $article): ?>
+		        <div class="row">
+		            <div class="col-md-7">
+		                <a href="<?=$this->url('article_article',['id' => $article['idarticles']])?>">
+		                    <img class="img-responsive" src="<?= $article['pictures'] ?>" alt="$article['decriptionPictures'] ">
+		                </a>
+		            </div>
 
-			</div>
+		            <div class="col-md-5">
+		                <h3> <?= $article['title'] ?> </h3>
 
+		                <p> <?= $article['description'] ?> </p>
+		                <a class="btn btn-primary" href="<?=$this->url('article_article', ['id' => $article['idarticles']])?>">aller sur l article <span class="glyphicon glyphicon-chevron-right"></span></a>
+		                <!-- si le role de l'utilistateur est admin -->
+		                <a class="btn btn-primary" href="">modifier</a>
+		                <a class="btn btn-primary" href="">suprimer</a>
+						
+		            </div>
+		        </div> <!-- /.row -->
+		        <hr>
+		        <?php
+		           endforeach;
+		       # }; 
+		        ?>
+		</div>
+
+
+	<div id="ModifDeleteEvent" class="tab-pane fade">
+			
+		</div>
 
 
 

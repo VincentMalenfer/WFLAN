@@ -19,17 +19,15 @@
         </div>
         <div class="col-md-3">
             <h4><strong>Evênement<strong></h4>
-           
             <ul id="eventlist" class="nav nav-list"></ul>
         </div>
     </div>
     <script type="text/javascript" src="<?php echo $this->assetUrl("plc/asset/jquery/jquery.min.js")?>"></script>
-    <script type="text/javascript" src=" <?php echo $this->assetUrl("plc/asset/underscore/underscore-min.js")?>"></script>
-    <script type="text/javascript" src=" <?php echo $this->assetUrl("plc/asset/bootstrap3/js/bootstrap.min.js")?>"></script>
-    <script type="text/javascript" src=" <?php echo $this->assetUrl("plc/asset/jstimezonedetect/jstz.min.js")?>"></script>
+    <script type="text/javascript" src="<?php echo $this->assetUrl("plc/asset/underscore/underscore-min.js")?>"></script>
+    <script type="text/javascript" src="<?php echo $this->assetUrl("plc/asset/bootstrap3/js/bootstrap.min.js")?>"></script>
+    <script type="text/javascript" src="<?php echo $this->assetUrl("plc/asset/jstimezonedetect/jstz.min.js")?>"></script>
     <script type="text/javascript" src="<?php echo $this->assetUrl("plc/js/language/fr-FR.js")?>"></script>
-    <script type="text/javascript" src="  <?php echo $this->assetUrl("plc/js/calendar.js")?>"></script>
+    <script type="text/javascript" src="<?php echo $this->assetUrl("plc/js/calendar.js")?>"></script>
     <script type="text/javascript" src="<?php echo $this->assetUrl("plc/js/app.js")?>"></script>
-    <p style="display:none"> Ma bite</p>
 </div>
 <?php $this->stop('main_content') ?>
