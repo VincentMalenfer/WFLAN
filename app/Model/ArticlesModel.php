@@ -42,7 +42,7 @@ class ArticlesModel extends Model
 
 			);
 
-			return $this->insert($data);
+			return $this->insert($data, false);
 		// 'INSERT INTO articles (title,description,`text`,pictures,des_pictures,publishdate,author )
 		// VALUES (:title,:description;`:text`,:pictures,:picturesDes,:publishdate,:autor)';
 	}
@@ -71,7 +71,7 @@ class ArticlesModel extends Model
 	}
 
 	// affiche 10 articles different de celui que l'on a en get de la page
-	public function slidebarArticle($orderBy,$orderDir,$limit){
+	public function sidebarArticle($orderBy,$orderDir,$limit){
 		return $this->findAll($orderBy,$orderDir,$limit);
 		// 'SELECT * FROM articles ORDER BY ASC `date` LIMIT 10  WHERE `id_article` != $id;'
 

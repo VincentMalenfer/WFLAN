@@ -84,7 +84,7 @@ class ArticlesController extends Controller
                 }
             }
         }
-        if(!empty($_POST) && htmlentities($_POST['title'])<50 && htmlentities($_POST['description'])<30 && htmlentities($_POST['description_pictures'])){
+        if(!empty($_POST) && ($_POST['title'])<50 && ($_POST['description'])<140 && ($_POST['description_pictures'])){
             $addArticle = new ArticlesModel();
             $last_id = $addArticle->addArcticle(
                                     $_POST['title'],

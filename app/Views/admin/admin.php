@@ -59,14 +59,14 @@
                             <div class="col-xs-offset-1 col-xs-10">
                                 <div class="input-group">
                                     <label class="input-group-addon span-bold" for="sel1">Select list:</label>
-                                    <select class="form-control select" id="sel1">
+                                    <select class="form-control select " id="sel1" >
                                 <?php foreach ($games as $game) { ?>
-                                         <option value="<?= $game['idgames'] ?>"><?= $game['name'] ?></option>
+                                         <option value="<?= $game['idgames'] ?>" name="checkbox"><?= $game['name'] ?></option>
                                 <?php } ?>
                                     </select>
                                 </div>
+																<p id="msgtrois">Merci de selectionner au moins un jeu au minimum.</p>
                             </div>
-                        	<p id="msgtrois">Merci de selectionner au moins un jeu au minimum.</p>
                         </div>
 			<!-- 	########################		FIN		CHECKBOX GAMES	 	########################	-->
 
@@ -284,18 +284,29 @@
 			 	$('#description').css('border','1px solid rgb(169, 169, 169)');
 			 	compteur++;
 			}
-			var mike = false;
-			$.each( $('.checkbox'), function( key, value ) {
-				if($(this).is(':checked')){
-		     		compteur++;
-					mike = true;
+
+			/*if($('.checkbox').val() != 0{
+		     	compteur++;
 			     	$('#msgtrois').fadeOut();
-				}
-			});
-			if(!mike){
+
+						}else{
 			     	$('#msgtrois').fadeIn();
 					$('.checkbox').css('border','red 1px solid');
 			     	$('#msgtrois').css('visibility','visible');
+			}*/
+			var mike = 0;
+			$("select").change(function () {
+
+			})
+			if($('select').val()==""){
+				$('#msgtrois').fadeIn();
+				$('#msgtrois').css('visibility','visible');
+				$('select').css('border','red 1px solid');
+
+			}else{
+				$('#msgtrois').fadeOut();
+				$('select').css('border','1px solid rgb(169, 169, 169)');
+				compteur++;
 			}
 			if($('#picture').val()==""){
 				$('#msgquatre').fadeIn();
@@ -306,7 +317,6 @@
 				$('#msgquatre').fadeOut();
 				$('#picture').css('border','1px solid rgb(169, 169, 169)');
 				compteur++;
-
 			}
 			if ($('#description_pictures').val() == 0 ) {
 		     	$('#description_pictures').css('border','red 1px solid');

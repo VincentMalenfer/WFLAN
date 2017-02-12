@@ -7,9 +7,7 @@
         <!-- Page Heading -->
         <div class="row">
             <div class="col-md-12">
-                <h1 class="page-header">Les Articles
-                    <small>Vous avez atteint la page des Articles. Bravo.</small>
-                </h1>
+                <h1 class="page-header">Les Articles</h1>
             </div>
         </div>
         <!-- /.row -->
