@@ -86,8 +86,4 @@ class ArticlesModel extends Model
 		// 'SELECT *  FROM  games';
 	}
 
-	// Delete de la BDD les articles selectionné par l'admin
-	public function deleteArchive($id){
-		return $this->delete($id);
-	}
 }

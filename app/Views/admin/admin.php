@@ -46,9 +46,9 @@
                             <div class="col-xs-offset-1 col-xs-10">
                                 <div class="input-group">
                                     <label class="input-group-addon span-bold" for="sel1">Jeu :</label>
-                                    <select class="form-control select" id="sel1">
+                                    <select class="form-control select" id="sel1" name="checkbox">
                                 <?php foreach ($games as $game) { ?>
-                                         <option value="<?= $game['idgames'] ?>"><?= $game['name'] ?></option>
+                                         <option value="<?= $game['idgames'] ?>" ><?= $game['name'] ?></option>
                                 <?php } ?>
                                     </select>
                                 </div>
@@ -229,7 +229,8 @@
 			                <p> <?= $article['description'] ?> </p>
 			                <a class="btn btn-primary" href="<?=$this->url('article_article', ['id' => $article['idarticles']])?>">Lire l'article<span class="glyphicon glyphicon-chevron-right"></span></a>
 			                <!-- si le role de l'utilistateur est admin -->
-			                <a class="btn btn-primary" href="">Modifier</a>
+
+			                <a class="btn btn-primary" href=<?=$this->url('admin_modify_article', ['id' => $article['idarticles']])?> >Modifier</a>
 			                <a class="btn btn-primary" href="">Supprimer</a>
 
 			            </div>
@@ -249,6 +250,7 @@
 	</div> <!-- ########## 	FIN CONTAINER 	########## -->
 </div>
 
+<<<<<<< HEAD
 <?php
 	 // on nettoie les données précédentes
 	unset($_SESSION['inputs']);
@@ -256,4 +258,102 @@
 	unset($_SESSION['errors']);
 ?>
 
+=======
+<!-- ##### 		DEBUT MESSAGE CACHES EN JS 		##### -->
+<script type="text/javascript">
+	$(function () {
+		$('#ajoutArticle').on('submit', function (e) { // Est appelé lorsque l'utilisateur souhaite soumettre le formulaire
+			e.preventDefault(); // On empêche le navigateur de soumettre le formulaire
+			var compteur = 1;
+
+			if ($('#title').val().length == 0)  {
+			 	$('#msgun').fadeIn();
+			 	$('#title').css('border','red 1px solid');
+			 	$('#msgun').css('visibility','visible');
+			}else if($('#title').val().length > 50){
+				$('#msgun').fadeIn();
+			 	$('#title').css('border','red 1px solid');
+			 	$('#msgun').css('visibility','visible');
+			}else{
+				$('#msgun').fadeOut();
+			 	$('#title').css('border','1px solid rgb(169, 169, 169)');
+			 	compteur++;
+
+			}
+			if ($('#description').val().length == 0){
+			 	$('#msgdeux').fadeIn();
+			 	$('#description').css('border','red 1px solid');
+			 	$('#msgdeux').css('visibility','visible');
+
+			}else if ($('#description').val().length > 30)  {
+				$('#msgdeux').fadeIn();
+			 	$('#description').css('border','red 1px solid');
+			 	$('#msgdeux').css('visibility','visible');
+
+			}else{
+			 	$('#msgdeux').fadeOut();
+			 	$('#description').css('border','1px solid rgb(169, 169, 169)');
+			 	compteur++;
+			}
+			var mike = 0;
+            $("select").change(function () {
+
+           })
+            if($('select').val()==""){
+                $('#msgtrois').fadeIn();
+                $('#msgtrois').css('visibility','visible');
+                $('select').css('border','red 1px solid');
+
+           }else{
+                $('#msgtrois').fadeOut();
+                $('select').css('border','1px solid rgb(169, 169, 169)');
+                compteur++;
+            }
+            if($('#picture').val()==""){
+                $('#msgquatre').fadeIn();
+                $('#msgquatre').css('visibility','visible');
+                $('#picture').css('border','red 1px solid');
+
+           }else{
+                $('#msgquatre').fadeOut();
+                $('#picture').css('border','1px solid rgb(169, 169, 169)');
+                compteur++;
+            }
+			if ($('#description_pictures').val() == 0 ) {
+		     	$('#description_pictures').css('border','red 1px solid');
+		     	$('#msgcinq').fadeIn();
+		     	$('#msgcinq').css('visibility','visible');
+
+			}else{
+				$('#msgcinq').fadeOut();
+				$('#description_pictures').css('border','1px solid rgb(169, 169, 169)');
+				compteur++;
+			}
+			//
+			if ($('#text').val() == 0 ) {
+		     	$('#text').css('border','red 1px solid');
+		     	$('#msgsix').fadeIn();
+		     	$('#msgsix').css('visibility','visible');
+
+			}else{
+				$('#msgsix').fadeOut();
+				$('#text').css('border','1px solid rgb(169, 169, 169)');
+				compteur++;
+
+			}
+			if (compteur===7) {
+
+				$('form').unbind('submit').submit();
+			}
+		});
+	});
+</script>
+<!-- ##### 		FIN MESSAGE CACHES EN JS 		##### -->
+
+<style type="text/css">
+	#msgun,#msgdeux,#msgtrois,#msgcinq,#msgsix,#msgquatre{
+	visibility: hidden;
+	}
+</style>
+>>>>>>> refs/remotes/origin/Thibauld
 <?php $this->stop('main_content') ?>
