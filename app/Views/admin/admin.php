@@ -14,6 +14,19 @@
 
 		<div class="tab-content">
 		  	<div id="AddArticle" class="tab-pane fade in active">
+
+				<!-- Affichage des messages d'erreurs et de success -->
+				<?php if(array_key_exists('errors',$_SESSION)): ?>
+				  <div class="alert alert-danger">
+				  <?= implode('<br>', $_SESSION['errors']); ?>
+				  </div>
+				  <?php endif; ?>
+				  <?php if(array_key_exists('success',$_SESSION)): ?>
+				  <div class="alert alert-success">
+				  Votre requête à bien été transmise !
+				  </div>
+				<?php endif; ?>
+
 				<form class="form-horizontal" action="<?= $this->url('admin_add') ?>" id="ajoutArticle" method="POST" enctype="multipart/form-data">
 					<fieldset>
 
@@ -104,55 +117,11 @@
 		  	<div id="AddEvent" class="tab-pane fade">
 				<form class="form-horizontal" action="<?= $this->url('admin_add_event') ?>" method="POST">
 					<fieldset>
-			<!-- 	########################		DEBUT	TITLE	 			########################	-->
-						<div class="form-group">
-							<div class="col-xs-offset-1 col-xs-10">
-							    <div class="input-group">
-									<label class="input-group-addon span-bold" for="title">Nom de l'évênement : </label>
-									<input type="text" name="title" id="title" placeholder="Saisissez le titre" class="form-control" >
-								</div>
-							</div>
-						</div>
-			<!-- 	########################		FIN		TITLE	 			########################	-->
-
-			<!-- 	########################		DEBUT	LOCATION			########################	-->
-						<div class="form-group">
-							<div class="col-xs-offset-1 col-xs-10">
-							    <div class="input-group">
-									<label class="input-group-addon span-bold" for="location">Lieu : </label>
-									<input type="text" name="location" id="location" class="form-control" placeholder="Saisissez la location" class="form-control">
-								</div>
-							</div>
-						</div>
-			<!-- 	########################		FIN		LOCATION	 		########################	-->
-
-			<!-- 	########################		DEBUT	DESCRIPTION			########################	-->
-						<div class="form-group">
-							<div class="col-xs-offset-1 col-xs-10">
-							    <div class="input-group">
-									<label class="input-group-addon span-bold" for="desc">Description : </label>
-									<input type="text" name="desc" id="desc" class="form-control" placeholder="Saisissez la description" class="form-control">
-								</div>
-							</div>
-						</div>
-			<!-- 	########################		FIN		DESCRIPTION	 		########################	-->
-
-			<!-- 	########################		DEBUT	URL					########################	-->
-						<div class="form-group">
-							<div class="col-xs-offset-1 col-xs-10">
-							    <div class="input-group">
-									<input type="hidden" name="url" id="url" class="form-control" placeholder="Saisissez l'url" class="form-control">
-								</div>
-							</div>
-						</div>
-			<!-- 	########################		FIN		URL	 				########################	-->
-
-
 
 			<!-- 	########################		DEBUT	START	 			########################	-->
 						<div class="form-group">
 							<div class="col-sm-offset-4 col-sm-4">
-							    <div class="input-group">
+								<div class="input-group">
 									<label class="input-group-addon span-bold" for="start">Date de début : </label>
 									<input type="datetime" name="start" id="start" class="form-control" placeholder="jj/mm/aaaa 00:00:00">
 								</div>
@@ -163,7 +132,7 @@
 			<!-- 	########################		DEBUT	END	 				########################	-->
 						<div class="form-group">
 							<div class="col-sm-offset-4 col-sm-4">
-							    <div class="input-group">
+								<div class="input-group">
 									<label class="input-group-addon span-bold" for="end">Date de fin : </label>
 									<input type="datetime" name="end" id="end" class="form-control" placeholder="jj/mm/aaaa 00:00:00">
 								</div>
@@ -171,11 +140,44 @@
 						</div>
 			<!-- 	########################		FIN		END					########################	-->
 
+			<!-- 	########################		DEBUT	TITLE	 			########################	-->
+						<div class="form-group">
+							<div class="col-xs-offset-1 col-xs-10">
+							    <div class="input-group">
+									<label class="input-group-addon span-bold" for="title">Nom de l'événement : </label>
+									<input type="text" name="title" id="title" placeholder="Saisissez le titre de l'événement" class="form-control" >
+								</div>
+							</div>
+						</div>
+			<!-- 	########################		FIN		TITLE	 			########################	-->
+
+			<!-- 	########################		DEBUT	LOCATION			########################	-->
+						<div class="form-group">
+							<div class="col-xs-offset-1 col-xs-10">
+							    <div class="input-group">
+									<label class="input-group-addon span-bold" for="location">Lieu : </label>
+									<input type="text" name="location" id="location" class="form-control" placeholder="Saisissez le lieu" class="form-control">
+								</div>
+							</div>
+						</div>
+			<!-- 	########################		FIN		LOCATION	 		########################	-->
+
+			<!-- 	########################		DEBUT	DESCRIPTION			########################	-->
+						<div class="form-group">
+							<div class="col-xs-offset-1 col-xs-10">
+							    <div class="input-group">
+									<label class="input-group-addon span-bold" for="desc">Description : </label>
+									<textarea type="text" name="desc" id="desc" cols="30" rows="10" class="form-control" placeholder="Saisissez la description de l'événement" class="form-control"></textarea>
+								</div>
+							</div>
+						</div>
+			<!-- 	########################		FIN		DESCRIPTION	 		########################	-->
+
 			<!-- 	########################		DEBUT CHECKBOX EVENTS-GAMES	########################	-->
 						<div class="form-group">
                             <div class="col-xs-offset-1 col-xs-10">
                                 <div class="input-group">
-                                    <label class="input-group-addon span-bold" for="sel1">Select list:</label>
+                                    <label class="input-group-addon span-bold" for="sel1">Jeu :</label>
                                     <select class="form-control select" id="sel1" name="class">
                                 <?php foreach ($games as $game) { ?>
                                          <option value="<?= $game['classgames'] ?>"><?= $game['name'] ?></option>
@@ -190,11 +192,21 @@
 						<div class="form-group">
 							<div class="col-xs-offset-1 col-xs-10">
 							    <div class="input-group">
-				    				<button id="envoyer" name="envoyer" class="btn btn-primary">Envoyer</button>
+				    				<button id="envoyer" name="envoyer" class="btn btn-primary">Publiez</button>
 								</div>
 							</div>
 						</div>
 			<!-- 	########################		FIN		SUBMIT	 			########################	-->
+
+			<!-- 	########################		DEBUT	URL					########################	-->
+						<div class="form-group">
+							<div class="col-xs-offset-1 col-xs-10">
+							    <div class="input-group">
+									<input type="hidden" name="url" id="url" class="form-control" placeholder="Saisissez l'url" class="form-control">
+								</div>
+							</div>
+						</div>
+			<!-- 	########################		FIN		URL	 				########################	-->
 					</fieldset>
 				</form>
 			</div>
@@ -215,10 +227,10 @@
 			                <h3> <?= $article['title'] ?> </h3>
 
 			                <p> <?= $article['description'] ?> </p>
-			                <a class="btn btn-primary" href="<?=$this->url('article_article', ['id' => $article['idarticles']])?>">aller sur l article <span class="glyphicon glyphicon-chevron-right"></span></a>
+			                <a class="btn btn-primary" href="<?=$this->url('article_article', ['id' => $article['idarticles']])?>">Lire l'article<span class="glyphicon glyphicon-chevron-right"></span></a>
 			                <!-- si le role de l'utilistateur est admin -->
-			                <a class="btn btn-primary" href="">modifier</a>
-			                <a class="btn btn-primary" href="">suprimer</a>
+			                <a class="btn btn-primary" href="">Modifier</a>
+			                <a class="btn btn-primary" href="">Supprimer</a>
 
 			            </div>
 			        </div> <!-- /.row -->
@@ -236,5 +248,12 @@
 		</div>
 	</div> <!-- ########## 	FIN CONTAINER 	########## -->
 </div>
+
+<?php
+	 // on nettoie les données précédentes
+	unset($_SESSION['inputs']);
+	unset($_SESSION['success']);
+	unset($_SESSION['errors']);
+?>
 
 <?php $this->stop('main_content') ?>

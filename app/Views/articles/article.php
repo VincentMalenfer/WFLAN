@@ -32,6 +32,6 @@
 </div>
 <?php endif; ?>
 
-<a href="<?= $this->url('article_list_articles'); ?>" class="btn btn-primary">Retour à la liste d'articles</a>
+<a href="<?= $this->url('article_list_articles'); ?>" class="btn btn-primary">Retour à la liste des articles</a>
 
 <?php $this->stop('main_content') ?>

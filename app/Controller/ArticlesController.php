@@ -15,7 +15,6 @@ class ArticlesController extends Controller
       $this->show('articles/article', ['article'=> $articles]);
     }
 
-
     // Liste de tout les articles côté utilisateur
     public function listArticles()
     {
@@ -23,6 +22,7 @@ class ArticlesController extends Controller
       $articles = $articleModel->getArticles();
       $this->show('articles/list_articles', ['articles'=> $articles]);
     }
+
       // Affichage de la liste des articles côté administrateur
     public function admin_list_articles()
     {
@@ -30,6 +30,7 @@ class ArticlesController extends Controller
         $articles = $articleModel->getArticles();
         $this->show('admin/admin_list_articles', ['articles'=> $articles]);
     }
+
     // Supprime un article
     public function suppArticle($id)
     {   $allArticle= getArticle($id);
@@ -93,8 +94,6 @@ class ArticlesController extends Controller
                                     $filepath,
                                     $_POST['description_pictures']
                                     );
-
-
         };
 
         if(!empty($_POST['checkbox'])){

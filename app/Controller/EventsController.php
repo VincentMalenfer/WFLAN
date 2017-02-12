@@ -1,22 +1,23 @@
 <?php
 
 namespace Controller;
+
 use \W\Controller\Controller;
 use \Model\EventsModel;
-
 
 class EventsController extends Controller
 {
     // Affichage de l'événement côté administrateur
-    public function event(){
+    public function event()
+    {
 
 	// {	$this->allowTo('admin');
 
 		$this->show('admin/admin_event');
 	}
 
-
-	public function showEvent($id){
+	public function showEvent($id)
+    {
 
 	// {	$this->allowTo('admin');
 
@@ -24,13 +25,10 @@ class EventsController extends Controller
      	 $event = $EventsModel->getEvents($id);
      	 $this->show('event/event', ['event'=> $event]);
     }
-    
-	
 
     // Affichage liste des événements côté administrateur
 	public function addEvent()
 	{
-
 		// $this->allowTo('admin');
 
 		if(!empty($_POST))
