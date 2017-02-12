@@ -17,6 +17,7 @@
 		['GET|POST', 			'/sign_up', 									'Users#sign_up', 							'users_sign_up'],
 		['GET|POST', 			'/sign_in', 									'Users#sign_in', 							'users_sign_in'],
 		['GET|POST', 			'/log_out', 									'General#log_out', 							'users_log_out'],
+		['GET|POST', 			'/inscription_event/[:id]', 					'Users#inscription_event', 					'users_inscription_event'],
 
 		// ADMIN //
 		['GET', 				'/admin', 										'Admin#admin', 								'admin_admin'],

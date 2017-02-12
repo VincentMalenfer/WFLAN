@@ -3,9 +3,12 @@
 namespace Controller;
 
 use \W\Controller\Controller;
-use \Model\UserModel;
-use \Model\ConnexionModel;
 use \W\Security\AuthentificationModel;
+
+use \Model\UserModel;
+use \Model\EventsModel;
+use \Model\GeneralModel;
+use \Model\ConnexionModel;
 
 class UsersController extends Controller
 {
@@ -196,7 +199,29 @@ class UsersController extends Controller
 		session_destroy();
  	 $this->show('users/home');
 	}
+	
+
+	public function inscription_event($idEvent)
+	{
+		$generalModel = new GeneralModel();
+		$idUser       = $generalModel->getIdFromToken($_SESSION['token']);
+
+		$eventModel = new EventsModel();
+		$eventModel->inscriptionEvents($idUser['users_idusers'], $idEvent);
+		
+		$this->redirectToRoute('users_calendar');
+	}
+
+
+
+
+
 }
+
+
+
+
+
 
 // 			$_SESSION['success'] = 1;
 // $errors = array(); // on crée une vérif de champs

@@ -14,7 +14,30 @@
             
            
 
-            <a class="btn btn-primary" href="http://localhost/wflan/wflan/public/calendar">Retour</a>
+            <a class="btn btn-primary" href="<?php echo $this->url('users_calendar'); ?>">Retour</a>
+            <?php
+            if(!empty($_SESSION['token'] && !$isRegistered)): ?>
+            <a class="btn btn-primary" href=<?= $this->url('users_inscription_event', ['id' => $event['idevent']]) ?> >S'inscrire</a>
+            <?php else: ?>
+            <?= "Vous êtes déjà inscrit !" ?>
+            <?php endif; ?>
+
+<table>
+	<tr>
+		<th>Pseudo</th>
+	</tr>
+
+<?php foreach ($users as $user) { ?>
+
+	<tr>
+		<td><?= $user['nickname'] ?></td>
+	</tr>
+<?php } ?>
+</table>
+
+
+
+
        
 
        

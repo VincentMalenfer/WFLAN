@@ -3,6 +3,7 @@
 namespace Controller;
 use \W\Controller\Controller;
 use \Model\EventsModel;
+use \Model\UserModel;
 
 
 class EventsController extends Controller
@@ -17,12 +18,18 @@ class EventsController extends Controller
 
 
 	public function showEvent($id){
+		$EventModel = new EventsModel();
 
-	// {	$this->allowTo('admin');
+		$event = $EventModel->getEvents($id);
+		$users = $EventModel->getUsersFromEvent($id);
 
-     	 $EventsModel = new EventsModel();
-     	 $event = $EventsModel->getEvents($id);
-     	 $this->show('event/event', ['event'=> $event]);
+		$isRegistered = $EventModel->getUserFromEvent($id, $_SESSION['token']);
+
+		$this->show('event/event', [
+			'event' => $event,
+			'users' => $users,
+			'isRegistered' => $isRegistered
+		]);
     }
     
 	

@@ -12,4 +12,6 @@ class GeneralModel extends Model
     $pouet->execute();
     return $pouet->fetch();
     }
+
+    
 }
