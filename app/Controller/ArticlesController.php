@@ -7,7 +7,6 @@ use \Model\ArticlesModel;
 
 class ArticlesController extends Controller
 {
-
     // Affichage d'un article côté utilisateur
     function showArticles($id)
     {
@@ -110,6 +109,6 @@ class ArticlesController extends Controller
         //
 
         // $this->show('list_articles');
-    
+
 
 }
