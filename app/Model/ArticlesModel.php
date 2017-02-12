@@ -11,7 +11,7 @@ class ArticlesModel extends Model
 
 	public function getArticles()
 	{
-		$sql = 'SELECT * FROM ' . $this->table.' WHERE actif = 1 ORDER BY idarticles DESC';
+		$sql = 'SELECT * FROM ' . $this->table .' ORDER BY idarticles DESC';
 		$sth = $this->dbh->prepare($sql);
 		$sth->execute();
 		return $sth->fetchAll();
