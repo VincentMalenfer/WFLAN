@@ -81,20 +81,20 @@ h1 {
     height: 100%;
 }
 
-.input-group{
+/*.input-group{
     border-radius: 5px;
     box-shadow: 0px 0px 6px darkgrey;
-}
-
+}*/
+/*
 .form-group{
     text-align: center;
-}
+}*/
 
 .tab-content{
     padding: 40px;
 }
 
-::-webkit-input-placeholder{text-align: center;}
+/*::-webkit-input-placeholder{text-align: center;}*/
 
 input[type='value'] { text-align: center;}​
 
@@ -144,7 +144,6 @@ input[type='value'] { text-align: center;}​
     filter: FlipH;
     -ms-filter: "FlipH";
 }
-
 
 /*-------------------------
     DEBUT CSS CALENDRIER

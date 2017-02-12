@@ -7,9 +7,7 @@
         <!-- Page Heading -->
         <div class="row">
             <div class="col-md-12">
-                <h1 class="page-header">Les Articles
-                    <small>Vous avez atteint la page des Articles. Bravo.</small>
-                </h1>
+                <h1 class="page-header">Les Articles</h1>
             </div>
         </div>
         <!-- /.row -->
@@ -25,7 +23,7 @@
                 <h3> <?= $article['title'] ?> </h3>
 
                 <p> <?= $article['description'] ?> </p>
-                <a class="btn btn-primary" href="<?=$this->url('article_article', ['id' => $article['idarticles']])?>">aller sur l article <span class="glyphicon glyphicon-chevron-right"></span></a>
+                <a class="btn btn-primary" href="<?=$this->url('article_article', ['id' => $article['idarticles']])?>">Lire l'article<span class="glyphicon glyphicon-chevron-right"></span></a>
                 <!-- si le role de l'utilistateur est admin -->
 
             </div>

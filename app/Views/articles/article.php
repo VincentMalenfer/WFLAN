@@ -3,7 +3,6 @@
 
 <?php  if (isset($article)): ?>
 <div class="container-fluid">
-    <h1>Article</h1>
     <article class="txtArticle col-xs-8 col-xs-offset-2">
         <h1><?= $article['title'] ?></h1>
         <img src="<?= $article['pictures'] ?>" alt="<?= $article['description_pictures'] ?>" class="img-responsive">

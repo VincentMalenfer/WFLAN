@@ -42,7 +42,7 @@ class ArticlesModel extends Model
 
 			);
 
-			return $this->insert($data);
+			return $this->insert($data, false);
 		// 'INSERT INTO articles (title,description,`text`,pictures,des_pictures,publishdate,author )
 		// VALUES (:title,:description;`:text`,:pictures,:picturesDes,:publishdate,:autor)';
 	}
