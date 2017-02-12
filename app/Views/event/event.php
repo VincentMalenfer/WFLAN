@@ -22,18 +22,24 @@
             <?= "Vous êtes déjà inscrit !" ?>
             <?php endif; ?>
 
-<table>
-	<tr>
-		<th>Pseudo</th>
-	</tr>
+<h3><strong>Listes des inscrits à l'événement</strong></h3>
+
 
 <?php foreach ($users as $user) { ?>
 
-	<tr>
-		<td><?= $user['nickname'] ?></td>
-	</tr>
+
+
+<ul>
+
+	<li><?= $user['nickname'] ?></li>
+</ul>
+
 <?php } ?>
-</table>
+
+
+
+
+
 
 
 
