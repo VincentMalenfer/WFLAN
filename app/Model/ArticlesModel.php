@@ -42,7 +42,7 @@ class ArticlesModel extends Model
 
 			);
 
-			return $this->insert($data);
+			return $this->insert($data, false);
 		// 'INSERT INTO articles (title,description,`text`,pictures,des_pictures,publishdate,author )
 		// VALUES (:title,:description;`:text`,:pictures,:picturesDes,:publishdate,:autor)';
 	}
@@ -84,8 +84,4 @@ class ArticlesModel extends Model
 		// 'SELECT *  FROM  games';
 	}
 
-	// Delete de la BDD les articles selectionné par l'admin
-	public function deleteArchive($id){
-		return $this->delete($id);
-	}
 }

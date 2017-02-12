@@ -59,9 +59,9 @@
                             <div class="col-xs-offset-1 col-xs-10">
                                 <div class="input-group">
                                     <label class="input-group-addon span-bold" for="sel1">Select list:</label>
-                                    <select class="form-control select" id="sel1">
+                                    <select class="form-control select" id="sel1" name="checkbox">
                                 <?php foreach ($games as $game) { ?>
-                                         <option value="<?= $game['idgames'] ?>"><?= $game['name'] ?></option>
+                                         <option value="<?= $game['idgames'] ?>" ><?= $game['name'] ?></option>
                                 <?php } ?>
                                     </select>
                                 </div>
@@ -228,7 +228,7 @@
 			                <p> <?= $article['description'] ?> </p>
 			                <a class="btn btn-primary" href="<?=$this->url('article_article', ['id' => $article['idarticles']])?>">aller sur l article <span class="glyphicon glyphicon-chevron-right"></span></a>
 			                <!-- si le role de l'utilistateur est admin -->
-			                <a class="btn btn-primary" href="">modifier</a>
+			                <a class="btn btn-primary" href=<?=$this->url('admin_modify_article', ['id' => $article['idarticles']])?> >modifier</a>
 			                <a class="btn btn-primary" href="">suprimer</a>
 
 			            </div>
@@ -284,30 +284,30 @@
 			 	$('#description').css('border','1px solid rgb(169, 169, 169)');
 			 	compteur++;
 			}
-			var mike = false;
-			$.each( $('.checkbox'), function( key, value ) {
-				if($(this).is(':checked')){
-		     		compteur++;
-					mike = true;
-			     	$('#msgtrois').fadeOut();
-				}
-			});
-			if(!mike){
-			     	$('#msgtrois').fadeIn();
-					$('.checkbox').css('border','red 1px solid');
-			     	$('#msgtrois').css('visibility','visible');
-			}
-			if($('#picture').val()==""){
-				$('#msgquatre').fadeIn();
-				$('#msgquatre').css('visibility','visible');
-				$('#picture').css('border','red 1px solid');
+			var mike = 0;
+            $("select").change(function () {
 
-			}else{
-				$('#msgquatre').fadeOut();
-				$('#picture').css('border','1px solid rgb(169, 169, 169)');
-				compteur++;
+           })
+            if($('select').val()==""){
+                $('#msgtrois').fadeIn();
+                $('#msgtrois').css('visibility','visible');
+                $('select').css('border','red 1px solid');
 
-			}
+           }else{
+                $('#msgtrois').fadeOut();
+                $('select').css('border','1px solid rgb(169, 169, 169)');
+                compteur++;
+            }
+            if($('#picture').val()==""){
+                $('#msgquatre').fadeIn();
+                $('#msgquatre').css('visibility','visible');
+                $('#picture').css('border','red 1px solid');
+
+           }else{
+                $('#msgquatre').fadeOut();
+                $('#picture').css('border','1px solid rgb(169, 169, 169)');
+                compteur++;
+            }
 			if ($('#description_pictures').val() == 0 ) {
 		     	$('#description_pictures').css('border','red 1px solid');
 		     	$('#msgcinq').fadeIn();
