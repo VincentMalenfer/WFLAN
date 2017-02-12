@@ -11,7 +11,7 @@ class ArticlesModel extends Model
 
 	public function getArticles()
 	{
-		$sql = 'SELECT * FROM' . $this->table.'ORDER BY idarticles DESC';
+		$sql = 'SELECT * FROM articles ORDER BY idarticles DESC';
 		$sth = $this->dbh->prepare($sql);
 		$sth->execute();
 		return $sth->fetchAll();
@@ -28,7 +28,7 @@ class ArticlesModel extends Model
 		$this->setPrimaryKey("idarticles");
 		$iduser= new GeneralModel;
 		$idusertoken= $iduser->getIdFromToken($_SESSION["token"]);
-		$iduserinsert =implode($idusertoken); 
+		$iduserinsert =implode($idusertoken);
 		$data= array(
 			'title' 					=> $title,				//post titre du form admin article
 			'description' 				=> $description,				//post description du form de admin article
@@ -41,23 +41,23 @@ class ArticlesModel extends Model
 
 
 			);
-			
+
 			return $this->insert($data);
 		// 'INSERT INTO articles (title,description,`text`,pictures,des_pictures,publishdate,author )
 		// VALUES (:title,:description;`:text`,:pictures,:picturesDes,:publishdate,:autor)';
 	}
 
 	public function articleHaveGame($game,$id_article){
-		
+
 		$this->setPrimaryKey("games_idgames");
 		$this->setTable('games_has_articles');
 
 		$data= array(
 			'games_idgames'			=>  $game,
-			'articles_idarticles'	=>  $id_article  
+			'articles_idarticles'	=>  $id_article
 			);
 
-		$sql = 'INSERT INTO games_has_articles (`articles_idarticles`, `games_idgames`) VALUES (:articles_idarticles,:games_idgames)'; 
+		$sql = 'INSERT INTO games_has_articles (`articles_idarticles`, `games_idgames`) VALUES (:articles_idarticles,:games_idgames)';
 		$pouet = $this->dbh->prepare($sql);
     	$pouet->execute($data);
 	}

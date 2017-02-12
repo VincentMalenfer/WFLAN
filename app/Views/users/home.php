@@ -36,6 +36,31 @@
 			<li data-target="#carousel-1" data-slide-to="2"></li>
 		</ol>
 	</div>
+
+	<!-- CountDown prochain event -->
+  <div id="countdown" class="countdown container">
+		<h2>Prochain événement dans :</h2>
+    <div class="row">
+      <div class="countdown-item col-sm-3 col-xs-6">
+        <div id="countdown-days" class="countdown-number">&nbsp;</div>
+				<div class="countdown-label">jours</div>
+			</div>
+      <div class="countdown-item col-sm-3 col-xs-6">
+        <div id="countdown-hours" class="countdown-number">&nbsp;</div>
+				<div class="countdown-label">heures</div>
+      </div>
+      <div class="countdown-item col-sm-3 col-xs-6">
+        <div id="countdown-minutes" class="countdown-number">&nbsp;</div>
+				<div class="countdown-label">minutes</div>
+      </div>
+      <div class="countdown-item col-sm-3 col-xs-6">
+        <div id="countdown-seconds" class="countdown-number">&nbsp;</div>
+				<div class="countdown-label">secondes</div>
+      </div>
+    </div>
+  </div>
+
+	</section>
 	<div class="audio">
     <audio id="myaudio" controls>
         <source src="<?= $this->assetUrl('audio/Konami.mp3') ?>" type="audio/mp3" />

@@ -6,22 +6,39 @@ use \W\Model\Model as Model;
 
 class EventsModel extends Model
 {
-	public function ajouterEvent($name, $date, $location, $desc, $location_idlocation, $users_idusers)
+	public function ajouterEvent($title, $location, $desc, $url, $start, $end, $class)
 	{
-		$this->setPrimaryKey("idevents");
+		
+
+		$this->setPrimaryKey("idevent");
+		
+
 		$data = array 	(
-							"name" 					=> $name,
-							"date" 					=> $date,
+							"title" 				=> $title,
 							"location"				=> $location,
 							"desc"					=> $desc,
-							"location_idlocation" 	=> $location_idlocation,
-							"users_idusers" 		=> $users_idusers
+							"url" 					=> $url,
+							"start" 				=> $start,
+							"end" 					=> $end,
+							"class" 				=>$class
 						);
+		
+
+
 		$this->insert($data);
+
+
 	}
 
-	public function event_has_games ()
+	public function getEvents($id)
 	{
+		$this->setPrimaryKey("idevent");
+
+		return $this->find($id);
+
 
 	}
+
+	
 }
+
