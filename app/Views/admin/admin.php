@@ -3,26 +3,17 @@
 <?php $this->start('main_content') ?>
 
 <div class="admin">
-
 	<div class="container"> <!-- ########## 	DEBUT CONTAINER 	########## -->
 		<h1>Espace Admin</h1>
-
 		<ul class="nav nav-tabs">
-
-	  		<li><a data-toggle="tab" href="#AddArticle">Ajouter article</a></li>
-
+	  		<li class="active"><a data-toggle="tab" href="#AddArticle">Ajouter article</a></li>
 	  		<li><a data-toggle="tab" href="#AddEvent"> Ajouter événement</a></li>
-
-	  		<li><a data-toggle="tab" href="#ModifDeleteEvent"> Modifier ou supprimer un article</a></li>
-				<li><a data-toggle="tab" href="#ModifDeleteArticle"> Modifier ou supprimer un événement</a></li>
-
+	  		<li><a data-toggle="tab" href="#ModifDeleteArticle"> Modifier ou supprimer un article</a></li>
+			<li><a data-toggle="tab" href="#ModifDeleteEvent"> Modifier ou supprimer un événement</a></li>
 		</ul>
 
-
 		<div class="tab-content">
-
-		  	<div id="AddArticle" class="tab-pane fade">
-
+		  	<div id="AddArticle" class="tab-pane fade in active">
 				<form class="form-horizontal" action="<?= $this->url('admin_add') ?>" id="ajoutArticle" method="POST" enctype="multipart/form-data">
 					<fieldset>
 
@@ -34,31 +25,24 @@
 									<input type="text" name="title" id="title" placeholder="Saisissez le titre" class="form-control" >
 								</div>
 							</div>
-
-						<p id="msgun">Le titre doit faire au maximum 50 caractères et ne doit pas être vide.</p>
-
-
+							<p id="msgun">Le titre doit faire au maximum 50 caractères et ne doit pas être vide.</p>
 						</div>
 			<!-- 	########################		FIN		TITRE	 			########################	-->
 
 			<!-- 	########################		DEBUT	DESCRIPTION IMAGE	########################	-->
 						<div class="form-group">
-
 							<div class="col-xs-offset-1 col-xs-10">
-
 							    <div class="input-group">
 									<label class="input-group-addon span-bold" for="description_pictures">Description de l'image (30 caractères maximum) : </label>
 									<textarea type="text" name="description_pictures" id="description_pictures" cols="30" rows="10" class="form-control" placeholder="Saisissez la description"></textarea>
 								</div>
 							</div>
-						<p id="msgcinq">Merci de remplir la description de l'image (30 caractères maximum).</p>
-
+							<p id="msgcinq">Merci de remplir la description de l'image (30 caractères maximum).</p>
 						</div>
 			<!-- 	########################		FIN		DESCRIPTION IMAGE	########################	-->
 
 			<!-- 	########################		DEBUT	DESCRIPTION		 	########################	-->
 						<div class="form-group">
-
 							<div class="col-xs-offset-1 col-xs-10">
 
 							    <div class="input-group">
@@ -66,7 +50,7 @@
 									<textarea type="text" name="description" id="description" cols="30" rows="10" class="form-control" placeholder="Saisissez la description"></textarea>
 								</div>
 							</div>
-						<p id="msgdeux">La description doit faire au maximum 30 caractères et ne doit pas être vide.</p>
+							<p id="msgdeux">La description doit faire au maximum 30 caractères et ne doit pas être vide.</p>
 						</div>
 			<!-- 	########################		FIN		DESCRIPTION	 		########################	-->
 
@@ -81,10 +65,8 @@
                                 <?php } ?>
                                     </select>
                                 </div>
-
                             </div>
-                        <p id="msgtrois">Merci de selectionner au moins un jeu au minimum.</p>
-
+                        	<p id="msgtrois">Merci de selectionner au moins un jeu au minimum.</p>
                         </div>
 			<!-- 	########################		FIN		CHECKBOX GAMES	 	########################	-->
 
@@ -96,21 +78,22 @@
 									<input type="file" name="picture" id="picture" placeholder="Choisissez une image" class="form-control" >
 								</div>
 							</div>
-						<p id="msgquatre">Merci de renseigner une image.</p>
-
+							<p id="msgquatre">Merci de renseigner une image.</p>
 						</div>
 			<!-- 	########################		FIN		PICTURES			########################	-->
-			<!-- 	########################		DEBUT	TEXT		 	########################	-->
+
+			<!-- 	########################		DEBUT	TEXT		 		########################	-->
 						<div class="form-group">
-							<div class="col-sm-offset-4 col-sm-4">
+							<div class="col-xs-offset-1 col-xs-10">
 									<div class="input-group">
 									<label class="input-group-addon span-bold" for="text">Texte de l'article  : </label>
-									<textarea type="text" name="text" id="text" cols="30" rows="10" class="form-control" ></textarea>
+									<textarea type="text" name="text" id="text" cols="30" rows="10" class="form-control" placeholder="Saisissez le text" ></textarea>
 								</div>
 							</div>
-						<p id="msgsix">Merci de mettre du contenu a votre article.</p>
+							<p id="msgsix">Merci de mettre du contenu a votre article.</p>
 						</div>
-			<!-- 	########################		FIN		DESCRIPTION	 		########################	-->
+			<!-- 	########################		FIN		TEXT	 		########################	-->
+
 			<!-- 	########################		DEBUT	SUBMIT				########################	-->
 						<div class="form-group">
 							<div class="col-xs-offset-1 col-xs-10">
@@ -172,10 +155,10 @@
 									<input type="hidden" name="url" id="url" class="form-control" placeholder="Saisissez l'url" class="form-control">
 								</div>
 							</div>
-						</div> 
+						</div>
 			<!-- 	########################		FIN		URL	 				########################	-->
 
-			
+
 
 			<!-- 	########################		DEBUT	START	 			########################	-->
 						<div class="form-group">
@@ -210,7 +193,6 @@
                                 <?php } ?>
                                     </select>
                                 </div>
-
                             </div>
                         </div>
 			<!-- 	########################		FIN	CHECKBOX EVENTS-GAMES	########################	-->
@@ -228,27 +210,39 @@
 				</form>
 			</div>
 
+		  	<div id="ModifDeleteArticle" class="tab-pane fade">
+				<?php # if (isset($articles)){ ?>
 
-			<div id="ModifDeleteArticle" class="tab-pane fade">
+			        <!-- liste articles-->
+			        <?php foreach ($articles as $article): ?>
+			        <div class="row">
+			            <div class="col-md-7">
+			                <a href="<?=$this->url('article_article',['id' => $article['idarticles']])?>">
+			                    <img class="img-responsive" src="<?= $article['pictures'] ?>" alt="$article['decriptionPictures'] ">
+			                </a>
+			            </div>
 
+			            <div class="col-md-5">
+			                <h3> <?= $article['title'] ?> </h3>
+
+			                <p> <?= $article['description'] ?> </p>
+			                <a class="btn btn-primary" href="<?=$this->url('article_article', ['id' => $article['idarticles']])?>">aller sur l article <span class="glyphicon glyphicon-chevron-right"></span></a>
+			                <!-- si le role de l'utilistateur est admin -->
+			                <a class="btn btn-primary" href="">modifier</a>
+			                <a class="btn btn-primary" href="">suprimer</a>
+
+			            </div>
+			        </div> <!-- /.row -->
+			        <hr>
+			        <?php
+			           endforeach;
+			       # };
+			        ?>
 			</div>
-
-
-
 
 			<div id="ModifDeleteEvent" class="tab-pane fade">
 
-				 <ul id="eventlist" class="nav nav-list"></ul>
-
 			</div>
-
-
-
-
-	  	
-
-
-
 
 		</div>
 	</div> <!-- ########## 	FIN CONTAINER 	########## -->

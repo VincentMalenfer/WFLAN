@@ -9,11 +9,6 @@
   <!-- <meta name="description" content="">
        <meta name="author" content=""  > -->
 
-  <!-- Pour le calendrier -->
-  <link rel="stylesheet" href="<?php echo $this->assetUrl("plc/asset/bootstrap3/css/bootstrap.min.css")?> ">
-  <link rel="stylesheet" href="<?php echo $this->assetUrl("plc/asset/bootstrap3/css/bootstrap-theme.min.css")?>">
-  <link rel="stylesheet" href="<?php echo $this->assetUrl("plc/css/calendar.css")?>">
-
 	<!-- Favicons -->
   <link rel="apple-touch-icon" sizes="57x57" href="<?= $this->assetUrl('img/favicon/apple-icon-57x57.png') ?>">
   <link rel="apple-touch-icon" sizes="60x60" href="<?= $this->assetUrl('img/favicon/apple-icon-60x60.png') ?>">
@@ -32,17 +27,19 @@
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
   <meta name="theme-color" content="#ffffff">
+
 	<!-- Feuilles de style -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap-theme.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/material-icons.min.css">
+  <link rel="stylesheet" href="<?php echo $this->assetUrl("plc/css/calendar.css")?>">
 	<link rel="stylesheet" href="<?= $this->assetUrl('css/style.css') ?>">
+	<link rel="stylesheet" href="<?= $this->assetUrl('css/navbar.css') ?>">
+	<link rel="stylesheet" href="<?= $this->assetUrl('css/countdown.css') ?>">
   <link rel="stylesheet" href="<?= $this->assetUrl('css/carousel.css') ?>">
-  <link rel="stylesheet" href="<?= $this->assetUrl('css/footer.css') ?>">
-  <link rel="stylesheet" href="<?= $this->assetUrl('css/navbar.css') ?>">
 	<link rel="stylesheet" href="<?= $this->assetUrl('css/form.css') ?>" >
   <link rel="stylesheet" href="<?= $this->assetUrl('css/cretour.css') ?>">
+	<link rel="stylesheet" href="<?= $this->assetUrl('css/footer.css') ?>">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 
@@ -63,12 +60,15 @@
 
 	<!-- KONAMI CODE -->
 	<script type="text/javascript" src="<?= $this->assetUrl('js/konamiCode.js') ?>"></script>
+
+	<!-- Countdown JS -->
+    <script src="<?= $this->assetUrl('js/countdown/jquery.cookie.js') ?>"></script>
+    <script src="<?= $this->assetUrl('js/countdown/jquery.countdown.min.js') ?>"></script>
+    <script src="<?= $this->assetUrl('js/countdown/front.js') ?>"></script>
 </head>
 <body>
 	<header>
-		<?php
-		$_SESSION["Mike"] = "mike";
-		include("header.php"); ?>
+		<?php include("header.php"); ?>
 	</header>
 
 	<main>
@@ -81,4 +81,3 @@
 
 </body>
 </html>
-

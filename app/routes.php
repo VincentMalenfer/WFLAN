@@ -29,11 +29,8 @@
 
 		// EVENT //
 		['GET|POST', 			'/admin_list_events',							'Events#admin_list_events',					'admin_list_events'],
-		['GET|POST', 				'/admin/add_event', 								'Events#addEvent', 						  	'admin_add_event'],
+		['GET|POST', 			'/admin/add_event', 							'Events#addEvent', 						  	'admin_add_event'],
 		['GET', 				'/admin_supp_event/[:id]', 						'Events#suppEvent', 						'admin_supp_event'],
 		['GET|POST', 			'/admin/modif_event/[:id]',						'Events#modifyEvent',						'admin_modify_event'],
-
-
-		['GET|POST', 			'/event/[:id]',										'Events#showEvent',								'event_event'],
-
+		['GET|POST', 			'/event/[:id]',									'Events#showEvent',							'event_event'],
 	);

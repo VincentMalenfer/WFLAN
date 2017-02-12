@@ -7,9 +7,6 @@ use \Model\ArticlesModel;
 
 class ArticlesController extends Controller
 {
-
-   
-
     // Affichage d'un article côté utilisateur
     function showArticles($id)
     {
@@ -18,28 +15,30 @@ class ArticlesController extends Controller
       $this->show('articles/article', ['article'=> $articles]);
     }
 
-    // Affichage de la liste des articles côté administrateur
-    public function admin_list_articles()
-	{
-        $articleModel = new ArticlesModel();
-        $articles = $articleModel->getArticles();
-        $this->show('admin/admin_list_articles', ['articles'=> $articles]);
-	}
 
     // Liste de tout les articles côté utilisateur
-    function listArticles()
+    public function listArticles()
     {
       $articleModel = new ArticlesModel();
       $articles = $articleModel->getArticles();
       $this->show('articles/list_articles', ['articles'=> $articles]);
     }
-
+      // Affichage de la liste des articles côté administrateur
+    public function admin_list_articles()
+    {
+        $articleModel = new ArticlesModel();
+        $articles = $articleModel->getArticles();
+        $this->show('admin/admin_list_articles', ['articles'=> $articles]);
+    }
     // Supprime un article
     public function suppArticle($id)
-    {
+    {   $allArticle= getArticle($id);
+        $id= $allArticle['idarticles'];
+        $picture = $allArticle['pictures'];
         $supp= new ArticlesModel();
         $supp->deleteArticle($id);
-        $this->redirectToRoute('list_articles');
+        if ($supp)unlink($picture);
+        $this->redirectToRoute('admin/admin_list_articles');
     }
 
     // Modifie un article
@@ -52,39 +51,40 @@ class ArticlesController extends Controller
 
     // Permet d'ajouter un article
     public function addArticle(){
-
         // Liste de games
-            $articleModel = new ArticlesModel();
-            $games = $articleModel->getGame();
+        $articleModel = new ArticlesModel();
+        $games = $articleModel->getGame();
 
         // $this->allowTo('admin');
         $filepath="";
-        if(empty($_FILES)){
-        }
-        if ($_FILES['picture']['size'] > 0) {
+        if(!empty($_FILES)){
 
-            // revoir le chemin de destination des images
 
-            $dir = '../../public/assets/img/articles/';
 
-            // je verifie que le dossier de destination existe
+            if ($_FILES['picture']['size'] > 0) {
 
-            if (file_exists($dir)&& is_dir($dir)) {
+                // revoir le chemin de destination des images
 
-                // $filename definit le nom définitif de l'image et on lui colle son extension (pdf...) d'où le "."
+                $dir =  'assets/img/articles/';
 
-                $filename = time().".".pathinfo($_FILES['picture']['name'],PATHINFO_EXTENSION);
+                // je verifie que le dossier de destination existe
+                if (file_exists($dir)&& is_dir($dir)) {
 
-                // je deplace le fichier depuis le dossier temporaire vers la destination
+                    // $filename definit le nom définitif de l'image et on lui colle son extension (pdf...) d'où le "."
 
-                if (move_uploaded_file($_FILES['picture']['tmp_name'],$dir.$filename)) {
-                    $filepath =	'../../public/assets/img/articles/'.$filename;
-                }else{
-                    die("upload failed");
+                    $filename = time().".".pathinfo($_FILES['picture']['name'],PATHINFO_EXTENSION);
+
+                    // je deplace le fichier depuis le dossier temporaire vers la destination
+
+                    if (move_uploaded_file($_FILES['picture']['tmp_name'],$dir.$filename)) {
+                        $filepath = 'assets/img/articles/'.$filename;
+                    }else{
+                        die("upload failed");
+                    }
                 }
             }
         }
-        if(!empty($_POST) && $this->security()==true){
+        if(!empty($_POST) && htmlentities($_POST['title'])<50 && htmlentities($_POST['description'])<30 && htmlentities($_POST['description_pictures'])){
             $addArticle = new ArticlesModel();
             $last_id = $addArticle->addArcticle(
                                     $_POST['title'],
@@ -94,19 +94,21 @@ class ArticlesController extends Controller
                                     $_POST['description_pictures']
                                     );
 
+
         };
 
-        ///////////////////////////////////////////////////////////////
+        if(!empty($_POST['checkbox'])){
+            $idGame     = $_POST['checkbox'];
 
-        $this->show('list_articles');
+            $id_article = $last_id['idarticles'];
+            $checkbox   = new ArticlesModel();
+            $checkbox->articleHaveGame($idGame,$id_article);
+        }
     }
+        ///////////////////////////////////////////////////////////////
+        //
 
-    // Vérifie les champs côté administrateur
-    public function security(){
-		if (htmlentities($_POST['title'])<50 && htmlentities($_POST['description'])<30 && htmlentities($_POST['description_pictures']) ){
-			return true;
-		}else{
-			return false;
-		}
-	}
+        // $this->show('list_articles');
+
+
 }

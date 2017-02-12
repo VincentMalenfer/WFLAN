@@ -7,3 +7,5 @@ public/assets/img/loginlogo.png
 app/Controller/AdminController.php
 W/Model/Model.php
 app/Views/articles/list_articles.php
+public/assets/img/articles/1486826668.jpg
+*.jpg
