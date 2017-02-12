@@ -123,7 +123,7 @@
 							<div class="col-sm-offset-4 col-sm-4">
 								<div class="input-group">
 									<label class="input-group-addon span-bold" for="start">Date de début : </label>
-									<input type="datetime" name="start" id="start" class="form-control" placeholder="jj/mm/aaaa 00:00:00">
+									<input type="datetime" name="start" id="start" class="form-control" placeholder="aaaa/mm/jj 00:00:00">
 								</div>
 							</div>
 						</div>
@@ -134,7 +134,7 @@
 							<div class="col-sm-offset-4 col-sm-4">
 								<div class="input-group">
 									<label class="input-group-addon span-bold" for="end">Date de fin : </label>
-									<input type="datetime" name="end" id="end" class="form-control" placeholder="jj/mm/aaaa 00:00:00">
+									<input type="datetime" name="end" id="end" class="form-control" placeholder="aaaa/mm/jj 00:00:00">
 								</div>
 							</div>
 						</div>
@@ -250,7 +250,6 @@
 	</div> <!-- ########## 	FIN CONTAINER 	########## -->
 </div>
 
-<<<<<<< HEAD
 <?php
 	 // on nettoie les données précédentes
 	unset($_SESSION['inputs']);
@@ -258,102 +257,4 @@
 	unset($_SESSION['errors']);
 ?>
 
-=======
-<!-- ##### 		DEBUT MESSAGE CACHES EN JS 		##### -->
-<script type="text/javascript">
-	$(function () {
-		$('#ajoutArticle').on('submit', function (e) { // Est appelé lorsque l'utilisateur souhaite soumettre le formulaire
-			e.preventDefault(); // On empêche le navigateur de soumettre le formulaire
-			var compteur = 1;
-
-			if ($('#title').val().length == 0)  {
-			 	$('#msgun').fadeIn();
-			 	$('#title').css('border','red 1px solid');
-			 	$('#msgun').css('visibility','visible');
-			}else if($('#title').val().length > 50){
-				$('#msgun').fadeIn();
-			 	$('#title').css('border','red 1px solid');
-			 	$('#msgun').css('visibility','visible');
-			}else{
-				$('#msgun').fadeOut();
-			 	$('#title').css('border','1px solid rgb(169, 169, 169)');
-			 	compteur++;
-
-			}
-			if ($('#description').val().length == 0){
-			 	$('#msgdeux').fadeIn();
-			 	$('#description').css('border','red 1px solid');
-			 	$('#msgdeux').css('visibility','visible');
-
-			}else if ($('#description').val().length > 30)  {
-				$('#msgdeux').fadeIn();
-			 	$('#description').css('border','red 1px solid');
-			 	$('#msgdeux').css('visibility','visible');
-
-			}else{
-			 	$('#msgdeux').fadeOut();
-			 	$('#description').css('border','1px solid rgb(169, 169, 169)');
-			 	compteur++;
-			}
-			var mike = 0;
-            $("select").change(function () {
-
-           })
-            if($('select').val()==""){
-                $('#msgtrois').fadeIn();
-                $('#msgtrois').css('visibility','visible');
-                $('select').css('border','red 1px solid');
-
-           }else{
-                $('#msgtrois').fadeOut();
-                $('select').css('border','1px solid rgb(169, 169, 169)');
-                compteur++;
-            }
-            if($('#picture').val()==""){
-                $('#msgquatre').fadeIn();
-                $('#msgquatre').css('visibility','visible');
-                $('#picture').css('border','red 1px solid');
-
-           }else{
-                $('#msgquatre').fadeOut();
-                $('#picture').css('border','1px solid rgb(169, 169, 169)');
-                compteur++;
-            }
-			if ($('#description_pictures').val() == 0 ) {
-		     	$('#description_pictures').css('border','red 1px solid');
-		     	$('#msgcinq').fadeIn();
-		     	$('#msgcinq').css('visibility','visible');
-
-			}else{
-				$('#msgcinq').fadeOut();
-				$('#description_pictures').css('border','1px solid rgb(169, 169, 169)');
-				compteur++;
-			}
-			//
-			if ($('#text').val() == 0 ) {
-		     	$('#text').css('border','red 1px solid');
-		     	$('#msgsix').fadeIn();
-		     	$('#msgsix').css('visibility','visible');
-
-			}else{
-				$('#msgsix').fadeOut();
-				$('#text').css('border','1px solid rgb(169, 169, 169)');
-				compteur++;
-
-			}
-			if (compteur===7) {
-
-				$('form').unbind('submit').submit();
-			}
-		});
-	});
-</script>
-<!-- ##### 		FIN MESSAGE CACHES EN JS 		##### -->
-
-<style type="text/css">
-	#msgun,#msgdeux,#msgtrois,#msgcinq,#msgsix,#msgquatre{
-	visibility: hidden;
-	}
-</style>
->>>>>>> refs/remotes/origin/Thibauld
 <?php $this->stop('main_content') ?>

@@ -37,11 +37,11 @@ class UsersController extends Controller
 		$data = json_decode($response);
 		}
 
-	//On check les infos transmises lors de la validation
-	  if(!empty($errors)){ // si erreur on renvoie vers la page précédente
-	  $_SESSION['errors'] = $errors;//on stocke les erreurs
-	  $_SESSION['inputs'] = $_POST;
-	  //$this->redirectToRoute('users_contact');
+		//On check les infos transmises lors de la validation
+	  	if(!empty($errors)){ // si erreur on renvoie vers la page précédente
+	  	$_SESSION['errors'] = $errors;//on stocke les erreurs
+	  	$_SESSION['inputs'] = $_POST;
+	  	//$this->redirectToRoute('users_contact');
 		$this->show('users/contact', [
 		'lastname' => (empty($_POST['lastname'])) ? '' : $_POST['lastname'],
 		'firstname' => (empty($_POST['firstname'])) ? '' : $_POST['firstname'],

@@ -41,7 +41,7 @@ class ArticlesController extends Controller
     //     if ($supp)unlink($picture);
     //     $this->redirectToRoute('admin/admin_amin');
     // }
-    
+
     public function modifyArticle()
     {
 
@@ -50,10 +50,10 @@ class ArticlesController extends Controller
     // Permet d'ajouter un article
     public function registerImg()
     {
-
         // $this->allowTo('admin');
         $filepath="";
         if(!empty($_FILES)){
+
             if ($_FILES['picture']['size'] > 0) {
 
                 // revoir le chemin de destination des images
@@ -72,17 +72,39 @@ class ArticlesController extends Controller
                     if (move_uploaded_file($_FILES['picture']['tmp_name'],$dir.$filename)) {
                         return $filepath = 'assets/img/articles/'.$filename;
                     }else{
-                        die("upload failed");
+                        return false;
                     }
                 }
             }
+            return false;
         }
     }
 
     public function addArticle(){
 
-        if(($_POST['title'])<50 && ($_POST['description'])<50 && ($_POST['description_pictures'])<30){
+        $errors = array(); // on crée une vérif de champs
+		if(!array_key_exists('title', $_POST) || $_POST['title'] == '') {// on verifie l'existence du champ et d'un contenu
+		          $errors['title'] = "Vous n'avez pas renseigné le titre !";
+		}
+        if(!array_key_exists('description', $_POST) || $_POST['description'] == '') {// on verifie l'existence du champ et d'un contenu
+		          $errors ['description'] = "Vous n'avez pas renseigné l'entête !";
+		}
+        if(!array_key_exists('text', $_POST) || $_POST['text'] == '') {// on verifie l'existence du champ et d'un contenu
+		          $errors ['text'] = "Vous n'avez pas ajouté le contenu de l'article !";
+		}
+        if(!array_key_exists('description_pictures', $_POST) || $_POST['description_pictures'] == '') {// on verifie l'existence du champ et d'un contenu
+		          $errors ['description_pictures'] = "Vous n'avez pas renseigné la description de l'image !";
+		}
+        if(empty($errors)){ // si erreur on renvoie vers la page précédente
+        //  && ($_POST['description']) && ($_POST['description_pictures'])){
             $filepath = $this->registerImg();
+            if(!$filepath){
+                $errors ['picture'] = "Vous n'avez pas ajouté d'image !";
+          	    $_SESSION['errors'] = $errors;//on stocke les erreurs
+                $_SESSION['inputs'] = $_POST;
+                $this->redirectToRoute('admin_admin');
+            }
+            $_SESSION['success'] = 1;
             $addArticle = new ArticlesModel();
             $last_id = $addArticle->addArcticle(
                                     $_POST['title'],
@@ -92,12 +114,19 @@ class ArticlesController extends Controller
                                     $_POST['description_pictures']
                                     );
             $this->addArticleHaveGame($last_id);
-            $this->showArticles($last_id['idarticles']);
-        };
+            $this->redirectToRoute('admin_admin');
+            // $this->showArticles($last_id['idarticles']);
+        }
+        $_SESSION['errors'] = $errors;//on stocke les erreurs
+        $_SESSION['inputs'] = $_POST;
+        $this->redirectToRoute('admin_admin');
     }
-    public function addArticleHaveGame($last_id){
-        if(!empty($_POST['checkbox'])){
-             // Liste de games
+
+    public function addArticleHaveGame($last_id)
+    {
+        $errors = array(); // on crée une vérif de champs
+        if(!empty($_POST['checkbox']) || ($_POST['checkbox']) !=0 ){
+            // Liste de games
             $articleModel = new ArticlesModel();
             $games = $articleModel->getGame();
             $idGame     = $_POST['checkbox'];
@@ -105,6 +134,12 @@ class ArticlesController extends Controller
             $checkbox   = new ArticlesModel();
             $checkbox->articleHaveGame($idGame,$id_article);
             // return $idGame;
+        }else{
+            $errors ['checkbox'] = "Vous n'avez pas renseigné le jeu !";
+    	}
+        if(!empty($errors)){ // si erreur on renvoie vers la page précédente
+            $_SESSION['errors'] = $errors;//on stocke les erreurs
+            $_SESSION['inputs'] = $_POST;
         }
     }
 }
