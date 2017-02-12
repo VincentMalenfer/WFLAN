@@ -17,7 +17,7 @@
   </div>
   <?php endif; ?>
 
-	<form id="basicBootstrapForm" class="form-horizontal" action="<?= $this->url('traitementContact') ?>" method="POST">
+	<form id="basicBootstrapForm" class="form-horizontal contactCss" action="<?= $this->url('traitementContact') ?>" method="POST">
 		<fieldset>
 
 			<!-- Champ nom -->

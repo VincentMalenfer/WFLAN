@@ -1,0 +1,22 @@
+main .countdown {
+  margin-top: 50px;
+  text-align: center;
+}
+main .countdown h2{
+	font-size: 100px;
+}
+main .countdown-label {
+  margin-top: 10px;
+  font-size: 24px;
+  font-weight: 300;
+}
+main .countdown-number {
+  font-size: 124px !important;
+  line-height: 1;
+  font-weight: 200;
+}
+@media (max-width: 991px) {
+  main .countdown-number {
+    font-size: 30px;
+  }
+}
