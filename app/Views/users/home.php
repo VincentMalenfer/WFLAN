@@ -10,10 +10,10 @@
 			foreach ($articles as $article):
 			?>
 	    <div class="item <?php if ($i == 0) { echo 'active'; } ?>">
-	        <div class="jumbotron hero-nature carousel-hero">
+	        <div class="jumbotron hero-nature carousel-hero" id="bckgrnd-<?=$article['idarticles']?>">
 					<style>
-						.jumbotron.carousel-hero{
-							background: url('<?= $article['pictures'] ?>');
+						#bckgrnd-<?=$article['idarticles']?>{
+							background-image: url("<?= $article['pictures'] ?>");
 						}
 					</style>
 	          <h2 class="hero-title"><?= $article['title'] ?></h2>

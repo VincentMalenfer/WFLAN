@@ -28,8 +28,9 @@ h2.hero-title {
 }
 
 p.hero-subtitle {
-  max-width:600px;
+  max-width:auto;
   margin:25px auto;
   padding:10px 15px;
   color:#fff;
+  background-color: rgba(#777777, 0.76) !important;
 }
