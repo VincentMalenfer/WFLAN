@@ -75,7 +75,6 @@ class ArticlesModel extends Model
 		// 'SELECT * FROM articles ORDER BY ASC `date` LIMIT 10  WHERE `id_article` != $id;'
 
 	}
-<<<<<<< HEAD
 
 	// affiche 3 derniers articles
 	public function carouselArticleModel(){
@@ -99,6 +98,5 @@ class ArticlesModel extends Model
 	public function deleteArchive($id){
 		return $this->delete($id);
 	}
-=======
->>>>>>> origin/Vincent
+
 }
