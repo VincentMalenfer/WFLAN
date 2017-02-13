@@ -16,7 +16,7 @@
         <div class="row">
             <div class="col-md-7">
                 <a href="<?=$this->url('article_article',['id' => $article['idarticles']])?>">
-                    <img class="img-responsive" src="<?= 'assets/.' $article['pictures'] ?>" alt="$article['decriptionPictures'] ">
+                    <img class="img-responsive" src="<?= $this->assetUrl($article['pictures']) ?>" alt="$article['decriptionPictures'] ">
                 </a>
             </div>
             <div class="col-md-5">

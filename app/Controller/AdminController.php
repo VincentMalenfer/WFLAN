@@ -38,7 +38,7 @@ class AdminController extends Controller
     {
 		$articleModel = new ArticlesModel();
 		$article = $articleModel->getArticle($id);
-		$generalModel = new GeneralsModel();
+		$generalModel = new GeneralModel();
 		$games = $generalModel->getGame();
 		$idchekboxCont= new ArticlesController;
 	 	$idchekbox=$idchekboxCont->addArticleHaveGame($id);

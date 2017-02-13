@@ -99,7 +99,6 @@ class ArticlesController extends Controller
         	// erreur
         }
 
-
         $filepath = $this->registerImg();
         $articlesModel = new ArticlesModel();
         $articleEdit   = $articlesModel->editArticle($title, $description, $text, $filepath, $descriptionPictures, $id);
@@ -193,7 +192,7 @@ class ArticlesController extends Controller
     }
 
     public function addArticleHaveGame($id){
-        if(!empty($_POST['checkbox']) || $_POST['checkbox'] != 0){
+        if(!empty($_POST['checkbox'])){
              // Liste de games pour vérification avec l'id
             // $articleModel = new ArticlesModel();
             // $games = $articleModel->getGame();
