@@ -6,10 +6,10 @@
 <div class="container">
 	<ul class="list-inline">
     <li><a href="<?= $this->url('users_home'); ?>">Accueil</a></li>
-    <li><a href="#">Services</a></li>
-    <li><a href="#">About</a></li>
-    <li><a href="#">Terms</a></li>
-    <li><a href="#">Privacy Policy</a></li>
+    <li><a href="<?= $this->url('users_calendar'); ?>">Calendrier</a></li>
+    <li><a href="<?= $this->url('users_reglement'); ?>">Réglements</a></li>
+    <li><a href="<?= $this->url('users_access'); ?>">Accès</a></li>
+    <li><a href="<?= $this->url('users_contact'); ?>">Contact</a></li>
   </ul>
   <p class="copyright"> Copyright © WFLAN Session 2410 WebForce3 Paris 14  2017</p>
 </div>
