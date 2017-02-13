@@ -12,15 +12,16 @@ class GeneralController extends Controller{
   	 * Page d'accueil par défaut
   	 */
   	public function home(){
-<<<<<<< HEAD
+
       $ArticlesModel = new ArticlesModel();
       $articles = $ArticlesModel->carouselArticleModel();
 
       $this->show('users/home', ['articles'=> $articles]);
-=======
+
   		$selectCompteur= new GeneralModel;
     	$compteur= $selectCompteur->compteur();
-
+      debug($compteur);
+      die;
     	$firstReplace= str_replace('-',',',$compteur);
     	$secondReplace= str_replace(' ',',',$firstReplace);
     	$thirdReplaces= str_replace(':',',',$secondReplace);
@@ -29,7 +30,7 @@ class GeneralController extends Controller{
   			'start'=>$thirdReplaces,
 
   			]);
->>>>>>> origin/Vincent
+
   	}
 
 	/**

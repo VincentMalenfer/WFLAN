@@ -93,12 +93,12 @@ class ArticlesModel extends Model
 
 	}
 
-<<<<<<< HEAD
+
 	// affiche 10 articles different de celui que l'on a en get de la page
 	public function sidebarArticle($orderBy,$orderDir,$limit){
 		return $this->findAll($orderBy,$orderDir,$limit);
 		// 'SELECT * FROM articles ORDER BY ASC `date` LIMIT 10  WHERE `id_article` != $id;'
-=======
+}
 	public function editArticle($title, $description, $text, $filepath, $description_pictures, $id){
 		$this->setPrimaryKey('idarticles');
 
@@ -109,7 +109,7 @@ class ArticlesModel extends Model
 			'pictures'             => $filepath,
 			'text'                 => $text
 		);
->>>>>>> origin/Vincent
+
 
 		$this->update($data,$id, true);
 

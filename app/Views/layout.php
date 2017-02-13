@@ -64,10 +64,8 @@
 	<!-- Compteur JS -->
 	<script type="text/javascript" src="<?= $this->assetUrl('js/compteur.js') ?>"></script>
 
-	<!-- Countdown JS -->
-    <script src="<?= $this->assetUrl('js/countdown/jquery.cookie.js') ?>"></script>
-    <script src="<?= $this->assetUrl('js/countdown/jquery.countdown.min.js') ?>"></script>
-    <script src="<?= $this->assetUrl('js/countdown/front.js') ?>"></script>
+
+
 </head>
 <body>
 	<header>
