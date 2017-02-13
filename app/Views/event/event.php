@@ -11,19 +11,29 @@
             <p>Début : <?= $event['start'] ?></p>
             <p>Fin : <?= $event['end'] ?></p>
             <p>Jeu : <?= $game['name'] ?></p>
+             <p>Limite de participants : <?= $event['limitevent'] ?></p>
             <p>Description : <?= $event['desc'] ?></p>
             
            
 
             <a class="btn btn-primary" href="<?php echo $this->url('users_calendar'); ?>">Retour</a>
-            <?php
-            if(!empty($_SESSION['token'] && !$isRegistered)) : ?>
+            <?php if (count($users) >=  $event['limitevent']): ?>
+                <a class="btn btn-danger">Complet !</a>
 
-            <a class="btn btn-primary" href=<?= $this->url('users_inscription_event', ['id' => $event['idevent']]) ?> >S'inscrire</a>
-            <?php else: ?>
-              <a class="btn btn-danger">Vous êtes déjà inscrit !</a>
-            
-            <?php endif; ?>
+            <?php else : ?>
+
+                <?php if(!empty($_SESSION['token'] && !$isRegistered)) : ?>
+                    <a class="btn btn-primary" href=<?= $this->url('users_inscription_event', ['id' => $event['idevent']]) ?> >S'inscrire</a>
+                <?php else: ?>
+                    <a class="btn btn-danger">Vous êtes déjà inscrit !</a>
+                <?php endif; ?>
+
+
+                
+            <?php endif ?>
+
+
+
             <!-- Si le nombre d'inscrit est superieur a 16 echo Il n'y a plus de place^pour cette event sinon "S'inscrire" -->
 
 <h3>Listes des inscrits : </h3>

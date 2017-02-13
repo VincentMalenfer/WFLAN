@@ -198,6 +198,17 @@
                         </div>
 			<!-- 	########################		FIN	CHECKBOX EVENTS-GAMES	########################	-->
 
+			<!-- 	########################		DEBUT	LIMIT	 				########################	-->
+						<div class="form-group">
+							<div class="col-sm-offset-4 col-sm-4">
+							    <div class="input-group">
+									<label class="input-group-addon span-bold" for="end">Limite de participants : </label>
+									<input type="text" name="limit" id="limt" class="form-control" placeholder="Limite de participants">
+								</div>
+							</div>
+						</div>
+			<!-- 	########################		FIN		LIMIT					########################	-->
+
 			<!-- 	########################		DEBUT	SUBMIT				########################	-->
 						<div class="form-group">
 							<div class="col-xs-offset-1 col-xs-10">
