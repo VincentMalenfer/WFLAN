@@ -2,7 +2,7 @@
 
 <?php $this->start('main_content') ?>
 
-<form class="form-horizontal" action="<?= $this->url('modify_article') ?>" id="modifArticle" method="POST" enctype="multipart/form-data">
+<form class="form-horizontal" action="<?= $this->url('modify_article', ['id' => $article['idarticles']]) ?>" id="modifArticle" method="POST" enctype="multipart/form-data">
 					<fieldset>
 
 			<!-- 	########################		DEBUT	TITRE	 			########################	-->
@@ -47,8 +47,8 @@
                             <div class="col-xs-offset-1 col-xs-10">
                                 <div class="input-group">
                                     <label class="input-group-addon span-bold" for="sel1">Select list:</label>
-                                    <select class="form-control select" id="sel1">
-                                    
+                                    <select class="form-control select" id="sel1" name="checkbox">
+
 <!-- ici mettre la valeur du game selected -->
                                     
                                 <?php 
@@ -67,12 +67,14 @@
 
 			<!-- 	########################		DEBUT	PICTURES	 		########################	-->
 						<div class="form-group">
+							<div id="aper"><img src="<?= $this->assetUrl($article['pictures']) ?>"></div>
 							<div class="col-xs-offset-1 col-xs-10">
 							    <div class="input-group">
 									<label class="input-group-addon span-bold" for="image">Image : </label>
-									<input type="file" name="picture" id="picture" placeholder="Choisissez une image" class="form-control" value="<?= $article['picture']?>">
+									<input type="file" name="picture" id="picture" placeholder="Choisissez une image" class="form-control" >
 								</div>
 							</div>
+							
 							<p id="msgquatre">Merci de renseigner une image.</p>
 						</div>
 			<!-- 	########################		FIN		PICTURES			########################	-->
@@ -100,5 +102,17 @@
 			<!-- 	########################		FIN		SUBMIT	 			########################	-->
 					</fieldset>
 				</form>
+				<script type="text/javascript">
+					$(function(){
+						$( "#picture" ).change(function () {
+							if( $("#picture").val()!==0) {
+								$("#aper").css("display", 'none');
+
+							}else{
+								$("#aper").css("display", 'block');
+							}
+						});
+					});
+				</script>
 
 <?php $this->stop('main_content') ?>				

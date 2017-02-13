@@ -48,6 +48,7 @@
                                 <div class="input-group">
                                     <label class="input-group-addon span-bold" for="sel1">Jeu :</label>
                                     <select class="form-control select" id="sel1" name="checkbox">
+
                                 <?php foreach ($games as $game) { ?>
                                          <option value="<?= $game['idgames'] ?>" ><?= $game['name'] ?></option>
                                 <?php } ?>
@@ -231,7 +232,7 @@
 			        <div class="row">
 			            <div class="col-md-7">
 			                <a href="<?=$this->url('article_article',['id' => $article['idarticles']])?>">
-			                    <img class="img-responsive" src="<?= $article['pictures'] ?>" alt="$article['decriptionPictures'] ">
+			                    <img class="img-responsive" src="<?=$this->assetUrl($article['pictures']) ?>" alt="$article['decriptionPictures'] ">
 			                </a>
 			            </div>
 

@@ -20,11 +20,18 @@ class GeneralModel extends Model
         // 'SELECT *  FROM  games';
     }
 
-    public function getArticles()
-	{
-		$sql = 'SELECT * FROM articles ORDER BY idarticles DESC';
-		$sth = $this->dbh->prepare($sql);
-		$sth->execute();
-		return $sth->fetchAll();
-	}
+    // public function getArticles()
+	// {
+	// 	$sql = 'SELECT * FROM articles ORDER BY idarticles DESC';
+	// 	$sth = $this->dbh->prepare($sql);
+	// 	$sth->execute();
+	// 	return $sth->fetchAll();
+	// }
+
+    public function compteur(){
+    	$sql='SELECT * FROM events WHERE start > NOW() ORDER BY start LIMIT 1';
+    	$pouet = $this->dbh->prepare($sql);
+    	$pouet->execute();
+    	return $pouet->fetch();
+    }
 }

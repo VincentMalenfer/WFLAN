@@ -25,8 +25,6 @@ class AdminController extends Controller
         $events = $eventModel->recEvent();
 		$gameEvents  = $eventModel->getGamesFromEvent();
 
-
-
 		$this->show('admin/admin', [
 			'games'    => $games,
 			'articles' => $articles,
