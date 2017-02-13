@@ -12,6 +12,12 @@ class GeneralModel extends Model
     $pouet->execute();
     return $pouet->fetch();
     }
+    public function compteur(){
+    	$sql='SELECT * FROM events WHERE start > NOW() ORDER BY start LIMIT 1';
+    	$pouet = $this->dbh->prepare($sql);
+    	$pouet->execute();
+    	return $pouet->fetch();
+    }
 
      
 }
