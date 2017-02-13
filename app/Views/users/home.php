@@ -66,7 +66,7 @@
       </div>
     </div>
   </div>
-	</section>
+
 	<div class="audio">
     <audio id="myaudio" controls>
         <source src="<?= $this->assetUrl('audio/Konami.mp3') ?>" type="audio/mp3" />

@@ -11,7 +11,9 @@ class ArticlesModel extends Model
 
 	public function getArticles()
 	{
+
 		$sql = 'SELECT * FROM articles ORDER BY idarticles DESC';
+
 		$sth = $this->dbh->prepare($sql);
 		$sth->execute();
 		return $sth->fetchAll();
@@ -49,10 +51,7 @@ class ArticlesModel extends Model
 
 	public function articleHaveGame($game,$id_article){
 
-		$this->setPrimaryKey("games_idgames");
-		$this->setTable('games_has_articles');
-
-		$data= array(
+		$data = array(
 			'games_idgames'			=>  $game,
 			'articles_idarticles'	=>  $id_article
 			);
@@ -76,6 +75,7 @@ class ArticlesModel extends Model
 		// 'SELECT * FROM articles ORDER BY ASC `date` LIMIT 10  WHERE `id_article` != $id;'
 
 	}
+<<<<<<< HEAD
 
 	// affiche 3 derniers articles
 	public function carouselArticleModel(){
@@ -99,4 +99,6 @@ class ArticlesModel extends Model
 	public function deleteArchive($id){
 		return $this->delete($id);
 	}
+=======
+>>>>>>> origin/Vincent
 }
