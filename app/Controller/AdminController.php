@@ -23,6 +23,7 @@ class AdminController extends Controller
 
         $eventModel = new EventsModel();
         $events = $eventModel->recEvent();
+		$gameEvents  = $eventModel->getGamesFromEvent();
 
 
 
@@ -30,7 +31,8 @@ class AdminController extends Controller
 			'games'    => $games,
 			'articles' => $articles,
 			'events' => $events,
-
+			'events' => $events,
+			'gameEvents'  => $gameEvents,
 		]);
 	}
 	//  affiche modifie un article

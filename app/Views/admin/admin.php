@@ -141,6 +141,17 @@
 						</div>
 			<!-- 	########################		FIN		END					########################	-->
 
+			<!-- 	########################		DEBUT	LIMIT	 				########################	-->
+						<div class="form-group">
+							<div class="col-sm-offset-4 col-sm-4">
+								<div class="input-group">
+									<label class="input-group-addon span-bold" for="end">Limite de participants : </label>
+									<input type="text" name="limitevent" id="limtevent" class="form-control" placeholder="Limite de participants">
+								</div>
+							</div>
+						</div>
+			<!-- 	########################		FIN		LIMIT					########################	-->
+
 			<!-- 	########################		DEBUT	TITLE	 			########################	-->
 						<div class="form-group">
 							<div class="col-xs-offset-1 col-xs-10">
@@ -189,17 +200,6 @@
 						</div>
 			<!-- 	########################		FIN		DESCRIPTION	 		########################	-->
 
-			<!-- 	########################		DEBUT	LIMIT	 				########################	-->
-						<div class="form-group">
-							<div class="col-sm-offset-4 col-sm-4">
-							    <div class="input-group">
-									<label class="input-group-addon span-bold" for="end">Limite de participants : </label>
-									<input type="text" name="limit" id="limt" class="form-control" placeholder="Limite de participants">
-								</div>
-							</div>
-						</div>
-			<!-- 	########################		FIN		LIMIT					########################	-->
-
 			<!-- 	########################		DEBUT	SUBMIT				########################	-->
 						<div class="form-group">
 							<div class="col-xs-offset-1 col-xs-10">
@@ -241,6 +241,7 @@
 			                <a class="btn btn-primary" href="<?=$this->url('article_article', ['id' => $article['idarticles']])?>">Lire l'article<span class="glyphicon glyphicon-chevron-right"></span></a>
 			                <!-- si le role de l'utilistateur est admin -->
 			                <a class="btn btn-primary" href=<?=$this->url('admin_modify_article', ['id' => $article['idarticles']])?> >Modifier</a>
+							<a class="btn btn-primary" href=<?=$this->url('admin_supp_article',['id' => $article['idarticles']])?>>Supprimer</a>
 			            </div>
 			        </div> <!-- /.row -->
 			        <hr>
@@ -251,31 +252,38 @@
 			</div>
 			<!-- SUPPRIME LEVENT -->
 
-<div id="ModifDeleteEvent" class="tab-pane fade">
-	<?php if(isset($events))  : ?>
-		<!-- liste events -->
-		<?php foreach ($events as $event): ?>
-			<div class="row">
-				<div class="col-md-5">
-				    <h3> <?= $event['title'] ?> </h3>
-				    <p>Jeu : <?= $event['class'] ?> </p>
-				    <p>Début : <?= $event['start'] ?> </p>
-				    <p>Fin : <?= $event['end'] ?> </p>
-				    <p>Lieu : <?= $event['location'] ?> </p>
-				        <!-- si le role de l'utilistateur est admin -->
-			            <a class="btn btn-primary" href="<?=$this->url('event_update_event',['id' => $event['idevent']])?>">Modifier</a>
-			            <a class="btn btn-primary" href="<?=$this->url('event_supp_event',['id' => $event['idevent']])?>">Supprimer</a>
-				</div>
-			</div> <!-- /.row -->
-
-		<?php endforeach;
-
-    endif;?>
-
-
-		</div>
-	</div>
-</div><!-- ########## 	FIN CONTAINER 	########## -->
+			<div id="ModifDeleteEvent" class="tab-pane fade">
+			    <?php if(isset($events))  : ?>
+			        <!-- liste events -->
+			        <?php foreach ($events as $event): ?>
+			            <div class="row">
+			                <div class="col-md-5">
+			                    <h3> <?= $event['title'] ?> </h3>
+								<?php
+									$theGame = "";
+									foreach ($gameEvents as $gameEvent){
+										if($gameEvent['event_idevent'] == $event['idevent']){
+											foreach ($games as $game){
+												$theGame .= ($gameEvent['games_idgames'] == $game['idgames'])?$game['name']." ":"";
+											}
+										}
+									}
+								?>
+			                    <p>Jeu : <?= $theGame ?> </p>
+			                    <p>Limite de particpants : <?= $event['limitevent'] ?> </p>
+								<p>Début : <?= $event['start'] ?> </p>
+			                    <p>Fin : <?= $event['end'] ?> </p>
+			                    <p>Lieu : <?= $event['location'] ?> </p>
+			                        <!-- si le role de l'utilistateur est admin -->
+			                        <a class="btn btn-primary" href="<?=$this->url('event_update_event',['id' => $event['idevent']])?>">Modifier</a>
+			                        <a class="btn btn-primary" href="<?=$this->url('event_supp_event',['id' => $event['idevent']])?>">Supprimer</a>
+			                </div>
+			            </div> <!-- /.row -->
+			        <?php endforeach;
+			   endif;?>
+			        </div>
+			    </div>
+			</div><!-- ##########     FIN CONTAINER     ########## -->
 
 <?php
 	 // on nettoie les données précédentes
