@@ -5,7 +5,7 @@
 </div>
 <div class="container">
 	<ul class="list-inline">
-    <li><a href="<?= $this->url('users_home'); ?>">Home</a></li>
+    <li><a href="<?= $this->url('users_home'); ?>">Accueil</a></li>
     <li><a href="#">Services</a></li>
     <li><a href="#">About</a></li>
     <li><a href="#">Terms</a></li>

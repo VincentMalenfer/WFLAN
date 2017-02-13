@@ -3,7 +3,12 @@ main .countdown {
   text-align: center;
 }
 main .countdown h2{
-	font-size: 100px;
+	font-size: 5rem;
+}
+@media (max-width: 600px){
+  main .countdown h2{
+    font-size: 2rem;
+  }
 }
 main .countdown-label {
   margin-top: 10px;
@@ -11,12 +16,22 @@ main .countdown-label {
   font-weight: 300;
 }
 main .countdown-number {
-  font-size: 124px !important;
+  font-size: 92px !important;
   line-height: 1;
   font-weight: 200;
 }
 @media (max-width: 991px) {
   main .countdown-number {
     font-size: 30px;
+  }
+}
+@media (max-width: 600px){
+  main .countdown-number{
+    font-size: 3rem !important;
+  }
+  main .countdown-label {
+    margin-top: 10px;
+    font-size: 32px;
+    font-weight: 300;
   }
 }

@@ -8,22 +8,10 @@ div.jumbotron.carousel-hero {
   margin-bottom:0;
   border-color: rgba(#808080, 0.96);
 }
-/*div.jumbotron.hero-nature {
-  background-image:url('');
-}
-
-div.jumbotron.hero-photography {
-  background-image:url('');
-}
-
-div.jumbotron.hero-technology {
-  background-image:url('');
-}*/
-
 h2.hero-title {
   text-shadow:0 5px 5px rgba(0,0,0,0.4);
   color:#fff;
-  font-size: 4em;
+  font-size: 2em;
   font-family: 'Overpass', sans-serif;
 }
 
@@ -33,4 +21,9 @@ p.hero-subtitle {
   padding:10px 15px;
   color:#fff;
   background-color: rgba(#777777, 0.76) !important;
+}
+@media (min-width: 1200px){
+  h2 .hero-title{
+    font-size: 3em !important;
+  }
 }
