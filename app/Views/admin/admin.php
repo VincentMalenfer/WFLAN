@@ -5,12 +5,14 @@
 <div class="admin">
 	<div class="container"> <!-- ########## 	DEBUT CONTAINER 	########## -->
 		<h1>Espace Admin</h1>
-		<ul class="nav nav-tabs">
-	  		<li class="active"><a data-toggle="tab" href="#AddArticle">Ajouter article</a></li>
-	  		<li><a data-toggle="tab" href="#AddEvent"> Ajouter événement</a></li>
-	  		<li><a data-toggle="tab" href="#ModifDeleteArticle"> Modifier ou supprimer un article</a></li>
-			<li><a data-toggle="tab" href="#ModifDeleteEvent"> Modifier ou supprimer un événement</a></li>
-		</ul>
+		<div class="container">
+			<ul class="nav nav-tabs">
+				<li class="active col-xs-6 col-md-3"><a data-toggle="tab" href="#AddArticle">Ajouter article</a></li>
+				<li class="col-xs-6 col-md-3"><a data-toggle="tab" href="#AddEvent"> Ajouter événement</a></li>
+				<li class="col-xs-6 col-md-3"><a data-toggle="tab" href="#ModifDeleteArticle"> Modifier ou supprimer un article</a></li>
+				<li class="col-xs-6 col-md-3"><a data-toggle="tab" href="#ModifDeleteEvent"> Modifier ou supprimer un événement</a></li>
+			</ul>
+		</div>
 
 		<div class="tab-content">
 		  	<div id="AddArticle" class="tab-pane fade in active">

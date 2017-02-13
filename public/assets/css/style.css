@@ -50,6 +50,16 @@ h1 {
 .adminform{
 	padding-top: 20px;
 }
+/* ADMIN TABS */
+.nav-tabs>li{
+	padding: 0;
+}
+
+@media(max-width:576px){
+	.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
+		    border: 1px solid #ddd !important;
+			}
+}
 /* Articles Sidebar*/
 .sidebar-custom{
 	background-color: rgba(80, 80, 83, 0.11);
@@ -96,6 +106,7 @@ h1 {
 ::-webkit-input-placeholder{text-align: center;}
 
 input[type='value'] { text-align: center;}​
+
 
 /*-----------------------
     ERROR 403 & 404
