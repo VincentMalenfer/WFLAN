@@ -28,7 +28,7 @@
           <li><a href="<?= $this->url('users_log_out'); ?>">Déconnexion</a></li>
         <?php else: ?>
 
-          <li><a href="<?= $this->url('users_sign_up'); ?>">Inscription<?php debug($_SESSION['token']) ?></a></li>
+          <li><a href="<?= $this->url('users_sign_up'); ?>">Inscription</a></li>
           <li><a href="<?= $this->url('users_sign_in'); ?>">Connexion</a></li>
 
         <?php endif; ?>
