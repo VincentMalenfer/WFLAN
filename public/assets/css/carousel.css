@@ -8,23 +8,22 @@ div.jumbotron.carousel-hero {
   margin-bottom:0;
   border-color: rgba(#808080, 0.96);
 }
-
-div.jumbotron.hero-nature {
-  background-image:url('../../assets/img/hero-background-nature.jpg');
+/*div.jumbotron.hero-nature {
+  background-image:url('');
 }
 
 div.jumbotron.hero-photography {
-  background-image:url('../../assets/img/hero-background-photography.jpg');
+  background-image:url('');
 }
 
 div.jumbotron.hero-technology {
-  background-image:url('../../assets/img/hero-background-technology.jpg');
-}
+  background-image:url('');
+}*/
 
 h2.hero-title {
   text-shadow:0 5px 5px rgba(0,0,0,0.4);
   color:#fff;
-  font-size: 6em;
+  font-size: 4em;
   font-family: 'Overpass', sans-serif;
 }
 
