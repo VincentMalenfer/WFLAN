@@ -1,6 +1,11 @@
 <?php $this->layout('layout', ['title' => 'Calendar']) ?>
 <?php $this->start('main_content') ?>
     <h1>Calendrier</h1>
+    <?php if (!empty($_COOKIE['successMsg'])): ?>
+    <p>
+        <?= $_COOKIE['successMsg'] ?>
+    </p>
+    <?php endif; ?>
     <div class="container">
         <div class="page-header">
             <div class="pull-right form-inline">

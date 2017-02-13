@@ -199,16 +199,22 @@ class UsersController extends Controller
 		session_destroy();
  	 $this->show('users/home');
 	}
-	
+
 
 	public function inscription_event($idEvent)
 	{
+		if (empty($_SESSION['token'])) {
+			$this->redirectToRoute('users_sign_in');
+		}
+
 		$generalModel = new GeneralModel();
 		$idUser       = $generalModel->getIdFromToken($_SESSION['token']);
-
 		$eventModel = new EventsModel();
 		$eventModel->inscriptionEvents($idUser['users_idusers'], $idEvent);
-		
+
+		$msg = 'Votre inscription a bien été prise en compte.';
+		setcookie('successMsg', $msg, time() + 1, '/');
+
 		$this->redirectToRoute('users_calendar');
 	}
 
@@ -217,11 +223,6 @@ class UsersController extends Controller
 
 
 }
-
-
-
-
-
 
 // 			$_SESSION['success'] = 1;
 // $errors = array(); // on crée une vérif de champs

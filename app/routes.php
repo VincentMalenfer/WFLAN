@@ -38,4 +38,5 @@
 		['GET|POST', 			'/event/[:id]',									'Events#showEvent',							'event_event'],
 		['GET',                 '/admin_supp_event/[:id]',                      'Events#suppEvent',                        	'event_supp_event'],
 		['GET|POST',            '/admin_edit_event/[:id]',                      'Events#updateEvent',                       'event_update_event'],
+		['GET|POST',             '/event_view_inscrit/[:id]',                     'Events#afficheInscrit',                     'event_view_inscrit'],
 	);

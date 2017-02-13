@@ -243,6 +243,7 @@
 			                <!-- si le role de l'utilistateur est admin -->
 			                <a class="btn btn-primary" href=<?=$this->url('admin_modify_article', ['id' => $article['idarticles']])?> >Modifier</a>
 							<a class="btn btn-primary" href=<?=$this->url('admin_supp_article',['id' => $article['idarticles']])?>>Supprimer</a>
+
 			            </div>
 			        </div> <!-- /.row -->
 			        <hr>
@@ -278,6 +279,7 @@
 			                        <!-- si le role de l'utilistateur est admin -->
 			                        <a class="btn btn-primary" href="<?=$this->url('event_update_event',['id' => $event['idevent']])?>">Modifier</a>
 			                        <a class="btn btn-primary" href="<?=$this->url('event_supp_event',['id' => $event['idevent']])?>">Supprimer</a>
+									<a class="btn btn-primary"   href="<?= $this->url('event_view_inscrit', ['id' => $event['idevent']]) ?>">Voir les inscrits</a>
 			                </div>
 			            </div> <!-- /.row -->
 			        <?php endforeach;

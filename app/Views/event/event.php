@@ -6,15 +6,15 @@
 <?php #if (isset($events)): ?>
 <div class="container-fluid">
     <h1><?= $event['title'] ?></h1>
-        <article class="txtArticle col-xs-8 col-xs-offset-2">       
+        <article class="txtArticle col-xs-8 col-xs-offset-2">
             <p>Adresse : <?= $event['location'] ?></p>
             <p>Début : <?= $event['start'] ?></p>
             <p>Fin : <?= $event['end'] ?></p>
             <p>Jeu : <?= $game['name'] ?></p>
              <p>Limite de participants : <?= $event['limitevent'] ?></p>
             <p>Description : <?= $event['desc'] ?></p>
-            
-           
+
+
 
             <a class="btn btn-primary" href="<?php echo $this->url('users_calendar'); ?>">Retour</a>
             <?php if (count($users) >=  $event['limitevent']): ?>
@@ -22,14 +22,14 @@
 
             <?php else : ?>
 
-                <?php if(!empty($_SESSION['token'] && !$isRegistered)) : ?>
+                <?php if(!$isRegistered) : ?>
                     <a class="btn btn-primary" href=<?= $this->url('users_inscription_event', ['id' => $event['idevent']]) ?> >S'inscrire</a>
                 <?php else: ?>
                     <a class="btn btn-danger">Vous êtes déjà inscrit !</a>
                 <?php endif; ?>
 
 
-                
+
             <?php endif ?>
 
 
@@ -57,10 +57,10 @@
 
 
 
-       
 
-       
-      
+
+
+
 </div>
 <?php #endif; ?>
 <?php $this->stop('main_content') ?>
