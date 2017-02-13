@@ -23,14 +23,14 @@ class AdminController extends Controller
 
         $eventModel = new EventsModel();
         $events = $eventModel->recEvent();
-
-
+		$gameEvents  = $eventModel->getGamesFromEvent();
 
 		$this->show('admin/admin', [
 			'games'    => $games,
 			'articles' => $articles,
 			'events' => $events,
-
+			'events' => $events,
+			'gameEvents'  => $gameEvents,
 		]);
 	}
 	//  affiche modifie un article
@@ -38,7 +38,7 @@ class AdminController extends Controller
     {
 		$articleModel = new ArticlesModel();
 		$article = $articleModel->getArticle($id);
-		$generalModel = new GeneralsModel();
+		$generalModel = new GeneralModel();
 		$games = $generalModel->getGame();
 		$idchekboxCont= new ArticlesController;
 	 	$idchekbox=$idchekboxCont->addArticleHaveGame($id);

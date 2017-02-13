@@ -26,12 +26,29 @@
 						</div>
 			<!-- 	########################		FIN		LOCATION	 		########################	-->
 
+			<!-- 	########################		DEBUT CHECKBOX EVENTS-GAMES	########################	-->
+						<div class="form-group">
+                            <div class="col-xs-offset-1 col-xs-10">
+                                <div class="input-group">
+                                    <label class="input-group-addon span-bold" for="sel1">Jeu :</label>
+                                    <select class="form-control select" id="sel1" name="class">
+                                    <?php  ?>
+
+                                <?php foreach ($games as $game) { ?>
+                                         <option value="<?= $game['classgames'] ?>" <?php if($game['classgames'] == $levent['class']) { echo 'selected="selected"'; } ?>><?= $game['name'] ?></option>
+                                <?php } ?>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+			<!-- 	########################		FIN	CHECKBOX EVENTS-GAMES	########################	-->
+
 			<!-- 	########################		DEBUT	DESCRIPTION			########################	-->
 						<div class="form-group">
 							<div class="col-xs-offset-1 col-xs-10">
 							    <div class="input-group">
 									<label class="input-group-addon span-bold" for="desc">Description : </label>
-									<input type="text" name="desc" id="desc" class="form-control" value="<?= $levent['desc'] ?>" placeholder="Saisissez la description" class="form-control">
+									<textarea type="text" cols="30" rows="10" name="desc" id="desc" class="form-control" value="<?= $levent['desc'] ?>" placeholder="Saisissez la description" class="form-control"></textarea>
 								</div>
 							</div>
 						</div>
@@ -71,22 +88,16 @@
 						</div>
 			<!-- 	########################		FIN		END					########################	-->
 
-			<!-- 	########################		DEBUT CHECKBOX EVENTS-GAMES	########################	-->
+			<!-- 	########################		DEBUT	LIMIT	 				########################	-->
 						<div class="form-group">
-                            <div class="col-xs-offset-1 col-xs-10">
-                                <div class="input-group">
-                                    <label class="input-group-addon span-bold" for="sel1">Select list:</label>
-                                    <select class="form-control select" id="sel1" name="class">
-                                    <?php  ?>
-
-                                <?php foreach ($games as $game) { ?>
-                                         <option value="<?= $game['classgames'] ?>" <?php if($game['classgames'] == $levent['class']) { echo 'selected="selected"'; } ?>><?= $game['name'] ?></option>
-                                <?php } ?>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-			<!-- 	########################		FIN	CHECKBOX EVENTS-GAMES	########################	-->
+							<div class="col-sm-offset-4 col-sm-4">
+								<div class="input-group">
+									<label class="input-group-addon span-bold" for="end">Limite de participants : </label>
+									<input type="text" name="limitevent" id="limtevent" class="form-control" placeholder="Limite de participants">
+								</div>
+							</div>
+						</div>
+			<!-- 	########################		FIN		LIMIT					########################	-->
 
 			<!-- 	########################		DEBUT	SUBMIT				########################	-->
 						<div class="form-group">

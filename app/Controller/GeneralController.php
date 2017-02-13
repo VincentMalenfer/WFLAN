@@ -4,6 +4,7 @@ namespace Controller;
 
 use \W\Controller\Controller;
 use \Model\ArticlesModel;
+use \Model\GeneralModel;
 
 class GeneralController extends Controller{
 
@@ -11,10 +12,24 @@ class GeneralController extends Controller{
   	 * Page d'accueil par défaut
   	 */
   	public function home(){
+<<<<<<< HEAD
       $ArticlesModel = new ArticlesModel();
       $articles = $ArticlesModel->carouselArticleModel();
 
       $this->show('users/home', ['articles'=> $articles]);
+=======
+  		$selectCompteur= new GeneralModel;
+    	$compteur= $selectCompteur->compteur();
+
+    	$firstReplace= str_replace('-',',',$compteur);
+    	$secondReplace= str_replace(' ',',',$firstReplace);
+    	$thirdReplaces= str_replace(':',',',$secondReplace);
+
+  		$this->show('users/home',[
+  			'start'=>$thirdReplaces,
+
+  			]);
+>>>>>>> origin/Vincent
   	}
 
 	/**
@@ -65,6 +80,4 @@ class GeneralController extends Controller{
         session_destroy();
         $this->redirectToRoute('users_home');
     }
-
-    
 }
