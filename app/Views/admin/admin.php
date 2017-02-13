@@ -252,6 +252,7 @@
 				    <p>Jeu : <?= $event['class'] ?> </p>
 				    <p>Début : <?= $event['start'] ?> </p>
 				    <p>Fin : <?= $event['end'] ?> </p>
+				    <p>Lieu : <?= $event['location'] ?> </p>
 				        <!-- si le role de l'utilistateur est admin -->
 			            <a class="btn btn-primary" href="<?=$this->url('event_update_event',['id' => $event['idevent']])?>">Modifier</a>
 			            <a class="btn btn-primary" href="<?=$this->url('event_supp_event',['id' => $event['idevent']])?>">Supprimer</a>

@@ -23,12 +23,15 @@ class EventsController extends Controller
 
 		$event = $EventModel->getEvents($id);
 		$users = $EventModel->getUsersFromEvent($id);
+		$game  = $EventModel->getGameFromClass($event['class']);
 
 		$isRegistered = $EventModel->getUserFromEvent($id, $_SESSION['token']);
 
 		$this->show('event/event', [
 			'event' => $event,
 			'users' => $users,
+			'game'  => $game,
+
 			'isRegistered' => $isRegistered
 		]);
     }
@@ -54,6 +57,8 @@ class EventsController extends Controller
 
 
 		}
+
+
 		// $this->show('admin/admin_list_events');
 	}
 
@@ -69,10 +74,9 @@ class EventsController extends Controller
 
 
   
-    public function updateEvent($id){
-    	
-        
+    public function updateEvent($id){  
         $event = new EventsModel(); 
+        
         if(!empty($_POST)){
             $event->updateEvent($id, $_POST["title"], $_POST['location'], $_POST['desc'], $_POST['url'], $_POST['start'], $_POST['end'], $_POST['class']);    
             $levent = $event->getEvents($id); 

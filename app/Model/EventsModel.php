@@ -41,6 +41,23 @@ class EventsModel extends Model
 
 	}
 
+
+	public function getGame($id)
+	{
+		$this->setPrimaryKey("idgames");
+
+		return $this->find($id);
+	}
+
+	public function getGameFromClass($class)
+	{
+		$sql = "SELECT name FROM games WHERE classgames = '" . $class . "'";
+		$sth = $this->dbh->prepare($sql);
+		$sth->execute();
+
+		return $sth->fetch();
+	}
+
 	public function recEvent()
 	{
 		$sql = 'SELECT * FROM events ';
@@ -64,7 +81,16 @@ class EventsModel extends Model
 
     public function updateEvent($id, $title, $location, $desc, $url, $start, $end, $class){
         $this->setPrimaryKey("idevent");
-        $data = array("title" =>$title, "location" =>$location, "desc" =>$desc, "url" =>$url, "start" =>$start, "end" =>$end, "class" =>$class);
+        
+        $data = array(
+        	"title"    =>$title, 
+        	"location" =>$location, 
+        	"desc"     =>$desc, 
+        	"url"      =>$url, 
+        	"start"    =>$start, 
+        	"end"      =>$end, 
+        	"class"    =>$class
+        );
 
         return $this->update($data, $id);
     }

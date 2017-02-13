@@ -2,7 +2,7 @@
 <?php $this->start('main_content') ?>
 <div class="container">
 	<h1>Modifier l'événement</h1>
-<form class="form-horizontal" action="<?= $this->url('admin_admin') ?>" method="POST">
+<form class="form-horizontal" action="<?= $this->url('event_update_event', ['id' => $levent['idevent']]) ?>" method="POST">
 					<fieldset>
 			<!-- 	########################		DEBUT	TITLE	 			########################	-->
 						<div class="form-group">
