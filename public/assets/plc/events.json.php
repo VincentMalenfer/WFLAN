@@ -16,7 +16,7 @@ catch(Exception $e){
 }
 
 
-$sql = "SELECT * FROM event";
+$sql = "SELECT * FROM events";
 $req = $connexion->prepare($sql);		
 $req->execute();
 
@@ -34,7 +34,7 @@ foreach($events as $event) {
 	$array['result'][] = array(
 		'id'    => $event["idevent"],
 		'title' => $event["title"],
-		'url'   => $event["url"],
+		'url'   => 'event/' . $event["idevent"],
 		'class' => $event["class"],
 		'start' => $event["start"],
 		'end'   => $event["end"]

@@ -6,7 +6,7 @@
 <div class="container">
   <h1>Réglements</h1>
 
-  <ul class="nav nav-tabs">
+  <ul class="nav nav-tabs gamesRules">
     <li class="active"><a data-toggle="tab" href="#starcraft">Starcraft II</a></li>
     <li><a data-toggle="tab" href="#dota">Dota 2</a></li>
     <li><a data-toggle="tab" href="#cs">Counter-Strike: Global-Offensive</a></li>
@@ -246,4 +246,3 @@
 
 
 <?php $this->stop('main_content') ?>
-
