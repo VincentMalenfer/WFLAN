@@ -115,11 +115,13 @@ class ArticlesModel extends Model
 
 	}
 	public function editAddArticleHaveGame($games_idgames,$id){
+		$this->setPrimaryKey('articles_idarticles');
+		$this->setTable('games_has_articles');	
 	$data= array(
 		'games_idgames' => $games_idgames, 
 		'articles_idarticles' => $id
 		);
-	$this->update($data);
+	$this->update($data,$id);
 	}
 
 }

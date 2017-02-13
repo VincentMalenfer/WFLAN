@@ -61,7 +61,7 @@ class ArticlesController extends Controller
         $article= new ArticlesModel();
         $allArticle= $article->getArticle($id);
 
-        if (!empty($_FILES)) {
+        if (!empty($_FILES) || !empty($allArticle['pictures'])){
             
             $picture = $allArticle['pictures'];
              

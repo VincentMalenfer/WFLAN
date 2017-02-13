@@ -67,13 +67,14 @@
 
 			<!-- 	########################		DEBUT	PICTURES	 		########################	-->
 						<div class="form-group">
+							<div id="aper"><img src="<?= $this->assetUrl($article['pictures']) ?>"></div>
 							<div class="col-xs-offset-1 col-xs-10">
 							    <div class="input-group">
 									<label class="input-group-addon span-bold" for="image">Image : </label>
 									<input type="file" name="picture" id="picture" placeholder="Choisissez une image" class="form-control" >
 								</div>
 							</div>
-							<div><img src="<?= $this->assetUrl($article['pictures']) ?>"></div>
+							
 							<p id="msgquatre">Merci de renseigner une image.</p>
 						</div>
 			<!-- 	########################		FIN		PICTURES			########################	-->
@@ -101,5 +102,17 @@
 			<!-- 	########################		FIN		SUBMIT	 			########################	-->
 					</fieldset>
 				</form>
+				<script type="text/javascript">
+					$(function(){
+						$( "#picture" ).change(function () {
+							if( $("#picture").val()!==0) {
+								$("#aper").css("display", 'none');
+
+							}else{
+								$("#aper").css("display", 'block');
+							}
+						});
+					});
+				</script>
 
 <?php $this->stop('main_content') ?>				
