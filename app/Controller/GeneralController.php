@@ -11,7 +11,10 @@ class GeneralController extends Controller{
   	 * Page d'accueil par défaut
   	 */
   	public function home(){
-  		$this->show('users/home');
+      $ArticlesModel = new ArticlesModel();
+      $articles = $ArticlesModel->carouselArticleModel();
+
+      $this->show('users/home', ['articles'=> $articles]);
   	}
 
 	/**

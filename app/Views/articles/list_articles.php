@@ -23,7 +23,7 @@
                 <h3> <?= $article['title'] ?> </h3>
 
                 <p> <?= $article['description'] ?> </p>
-                <a class="btn btn-primary" href="<?=$this->url('article_article', ['id' => $article['idarticles']])?>">aller sur l article <span class="glyphicon glyphicon-chevron-right"></span></a>
+                <a class="btn btn-primary" href="<?=$this->url('article_article', ['id' => $article['idarticles']])?>">lire l'article<span class="glyphicon glyphicon-chevron-right"></span></a>
                 <!-- si le role de l'utilistateur est admin -->
 
             </div>

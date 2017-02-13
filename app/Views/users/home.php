@@ -1,36 +1,37 @@
 <?php $this->layout('layout', ['title' => 'Accueil']) ?>
 
 <?php $this->start('main_content') ?>
-
 	<!-- Carousel -->
 	<div class="carousel slide" data-ride="carousel" id="carousel-1">
 		<div class="carousel-inner" role="listbox">
-			<?php foreach ($articles as $article): ?>
-			<div class="item">
-				<div class="jumbotron hero-nature carousel-hero">
-					<h2 class="hero-title"><?= $article['title'] ?></h2>
-					<p class="hero-subtitle"><?= $article['text'] ?></p>
-					<p><a class="btn btn-primary btn-lg hero-button" role="button" href="#">Lire l'article</a></p>
-				</div>
+			<div class="item active">
+				<?php foreach ($articles as $article):?>
+					<div class="jumbotron hero-nature carousel-hero">
+						<div class="fill" style="background-image:url('<?= $article['pictures'] ?>');"></div>
+						<h2 class="hero-title"><?= $article['title'] ?></h2>
+						<p class="hero-subtitle"><?= $article['description']."..." ?></p>
+						<p><a class="btn btn-primary btn-lg hero-button" role="button" href="<?=$this->url('article_article', ['id' => $article['idarticles']])?>">Lire l'article</a></p>
+					</div>
 			</div>
-		<?php endforeach; ?>
-			<div class="item">
+
+			 <div class="item">
 				<div class="jumbotron hero-photography carousel-hero">
-					<h2 class="hero-title"><?= $article['title'] ?></h2>
-					<p class="hero-subtitle"><?= $article['text'] ?></p>
-					<p><a class="btn btn-primary btn-lg hero-button" role="button" href="#">Lire l'article</a></p>
+					<h2 class="hero-title">Hero Photography</h2>
+					<p class="hero-subtitle">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+					<p><a class="btn btn-primary btn-lg hero-button" role="button" href="#">Learn more</a></p>
 				</div>
 			</div>
 			<div class="item">
 				<div class="jumbotron hero-technology carousel-hero">
-					<h2 class="hero-title"><?= $article['title'] ?></h2>
-					<p class="hero-subtitle"><?= $article['text'] ?></p>
-					<p><a class="btn btn-primary btn-lg hero-button" role="button" href="#">Lire l'article</a></p>
+					<h2 class="hero-title">Hero Technology</h2>
+					<p class="hero-subtitle">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+					<p><a class="btn btn-primary btn-lg hero-button" role="button" href="#">Learn more</a></p>
 				</div>
 			</div>
 		</div>
-		<div><a class="left carousel-control" href="#carousel-1" role="button" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i><span class="sr-only">Pre</span></a>
-				 <a class="right carousel-control" href="#carousel-1" role="button" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i><span class="sr-only">Sui</span></a>
+<?php endforeach;?>
+		<div><a class="left carousel-control" href="#carousel-1" role="button" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i><span class="sr-only">Previous</span></a>
+				 <a class="right carousel-control" href="#carousel-1" role="button" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i><span class="sr-only">Next</span></a>
 		</div>
 		<ol class="carousel-indicators">
 			<li data-target="#carousel-1" data-slide-to="0" class="active"></li>
@@ -61,12 +62,12 @@
       </div>
     </div>
   </div>
-
 	</section>
 	<div class="audio">
     <audio id="myaudio" controls>
         <source src="<?= $this->assetUrl('audio/Konami.mp3') ?>" type="audio/mp3" />
-            Your browser does not support the audio element.
+            <!-- Your browser does not support the audio element. -->
+						Votre navigateur ne supporte pas les éléments audio.
     </audio>
 </div>
 <?php $this->stop('main_content') ?>

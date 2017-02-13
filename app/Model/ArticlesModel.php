@@ -77,6 +77,17 @@ class ArticlesModel extends Model
 
 	}
 
+	// affiche 3 derniers articles
+	public function carouselArticleModel(){
+		$sql = 'SELECT * FROM `articles` ORDER BY idarticles DESC LIMIT 3';
+		$articles = $this->dbh->prepare($sql);
+		$articles->execute();
+		return $articles->fetchAll();
+	}
+	// Utilisation du foreach dans le carousel pour récupérer les images, titre et description des articles.
+	//foreach ($articles as $article):
+	//endforeach;
+
 	public function getGame(){
 		$this->setTable('games');
 		$this->setPrimaryKey('idgames');
