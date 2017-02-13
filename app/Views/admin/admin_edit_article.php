@@ -2,7 +2,7 @@
 
 <?php $this->start('main_content') ?>
 
-<form class="form-horizontal" action="<?= $this->url('modify_article') ?>" id="modifArticle" method="POST" enctype="multipart/form-data">
+<form class="form-horizontal" action="<?= $this->url('modify_article', ['id' => $article['idarticles']]) ?>" id="modifArticle" method="POST" enctype="multipart/form-data">
 					<fieldset>
 
 			<!-- 	########################		DEBUT	TITRE	 			########################	-->

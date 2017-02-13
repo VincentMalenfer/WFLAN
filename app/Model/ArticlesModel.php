@@ -100,4 +100,26 @@ class ArticlesModel extends Model
 		// 'SELECT *  FROM  games';
 	}
 
+	public function editArticle($title, $description, $text, $filepath, $description_pictures, $id){
+		$this->setPrimaryKey('idarticles');
+
+		$data = array(
+			'title'                => $title, 
+			'description'          => $description,
+			'description_pictures' => $description_pictures,
+			'pictures'             => $filepath,
+			'text'                 => $text
+		);
+
+		$this->update($data,$id, true);
+
+	}
+	public function editAddArticleHaveGame($games_idgames,$id){
+	$data= array(
+		'games_idgames' => $games_idgames, 
+		'articles_idarticles' => $id
+		);
+	$this->update($data);
+	}
+
 }

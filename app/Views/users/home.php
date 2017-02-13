@@ -60,7 +60,11 @@
     </div>
   </div>
 
-	<div class="compteur"></div>
+	<div class="compteur"><script type="text/javascript src=">
+		$(function () {
+
+		}
+	</script></div>
 	<div class="audio">
     <audio id="myaudio" controls>
         <source src="<?= $this->assetUrl('audio/Konami.mp3') ?>" type="audio/mp3" />
