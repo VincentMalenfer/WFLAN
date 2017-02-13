@@ -22,7 +22,7 @@
             <div class="col-md-5">
                 <h3> <?= $article['title'] ?> </h3>
 
-                <p> <?= $article['description'] ?> </p>
+                <p> <?= $article['description']."..." ?> </p>
                 <a class="btn btn-primary" href="<?=$this->url('article_article', ['id' => $article['idarticles']])?>">lire l'article<span class="glyphicon glyphicon-chevron-right"></span></a>
                 <!-- si le role de l'utilistateur est admin -->
 
