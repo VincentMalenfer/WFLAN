@@ -17,14 +17,22 @@ class EventsController extends Controller
 		$this->show('admin/admin_event');
 	}
 
-	public function showEvent($id)
-    {
+	public function showEvent($id){
+		$EventModel = new EventsModel();
 
-	// {	$this->allowTo('admin');
+		$event = $EventModel->getEvents($id);
+		$users = $EventModel->getUsersFromEvent($id);
+		$game  = $EventModel->getGameFromClass($event['class']);
 
-     	 $EventsModel = new EventsModel();
-     	 $event = $EventsModel->getEvents($id);
-     	 $this->show('event/event', ['event'=> $event]);
+		$isRegistered = $EventModel->getUserFromEvent($id, $_SESSION['token']);
+
+		$this->show('event/event', [
+			'event' => $event,
+			'users' => $users,
+			'game'  => $game,
+
+			'isRegistered' => $isRegistered
+		]);
     }
 
     // Affichage liste des événements côté administrateur
@@ -91,5 +99,37 @@ class EventsController extends Controller
             $_SESSION['errors'] = $errors;//on stocke les erreurs
             $_SESSION['inputs'] = $_POST;
         }
+		// $this->show('admin/admin_list_events');
+	}
+
+	public function suppEvent($id)
+   {
+       $event= new EventsModel;
+
+       $articleSupp =$event->deleteEvent($id);
+
+       $this->redirectToRoute('admin_admin');
+
+   }
+
+    public function updateEvent($id){
+        $event = new EventsModel();
+
+        if(!empty($_POST)){
+            $event->updateEvent($id, $_POST["title"], $_POST['location'], $_POST['desc'], $_POST['url'], $_POST['start'], $_POST['end'], $_POST['class']);
+            $levent = $event->getEvents($id);
+            echo "Event modifiée";
+        }else{
+            $levent = $event->getEvents($id);
+        }
+
+		$articleModel = new ArticlesModel();
+		$games = $articleModel->getGame();
+
+
+        $this->show('admin/edit_event',[
+        	"levent" => $levent,
+        	"games" => $games,
+        ]);
     }
 }

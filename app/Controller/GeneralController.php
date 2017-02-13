@@ -63,11 +63,5 @@ class GeneralController extends Controller{
         $this->redirectToRoute('users_home');
     }
 
-    // Récupération de l'ID par le token puis implode pour recuperer la valeur car c'est dans un tableau .
-    public function getIdFromToken($idToken){
-        $azerty = 'SELECT id FROM token WHERE id ='.$idToken;
-        $pouet = $this->dbh->prepare($azerty);
-        $pouet->execute();
-        return $pouet->fetch();
-    }
+    
 }

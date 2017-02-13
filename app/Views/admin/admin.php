@@ -13,6 +13,7 @@
 		</ul>
 
 		<div class="tab-content">
+		<!-- AJOUT DARTICLE -->
 		  	<div id="AddArticle" class="tab-pane fade in active">
 
 				<!-- Affichage des messages d'erreurs et de success -->
@@ -123,7 +124,7 @@
 							<div class="col-sm-offset-4 col-sm-4">
 								<div class="input-group">
 									<label class="input-group-addon span-bold" for="start">Date de début : </label>
-									<input type="datetime" name="start" id="start" class="form-control" placeholder="aaaa/mm/jj 00:00:00">
+									<input type="datetime" name="start" id="start" class="form-control" placeholder="aaaa-mm-jj 00:00:00">
 								</div>
 							</div>
 						</div>
@@ -134,7 +135,7 @@
 							<div class="col-sm-offset-4 col-sm-4">
 								<div class="input-group">
 									<label class="input-group-addon span-bold" for="end">Date de fin : </label>
-									<input type="datetime" name="end" id="end" class="form-control" placeholder="aaaa/mm/jj 00:00:00">
+									<input type="datetime" name="end" id="end" class="form-control" placeholder="aaaa-mm-jj 00:00:00">
 								</div>
 							</div>
 						</div>
@@ -188,6 +189,17 @@
 						</div>
 			<!-- 	########################		FIN		DESCRIPTION	 		########################	-->
 
+			<!-- 	########################		DEBUT	LIMIT	 				########################	-->
+						<div class="form-group">
+							<div class="col-sm-offset-4 col-sm-4">
+							    <div class="input-group">
+									<label class="input-group-addon span-bold" for="end">Limite de participants : </label>
+									<input type="text" name="limit" id="limt" class="form-control" placeholder="Limite de participants">
+								</div>
+							</div>
+						</div>
+			<!-- 	########################		FIN		LIMIT					########################	-->
+
 			<!-- 	########################		DEBUT	SUBMIT				########################	-->
 						<div class="form-group">
 							<div class="col-xs-offset-1 col-xs-10">
@@ -225,14 +237,10 @@
 
 			            <div class="col-md-5">
 			                <h3> <?= $article['title'] ?> </h3>
-
 			                <p> <?= $article['description'] ?> </p>
 			                <a class="btn btn-primary" href="<?=$this->url('article_article', ['id' => $article['idarticles']])?>">Lire l'article<span class="glyphicon glyphicon-chevron-right"></span></a>
 			                <!-- si le role de l'utilistateur est admin -->
-
 			                <a class="btn btn-primary" href=<?=$this->url('admin_modify_article', ['id' => $article['idarticles']])?> >Modifier</a>
-			                <a class="btn btn-primary" href="">Supprimer</a>
-
 			            </div>
 			        </div> <!-- /.row -->
 			        <hr>
@@ -241,14 +249,33 @@
 			       # };
 			        ?>
 			</div>
+			<!-- SUPPRIME LEVENT -->
 
-			<div id="ModifDeleteEvent" class="tab-pane fade">
+<div id="ModifDeleteEvent" class="tab-pane fade">
+	<?php if(isset($events))  : ?>
+		<!-- liste events -->
+		<?php foreach ($events as $event): ?>
+			<div class="row">
+				<div class="col-md-5">
+				    <h3> <?= $event['title'] ?> </h3>
+				    <p>Jeu : <?= $event['class'] ?> </p>
+				    <p>Début : <?= $event['start'] ?> </p>
+				    <p>Fin : <?= $event['end'] ?> </p>
+				    <p>Lieu : <?= $event['location'] ?> </p>
+				        <!-- si le role de l'utilistateur est admin -->
+			            <a class="btn btn-primary" href="<?=$this->url('event_update_event',['id' => $event['idevent']])?>">Modifier</a>
+			            <a class="btn btn-primary" href="<?=$this->url('event_supp_event',['id' => $event['idevent']])?>">Supprimer</a>
+				</div>
+			</div> <!-- /.row -->
 
-			</div>
+		<?php endforeach;
+
+    endif;?>
+
 
 		</div>
-	</div> <!-- ########## 	FIN CONTAINER 	########## -->
-</div>
+	</div>
+</div><!-- ########## 	FIN CONTAINER 	########## -->
 
 <?php
 	 // on nettoie les données précédentes
