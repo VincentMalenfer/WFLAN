@@ -13,6 +13,7 @@
 		</ul>
 
 		<div class="tab-content">
+		<!-- AJOUT DARTICLE -->
 		  	<div id="AddArticle" class="tab-pane fade in active">
 				<form class="form-horizontal" action="<?= $this->url('admin_add') ?>" id="ajoutArticle" method="POST" enctype="multipart/form-data">
 					<fieldset>
@@ -24,7 +25,7 @@
 									<label class="input-group-addon span-bold" for="title">Titre de l'article : </label>
 									<input type="text" name="title" id="title" placeholder="Saisissez le titre" class="form-control" >
 								</div>
-							</div>
+							</div>fgv
 							<p id="msgun">Le titre doit faire au maximum 50 caractères et ne doit pas être vide.</p>
 						</div>
 			<!-- 	########################		FIN		TITRE	 			########################	-->
@@ -110,7 +111,7 @@
 
 
 
-
+<!-- AJOUT EVENT -->
 
 		  	<div id="AddEvent" class="tab-pane fade">
 				<form class="form-horizontal" action="<?= $this->url('admin_add_event') ?>" method="POST">
@@ -228,8 +229,8 @@
 			                <p> <?= $article['description'] ?> </p>
 			                <a class="btn btn-primary" href="<?=$this->url('article_article', ['id' => $article['idarticles']])?>">aller sur l article <span class="glyphicon glyphicon-chevron-right"></span></a>
 			                <!-- si le role de l'utilistateur est admin -->
-			                <a class="btn btn-primary" href="">modifier</a>
-			                <a class="btn btn-primary" href="">suprimer</a>
+			                <a class="btn btn-primary" href="">Modifier</a>
+			                <a class="btn btn-primary" href="">Supprimer</a>
 
 			            </div>
 			        </div> <!-- /.row -->
@@ -242,138 +243,33 @@
 			<!-- SUPPRIME LEVENT -->
 
 <div id="ModifDeleteEvent" class="tab-pane fade">
-
-	<?php # if (isset($articles)){ ?>
-
-			        <!-- liste articles-->
-			        <?php foreach ($events as $event): ?>
-			        <div class="row">
-			            <div class="col-md-5">
-			                <h3> <?= $event['title'] ?> </h3>
-			                <p> <?= $event['start'] ?> </p>
-			                <p> <?= $event['end'] ?> </p>
-			                <!-- si le role de l'utilistateur est admin -->
-			                <a class="btn btn-primary" href="<?=$this->url('event_update_event',['id' => $event['idevent']])?>">modifier</a>
-			                <a class="btn btn-primary" href="<?=$this->url('event_supp_event',['id' => $event['idevent']])?>">supprimer</a>
-
-			            </div>
-			        </div> <!-- /.row -->
-			        <hr>
-			        <?php
-			           endforeach;
-			       # };
-			        ?>
-
-<!-- MODIFIE L'EVENT -->
-</div>
-
-<div id="DeleteEvent" class="tab-pane fade">
-	<form class="form-horizontal" action="<?= $this->url('event_update_event') ?>" method="POST">
-					<fieldset>
-			<!-- 	########################		DEBUT	TITLE	 			########################	-->
-						<div class="form-group">
-							<div class="col-xs-offset-1 col-xs-10">
-							    <div class="input-group">
-									<label class="input-group-addon span-bold" for="title">Nom de l'évênement : </label>
-									<input type="text" name="title" id="title" placeholder="Saisissez le titre" class="form-control" >
-								</div>
-							</div>
-						</div>
-			<!-- 	########################		FIN		TITLE	 			########################	-->
-
-			<!-- 	########################		DEBUT	LOCATION			########################	-->
-						<div class="form-group">
-							<div class="col-xs-offset-1 col-xs-10">
-							    <div class="input-group">
-									<label class="input-group-addon span-bold" for="location">Lieu : </label>
-									<input type="text" name="location" id="location" class="form-control" placeholder="Saisissez la location" class="form-control">
-								</div>
-							</div>
-						</div>
-			<!-- 	########################		FIN		LOCATION	 		########################	-->
-
-			<!-- 	########################		DEBUT	DESCRIPTION			########################	-->
-						<div class="form-group">
-							<div class="col-xs-offset-1 col-xs-10">
-							    <div class="input-group">
-									<label class="input-group-addon span-bold" for="desc">Description : </label>
-									<input type="text" name="desc" id="desc" class="form-control" placeholder="Saisissez la description" class="form-control">
-								</div>
-							</div>
-						</div>
-			<!-- 	########################		FIN		DESCRIPTION	 		########################	-->
-
-			<!-- 	########################		DEBUT	URL					########################	-->
-						<div class="form-group">
-							<div class="col-xs-offset-1 col-xs-10">
-							    <div class="input-group">
-									<input type="hidden" name="url" id="url" class="form-control" placeholder="Saisissez l'url" class="form-control">
-								</div>
-							</div>
-						</div>
-			<!-- 	########################		FIN		URL	 				########################	-->
+	<?php if(isset($events))  : ?>
+		<!-- liste events -->
+		<?php foreach ($events as $event): ?>
+			<div class="row">
+				<div class="col-md-5">
+				    <h3> <?= $event['title'] ?> </h3>
+				    <p>Jeu : <?= $event['class'] ?> </p>
+				    <p>Début : <?= $event['start'] ?> </p>
+				    <p>Fin : <?= $event['end'] ?> </p>
+				        <!-- si le role de l'utilistateur est admin -->
+			            <a class="btn btn-primary" href="<?=$this->url('event_update_event',['id' => $event['idevent']])?>">Modifier</a>
+			            <a class="btn btn-primary" href="<?=$this->url('event_supp_event',['id' => $event['idevent']])?>">Supprimer</a>
+				</div>
+			</div> <!-- /.row -->
+			     
+		<?php endforeach;
+			      
+    endif;?>
+			        
 
 
-
-			<!-- 	########################		DEBUT	START	 			########################	-->
-						<div class="form-group">
-							<div class="col-sm-offset-4 col-sm-4">
-							    <div class="input-group">
-									<label class="input-group-addon span-bold" for="start">Date de début : </label>
-									<input type="datetime" name="start" id="start" class="form-control" placeholder="jj/mm/aaaa 00:00:00">
-								</div>
-							</div>
-						</div>
-			<!-- 	########################		FIN		START				########################	-->
-
-			<!-- 	########################		DEBUT	END	 				########################	-->
-						<div class="form-group">
-							<div class="col-sm-offset-4 col-sm-4">
-							    <div class="input-group">
-									<label class="input-group-addon span-bold" for="end">Date de fin : </label>
-									<input type="datetime" name="end" id="end" class="form-control" placeholder="jj/mm/aaaa 00:00:00">
-								</div>
-							</div>
-						</div>
-			<!-- 	########################		FIN		END					########################	-->
-
-			<!-- 	########################		DEBUT CHECKBOX EVENTS-GAMES	########################	-->
-						<div class="form-group">
-                            <div class="col-xs-offset-1 col-xs-10">
-                                <div class="input-group">
-                                    <label class="input-group-addon span-bold" for="sel1">Select list:</label>
-                                    <select class="form-control select" id="sel1" name="class">
-                                <?php foreach ($games as $game) { ?>
-                                         <option value="<?= $game['classgames'] ?>"><?= $game['name'] ?></option>
-                                <?php } ?>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-			<!-- 	########################		FIN	CHECKBOX EVENTS-GAMES	########################	-->
-
-			<!-- 	########################		DEBUT	SUBMIT				########################	-->
-						<div class="form-group">
-							<div class="col-xs-offset-1 col-xs-10">
-							    <div class="input-group">
-				    				<button id="envoyer" name="envoyer" class="btn btn-primary">Envoyer</button>
-								</div>
-							</div>
-						</div>
-			<!-- 	########################		FIN		SUBMIT	 			########################	-->
-					</fieldset>
-				</form>
-
-	
-
-
-</div>
 
 
 
 		</div>
-	</div> <!-- ########## 	FIN CONTAINER 	########## -->
-</div>
+	</div> 
+</div><!-- ########## 	FIN CONTAINER 	########## -->
 
 <!-- ##### 		DEBUT MESSAGE CACHES EN JS 		##### -->
 <script type="text/javascript">

@@ -10,6 +10,7 @@
             <p>Adresse : <?= $event['location'] ?></p>
             <p>Début : <?= $event['start'] ?></p>
             <p>Fin : <?= $event['end'] ?></p>
+            <p>Jeu : <?= $event['class'] ?></p>
             <p>Description : <?= $event['desc'] ?></p>
             
            
@@ -21,8 +22,9 @@
             <?php else: ?>
             <?= "Vous êtes déjà inscrit !" ?>
             <?php endif; ?>
+            <!-- Si le nombre d'inscrit est superieur a 10 echo Il n'y a plus de place^pour cette event sinon "S'inscrire" -->
 
-<h3><strong>Listes des inscrits à l'événement</strong></h3>
+<h3>Listes des inscrits : </h3>
 
 
 <?php foreach ($users as $user) { ?>
@@ -30,7 +32,6 @@
 
 
 <ul>
-
 	<li><?= $user['nickname'] ?></li>
 </ul>
 

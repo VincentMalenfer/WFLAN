@@ -4,6 +4,7 @@ namespace Controller;
 use \W\Controller\Controller;
 use \Model\EventsModel;
 use \Model\UserModel;
+use \Model\ArticlesModel;
 
 
 class EventsController extends Controller
@@ -67,8 +68,9 @@ class EventsController extends Controller
    }
 
 
-   //update PLACE OK
+  
     public function updateEvent($id){
+    	
         
         $event = new EventsModel(); 
         if(!empty($_POST)){
@@ -78,7 +80,15 @@ class EventsController extends Controller
         }else{
             $levent = $event->getEvents($id); 
         }
-        $this->show('admin/admin',["levent" => $levent]);  
+
+		$articleModel = new ArticlesModel();
+		$games = $articleModel->getGame();
+
+
+        $this->show('admin/edit_event',[
+        	"levent" => $levent,
+        	"games" => $games,
+        ]);  
 
     }
 }
