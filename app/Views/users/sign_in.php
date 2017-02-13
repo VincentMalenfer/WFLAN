@@ -25,7 +25,7 @@
     <input type="password" id="password" name="password" class="form-control" placeholder="Votre Mot de passe">
 
     <button class="btn btn-lg btn-primary btn-block" type="submit">Connexion</button>
-    <!-- <small class="help-block"><a href="#">j'ai oublié mon mot de passe</a></small> -->
+    <small class="help-block"><a href="<?= $this->url('users_sign_up'); ?>">Pas encore inscrit?</a></small> 
   </form>
 </div> <!-- /container -->
 
