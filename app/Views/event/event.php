@@ -21,7 +21,8 @@
 
             <a class="btn btn-primary" href=<?= $this->url('users_inscription_event', ['id' => $event['idevent']]) ?> >S'inscrire</a>
             <?php else: ?>
-            <?= "Vous êtes déjà inscrit !" ?>
+              <a class="btn btn-danger">Vous êtes déjà inscrit !</a>
+            
             <?php endif; ?>
             <!-- Si le nombre d'inscrit est superieur a 16 echo Il n'y a plus de place^pour cette event sinon "S'inscrire" -->
 
