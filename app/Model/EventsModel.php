@@ -79,9 +79,9 @@ class EventsModel extends Model
 
     }
 
-    public function updateEvent($id, $title, $location, $desc, $url, $start, $end, $class){
+    public function updateEvent($id, $title, $location, $desc, $url, $start, $end, $class, $limitevent){
         $this->setPrimaryKey("idevent");
-        
+
         $data = array(
         	"title"    =>$title, 
         	"location" =>$location, 
@@ -89,7 +89,8 @@ class EventsModel extends Model
         	"url"      =>$url, 
         	"start"    =>$start, 
         	"end"      =>$end, 
-        	"class"    =>$class
+        	"class"    =>$class,
+        	"limitevent"    =>$limitevent,
         );
 
         return $this->update($data, $id);

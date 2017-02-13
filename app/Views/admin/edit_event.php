@@ -88,6 +88,15 @@
                         </div>
 			<!-- 	########################		FIN	CHECKBOX EVENTS-GAMES	########################	-->
 
+			<div class="form-group">
+							<div class="col-sm-offset-4 col-sm-4">
+							    <div class="input-group">
+									<label class="input-group-addon span-bold" for="end">Limite de participants : </label>
+									<input type="text" name="limitevent" id="limtevent" class="form-control" value="<?= $levent['limitevent'] ?>" placeholder="Limite de participants">
+								</div>
+							</div>
+						</div>
+
 			<!-- 	########################		DEBUT	SUBMIT				########################	-->
 						<div class="form-group">
 							<div class="col-xs-offset-1 col-xs-10">

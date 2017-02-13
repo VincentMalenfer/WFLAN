@@ -76,9 +76,9 @@ class EventsController extends Controller
   
     public function updateEvent($id){  
         $event = new EventsModel(); 
-        
+
         if(!empty($_POST)){
-            $event->updateEvent($id, $_POST["title"], $_POST['location'], $_POST['desc'], $_POST['url'], $_POST['start'], $_POST['end'], $_POST['class']);    
+            $event->updateEvent($id, $_POST["title"], $_POST['location'], $_POST['desc'], $_POST['url'], $_POST['start'], $_POST['end'], $_POST['class'], $_POST['limitevent']);    
             $levent = $event->getEvents($id); 
             echo "Event modifiée";
         }else{
