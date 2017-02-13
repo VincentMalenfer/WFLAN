@@ -10,9 +10,18 @@ class ArticlesController extends Controller
     // Affichage d'un article côté utilisateur
     function showArticles($id)
     {
-      $articleModel = new ArticlesModel();
-      $articles = $articleModel->getArticle($id);
-      $this->show('articles/article', ['article'=> $articles]);
+        $articleModel = new ArticlesModel();
+        $articles = $articleModel->getArticle($id);
+        $slidListArticles = $articleModel->getSlideArticles();
+        foreach ($slidListArticles as $slidListArticle) {
+        	$slidListArticle = $articleModel->getArticle($id);
+        }
+        $this->show('articles/article', [
+            'article'=> $articles,
+            'slidListArticles'=>$slidListArticles,
+            'slidListArticle'=>$slidListArticle,
+
+        ]);
     }
 
 
@@ -30,19 +39,25 @@ class ArticlesController extends Controller
         $articles = $articleModel->getArticles();
         $this->show('admin/admin_list_articles', ['articles'=> $articles]);
     }
+
     // Supprime un article
-    // public function suppArticle($id)
-    // {   $allArticle= getArticle($id);
-    //     $id= $allArticle['idarticles'];
-    //     $picture = $allArticle['pictures'];
-    //     $supp= new ArticlesModel();
-    //     $supp->deleteArticle($id);
-    //     if ($supp)unlink($picture);
-    //     $this->redirectToRoute('admin/admin_amin');
+    public function suppArticle($id)
+    {   
+        $article= new ArticlesModel;
 
-    // }
+        $allArticle= $article->getArticle($id);
+        
+        $id= $allArticle['idarticles'];
+        $picture = $allArticle['pictures'];
+        unlink($picture);
+        $supp= new ArticlesModel();
+        $articleSupp =$supp->deleteArticle($id);
+        
+        $this->redirectToRoute('admin_admin');
+
+    }
     public function modifyArticle(){
-
+        
     }
 
 
@@ -72,7 +87,7 @@ class ArticlesController extends Controller
                     // je deplace le fichier depuis le dossier temporaire vers la destination
 
                     if (move_uploaded_file($_FILES['picture']['tmp_name'],$dir.$filename)) {
-                        return $filepath = 'assets/img/articles/'.$filename;
+                        return $filepath = 'img/articles/'.$filename;
                     }else{
                         die("upload failed");
                     }
@@ -99,7 +114,7 @@ class ArticlesController extends Controller
         };
     }
     public function addArticleHaveGame($last_id){
-        if(!empty($_POST['checkbox'])){
+        if(!empty($_POST['checkbox']) || $_POST['checkbox'] != 0){
              // Liste de games
             $articleModel = new ArticlesModel();
             $games = $articleModel->getGame();
@@ -108,7 +123,7 @@ class ArticlesController extends Controller
             $id_article = $last_id['idarticles'];
             $checkbox   = new ArticlesModel();
             $checkbox->articleHaveGame($idGame,$id_article);
-            // return $idGame;
+            return $idGame;
         }
         
     }

@@ -47,8 +47,8 @@
                             <div class="col-xs-offset-1 col-xs-10">
                                 <div class="input-group">
                                     <label class="input-group-addon span-bold" for="sel1">Select list:</label>
-                                    <select class="form-control select" id="sel1">
-                                    
+                                    <select class="form-control select" id="sel1" name="checkbox">
+
 <!-- ici mettre la valeur du game selected -->
                                     
                                 <?php 
@@ -70,9 +70,10 @@
 							<div class="col-xs-offset-1 col-xs-10">
 							    <div class="input-group">
 									<label class="input-group-addon span-bold" for="image">Image : </label>
-									<input type="file" name="picture" id="picture" placeholder="Choisissez une image" class="form-control" value="<?= $article['picture']?>">
+									<input type="file" name="picture" id="picture" placeholder="Choisissez une image" class="form-control" >
 								</div>
 							</div>
+							<div><img src="<?= $this->assetUrl($article['pictures']) ?>"></div>
 							<p id="msgquatre">Merci de renseigner une image.</p>
 						</div>
 			<!-- 	########################		FIN		PICTURES			########################	-->

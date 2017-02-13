@@ -17,6 +17,22 @@ class ArticlesModel extends Model
 		return $sth->fetchAll();
 	}
 
+	public function getSlideArticles()
+	{
+		$this->setPrimaryKey("idarticles");
+		$this->setTable('articles');
+
+		$sql = 'SELECT * FROM articles LEFT JOIN games_has_articles ON games_has_articles.articles_idarticles = articles.idarticles';
+		$sth = $this->dbh->prepare($sql);
+		$sth->execute();
+
+		$article = $sth->fetchAll();
+		shuffle($article);
+		$article = array_slice($article, 0, 10);
+
+		return $article;
+	}
+
 	public function getArticle($id)
 	{
 		$this->setPrimaryKey("idarticles");
@@ -50,7 +66,7 @@ class ArticlesModel extends Model
 	public function articleHaveGame($game,$id_article){
 
 		$this->setPrimaryKey("games_idgames");
-		$this->setTable('games_has_articles');
+		
 
 		$data= array(
 			'games_idgames'			=>  $game,
@@ -64,18 +80,18 @@ class ArticlesModel extends Model
 
 	public function deleteArticle($id)
 	{
+		
 		// Delete de la BDD l'articles selectionné par l'admin
-			$this->delete($id);
-			return true;
+			 
+		$this->setPrimaryKey('idarticles');
+		$this->setTable('articles');	 
+			 $this->delete($id);
+			 return true;
+			
 
 	}
 
-	// affiche 10 articles different de celui que l'on a en get de la page
-	public function slidebarArticle($orderBy,$orderDir,$limit){
-		return $this->findAll($orderBy,$orderDir,$limit);
-		// 'SELECT * FROM articles ORDER BY ASC `date` LIMIT 10  WHERE `id_article` != $id;'
-
-	}
+	
 
 	public function getGame(){
 		$this->setTable('games');

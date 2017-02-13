@@ -19,7 +19,7 @@ class AdminController extends Controller
 
         $articleModel = new ArticlesModel();
         $articles = $articleModel->getArticles();
-
+        
 
 
 		$this->show('admin/admin', [

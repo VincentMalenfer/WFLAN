@@ -18,14 +18,15 @@
           <h3>Nos articles:</h3>
             <li>
                 <ul class="nav nav-stacked fixed">
-                    <li><a href="#GroupASub1" class="sideCSS">Articles</a></li>
-                    <li><a href="#GroupASub2" class="sideCSS">Articles</a></li>
-                    <li><a href="#GroupASub2" class="sideCSS">Articles</a></li>
-                    <li><a href="#GroupASub2" class="sideCSS">Articles</a></li>
-                    <li><a href="#GroupASub2" class="sideCSS">Articles</a></li>
-                    <li><a href="#GroupASub2" class="sideCSS">Articles</a></li>
-                    <li><a href="#GroupASub2" class="sideCSS">Articles</a></li>
-                    <li><a href="#GroupASub2" class="sideCSS">Articles</a></li>
+                <?php foreach ($slidListArticles as $slidListArticle) {?>
+                    <li><a href="<?=$this->url('article_article',['id' => $slidListArticle['idarticles']])?>" class="sideCSS"> <?= $slidListArticle['title'] ?> </a></li>
+
+
+
+
+               <?php  } ?>
+                    
+                    
                 </ul>
             </li>
         </ul>
