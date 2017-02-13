@@ -12,4 +12,11 @@ class GeneralModel extends Model
     $pouet->execute();
     return $pouet->fetch();
     }
+
+    public function getGame(){
+        $this->setTable('games');
+        $this->setPrimaryKey('idgames');
+        return $this->findAll();
+        // 'SELECT *  FROM  games';
+    }
 }

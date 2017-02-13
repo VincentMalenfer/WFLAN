@@ -51,10 +51,7 @@ class ArticlesModel extends Model
 
 	public function articleHaveGame($game,$id_article){
 
-		$this->setPrimaryKey("games_idgames");
-		$this->setTable('games_has_articles');
-
-		$data= array(
+		$data = array(
 			'games_idgames'			=>  $game,
 			'articles_idarticles'	=>  $id_article
 			);
@@ -78,12 +75,4 @@ class ArticlesModel extends Model
 		// 'SELECT * FROM articles ORDER BY ASC `date` LIMIT 10  WHERE `id_article` != $id;'
 
 	}
-
-	public function getGame(){
-		$this->setTable('games');
-		$this->setPrimaryKey('idgames');
-		return $this->findAll();
-		// 'SELECT *  FROM  games';
-	}
-
 }

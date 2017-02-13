@@ -26,7 +26,7 @@
 		['POST', 				'/admin/add_article', 							'Articles#addArticle', 						'admin_add'],
 		['GET|POST', 			'/admin_supp_article/[:id]',					'Articles#suppArticle',						'admin_supp_article'],
 		['GET', 				'/admin/modif_article/[:id]',					'Admin#showModifyArticle',					'admin_modify_article'],
-		// 
+		//
 		 ['POST', 				'/admin/modif_article/[:id]',					'Articles#modifyArticle',					'modify_article'],
 
 		// EVENT //

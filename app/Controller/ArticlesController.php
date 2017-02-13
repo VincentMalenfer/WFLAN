@@ -1,9 +1,10 @@
 <?php
-
 namespace Controller;
 
 use \W\Controller\Controller;
+
 use \Model\ArticlesModel;
+use \Model\GeneralModel;
 
 class ArticlesController extends Controller
 {
@@ -80,7 +81,8 @@ class ArticlesController extends Controller
         }
     }
 
-    public function addArticle(){
+    public function addArticle()
+    {
 
         $errors = array(); // on crée une vérif de champs
 		if(!array_key_exists('title', $_POST) || $_POST['title'] == '') {// on verifie l'existence du champ et d'un contenu
@@ -94,16 +96,19 @@ class ArticlesController extends Controller
 		}
         if(!array_key_exists('description_pictures', $_POST) || $_POST['description_pictures'] == '') {// on verifie l'existence du champ et d'un contenu
 		          $errors ['description_pictures'] = "Vous n'avez pas renseigné la description de l'image !";
-		}
-        if(empty($errors)){ // si erreur on renvoie vers la page précédente
+    }
+
+    //    if(empty($errors)){ // si erreur on renvoie vers la page précédente
         //  && ($_POST['description']) && ($_POST['description_pictures'])){
             $filepath = $this->registerImg();
             if(!$filepath){
+
                 $errors ['picture'] = "Vous n'avez pas ajouté d'image !";
           	    $_SESSION['errors'] = $errors;//on stocke les erreurs
                 $_SESSION['inputs'] = $_POST;
                 $this->redirectToRoute('admin_admin');
             }
+            //exit('toto');
             $_SESSION['success'] = 1;
             $addArticle = new ArticlesModel();
             $last_id = $addArticle->addArcticle(
@@ -116,30 +121,26 @@ class ArticlesController extends Controller
             $this->addArticleHaveGame($last_id);
             $this->redirectToRoute('admin_admin');
             // $this->showArticles($last_id['idarticles']);
-        }
-        $_SESSION['errors'] = $errors;//on stocke les erreurs
-        $_SESSION['inputs'] = $_POST;
-        $this->redirectToRoute('admin_admin');
+    //    }
+            $_SESSION['errors'] = $errors;//on stocke les erreurs
+            $_SESSION['inputs'] = $_POST;
+            $this->redirectToRoute('admin_admin');
+
     }
+
 
     public function addArticleHaveGame($last_id)
     {
         $errors = array(); // on crée une vérif de champs
-        if(!empty($_POST['checkbox']) || ($_POST['checkbox']) !=0 ){
+        if(!empty($_POST['checkbox'])){
             // Liste de games
-            $articleModel = new ArticlesModel();
-            $games = $articleModel->getGame();
+            $generalModel = new GeneralModel();
+            $games = $generalModel->getGame();
             $idGame     = $_POST['checkbox'];
             $id_article = $last_id['idarticles'];
             $checkbox   = new ArticlesModel();
             $checkbox->articleHaveGame($idGame,$id_article);
             // return $idGame;
-        }else{
-            $errors ['checkbox'] = "Vous n'avez pas renseigné le jeu !";
-    	}
-        if(!empty($errors)){ // si erreur on renvoie vers la page précédente
-            $_SESSION['errors'] = $errors;//on stocke les erreurs
-            $_SESSION['inputs'] = $_POST;
         }
     }
 }

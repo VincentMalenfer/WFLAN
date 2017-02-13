@@ -8,10 +8,10 @@ class EventsModel extends Model
 {
 	public function ajouterEvent($title, $location, $desc, $url, $start, $end, $class)
 	{
-		
+
 
 		$this->setPrimaryKey("idevent");
-		
+
 
 		$data = array 	(
 							"title" 				=> $title,
@@ -22,12 +22,10 @@ class EventsModel extends Model
 							"end" 					=> $end,
 							"class" 				=>$class
 						);
-		
 
 
-		$this->insert($data);
 
-
+		return $this->insert($data, false);
 	}
 
 	public function getEvents($id)
@@ -35,10 +33,17 @@ class EventsModel extends Model
 		$this->setPrimaryKey("idevent");
 
 		return $this->find($id);
-
-
 	}
 
-	
-}
+	public function eventHaveGame($game,$id_event){
 
+		$data= array(
+			'games_idgames'			=>  $game,
+			'event_idevent'	=>  $id_event
+			);
+
+		$sql = 'INSERT INTO games_has_event (`event_idevent`, `games_idgames`) VALUES (:event_idevent,:games_idgames)';
+		$pouet = $this->dbh->prepare($sql);
+    	$pouet->execute($data);
+	}
+}

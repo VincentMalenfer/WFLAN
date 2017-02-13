@@ -151,6 +151,21 @@
 						</div>
 			<!-- 	########################		FIN		TITLE	 			########################	-->
 
+			<!-- 	########################		DEBUT CHECKBOX EVENTS-GAMES	########################	-->
+						<div class="form-group">
+                            <div class="col-xs-offset-1 col-xs-10">
+                                <div class="input-group">
+                                    <label class="input-group-addon span-bold" for="sel1">Jeu :</label>
+                                    <select class="form-control select" id="sel1" name="class">
+                                <?php foreach ($games as $game) { ?>
+                                         <option value="<?= $game['classgames'] ?>"><?= $game['name'] ?></option>
+                                <?php } ?>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+			<!-- 	########################		FIN	CHECKBOX EVENTS-GAMES	########################	-->
+
 			<!-- 	########################		DEBUT	LOCATION			########################	-->
 						<div class="form-group">
 							<div class="col-xs-offset-1 col-xs-10">
@@ -172,21 +187,6 @@
 							</div>
 						</div>
 			<!-- 	########################		FIN		DESCRIPTION	 		########################	-->
-
-			<!-- 	########################		DEBUT CHECKBOX EVENTS-GAMES	########################	-->
-						<div class="form-group">
-                            <div class="col-xs-offset-1 col-xs-10">
-                                <div class="input-group">
-                                    <label class="input-group-addon span-bold" for="sel1">Jeu :</label>
-                                    <select class="form-control select" id="sel1" name="class">
-                                <?php foreach ($games as $game) { ?>
-                                         <option value="<?= $game['classgames'] ?>"><?= $game['name'] ?></option>
-                                <?php } ?>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-			<!-- 	########################		FIN	CHECKBOX EVENTS-GAMES	########################	-->
 
 			<!-- 	########################		DEBUT	SUBMIT				########################	-->
 						<div class="form-group">
