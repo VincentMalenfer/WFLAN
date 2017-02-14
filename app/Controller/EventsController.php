@@ -24,7 +24,10 @@ class EventsController extends Controller
 		$users = $EventModel->getUsersFromEvent($id);
         $game  = $EventModel->getGameFromClass($event['class']);
 
-		$isRegistered = $EventModel->getUserFromEvent($id, $_SESSION['token']);
+        $isRegistered = false;
+        if (!empty($_SESSION['token'])) {
+            $isRegistered = $EventModel->getUserFromEvent($id, $_SESSION['token']);
+        }
 
 		$this->show('event/event', [
 			'event' => $event,
@@ -32,6 +35,18 @@ class EventsController extends Controller
             'game'  => $game,
 			'isRegistered' => $isRegistered
 		]);
+    }
+
+    public function afficheInscrit($id){
+
+        $eventModel = new EventsModel();
+        $events = $eventModel->getUsersFromEvent($id);
+
+         $this->show('admin/view_inscrit', [
+
+            'events' => $events
+        ]);
+
     }
 
     // Affichage liste des événements côté administrateur

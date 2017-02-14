@@ -125,18 +125,18 @@ class EventsModel extends Model
 	/**
 	 * Récupère TOUS les utilisateurs inscrits à un évènement
 	 */
-	public function getUsersFromEvent($idEvent)
-	{
-		$sql = "SELECT *
-			FROM event_has_users
-			LEFT JOIN users ON users_idusers = idusers
-			WHERE event_idevent = " . $idEvent;
+	 public function getUsersFromEvent($idEvent)
+     {
+         $sql = "SELECT *
+             FROM event_has_users
+             LEFT JOIN users ON users_idusers = idusers
+             WHERE event_idevent = " . $idEvent;
 
-		$sth = $this->dbh->prepare($sql);
-		$sth->execute();
+         $sth = $this->dbh->prepare($sql);
+         $sth->execute();
 
-		return $sth->fetchAll();
-	}
+         return $sth->fetchAll();
+     }
 
 
 	/**

@@ -22,7 +22,7 @@
 
             <?php else : ?>
 
-                <?php if(!empty($_SESSION['token'] && !$isRegistered)) : ?>
+                <?php if(!$isRegistered) : ?>
                     <a class="btn btn-primary" href=<?= $this->url('users_inscription_event', ['id' => $event['idevent']]) ?> >S'inscrire</a>
                 <?php else: ?>
                     <a class="btn btn-danger">Vous êtes déjà inscrit !</a>
