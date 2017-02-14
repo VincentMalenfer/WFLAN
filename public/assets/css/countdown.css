@@ -3,7 +3,7 @@ main .countdown {
   text-align: center;
 }
 main .countdown h2{
-	font-size: 4rem!important;
+	font-size: 3rem!important;
 }
 @media (max-width: 600px){
   main .countdown h2{
@@ -12,7 +12,7 @@ main .countdown h2{
 }
 main .countdown-label {
   margin-top: 10px;
-  font-size: 24px;
+  font-size: 36px;
   font-weight: 300;
 }
 main .countdown-number {
