@@ -20,11 +20,8 @@ class GeneralController extends Controller{
 
   		$selectCompteur= new GeneralModel;
     	$compteur= $selectCompteur->compteur();
-      debug($compteur);
-      die;
-    	$firstReplace= str_replace('-',',',$compteur);
-    	$secondReplace= str_replace(' ',',',$firstReplace);
-    	$thirdReplaces= str_replace(':',',',$secondReplace);
+
+    	$thirdReplaces= str_replace(array('-',' ',':'),',',$compteur);
 
   		$this->show('users/home',[
   			'start'=>$thirdReplaces,

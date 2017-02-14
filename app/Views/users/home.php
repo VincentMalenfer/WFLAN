@@ -16,7 +16,7 @@
 							background-image: url("<?= $article['pictures'] ?>");
 						}
 					</style>
-					<section class="container">
+					<section>
 	          <h2 class="hero-title"><?= $article['title'] ?></h2>
 	          <p class="hero-subtitle"><?= $article['description']."..." ?></p>
 	          <p><a class="btn btn-primary btn-lg hero-button" role="button" href="<?=$this->url('article_article', ['id' => $article['idarticles']])?>">Lire l'article</a></p>

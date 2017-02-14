@@ -96,9 +96,7 @@ class EventsController extends Controller
 
     public function addEvent()
     {
-
-        // $this->allowTo('admin');
-
+        $this->allowTo('admin');
         if(!empty($_POST))
         {
             $mike = new EventsModel();
@@ -116,6 +114,7 @@ class EventsController extends Controller
 
     public function addEventHaveGame($last_id)
     {
+      $this->allowTo('admin');
         $errors = array(); // on crée une vérif de champs
         if(!empty($_POST['class']) || ($_POST['class']) !=0 ){
             // Liste de games
@@ -138,6 +137,7 @@ class EventsController extends Controller
 
 	public function suppEvent($id)
    {
+     $this->allowTo('admin');
        $event= new EventsModel;
 
        $articleSupp =$event->deleteEvent($id);
@@ -147,6 +147,7 @@ class EventsController extends Controller
    }
 
    public function updateEvent($id){
+     $this->allowTo('admin');
        $event = new EventsModel();
        if(!empty($_POST)){
            $event->updateEvent($id, $_POST["title"], $_POST['location'], $_POST['desc'], $_POST['url'], $_POST['start'], $_POST['end'], $_POST['class'], $_POST['limitevent']);

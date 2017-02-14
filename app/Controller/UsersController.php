@@ -94,16 +94,19 @@ class UsersController extends Controller
 					$tokens = new ConnexionModel();
 					$token = $tokens->createTokenPlusConnexion($user["idusers"]);
 					// met en session les info retourner par createTokenPlusConnexion qui elle retourne dans $token
+					// $_SESSION["token"] = $token;
+					// $_SESSION["nickname"] = $user["nickname"];
+					// $_SESSION["status"] = $user["status"];
 					$_SESSION["token"] = $token;
-					$_SESSION["nickname"] = $user["nickname"];
+				  $_SESSION["nickname"] = $user["nickname"];
 					$_SESSION["status"] = $user["status"];
 
 
 
-					if ($_SESSION["status"] == 1) {
+					if ($_SESSION["status"] == 'admin') {
 						$this->redirectToRoute('admin_admin');
 					}
-					$this->redirectToRoute('users_sign_in');
+					$this->redirectToRoute('users_home');
 				}
 			}
 
@@ -203,6 +206,7 @@ class UsersController extends Controller
 
 	public function inscription_event($idEvent)
 	{
+		allowTo('admin','user');
 		if (empty($_SESSION['token'])) {
 			$this->redirectToRoute('users_sign_in');
 		}

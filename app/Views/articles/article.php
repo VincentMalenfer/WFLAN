@@ -6,7 +6,7 @@
 
     <article class="txtArticle col-xs-8 col-xs-offset-2">
         <h1><?= $article['title'] ?></h1>
-        <img src="<?= "/wflan/public/assets/".$article['pictures'] ?>" alt="<?= $article['description_pictures'] ?>" class="img-responsive">
+        <img src="<?= $article['pictures'] ?>" alt="<?= $article['description_pictures'] ?>" class="img-responsive">
         <p><?= $article['text'] ?></p>
 
         <hr>

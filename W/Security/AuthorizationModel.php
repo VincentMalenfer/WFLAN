@@ -20,10 +20,12 @@ class AuthorizationModel
 	{
 		$app = getApp();
 		$roleProperty = $app->getConfig('security_role_property');
+		// debug($roleProperty); die(); // OK affiche status
 
 		//récupère les données en session sur l'utilisateur
 		$authentificationModel = new AuthentificationModel();
-		$loggedUser = $authentificationModel->getLoggedUser();
+		//$user_connect $authentificationModel->getLoggedUser();
+		$loggedUser = $_SESSION['token'];
 
 		// Si utilisateur non connecté
 		if (!$loggedUser){
@@ -31,7 +33,7 @@ class AuthorizationModel
 			$this->redirectToLogin();
 		}
 
-		if (!empty($loggedUser[$roleProperty]) && $loggedUser[$roleProperty] === $role){
+		if (!empty($_SESSION[$roleProperty]) && $_SESSION[$roleProperty] === $role){
 			return true;
 		}
 
