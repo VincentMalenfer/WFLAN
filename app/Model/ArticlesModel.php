@@ -104,9 +104,15 @@ class ArticlesModel extends Model
 			'text'                 => $text
 		);
 
+	// affiche 10 articles different de celui que l'on a en get de la page
+	public function sidebarArticle($orderBy,$orderDir,$limit){
+		return $this->findAll($orderBy,$orderDir,$limit);
+		// 'SELECT * FROM articles ORDER BY ASC `date` LIMIT 10  WHERE `id_article` != $id;'
+
 		$this->update($data,$id, true);
 
 	}
+	
 	public function editAddArticleHaveGame($games_idgames,$id){
 		$this->setPrimaryKey('articles_idarticles');
 		$this->setTable('games_has_articles');
@@ -116,4 +122,28 @@ class ArticlesModel extends Model
 		);
 	$this->update($data,$id);
 	}
+
+	// affiche 3 derniers articles
+	public function carouselArticleModel(){
+		$sql = 'SELECT * FROM `articles` ORDER BY idarticles DESC LIMIT 3';
+		$articles = $this->dbh->prepare($sql);
+		$articles->execute();
+		return $articles->fetchAll();
+	}
+	// Utilisation du foreach dans le carousel pour récupérer les images, titre et description des articles.
+	//foreach ($articles as $article):
+	//endforeach;
+
+	public function getGame(){
+		$this->setTable('games');
+		$this->setPrimaryKey('idgames');
+		return $this->findAll();
+		// 'SELECT *  FROM  games';
+	}
+
+	// Delete de la BDD les articles selectionné par l'admin
+	public function deleteArchive($id){
+		return $this->delete($id);
+	}
+
 }

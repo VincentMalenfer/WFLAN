@@ -141,6 +141,7 @@ class ArticlesController extends Controller
             }
             return false;
         }
+
     }
 
     public function addArticle()
@@ -172,6 +173,7 @@ class ArticlesController extends Controller
             }
             //exit('toto');
             $_SESSION['success'] = 1;
+
             $addArticle = new ArticlesModel();
             $last_id = $addArticle->addArcticle(
                                     $_POST['title'],

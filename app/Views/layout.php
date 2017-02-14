@@ -74,11 +74,11 @@
 		<?php include("header.php"); ?>
 	</header>
 
-	<main>
+	<main class="container-fluid">
 		<?= $this->section('main_content') ?>
 	</main>
 
-	<footer class="footer-basic">
+	<footer class="footer-basic" >
 		<?php	include("footer.php"); ?>
 	</footer>
 

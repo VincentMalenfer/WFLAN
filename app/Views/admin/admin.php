@@ -5,12 +5,16 @@
 <div class="admin">
 	<div class="container"> <!-- ########## 	DEBUT CONTAINER 	########## -->
 		<h1>Espace Admin</h1>
-		<ul class="nav nav-tabs">
-	  		<li class="active"><a data-toggle="tab" href="#AddArticle">Ajouter un article</a></li>
-	  		<li><a data-toggle="tab" href="#AddEvent"> Ajouter un événement</a></li>
-	  		<li><a data-toggle="tab" href="#ModifDeleteArticle"> Modifier ou supprimer un article</a></li>
-			<li><a data-toggle="tab" href="#ModifDeleteEvent"> Modifier ou supprimer un événement</a></li>
-		</ul>
+
+		<div class="container">
+			<ul class="nav nav-tabs">
+				<li class="active col-xs-6 col-md-3"><a data-toggle="tab" href="#AddArticle">Ajouter article</a></li>
+				<li class="col-xs-6 col-md-3"><a data-toggle="tab" href="#AddEvent"> Ajouter événement</a></li>
+				<li class="col-xs-6 col-md-3"><a data-toggle="tab" href="#ModifDeleteArticle"> Modifier ou supprimer un article</a></li>
+				<li class="col-xs-6 col-md-3"><a data-toggle="tab" href="#ModifDeleteEvent"> Modifier ou supprimer un événement</a></li>
+			</ul>
+		</div>
+
 
 		<div class="tab-content">
 		<!-- AJOUT DARTICLE -->
@@ -46,6 +50,7 @@
 						<div class="form-group">
                             <div class="col-xs-offset-1 col-xs-10">
                                 <div class="input-group">
+
                                     <label class="input-group-addon span-bold" for="sel1">Jeu :</label>
                                     <select class="form-control select" id="sel1" name="checkbox">
 
@@ -54,6 +59,7 @@
                                 <?php } ?>
                                     </select>
                                 </div>
+																<p id="msgtrois">Merci de selectionner au moins un jeu au minimum.</p>
                             </div>
                         </div>
 			<!-- 	########################		FIN		CHECKBOX GAMES	 	########################	-->
@@ -294,5 +300,6 @@
 	unset($_SESSION['success']);
 	unset($_SESSION['errors']);
 ?>
+
 
 <?php $this->stop('main_content') ?>
