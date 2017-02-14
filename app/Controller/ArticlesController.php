@@ -2,7 +2,6 @@
 namespace Controller;
 
 use \W\Controller\Controller;
-
 use \Model\ArticlesModel;
 use \Model\GeneralModel;
 

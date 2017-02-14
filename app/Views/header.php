@@ -26,7 +26,7 @@
         <?php
         if(isset($_SESSION['token'])): ?>
           <?php
-          if($_SESSION['status'] == 1): ?>
+          if($_SESSION['status'] == 'admin'): ?>
             <li><a href="<?= $this->url('admin_admin'); ?>">Admin</a></li>
             <li><a href="<?= $this->url('users_log_out'); ?>">Deconnexion</a></li>
           <?php else: ?>

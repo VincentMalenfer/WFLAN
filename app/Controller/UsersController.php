@@ -100,10 +100,10 @@ class UsersController extends Controller
 
 
 
-					if ($_SESSION["status"] == 1) {
+					if ($_SESSION["status"] == 'admin') {
 						$this->redirectToRoute('admin_admin');
 					}
-					$this->redirectToRoute('users_sign_in');
+					$this->redirectToRoute('users_home');
 				}
 			}
 

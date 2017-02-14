@@ -15,6 +15,8 @@ class AdminController extends Controller
     // Affichage de la liste des articles côté administrateur
     // Affichage de la liste des selects game dans ajout article
 	public function admin()	{
+
+		$this->allowTo('admin');
 		$generalModel = new GeneralModel();
 		$games = $generalModel->getGame();
 

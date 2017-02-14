@@ -84,7 +84,12 @@
 		var s_restantes = tps_restant / 1000; // On convertit en secondes
 		var i_restantes = s_restantes / 60;// On convertit en minutes
 		var H_restantes = i_restantes / 60;// On convertit en heures
-	 	var d_restants = H_restantes / 24;// On convertit en jours
+
+		var s_restantesForH = tps_restant / 100000; // On convertit en secondes
+		var i_restantesForH = s_restantesForH / 60;// On convertit en minutes
+		var H_restantesForH = i_restantesForH / 60;// On convertit en heures
+		var d_restants = H_restantesForH / 24;// On convertit en jours
+
 		s_restantes = Math.floor(s_restantes % 60); // Secondesrestantes
 		i_restantes = Math.floor(i_restantes % 60); // Minutes restantes
 		H_restantes = Math.floor(H_restantes % 24); // Heures restantes
