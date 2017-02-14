@@ -12,4 +12,26 @@ class GeneralModel extends Model
     $pouet->execute();
     return $pouet->fetch();
     }
+
+    public function getGame(){
+        $this->setTable('games');
+        $this->setPrimaryKey('idgames');
+        return $this->findAll();
+        // 'SELECT *  FROM  games';
+    }
+
+    // public function getArticles()
+	// {
+	// 	$sql = 'SELECT * FROM articles ORDER BY idarticles DESC';
+	// 	$sth = $this->dbh->prepare($sql);
+	// 	$sth->execute();
+	// 	return $sth->fetchAll();
+	// }
+
+    public function compteur(){
+    	$sql='SELECT * FROM events WHERE start > NOW() ORDER BY start LIMIT 1';
+    	$pouet = $this->dbh->prepare($sql);
+    	$pouet->execute();
+    	return $pouet->fetch();
+    }
 }

@@ -3,9 +3,12 @@
 namespace Controller;
 
 use \W\Controller\Controller;
-use \Model\UserModel;
-use \Model\ConnexionModel;
 use \W\Security\AuthentificationModel;
+
+use \Model\UserModel;
+use \Model\EventsModel;
+use \Model\GeneralModel;
+use \Model\ConnexionModel;
 
 class UsersController extends Controller
 {
@@ -37,11 +40,11 @@ class UsersController extends Controller
 		$data = json_decode($response);
 		}
 
-	//On check les infos transmises lors de la validation
-	  if(!empty($errors)){ // si erreur on renvoie vers la page précédente
-	  $_SESSION['errors'] = $errors;//on stocke les erreurs
-	  $_SESSION['inputs'] = $_POST;
-	  //$this->redirectToRoute('users_contact');
+		//On check les infos transmises lors de la validation
+	  	if(!empty($errors)){ // si erreur on renvoie vers la page précédente
+	  	$_SESSION['errors'] = $errors;//on stocke les erreurs
+	  	$_SESSION['inputs'] = $_POST;
+	  	//$this->redirectToRoute('users_contact');
 		$this->show('users/contact', [
 		'lastname' => (empty($_POST['lastname'])) ? '' : $_POST['lastname'],
 		'firstname' => (empty($_POST['firstname'])) ? '' : $_POST['firstname'],
@@ -97,10 +100,10 @@ class UsersController extends Controller
 
 
 
-					if ($_SESSION["status"] == 1) {
+					if ($_SESSION["status"] == 'admin') {
 						$this->redirectToRoute('admin_admin');
 					}
-					$this->redirectToRoute('users_sign_in');
+					$this->redirectToRoute('users_home');
 				}
 			}
 
@@ -196,6 +199,29 @@ class UsersController extends Controller
 		session_destroy();
  	 $this->show('users/home');
 	}
+
+
+	public function inscription_event($idEvent)
+	{
+		if (empty($_SESSION['token'])) {
+			$this->redirectToRoute('users_sign_in');
+		}
+
+		$generalModel = new GeneralModel();
+		$idUser       = $generalModel->getIdFromToken($_SESSION['token']);
+		$eventModel = new EventsModel();
+		$eventModel->inscriptionEvents($idUser['users_idusers'], $idEvent);
+
+		$msg = 'Votre inscription a bien été prise en compte.';
+		setcookie('successMsg', $msg, time() + 1, '/');
+
+		$this->redirectToRoute('users_calendar');
+	}
+
+
+
+
+
 }
 
 // 			$_SESSION['success'] = 1;

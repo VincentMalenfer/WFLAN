@@ -4,6 +4,7 @@ namespace Controller;
 
 use \W\Controller\Controller;
 use \Model\ArticlesModel;
+use \Model\GeneralModel;
 
 class GeneralController extends Controller{
 
@@ -11,7 +12,18 @@ class GeneralController extends Controller{
   	 * Page d'accueil par défaut
   	 */
   	public function home(){
-  		$this->show('users/home');
+
+  		$selectCompteur= new GeneralModel;
+    	$compteur = $selectCompteur->compteur();
+
+    	$thirdReplaces = str_replace(array('-',' ',':'),',',$compteur);
+        $ArticlesModel = new ArticlesModel();
+        $articles = $ArticlesModel->carouselArticleModel();
+        
+  		$this->show('users/home',[
+  			'start'=>$thirdReplaces,
+            'articles'=> $articles
+  			]);
   	}
 
 	/**
@@ -60,14 +72,6 @@ class GeneralController extends Controller{
     public function log_out()
     {
         session_destroy();
-        $this->show('users/home');
-    }
-
-    // Récupération de l'ID par le token puis implode pour recuperer la valeur car c'est dans un tableau .
-    public function getIdFromToken($idToken){
-        $azerty = 'SELECT id FROM token WHERE id ='.$idToken;
-        $pouet = $this->dbh->prepare($azerty);
-        $pouet->execute();
-        return $pouet->fetch();
+        $this->redirectToRoute('users_home');
     }
 }

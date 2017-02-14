@@ -1,4 +1,4 @@
- <!-- Navbar -->
+<!-- Navbar -->
     <nav class="navbar navbar-default">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
@@ -24,12 +24,18 @@
       </ul>
         <ul class="nav navbar-nav navbar-right">
         <?php
-        if (isset($_SESSION['token'])): ?>
-          <li><a href="<?= $this->url('users_log_out'); ?>">Déconnexion</a></li>
-        <?php else: ?>
+        if(isset($_SESSION['token'])): ?>
+          <?php
+          if($_SESSION['status'] == 'admin'): ?>
+            <li><a href="<?= $this->url('admin_admin'); ?>">Admin</a></li>
+            <li><a href="<?= $this->url('users_log_out'); ?>">Deconnexion</a></li>
+          <?php else: ?>
+            <li><a href="<?= $this->url('users_log_out'); ?>">Deconnexion</a></li>
+          <?php endif; ?>
 
-          <li><a href="<?= $this->url('users_sign_up'); ?>">Inscription<?php debug($_SESSION['token']) ?></a></li>
-          <li><a href="<?= $this->url('users_sign_in'); ?>">Connexion</a></li>
+        <?php else: ?>
+            <li><a href="<?= $this->url('users_sign_up'); ?>">Inscription</a></li>
+            <li><a href="<?= $this->url('users_sign_in'); ?>">Connexion</a></li>
         <?php endif; ?>
         </ul>
       </div><!-- /.navbar-collapse -->

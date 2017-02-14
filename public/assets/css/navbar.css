@@ -87,7 +87,10 @@
 .navbar-default .navbar-link:hover {
   color: #000000;
 }
-
+.container-fluid>.navbar-collapse, .container-fluid>.navbar-header,
+ .container>.navbar-collapse, .container>.navbar-header{
+   margin: 0;
+ }
 @media (max-width: 967px) {
   .navbar-default .navbar-nav .open .dropdown-menu > li > a {
     color: #545353;
