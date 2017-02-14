@@ -27,4 +27,4 @@ var texte = "Prochain événement dans : "+ d_restants+ " jours " +H_restantes+ 
 $("#affichage").html(texte);
 }
 setInterval(CompteARebours, 1000); // Rappel de la fonction toutes les 1000 millisecondes (toutes les secondes quoi !).
-})
+});

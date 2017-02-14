@@ -12,20 +12,18 @@ class GeneralController extends Controller{
   	 * Page d'accueil par défaut
   	 */
   	public function home(){
-<<<<<<< HEAD
+
   		$selectCompteur= new GeneralModel;
     	$compteur = $selectCompteur->compteur();
 
     	$thirdReplaces = str_replace(array('-',' ',':'),',',$compteur);
-
+        $ArticlesModel = new ArticlesModel();
+        $articles = $ArticlesModel->carouselArticleModel();
+        
   		$this->show('users/home',[
   			'start'=>$thirdReplaces,
+            'articles'=> $articles
   			]);
-            
-      $ArticlesModel = new ArticlesModel();
-      $articles = $ArticlesModel->carouselArticleModel();
-
-      $this->show('users/home', ['articles'=> $articles]);
   	}
 
 	/**
