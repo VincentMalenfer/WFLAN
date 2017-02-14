@@ -108,7 +108,7 @@ class ArticlesController extends Controller
         $id_article = $id;
         $checkbox   = new ArticlesModel();
         $checkbox ->editAddArticleHaveGame($idGame,$id_article);     
-
+        
         
 
     }
@@ -169,10 +169,12 @@ class ArticlesController extends Controller
         };
     }
     public function addArticleHaveGame($id){
-        if(!empty($_POST['checkbox']) || $_POST['checkbox'] != 0){
+        if(!empty($_POST['checkbox'])){
              // Liste de games
             $articleModel = new ArticlesModel();
             $games = $articleModel->getGame();
+
+              
 
             // besoin de les 2 ligne du dessus????
             $idGame     = $_POST['checkbox'];

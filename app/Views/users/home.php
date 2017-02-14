@@ -60,7 +60,7 @@
     <!-- </div> -->
   <!-- </div> -->
 
-	<div class="compteur" id="affichage"></div>
+	<div class="compteur container" id="affichage"></div>
 
 
 
@@ -90,8 +90,7 @@ var mois_fr = new Array('Janvier', 'Février', 'Mars', 'Avril',
 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre',
 'Novembre', 'Décembre');
 
-var texte = "Prochain événement dans : "+ d_restants+ " jours " +H_restantes+ " heures " +i_restantes+ " minutes "
-+s_restantes+" secondes";
+var texte = '<h2>Prochain événement dans :</h2><div id="countdown" class="countdown container"><div class="row"><div class="countdown-item col-sm-3 col-xs-6"><div id="countdown-days" class="countdown-number">'+ d_restants+'</div><div class="countdown-label">jours</div></div><div class="countdown-item col-sm-3 col-xs-6"><div id="countdown-hours" class="countdown-number">'+H_restantes+'</div><div class="countdown-label">heures</div></div><div class="countdown-item col-sm-3 col-xs-6"><div id="countdown-minutes" class="countdown-number">'+i_restantes+'</div><div class="countdown-label">minutes</div></div><div class="countdown-item col-sm-3 col-xs-6"><div id="countdown-seconds" class="countdown-number">'+s_restantes+'</div><div class="countdown-label">secondes</div></div></div></div>';
 
 $("#affichage").html(texte);
 }
