@@ -93,12 +93,6 @@ class ArticlesModel extends Model
 
 	}
 
-
-	// affiche 10 articles different de celui que l'on a en get de la page
-	public function sidebarArticle($orderBy,$orderDir,$limit){
-		return $this->findAll($orderBy,$orderDir,$limit);
-		// 'SELECT * FROM articles ORDER BY ASC `date` LIMIT 10  WHERE `id_article` != $id;'
-}
 	public function editArticle($title, $description, $text, $filepath, $description_pictures, $id){
 		$this->setPrimaryKey('idarticles');
 
@@ -110,10 +104,18 @@ class ArticlesModel extends Model
 			'text'                 => $text
 		);
 
+	// affiche 10 articles different de celui que l'on a en get de la page
+
+	}
+
+	public function sidebarArticle($orderBy,$orderDir,$limit){
+		return $this->findAll($orderBy,$orderDir,$limit);
+		// 'SELECT * FROM articles ORDER BY ASC `date` LIMIT 10  WHERE `id_article` != $id;'
 
 		$this->update($data,$id, true);
 
 	}
+
 	public function editAddArticleHaveGame($games_idgames,$id){
 		$this->setPrimaryKey('articles_idarticles');
 		$this->setTable('games_has_articles');
@@ -128,8 +130,10 @@ class ArticlesModel extends Model
 	public function carouselArticleModel(){
 		$sql = 'SELECT * FROM `articles` ORDER BY idarticles DESC LIMIT 3';
 		$articles = $this->dbh->prepare($sql);
-		$articles->execute();
+		$pouet=$articles->execute();
+
 		return $articles->fetchAll();
+
 	}
 	// Utilisation du foreach dans le carousel pour récupérer les images, titre et description des articles.
 	//foreach ($articles as $article):

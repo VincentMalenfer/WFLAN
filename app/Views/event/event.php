@@ -1,8 +1,6 @@
 <?php $this->layout('layout', ['title' => 'Evénement']) ?>
 <?php $this->start('main_content') ?>
 
-
-
 <?php #if (isset($events)): ?>
 <div class="container-fluid">
     <h1><?= $event['title'] ?></h1>
@@ -36,18 +34,17 @@
 
             <!-- Si le nombre d'inscrit est superieur a 16 echo Il n'y a plus de place^pour cette event sinon "S'inscrire" -->
 
-<h3>Listes des inscrits : </h3>
+            <h3>Listes des inscrits : </h3>
 
 
-<?php foreach ($users as $user) { ?>
+            <?php foreach ($users as $user) { ?>
 
 
-<ul>
-	<li><?= $user['nickname'] ?></li>
-</ul>
+            <ul>
+            	<li><?= $user['nickname'] ?></li>
+            </ul>
 
-<?php } ?>
-
+            <?php } ?>
 
 </div>
 <?php #endif; ?>

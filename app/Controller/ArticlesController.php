@@ -2,7 +2,6 @@
 namespace Controller;
 
 use \W\Controller\Controller;
-
 use \Model\ArticlesModel;
 use \Model\GeneralModel;
 
@@ -36,7 +35,6 @@ class ArticlesController extends Controller
       // Affichage de la liste des articles côté administrateur
     public function admin_list_articles()
     {
-        $this->allowTo('admin');
         $articleModel = new ArticlesModel();
         $articles = $articleModel->getArticles();
         $this->show('admin/admin_list_articles', ['articles'=> $articles]);
@@ -45,7 +43,6 @@ class ArticlesController extends Controller
         // Supprime un article
     public function suppArticle($id)
     {
-        $this->allowTo('admin');
         $article= new ArticlesModel();
 
         $allArticle= $article->getArticle($id);
@@ -60,7 +57,6 @@ class ArticlesController extends Controller
     }
 
     public function modifyArticle($id){
-        $this->allowTo('admin');
         $article= new ArticlesModel();
         $allArticle= $article->getArticle($id);
 
@@ -149,7 +145,7 @@ class ArticlesController extends Controller
 
     public function addArticle()
     {
-        $this->allowTo('admin');
+
         $errors = array(); // on crée une vérif de champs
 		if(!array_key_exists('title', $_POST) || $_POST['title'] == '') {// on verifie l'existence du champ et d'un contenu
 		          $errors['title'] = "Vous n'avez pas renseigné le titre !";

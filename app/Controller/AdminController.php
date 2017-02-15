@@ -12,16 +12,11 @@ class AdminController extends Controller
 	/**
 	 * Page d'administration
 	 */
-
-	 public function __construct(){
-		 $this->allowTo('admin');
-	 }
     // Affichage de la liste des articles côté administrateur
     // Affichage de la liste des selects game dans ajout article
 	public function admin()	{
 
-	  //debug($_SESSION); die();
-
+		$this->allowTo('admin');
 		$generalModel = new GeneralModel();
 		$games = $generalModel->getGame();
 

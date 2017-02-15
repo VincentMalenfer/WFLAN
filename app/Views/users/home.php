@@ -1,4 +1,4 @@
-""<?php $this->layout('layout', ['title' => 'Accueil']) ?>
+<?php $this->layout('layout', ['title' => 'Accueil']) ?>
 
 <?php $this->start('main_content') ?>
 
@@ -13,7 +13,7 @@
 	        <div class="jumbotron hero-nature carousel-hero" id="bckgrnd-<?=$article['idarticles']?>">
 					<style>
 						#bckgrnd-<?=$article['idarticles']?>{
-							background-image: url("<?= $article['pictures'] ?>");
+							background-image: url("<?= $this->assetUrl($article['pictures']) ?>");
 						}
 					</style>
 					<section>

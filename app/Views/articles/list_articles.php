@@ -16,7 +16,9 @@
         <div class="row">
             <div class="col-md-7">
                 <a href="<?=$this->url('article_article',['id' => $article['idarticles']])?>">
-                    <img class="img-responsive center-block img-rounded" src="<?= $article['pictures'] ?>" alt="$article['decriptionPictures'] " style="box-shadow: 2px 2px 4px #aaa; max-height: 260px;">
+
+                    <img class="img-responsive center-block img-rounded" src="<?= $this->assetUrl($article['pictures']) ?>" alt="$article['decriptionPictures'] " style="box-shadow: 2px 2px 4px #aaa; max-height: 260px;">
+
                 </a>
             </div>
             <div class="col-md-5">

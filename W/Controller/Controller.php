@@ -8,7 +8,7 @@ use W\Security\AuthorizationModel;
 /**
  * Le contrôleur de base à étendre
  */
-class Controller
+class Controller 
 {
 
 	/**
@@ -45,7 +45,7 @@ class Controller
 	public function redirect($uri)
 	{
 		header("Location: $uri");
-		die();
+		die();	
 	}
 
 	/**
@@ -122,7 +122,7 @@ class Controller
 		}
 		else {
 			die('404');
-		}
+		}	
 	}
 
 	/**
@@ -143,7 +143,6 @@ class Controller
 	{
 		if (!is_array($roles)){
 			$roles = [$roles];
-			// debug($roles); die(); // OK
 		}
 		$authorizationModel = new AuthorizationModel();
 		foreach($roles as $role){

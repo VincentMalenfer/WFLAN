@@ -59,7 +59,6 @@
                                 <?php } ?>
                                     </select>
                                 </div>
-																<p id="msgtrois">Merci de selectionner au moins un jeu au minimum.</p>
                             </div>
                         </div>
 			<!-- 	########################		FIN		CHECKBOX GAMES	 	########################	-->
@@ -258,7 +257,7 @@
 			       # };
 			        ?>
 			</div>
-			<!-- SUPPRIME L'EVENT -->
+			<!-- SUPPRIME LEVENT -->
 
 			<div id="ModifDeleteEvent" class="tab-pane fade">
 			    <?php if(isset($events))  : ?>

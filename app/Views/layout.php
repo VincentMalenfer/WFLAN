@@ -33,13 +33,13 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/material-icons.min.css">
   <link rel="stylesheet" href="<?php echo $this->assetUrl("plc/css/calendar.css")?>">
-	<link rel="stylesheet" href="<?= $this->assetUrl('css/style.css') ?>">
-	<link rel="stylesheet" href="<?= $this->assetUrl('css/navbar.css') ?>">
-	<link rel="stylesheet" href="<?= $this->assetUrl('css/countdown.css') ?>">
+  <link rel="stylesheet" href="<?= $this->assetUrl('css/style.css') ?>">
+  <link rel="stylesheet" href="<?= $this->assetUrl('css/navbar.css') ?>">
+  <link rel="stylesheet" href="<?= $this->assetUrl('css/countdown.css') ?>">
   <link rel="stylesheet" href="<?= $this->assetUrl('css/carousel.css') ?>">
-	<link rel="stylesheet" href="<?= $this->assetUrl('css/form.css') ?>" >
+  <link rel="stylesheet" href="<?= $this->assetUrl('css/form.css') ?>" >
   <link rel="stylesheet" href="<?= $this->assetUrl('css/cretour.css') ?>">
-	<link rel="stylesheet" href="<?= $this->assetUrl('css/footer.css') ?>">
+  <link rel="stylesheet" href="<?= $this->assetUrl('css/footer.css') ?>">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 
@@ -58,9 +58,15 @@
 	<!-- Bouton de scrolling "retour en haut" de la page -->
 	<script type="text/javascript" src="<?= $this->assetUrl('js/scrollUp.js') ?>"></script>
 
+	<!-- Countdown JS -->
+	<script src="<?= $this->assetUrl('js/countdown/jquery.cookie.js') ?>"></script>
+	<script src="<?= $this->assetUrl('js/countdown/jquery.countdown.min.js') ?>"></script>
+	<script src="<?= $this->assetUrl('js/countdown/front.js') ?>"></script>
+
 	<!-- KONAMI CODE -->
 	<script type="text/javascript" src="<?= $this->assetUrl('js/konamiCode.js') ?>"></script>
 
+<<<<<<< HEAD
 	<!-- Countdown JS -->
     <script src="<?= $this->assetUrl('js/countdown/jquery.cookie.js') ?>"></script>
     <script src="<?= $this->assetUrl('js/countdown/jquery.countdown.min.js') ?>"></script>
@@ -68,6 +74,8 @@
 
 
 
+=======
+>>>>>>> master
 </head>
 <body>
 	<header>

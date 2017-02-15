@@ -17,7 +17,7 @@
 		['GET|POST', 			'/sign_up', 									'Users#sign_up', 							'users_sign_up'],
 		['GET|POST', 			'/sign_in', 									'Users#sign_in', 							'users_sign_in'],
 		['GET|POST', 			'/log_out', 									'General#log_out', 							'users_log_out'],
-		['GET|POST', 			'/inscription_event/[:id]', 	'Users#inscription_event', 					'users_inscription_event'],
+		['GET|POST', 			'/inscription_event/[:id]', 					'Users#inscription_event', 					'users_inscription_event'],
 
 		// ADMIN //
 		['GET', 				'/admin', 										'Admin#admin', 								'admin_admin'],
@@ -33,7 +33,7 @@
 		// EVENT //
 		['GET|POST', 			'/admin_list_events',							'Events#admin_list_events',					'admin_list_events'],
 		['GET|POST', 			'/admin/add_event', 							'Events#addEvent', 						  	'admin_add_event'],
-		['GET', 					'/admin_supp_event/[:id]', 						'Events#suppEvent', 						'admin_supp_event'],
+		['GET', 				'/admin_supp_event/[:id]', 						'Events#suppEvent', 						'admin_supp_event'],
 		['GET|POST', 			'/admin/modif_event/[:id]',						'Events#modifyEvent',						'admin_modify_event'],
 		['GET|POST', 			'/event/[:id]',									'Events#showEvent',							'event_event'],
 		['GET',                 '/admin_supp_event/[:id]',                      'Events#suppEvent',                        	'event_supp_event'],

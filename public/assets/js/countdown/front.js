@@ -6,7 +6,11 @@ config = {
     countdown: {
         year: 2017,
         month: 05,
+<<<<<<< HEAD
         day: 4,
+=======
+        day: 04,
+>>>>>>> master
         hour: 10,
         minute: 00,
         second: 00
